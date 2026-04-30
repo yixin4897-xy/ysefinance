@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | YSE Finance | Sydney Tax Agent</title>
+<meta name="description" content="YSE Finance tax services — individual returns, small business, investment property, CGT, BAS and more. Sydney's bilingual tax agent.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0d2a4a; --navy-mid:#163d6e; --navy-light:#1e4f8c; --orange:#e8793a; --orange-light:#f5a06a; --cream:#faf7f2; --white:#ffffff; --gray:#8a8fa0; --text:#1a2332; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'DM Sans','Noto Sans SC',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+  .lang-bar { background:var(--navy); padding:8px 0; text-align:right; }
+  .lang-bar .inner { max-width:1100px; margin:0 auto; padding:0 32px; }
+  .lang-btn { background:none; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.7); padding:4px 14px; border-radius:20px; cursor:pointer; font-size:12px; font-family:inherit; margin-left:8px; transition:all 0.2s; }
+  .lang-btn.active,.lang-btn:hover { background:var(--orange); border-color:var(--orange); color:white; }
+  nav { background:var(--navy); position:sticky; top:0; z-index:100; box-shadow:0 2px 20px rgba(13,42,74,0.3); }
+  .nav-inner { max-width:1100px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .logo-mark { width:40px; height:40px; background:linear-gradient(135deg,var(--orange),var(--orange-light)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; color:white; font-size:18px; }
+  .logo-text { font-family:'Playfair Display',serif; font-size:20px; font-weight:600; color:white; }
+  .logo-sub { font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; display:block; margin-top:-2px; }
+  .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+  .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+  .nav-links a:hover,.nav-links a.active { color:var(--orange-light); }
+  .nav-cta { background:var(--orange)!important; color:white!important; padding:9px 22px; border-radius:6px; font-weight:600!important; }
+
+  .page-hero { background:var(--navy); padding:72px 32px 64px; position:relative; overflow:hidden; }
+  .page-hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 50% 100% at 80% 50%,rgba(30,79,140,0.5) 0%,transparent 70%),radial-gradient(ellipse 30% 60% at 10% 80%,rgba(232,121,58,0.1) 0%,transparent 60%); }
+  .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:60px 60px; }
+  .page-hero-inner { max-width:1100px; margin:0 auto; position:relative; z-index:2; }
+  .breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:20px; font-size:13px; color:rgba(255,255,255,0.4); }
+  .breadcrumb a { color:rgba(255,255,255,0.4); text-decoration:none; }
+  .breadcrumb span { color:var(--orange-light); }
+  .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(32px,4vw,52px); font-weight:700; color:white; line-height:1.15; margin-bottom:16px; }
+  .page-hero h1 .accent { color:var(--orange-light); }
+  .page-hero p { color:rgba(255,255,255,0.6); font-size:16px; max-width:560px; line-height:1.7; }
+
+  section { padding:80px 32px; }
+  .section-inner { max-width:1100px; margin:0 auto; }
+  .section-label { font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--orange); font-weight:600; margin-bottom:12px; }
+  .section-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3vw,38px); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:12px; }
+  .section-sub { color:var(--gray); font-size:15px; line-height:1.7; max-width:560px; }
+
+  /* SERVICE DETAIL CARDS */
+  .services-list { display:flex; flex-direction:column; gap:32px; margin-top:56px; }
+  .service-detail { background:white; border-radius:20px; padding:40px 40px; border:1px solid rgba(13,42,74,0.06); display:grid; grid-template-columns:80px 1fr auto; gap:32px; align-items:start; transition:box-shadow 0.2s; }
+  .service-detail:hover { box-shadow:0 12px 40px rgba(13,42,74,0.08); }
+  .service-big-icon { width:72px; height:72px; border-radius:18px; background:linear-gradient(135deg,var(--navy),var(--navy-light)); display:flex; align-items:center; justify-content:center; font-size:32px; flex-shrink:0; }
+  .service-detail-body h2 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+  .service-detail-body .zh-title { font-family:'Noto Sans SC',sans-serif; font-size:13px; color:var(--orange); font-weight:500; margin-bottom:14px; }
+  .service-detail-body p { color:#4a5568; font-size:14px; line-height:1.75; margin-bottom:18px; }
+  .includes-list { display:flex; flex-direction:column; gap:8px; }
+  .include-item { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--navy-mid); }
+  .include-item::before { content:'✓'; color:var(--orange); font-weight:700; font-size:13px; flex-shrink:0; }
+  .service-tag { background:rgba(232,121,58,0.1); color:var(--orange); font-size:11px; font-weight:600; letter-spacing:0.5px; padding:5px 12px; border-radius:20px; white-space:nowrap; align-self:flex-start; border:1px solid rgba(232,121,58,0.2); }
+
+  /* PRICING NOTE */
+  .pricing-note { background:var(--navy); border-radius:20px; padding:40px; margin-top:48px; display:flex; gap:32px; align-items:center; }
+  .pricing-note-icon { font-size:48px; flex-shrink:0; }
+  .pricing-note h3 { font-family:'Playfair Display',serif; font-size:22px; color:white; margin-bottom:10px; }
+  .pricing-note p { color:rgba(255,255,255,0.6); font-size:14px; line-height:1.7; }
+  .pricing-note a { color:var(--orange-light); text-decoration:none; font-weight:600; }
+
+  /* PROCESS */
+  .process { background:var(--cream); }
+  .process-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:48px; position:relative; }
+  .process-steps::before { content:''; position:absolute; top:32px; left:10%; right:10%; height:1px; background:linear-gradient(90deg,transparent,var(--orange),transparent); z-index:0; }
+  .step-card { background:white; border-radius:16px; padding:28px 22px; text-align:center; border:1px solid rgba(13,42,74,0.06); position:relative; z-index:1; }
+  .step-num { width:56px; height:56px; background:linear-gradient(135deg,var(--orange),var(--orange-light)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:white; margin:0 auto 16px; }
+  .step-card h3 { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:8px; }
+  .step-card .zh-label { font-family:'Noto Sans SC',sans-serif; font-size:12px; color:var(--orange); margin-bottom:10px; }
+  .step-card p { font-size:13px; color:var(--gray); line-height:1.6; }
+
+  .cta-band { background:var(--navy); padding:72px 32px; }
+  .cta-inner { max-width:700px; margin:0 auto; text-align:center; }
+  .cta-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,3vw,38px); font-weight:700; color:white; margin-bottom:16px; }
+  .cta-inner p { color:rgba(255,255,255,0.6); font-size:15px; margin-bottom:32px; line-height:1.7; }
+  .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary { background:var(--orange); color:white; padding:14px 30px; border-radius:8px; text-decoration:none; font-weight:600; font-size:15px; transition:all 0.2s; }
+  .btn-primary:hover { background:var(--orange-light); transform:translateY(-1px); }
+  .btn-secondary { background:rgba(255,255,255,0.08); color:white; padding:14px 30px; border-radius:8px; text-decoration:none; font-weight:500; font-size:15px; border:1px solid rgba(255,255,255,0.2); transition:all 0.2s; }
+
+  footer { background:#071a2e; padding:40px 32px; text-align:center; }
+  .footer-inner { max-width:1100px; margin:0 auto; }
+  .footer-logo { font-family:'Playfair Display',serif; font-size:22px; color:white; font-weight:600; margin-bottom:8px; }
+  .footer-tagline { color:rgba(255,255,255,0.4); font-size:13px; margin-bottom:20px; }
+  .footer-links { display:flex; gap:24px; justify-content:center; margin-bottom:24px; flex-wrap:wrap; }
+  .footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--orange-light); }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.06); padding-top:20px; color:rgba(255,255,255,0.25); font-size:12px; }
+
+  .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s,transform 0.6s; }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
+
+  @media (max-width:768px) {
+    .service-detail { grid-template-columns:1fr; }
+    .service-tag { align-self:flex-start; }
+    .process-steps { grid-template-columns:1fr 1fr; }
+    .process-steps::before { display:none; }
+    .pricing-note { flex-direction:column; text-align:center; }
+    nav .nav-links { display:none; }
+    section { padding:56px 20px; }
+    .page-hero { padding:56px 20px 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="lang-bar"><div class="inner">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div></div>
+
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">Y</div>
+    <div><div class="logo-text">YSE Finance</div><span class="logo-sub">Sydney Tax Agent</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="Home" data-zh="首页">Home</a></li>
+    <li><a href="services.html" class="active" data-en="Services" data-zh="服务项目">Services</a></li>
+    <li><a href="about.html" data-en="About" data-zh="关于我们">About</a></li>
+    <li><a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a></li>
+    <li><a href="index.html#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+  </ul>
+</div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html" data-en="Home" data-zh="首页">Home</a><span>›</span><span data-en="Services" data-zh="服务项目">Services</span></div>
+    <h1><span data-en="Everything You Need," data-zh="您需要的一切，">Everything You Need,</span><br><span class="accent" data-en="Under One Roof" data-zh="一站式解决">Under One Roof</span></h1>
+    <p data-en="From simple individual returns to complex business structures — we handle it all with care." data-zh="从简单的个人报税到复杂的企业结构，我们细心处理每一项事务。">From simple individual returns to complex business structures — we handle it all with care.</p>
+  </div>
+</div>
+
+<section style="background:white;">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label" data-en="Our Services" data-zh="服务项目">Our Services</div>
+      <h2 class="section-title" data-en="What We Can Help With" data-zh="我们能为您做什么">What We Can Help With</h2>
+    </div>
+    <div class="services-list">
+
+      <div class="service-detail fade-up">
+        <div class="service-big-icon">🧾</div>
+        <div class="service-detail-body">
+          <h2 data-en="Individual Tax Return" data-zh="个人所得税申报">Individual Tax Return</h2>
+          <div class="zh-title" data-en="" data-zh="个人报税">个人报税</div>
+          <p data-en="Whether you're a full-time employee, part-time worker, sole trader, or have multiple income streams — we prepare your return accurately and maximise every legitimate deduction." data-zh="无论您是全职员工、兼职工作者、个体户，还是拥有多种收入来源，我们都能准确申报并最大化每一项合法扣税项目。">Whether you're a full-time employee, part-time worker, sole trader, or have multiple income streams — we prepare your return accurately and maximise every legitimate deduction.</p>
+          <div class="includes-list">
+            <div class="include-item" data-en="Salary and wages" data-zh="薪资和工资">Salary and wages</div>
+            <div class="include-item" data-en="Work-related expense deductions" data-zh="工作相关费用扣税">Work-related expense deductions</div>
+            <div class="include-item" data-en="Sole trader / ABN income" data-zh="个体户 / ABN收入">Sole trader / ABN income</div>
+            <div class="include-item" data-en="Interest, dividends & managed funds" data-zh="利息、股息及管理基金">Interest, dividends & managed funds</div>
+            <div class="include-item" data-en="Medicare levy surcharge & private health" data-zh="医疗税附加税及私人医疗">Medicare levy surcharge & private health</div>
+          </div>
+        </div>
+        <div class="service-tag" data-en="Most Popular" data-zh="最受欢迎">Most Popular</div>
+      </div>
+
+      <div class="service-detail fade-up">
+        <div class="service-big-icon">🏢</div>
+        <div class="service-detail-body">
+          <h2 data-en="Small Business Tax & BAS" data-zh="小企业税务及BAS申报">Small Business Tax & BAS</h2>
+          <div class="zh-title" data-en="" data-zh="小企业税务">小企业税务</div>
+          <p data-en="Running a small business is hard enough. We handle your tax obligations so you can focus on what you do best. From quarterly BAS lodgements to annual company tax returns." data-zh="经营小企业已经够忙了。我们处理您的税务义务，让您专注于本职业务。从季度BAS申报到年度公司税务申报，一切由我们搞定。">Running a small business is hard enough. We handle your tax obligations so you can focus on what you do best.</p>
+          <div class="includes-list">
+            <div class="include-item" data-en="BAS / IAS lodgement (quarterly or monthly)" data-zh="BAS / IAS申报（季度或每月）">BAS / IAS lodgement (quarterly or monthly)</div>
+            <div class="include-item" data-en="Company and trust tax returns" data-zh="公司及信托税务申报">Company and trust tax returns</div>
+            <div class="include-item" data-en="Payroll tax obligations" data-zh="工资税义务">Payroll tax obligations</div>
+            <div class="include-item" data-en="PAYG withholding" data-zh="PAYG预扣税">PAYG withholding</div>
+            <div class="include-item" data-en="Small business tax concessions" data-zh="小企业税务优惠">Small business tax concessions</div>
+          </div>
+        </div>
+        <div class="service-tag" data-en="Business" data-zh="企业">Business</div>
+      </div>
+
+      <div class="service-detail fade-up">
+        <div class="service-big-icon">🏠</div>
+        <div class="service-detail-body">
+          <h2 data-en="Investment Property Tax" data-zh="投资房产税务">Investment Property Tax</h2>
+          <div class="zh-title" data-en="" data-zh="房产投资">房产投资</div>
+          <p data-en="Investment properties have unique tax rules — and getting them right means more money in your pocket. We handle rental income, depreciation schedules, and CGT when you sell." data-zh="投资房产有其特殊的税务规则——正确处理意味着更多钱留在您口袋里。我们处理租金收入、折旧时间表，以及出售时的资本利得税。">Investment properties have unique tax rules — getting them right means more money in your pocket.</p>
+          <div class="includes-list">
+            <div class="include-item" data-en="Rental income & deductions" data-zh="租金收入及扣税">Rental income & deductions</div>
+            <div class="include-item" data-en="Depreciation & capital works schedules" data-zh="折旧及资本工程时间表">Depreciation & capital works schedules</div>
+            <div class="include-item" data-en="Negative gearing strategies" data-zh="负扣税策略">Negative gearing strategies</div>
+            <div class="include-item" data-en="CGT planning for eventual sale" data-zh="出售时的资本利得税规划">CGT planning for eventual sale</div>
+          </div>
+        </div>
+        <div class="service-tag" data-en="Property" data-zh="房产">Property</div>
+      </div>
+
+      <div class="service-detail fade-up">
+        <div class="service-big-icon">📊</div>
+        <div class="service-detail-body">
+          <h2 data-en="CGT & Capital Gains" data-zh="资本利得税">CGT & Capital Gains</h2>
+          <div class="zh-title" data-en="" data-zh="资本利得税">资本利得税</div>
+          <p data-en="Sold shares, crypto, or property? Capital gains tax can be complex — especially with multiple assets, different holding periods, and available concessions. We make sure you pay exactly what you owe, and not a cent more." data-zh="出售了股票、加密货币或房产？资本利得税可能很复杂——尤其是涉及多项资产、不同持有期和可用优惠时。我们确保您只支付应缴税款，一分不多。">Sold shares, crypto, or property? We make sure you pay exactly what you owe, and not a cent more.</p>
+          <div class="includes-list">
+            <div class="include-item" data-en="Shares, ETFs & managed investments" data-zh="股票、ETF及管理投资">Shares, ETFs & managed investments</div>
+            <div class="include-item" data-en="Cryptocurrency gains & losses" data-zh="加密货币收益及亏损">Cryptocurrency gains & losses</div>
+            <div class="include-item" data-en="12-month CGT discount calculation" data-zh="12个月资本利得税折扣计算">12-month CGT discount calculation</div>
+            <div class="include-item" data-en="Small business CGT concessions" data-zh="小企业资本利得税优惠">Small business CGT concessions</div>
+          </div>
+        </div>
+        <div class="service-tag" data-en="Investments" data-zh="投资">Investments</div>
+      </div>
+
+      <div class="service-detail fade-up" style="background:linear-gradient(135deg,#f0f7ff,#fff8f3); border:1.5px dashed rgba(232,121,58,0.3);">
+        <div class="service-big-icon" style="background:linear-gradient(135deg,var(--orange),var(--orange-light));">🚗</div>
+        <div class="service-detail-body">
+          <h2 data-en="Free Novated Lease Calculator" data-zh="免费Novated Lease计算器">Free Novated Lease Calculator</h2>
+          <div class="zh-title" data-en="" data-zh="免费在线工具">免费在线工具</div>
+          <p data-en="Not a paid service — but we offer a free online calculator to help you estimate your savings from novated leasing. Enter your salary, car price and lease term to instantly see how much you could save in pre-tax dollars." data-zh="这不是收费服务——但我们提供免费在线计算器，帮助您估算Novated Lease的节省金额。输入您的薪资、车价和租期，即时查看可节省的税前金额。">Not a paid service — but we offer a free online calculator to help you estimate your savings from novated leasing. Enter your salary, car price and lease term to instantly see how much you could save.</p>
+          <div style="margin-top:18px;">
+            <a href="tools.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:white;text-decoration:none;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:600;transition:background 0.2s;" onmouseover="this.style.background='#f5a06a'" onmouseout="this.style.background='#e8793a'">
+              <span data-en="🧮 Open Free Calculator" data-zh="🧮 打开免费计算器">🧮 Open Free Calculator</span>
+            </a>
+          </div>
+        </div>
+        <div class="service-tag" style="background:rgba(232,121,58,0.15);color:var(--orange);border-color:rgba(232,121,58,0.3);" data-en="Free Tool" data-zh="免费工具">Free Tool</div>
+      </div>
+
+      <div class="service-detail fade-up">
+        <div class="service-big-icon">📋</div>
+        <div class="service-detail-body">
+          <h2 data-en="Tax Planning & Advisory" data-zh="税务规划咨询">Tax Planning & Advisory</h2>
+          <div class="zh-title" data-en="" data-zh="税务规划">税务规划</div>
+          <p data-en="Don't just react to tax — plan for it. We work with individuals and business owners throughout the year to identify opportunities, structure decisions smartly, and legally minimise tax." data-zh="不要被动应对税务——主动规划。我们全年为个人和企业主提供服务，发现机会，明智架构决策，合法最小化税务负担。">Don't just react to tax — plan for it. We help you structure decisions to legally minimise your obligations.</p>
+          <div class="includes-list">
+            <div class="include-item" data-en="Year-end tax planning before 30 June" data-zh="6月30日前年末税务规划">Year-end tax planning before 30 June</div>
+            <div class="include-item" data-en="Income splitting and structuring advice" data-zh="收入分配及架构建议">Income splitting and structuring advice</div>
+            <div class="include-item" data-en="Superannuation contribution strategies" data-zh="养老金供款策略">Superannuation contribution strategies</div>
+            <div class="include-item" data-en="Business structure review (sole trader vs company)" data-zh="商业架构审查（个体户与公司对比）">Business structure review (sole trader vs company)</div>
+          </div>
+        </div>
+        <div class="service-tag" data-en="Advisory" data-zh="咨询">Advisory</div>
+      </div>
+
+    </div>
+
+    <div class="pricing-note fade-up">
+      <div class="pricing-note-icon">💬</div>
+      <div>
+        <h3 data-en="Not sure which service you need?" data-zh="不确定需要哪项服务？">Not sure which service you need?</h3>
+        <p data-en="Every situation is different. Book a free 15-minute consultation and we'll tell you exactly what you need — and give you a clear, upfront quote before we start anything. No surprises." data-zh="每个情况都不一样。预约免费15分钟咨询，我们会准确告诉您所需服务，并在开始前提供清晰报价。没有任何隐藏费用。">Every situation is different. Book a free 15-minute consultation and we'll tell you exactly what you need — and give you a clear, upfront quote. No surprises. <a href="index.html#contact" data-en="Book now →" data-zh="立即预约 →">Book now →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label" data-en="How It Works" data-zh="服务流程">How It Works</div>
+      <h2 class="section-title" data-en="Simple. Transparent. Done." data-zh="简单。透明。搞定。">Simple. Transparent. Done.</h2>
+    </div>
+    <div class="process-steps">
+      <div class="step-card fade-up">
+        <div class="step-num">1</div>
+        <h3 data-en="Book a Free Chat" data-zh="预约免费咨询">Book a Free Chat</h3>
+        <div class="zh-label" data-en="" data-zh="免费咨询">免费咨询</div>
+        <p data-en="Tell us your situation. We'll confirm what's needed and give you a clear quote." data-zh="告诉我们您的情况，我们确认所需服务并提供明确报价。">Tell us your situation. We'll confirm what's needed and give you a clear quote.</p>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">2</div>
+        <h3 data-en="Send Your Documents" data-zh="提交文件">Send Your Documents</h3>
+        <div class="zh-label" data-en="" data-zh="提交资料">提交资料</div>
+        <p data-en="We'll give you a simple checklist. Send docs via email or our secure portal." data-zh="我们提供简单清单，通过邮件或安全门户提交文件。">We'll give you a simple checklist. Send docs via email or our secure portal.</p>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">3</div>
+        <h3 data-en="We Prepare Everything" data-zh="我们处理一切">We Prepare Everything</h3>
+        <div class="zh-label" data-en="" data-zh="专业处理">专业处理</div>
+        <p data-en="We prepare your return accurately, check for every deduction, and review thoroughly." data-zh="我们准确申报，检查每一项扣税，并进行全面审查。">We prepare your return accurately, check for every deduction, and review thoroughly.</p>
+      </div>
+      <div class="step-card fade-up">
+        <div class="step-num">4</div>
+        <h3 data-en="Review & Lodge" data-zh="审核及提交">Review & Lodge</h3>
+        <div class="zh-label" data-en="" data-zh="审核提交">审核提交</div>
+        <p data-en="You review and approve. We lodge with the ATO and you're done. Simple." data-zh="您审核批准后，我们向ATO提交，大功告成。就这么简单。">You review and approve. We lodge with the ATO and you're done. Simple.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-inner fade-up">
+    <h2 data-en="Ready to Get Started?" data-zh="准备好开始了吗？">Ready to Get Started?</h2>
+    <p data-en="Book a free consultation today. No obligation, no jargon — just clear, helpful advice." data-zh="今天就预约免费咨询。无需承诺，不说行话——只有清晰、有用的建议。">Book a free consultation today. No obligation, no jargon — just clear, helpful advice.</p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-primary" data-en="📅 Book Free Consultation" data-zh="📅 预约免费咨询">📅 Book Free Consultation</a>
+      <a href="faq.html" class="btn-secondary" data-en="Read our FAQ →" data-zh="查看常见问题 →">Read our FAQ →</a>
+    </div>
+  </div>
+</div>
+
+<footer><div class="footer-inner">
+  <div class="footer-logo">YSE Finance</div>
+  <div class="footer-tagline" data-en="Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin" data-zh="悉尼注册税务代理 · 个人及小企业 · 中英双语">Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin</div>
+  <div class="footer-links">
+    <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+    <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+    <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+    <a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a>
+    <a href="index.html#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+    <a href="privacy.html" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+  </div>
+  <div class="footer-bottom"><span data-en="© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009." data-zh="© 2025 YSE Finance 版权所有。依据2009年税务代理服务法注册。">© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009.</span></div>
+</div></footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const en = el.getAttribute('data-en'), zh = el.getAttribute('data-zh');
+      if (lang === 'zh' && zh) el.innerHTML = zh;
+      else if (lang === 'en' && en) el.innerHTML = en;
+    });
+    document.querySelectorAll('.zh').forEach(el => { el.style.display = lang === 'zh' ? 'block' : 'none'; });
+  }
+  document.querySelectorAll('.zh').forEach(el => el.style.display = 'none');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); obs.unobserve(e.target); } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

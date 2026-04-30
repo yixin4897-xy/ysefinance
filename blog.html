@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tax Tips Blog | YSE Finance | Sydney Tax Agent</title>
+<meta name="description" content="Tax tips, ATO updates, and financial advice for Australians. From YSE Finance — Sydney's bilingual tax agent.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0d2a4a; --navy-mid:#163d6e; --navy-light:#1e4f8c; --orange:#e8793a; --orange-light:#f5a06a; --cream:#faf7f2; --white:#ffffff; --gray:#8a8fa0; --text:#1a2332; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'DM Sans','Noto Sans SC',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+  .lang-bar { background:var(--navy); padding:8px 0; text-align:right; }
+  .lang-bar .inner { max-width:1100px; margin:0 auto; padding:0 32px; }
+  .lang-btn { background:none; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.7); padding:4px 14px; border-radius:20px; cursor:pointer; font-size:12px; font-family:inherit; margin-left:8px; transition:all 0.2s; }
+  .lang-btn.active,.lang-btn:hover { background:var(--orange); border-color:var(--orange); color:white; }
+  nav { background:var(--navy); position:sticky; top:0; z-index:100; box-shadow:0 2px 20px rgba(13,42,74,0.3); }
+  .nav-inner { max-width:1100px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .logo-mark { width:40px; height:40px; background:linear-gradient(135deg,var(--orange),var(--orange-light)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; color:white; font-size:18px; }
+  .logo-text { font-family:'Playfair Display',serif; font-size:20px; font-weight:600; color:white; }
+  .logo-sub { font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; display:block; margin-top:-2px; }
+  .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+  .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+  .nav-links a:hover,.nav-links a.active { color:var(--orange-light); }
+  .nav-cta { background:var(--orange)!important; color:white!important; padding:9px 22px; border-radius:6px; font-weight:600!important; }
+  .page-hero { background:var(--navy); padding:72px 32px 64px; position:relative; overflow:hidden; }
+  .page-hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 50% 100% at 80% 50%,rgba(30,79,140,0.5) 0%,transparent 70%); }
+  .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:60px 60px; }
+  .page-hero-inner { max-width:1100px; margin:0 auto; position:relative; z-index:2; }
+  .breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:20px; font-size:13px; color:rgba(255,255,255,0.4); }
+  .breadcrumb a { color:rgba(255,255,255,0.4); text-decoration:none; }
+  .breadcrumb span { color:var(--orange-light); }
+  .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(32px,4vw,52px); font-weight:700; color:white; line-height:1.15; margin-bottom:16px; }
+  .page-hero h1 .accent { color:var(--orange-light); }
+  .page-hero p { color:rgba(255,255,255,0.6); font-size:16px; max-width:560px; line-height:1.7; }
+  section { padding:80px 32px; }
+  .section-inner { max-width:1100px; margin:0 auto; }
+  .section-label { font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--orange); font-weight:600; margin-bottom:12px; }
+  .section-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3vw,38px); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:12px; }
+
+  /* BLOG LAYOUT */
+  .blog-layout { display:grid; grid-template-columns:1fr 300px; gap:48px; margin-top:56px; }
+  .blog-grid { display:flex; flex-direction:column; gap:32px; }
+  .blog-card { background:white; border-radius:20px; overflow:hidden; border:1px solid rgba(13,42,74,0.06); transition:transform 0.2s,box-shadow 0.2s; display:grid; grid-template-columns:200px 1fr; }
+  .blog-card:hover { transform:translateY(-3px); box-shadow:0 12px 36px rgba(13,42,74,0.09); }
+  .blog-thumb { background:linear-gradient(135deg,var(--navy),var(--navy-light)); display:flex; align-items:center; justify-content:center; font-size:52px; min-height:160px; }
+  .blog-body { padding:28px 28px; }
+  .blog-meta { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .blog-tag { background:rgba(232,121,58,0.1); color:var(--orange); font-size:11px; font-weight:600; letter-spacing:0.5px; padding:3px 10px; border-radius:20px; }
+  .blog-date { color:var(--gray); font-size:12px; }
+  .blog-card h2 { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--navy); margin-bottom:8px; line-height:1.3; }
+  .blog-card .zh-title { font-family:'Noto Sans SC',sans-serif; font-size:13px; color:var(--orange); margin-bottom:10px; }
+  .blog-card p { color:var(--gray); font-size:14px; line-height:1.65; margin-bottom:16px; }
+  .blog-read { color:var(--orange); font-size:13px; font-weight:600; text-decoration:none; }
+  .blog-read:hover { color:var(--orange-light); }
+
+  /* SIDEBAR */
+  .sidebar { display:flex; flex-direction:column; gap:28px; }
+  .sidebar-card { background:white; border-radius:16px; padding:24px; border:1px solid rgba(13,42,74,0.06); }
+  .sidebar-card h3 { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid rgba(13,42,74,0.07); }
+  .sidebar-topics { display:flex; flex-direction:column; gap:8px; }
+  .sidebar-topic { display:flex; justify-content:space-between; align-items:center; padding:8px 12px; background:var(--cream); border-radius:8px; font-size:13px; color:#4a5568; cursor:pointer; transition:background 0.2s; }
+  .sidebar-topic:hover { background:rgba(232,121,58,0.08); color:var(--orange); }
+  .sidebar-count { background:rgba(13,42,74,0.08); color:var(--gray); font-size:11px; padding:2px 8px; border-radius:10px; }
+  .sidebar-cta { background:var(--navy); border-radius:16px; padding:24px; text-align:center; }
+  .sidebar-cta h3 { color:white; font-size:15px; font-weight:700; margin-bottom:8px; }
+  .sidebar-cta p { color:rgba(255,255,255,0.6); font-size:13px; line-height:1.6; margin-bottom:16px; }
+  .sidebar-cta a { display:block; background:var(--orange); color:white; text-decoration:none; padding:10px; border-radius:8px; font-size:13px; font-weight:600; transition:background 0.2s; }
+  .sidebar-cta a:hover { background:var(--orange-light); }
+
+  .cta-band { background:var(--navy); padding:72px 32px; }
+  .cta-inner { max-width:700px; margin:0 auto; text-align:center; }
+  .cta-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,3vw,38px); font-weight:700; color:white; margin-bottom:16px; }
+  .cta-inner p { color:rgba(255,255,255,0.6); font-size:15px; margin-bottom:32px; line-height:1.7; }
+  .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary { background:var(--orange); color:white; padding:14px 30px; border-radius:8px; text-decoration:none; font-weight:600; font-size:15px; transition:all 0.2s; }
+  .btn-primary:hover { background:var(--orange-light); transform:translateY(-1px); }
+  .btn-secondary { background:rgba(255,255,255,0.08); color:white; padding:14px 30px; border-radius:8px; text-decoration:none; font-weight:500; font-size:15px; border:1px solid rgba(255,255,255,0.2); }
+  footer { background:#071a2e; padding:40px 32px; text-align:center; }
+  .footer-inner { max-width:1100px; margin:0 auto; }
+  .footer-logo { font-family:'Playfair Display',serif; font-size:22px; color:white; font-weight:600; margin-bottom:8px; }
+  .footer-tagline { color:rgba(255,255,255,0.4); font-size:13px; margin-bottom:20px; }
+  .footer-links { display:flex; gap:24px; justify-content:center; margin-bottom:24px; flex-wrap:wrap; }
+  .footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--orange-light); }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.06); padding-top:20px; color:rgba(255,255,255,0.25); font-size:12px; }
+  .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s,transform 0.6s; }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
+  @media (max-width:768px) {
+    .blog-layout { grid-template-columns:1fr; }
+    .blog-card { grid-template-columns:1fr; }
+    .blog-thumb { min-height:120px; }
+    nav .nav-links { display:none; }
+    section { padding:56px 20px; }
+    .page-hero { padding:56px 20px 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="lang-bar"><div class="inner">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div></div>
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">Y</div>
+    <div><div class="logo-text">YSE Finance</div><span class="logo-sub">Sydney Tax Agent</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="Home" data-zh="首页">Home</a></li>
+    <li><a href="services.html" data-en="Services" data-zh="服务项目">Services</a></li>
+    <li><a href="about.html" data-en="About" data-zh="关于我们">About</a></li>
+    <li><a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a></li>
+    <li><a href="blog.html" class="active" data-en="Blog" data-zh="博客">Blog</a></li>
+    <li><a href="index.html#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+  </ul>
+</div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html" data-en="Home" data-zh="首页">Home</a><span>›</span><span data-en="Tax Tips Blog" data-zh="税务知识博客">Tax Tips Blog</span></div>
+    <h1><span data-en="Tax Tips &" data-zh="税务知识">Tax Tips &</span><br><span class="accent" data-en="ATO Updates" data-zh="& ATO最新动态">ATO Updates</span></h1>
+    <p data-en="Plain-English (and Mandarin) guides to help you understand Australian tax better." data-zh="用简单语言（中英双语）帮助您更好地了解澳大利亚税务知识。">Plain-English (and Mandarin) guides to help you understand Australian tax better.</p>
+  </div>
+</div>
+
+<section style="background:white;">
+  <div class="section-inner">
+    <div class="blog-layout">
+      <div class="blog-grid">
+
+        <div class="blog-card fade-up">
+          <div class="blog-thumb">📅</div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span class="blog-tag" data-en="Tax Return" data-zh="报税">Tax Return</span>
+              <span class="blog-date">June 2025</span>
+            </div>
+            <h2 data-en="Tax Return 2025: What's Changed and What to Watch Out For" data-zh="2025年报税：有哪些变化？需要注意什么？">Tax Return 2025: What's Changed and What to Watch Out For</h2>
+            <div class="zh-title" data-en="" data-zh="2025年报税新变化">2025年报税新变化</div>
+            <p data-en="The 2024-25 financial year brought some notable changes — from the Stage 3 tax cuts to updated work-from-home rules. Here's what you need to know before you lodge." data-zh="2024-25财年带来了一些重大变化——从第三阶段减税到更新的在家办公规则。以下是您在申报前需要了解的内容。">The 2024-25 financial year brought some notable changes — from the Stage 3 tax cuts to updated work-from-home rules. Here's what you need to know before you lodge.</p>
+            <a href="#" class="blog-read" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+          </div>
+        </div>
+
+        <div class="blog-card fade-up">
+          <div class="blog-thumb">🏠</div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span class="blog-tag" data-en="Property" data-zh="房产">Property</span>
+              <span class="blog-date">May 2025</span>
+            </div>
+            <h2 data-en="5 Tax Deductions Investment Property Owners Often Miss" data-zh="投资房产业主常遗漏的5项扣税">5 Tax Deductions Investment Property Owners Often Miss</h2>
+            <div class="zh-title" data-en="" data-zh="房产投资扣税误区">房产投资扣税误区</div>
+            <p data-en="Many property investors leave money on the table. From depreciation schedules to borrowing costs, here are five deductions that are frequently overlooked." data-zh="许多房产投资者都白白损失了退税机会。从折旧时间表到借款费用，以下五项扣税经常被忽视。">Many property investors leave money on the table. From depreciation schedules to borrowing costs, here are five deductions that are frequently overlooked.</p>
+            <a href="#" class="blog-read" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+          </div>
+        </div>
+
+        <div class="blog-card fade-up">
+          <div class="blog-thumb">💻</div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span class="blog-tag" data-en="Work From Home" data-zh="在家办公">Work From Home</span>
+              <span class="blog-date">April 2025</span>
+            </div>
+            <h2 data-en="Working From Home in 2025: Which Method Gives You the Best Deduction?" data-zh="2025年在家办公：哪种计算方法退税最多？">Working From Home in 2025: Which Method Gives You the Best Deduction?</h2>
+            <div class="zh-title" data-en="" data-zh="在家办公扣税攻略">在家办公扣税攻略</div>
+            <p data-en="The ATO offers two methods for claiming home office expenses. We break down both — the fixed rate method and the actual cost method — so you can choose the one that works best for you." data-zh="ATO提供两种申报家庭办公费用的方法。我们详细分析两种方法——固定费率法和实际费用法——帮助您选择最有利的方式。">The ATO offers two methods for claiming home office expenses. We break down both so you can choose the best one for your situation.</p>
+            <a href="#" class="blog-read" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+          </div>
+        </div>
+
+        <div class="blog-card fade-up">
+          <div class="blog-thumb">₿</div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span class="blog-tag" data-en="Crypto" data-zh="加密货币">Crypto</span>
+              <span class="blog-date">March 2025</span>
+            </div>
+            <h2 data-en="Crypto & Tax in Australia: A Plain-English Guide for 2025" data-zh="澳大利亚加密货币税务：2025年简明指南">Crypto & Tax in Australia: A Plain-English Guide for 2025</h2>
+            <div class="zh-title" data-en="" data-zh="加密货币税务指南">加密货币税务指南</div>
+            <p data-en="The ATO is closely watching crypto transactions. Whether you're trading, staking, or just holding — here's what you need to declare and how to do it properly." data-zh="ATO正在密切关注加密货币交易。无论您是在交易、质押还是持有——以下是您需要申报的内容及正确的申报方式。">The ATO is closely watching crypto. Whether you're trading, staking, or holding — here's what you need to declare and how to do it right.</p>
+            <a href="#" class="blog-read" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+          </div>
+        </div>
+
+        <div class="blog-card fade-up">
+          <div class="blog-thumb">🚗</div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span class="blog-tag" data-en="Novated Lease" data-zh="薪资打包">Novated Lease</span>
+              <span class="blog-date">February 2025</span>
+            </div>
+            <h2 data-en="Is a Novated Lease Worth It? A Realistic Analysis for 2025" data-zh="Novated Lease值得吗？2025年理性分析">Is a Novated Lease Worth It? A Realistic Analysis for 2025</h2>
+            <div class="zh-title" data-en="" data-zh="Novated Lease深度解析">Novated Lease深度解析</div>
+            <p data-en="Novated leasing sounds great in theory — but is it actually worth it for you? We run through the numbers honestly, including the FBT implications and when it makes (and doesn't make) sense." data-zh="Novated Lease理论上听起来很好——但实际上对您来说值得吗？我们诚实地分析数字，包括FBT影响，以及何时有意义（以及何时没有意义）。">Novated leasing sounds great — but is it actually worth it? We run through the numbers honestly, including FBT implications.</p>
+            <a href="#" class="blog-read" data-en="Read more →" data-zh="阅读更多 →">Read more →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sidebar fade-up">
+        <div class="sidebar-card">
+          <h3 data-en="Topics" data-zh="分类">Topics</h3>
+          <div class="sidebar-topics">
+            <div class="sidebar-topic"><span data-en="Individual Returns" data-zh="个人报税">Individual Returns</span><span class="sidebar-count">8</span></div>
+            <div class="sidebar-topic"><span data-en="Small Business" data-zh="小企业">Small Business</span><span class="sidebar-count">6</span></div>
+            <div class="sidebar-topic"><span data-en="Property & CGT" data-zh="房产与资本利得税">Property & CGT</span><span class="sidebar-count">5</span></div>
+            <div class="sidebar-topic"><span data-en="Cryptocurrency" data-zh="加密货币">Cryptocurrency</span><span class="sidebar-count">4</span></div>
+            <div class="sidebar-topic"><span data-en="Work From Home" data-zh="在家办公">Work From Home</span><span class="sidebar-count">3</span></div>
+            <div class="sidebar-topic"><span data-en="Superannuation" data-zh="养老金">Superannuation</span><span class="sidebar-count">3</span></div>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <h3 data-en="Have a tax question?" data-zh="有税务问题？">Have a tax question?</h3>
+          <p data-en="Book a free 15-minute consultation. No jargon, no obligation." data-zh="预约免费15分钟咨询。不讲行话，无需承诺。">Book a free 15-minute consultation. No jargon, no obligation.</p>
+          <a href="index.html#contact" data-en="📅 Book Free Consultation" data-zh="📅 预约免费咨询">📅 Book Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-inner fade-up">
+    <h2 data-en="Knowledge is Power." data-zh="知识就是力量。">Knowledge is Power.</h2>
+    <p data-en="But sometimes you need personalised advice for your specific situation. That's what we're here for." data-zh="但有时您需要针对具体情况的个性化建议。这正是我们的职责所在。">But sometimes you need personalised advice for your specific situation. That's what we're here for.</p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-primary" data-en="📅 Book Free Consultation" data-zh="📅 预约免费咨询">📅 Book Free Consultation</a>
+      <a href="services.html" class="btn-secondary" data-en="Our Services →" data-zh="查看服务 →">Our Services →</a>
+    </div>
+  </div>
+</div>
+
+<footer><div class="footer-inner">
+  <div class="footer-logo">YSE Finance</div>
+  <div class="footer-tagline" data-en="Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin" data-zh="悉尼注册税务代理 · 个人及小企业 · 中英双语">Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin</div>
+  <div class="footer-links">
+    <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+    <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+    <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+    <a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a>
+    <a href="blog.html" data-en="Blog" data-zh="博客">Blog</a>
+    <a href="index.html#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+    <a href="privacy.html" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+  </div>
+  <div class="footer-bottom"><span data-en="© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009." data-zh="© 2025 YSE Finance 版权所有。依据2009年税务代理服务法注册。">© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009.</span></div>
+</div></footer>
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const en = el.getAttribute('data-en'), zh = el.getAttribute('data-zh');
+      if (lang === 'zh' && zh) el.innerHTML = zh;
+      else if (lang === 'en' && en) el.innerHTML = en;
+    });
+    document.querySelectorAll('.zh, .zh-title').forEach(el => { el.style.display = lang === 'zh' ? 'block' : 'none'; });
+  }
+  document.querySelectorAll('.zh, .zh-title').forEach(el => el.style.display = 'none');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); obs.unobserve(e.target); } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

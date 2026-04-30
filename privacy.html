@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | YSE Finance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0d2a4a; --navy-mid:#163d6e; --navy-light:#1e4f8c; --orange:#e8793a; --orange-light:#f5a06a; --cream:#faf7f2; --gray:#8a8fa0; --text:#1a2332; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans','Noto Sans SC',sans-serif; background:var(--cream); color:var(--text); }
+  .lang-bar { background:var(--navy); padding:8px 0; text-align:right; }
+  .lang-bar .inner { max-width:1100px; margin:0 auto; padding:0 32px; }
+  .lang-btn { background:none; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.7); padding:4px 14px; border-radius:20px; cursor:pointer; font-size:12px; font-family:inherit; margin-left:8px; transition:all 0.2s; }
+  .lang-btn.active,.lang-btn:hover { background:var(--orange); border-color:var(--orange); color:white; }
+  nav { background:var(--navy); position:sticky; top:0; z-index:100; box-shadow:0 2px 20px rgba(13,42,74,0.3); }
+  .nav-inner { max-width:1100px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .logo-mark { width:40px; height:40px; background:linear-gradient(135deg,var(--orange),var(--orange-light)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; color:white; font-size:18px; }
+  .logo-text { font-family:'Playfair Display',serif; font-size:20px; font-weight:600; color:white; }
+  .logo-sub { font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; display:block; margin-top:-2px; }
+  .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+  .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--orange-light); }
+  .nav-cta { background:var(--orange)!important; color:white!important; padding:9px 22px; border-radius:6px; font-weight:600!important; }
+
+  .page-hero { background:var(--navy); padding:64px 32px 56px; position:relative; overflow:hidden; }
+  .page-hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 50% 100% at 80% 50%,rgba(30,79,140,0.4) 0%,transparent 70%); }
+  .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px); background-size:60px 60px; }
+  .page-hero-inner { max-width:1100px; margin:0 auto; position:relative; z-index:2; }
+  .breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:16px; font-size:13px; color:rgba(255,255,255,0.4); }
+  .breadcrumb a { color:rgba(255,255,255,0.4); text-decoration:none; }
+  .breadcrumb span { color:var(--orange-light); }
+  .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(28px,3.5vw,44px); font-weight:700; color:white; margin-bottom:10px; }
+  .page-hero p { color:rgba(255,255,255,0.5); font-size:14px; }
+
+  .content-wrap { max-width:800px; margin:0 auto; padding:64px 32px 80px; }
+  .toc { background:white; border-radius:16px; padding:28px 32px; margin-bottom:48px; border:1px solid rgba(13,42,74,0.07); }
+  .toc h3 { font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--orange); font-weight:600; margin-bottom:16px; }
+  .toc ol { padding-left:20px; display:flex; flex-direction:column; gap:8px; }
+  .toc ol li a { color:var(--navy-mid); text-decoration:none; font-size:14px; transition:color 0.2s; }
+  .toc ol li a:hover { color:var(--orange); }
+
+  .policy-section { margin-bottom:48px; }
+  .policy-section h2 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--navy); margin-bottom:16px; padding-bottom:10px; border-bottom:2px solid rgba(13,42,74,0.07); display:flex; align-items:center; gap:10px; }
+  .policy-section p { color:#4a5568; font-size:14px; line-height:1.85; margin-bottom:14px; }
+  .policy-section p:last-child { margin-bottom:0; }
+  .policy-section ul { padding-left:20px; margin:12px 0; display:flex; flex-direction:column; gap:8px; }
+  .policy-section ul li { color:#4a5568; font-size:14px; line-height:1.7; }
+  .policy-section a { color:var(--orange); text-decoration:none; }
+  .policy-section a:hover { text-decoration:underline; }
+  .highlight { background:rgba(232,121,58,0.07); border-left:3px solid var(--orange); border-radius:0 10px 10px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--navy-mid); line-height:1.7; }
+  .contact-box { background:var(--navy); border-radius:16px; padding:28px 32px; margin-top:48px; }
+  .contact-box h3 { font-family:'Playfair Display',serif; color:white; font-size:20px; margin-bottom:12px; }
+  .contact-box p { color:rgba(255,255,255,0.6); font-size:14px; line-height:1.7; margin-bottom:8px; }
+  .contact-box a { color:var(--orange-light); text-decoration:none; font-weight:500; }
+
+  footer { background:#071a2e; padding:40px 32px; text-align:center; }
+  .footer-inner { max-width:1100px; margin:0 auto; }
+  .footer-logo { font-family:'Playfair Display',serif; font-size:22px; color:white; font-weight:600; margin-bottom:8px; }
+  .footer-tagline { color:rgba(255,255,255,0.4); font-size:13px; margin-bottom:20px; }
+  .footer-links { display:flex; gap:24px; justify-content:center; margin-bottom:24px; flex-wrap:wrap; }
+  .footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--orange-light); }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.06); padding-top:20px; color:rgba(255,255,255,0.25); font-size:12px; }
+  @media(max-width:768px){ nav .nav-links{display:none;} .content-wrap{padding:40px 20px 60px;} .page-hero{padding:48px 20px 40px;} }
+</style>
+</head>
+<body>
+
+<div class="lang-bar"><div class="inner">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div></div>
+
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">Y</div>
+    <div><div class="logo-text">YSE Finance</div><span class="logo-sub">Sydney Tax Agent</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="Home" data-zh="首页">Home</a></li>
+    <li><a href="services.html" data-en="Services" data-zh="服务项目">Services</a></li>
+    <li><a href="about.html" data-en="About" data-zh="关于我们">About</a></li>
+    <li><a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a></li>
+    <li><a href="index.html#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+  </ul>
+</div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</span></div>
+    <h1 data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</h1>
+    <p data-en="Last updated: 1 January 2025" data-zh="最后更新：2025年1月1日">Last updated: 1 January 2025</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <div class="toc">
+    <h3 data-en="Contents" data-zh="目录">Contents</h3>
+    <ol>
+      <li><a href="#s1" data-en="Who We Are" data-zh="关于我们">Who We Are</a></li>
+      <li><a href="#s2" data-en="Information We Collect" data-zh="我们收集的信息">Information We Collect</a></li>
+      <li><a href="#s3" data-en="How We Use Your Information" data-zh="我们如何使用您的信息">How We Use Your Information</a></li>
+      <li><a href="#s4" data-en="Sharing Your Information" data-zh="信息共享">Sharing Your Information</a></li>
+      <li><a href="#s5" data-en="Data Security" data-zh="数据安全">Data Security</a></li>
+      <li><a href="#s6" data-en="Your Rights" data-zh="您的权利">Your Rights</a></li>
+      <li><a href="#s7" data-en="Cookies" data-zh="Cookies">Cookies</a></li>
+      <li><a href="#s8" data-en="Contact Us" data-zh="联系我们">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <div class="highlight" data-en="YSE Finance is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information in accordance with the Australian Privacy Act 1988 and the Australian Privacy Principles (APPs)." data-zh="YSE Finance致力于保护您的隐私。本政策说明了我们如何依据1988年《澳大利亚隐私法》及澳大利亚隐私原则（APPs）收集、使用和保护您的个人信息。">YSE Finance is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information in accordance with the Australian Privacy Act 1988 and the Australian Privacy Principles (APPs).</div>
+
+  <div class="policy-section" id="s1">
+    <h2>1. <span data-en="Who We Are" data-zh="关于我们">Who We Are</span></h2>
+    <p data-en="YSE Finance is a registered tax agent operating in Sydney, New South Wales, Australia. We provide tax return preparation, BAS lodgement, and related advisory services to individuals and small businesses." data-zh="YSE Finance是一家在澳大利亚新南威尔士州悉尼运营的注册税务代理机构。我们为个人及小型企业提供税务申报、BAS申报及相关咨询服务。">YSE Finance is a registered tax agent operating in Sydney, New South Wales, Australia. We provide tax return preparation, BAS lodgement, and related advisory services to individuals and small businesses.</p>
+    <p><strong data-en="Contact:" data-zh="联系方式：">Contact:</strong><br>
+    📧 <a href="mailto:lawrence.yi@ysefinance.com.au">lawrence.yi@ysefinance.com.au</a><br>
+    📞 <a href="tel:0433807771">0433 807 771</a><br>
+    🌐 <a href="https://ysefinance.com.au">ysefinance.com.au</a></p>
+  </div>
+
+  <div class="policy-section" id="s2">
+    <h2>2. <span data-en="Information We Collect" data-zh="我们收集的信息">Information We Collect</span></h2>
+    <p data-en="We collect personal information that is necessary to provide our tax and financial services. This may include:" data-zh="我们收集提供税务和财务服务所必需的个人信息，可能包括：">We collect personal information that is necessary to provide our tax and financial services. This may include:</p>
+    <ul>
+      <li data-en="Full name, date of birth, and contact details (phone, email, address)" data-zh="全名、出生日期及联系方式（电话、电子邮件、地址）">Full name, date of birth, and contact details (phone, email, address)</li>
+      <li data-en="Tax File Number (TFN) — collected only when required for lodgement" data-zh="税务档案号（TFN）——仅在申报需要时收集">Tax File Number (TFN) — collected only when required for lodgement</li>
+      <li data-en="Income information (payslips, payment summaries, bank statements)" data-zh="收入信息（工资单、付款汇总、银行对账单）">Income information (payslips, payment summaries, bank statements)</li>
+      <li data-en="Business financial records (for BAS, company returns)" data-zh="企业财务记录（用于BAS、公司申报）">Business financial records (for BAS, company returns)</li>
+      <li data-en="Investment and property information (for CGT, rental income)" data-zh="投资和房产信息（用于资本利得税、租金收入）">Investment and property information (for CGT, rental income)</li>
+      <li data-en="Information submitted via our website contact form" data-zh="通过网站联系表单提交的信息">Information submitted via our website contact form</li>
+    </ul>
+    <p data-en="We only collect information that is reasonably necessary for the purpose of providing our services." data-zh="我们只收集提供服务合理必要的信息。">We only collect information that is reasonably necessary for the purpose of providing our services.</p>
+  </div>
+
+  <div class="policy-section" id="s3">
+    <h2>3. <span data-en="How We Use Your Information" data-zh="我们如何使用您的信息">How We Use Your Information</span></h2>
+    <p data-en="Your personal information is used to:" data-zh="您的个人信息用于：">Your personal information is used to:</p>
+    <ul>
+      <li data-en="Prepare and lodge your tax returns, BAS, and related documents with the ATO" data-zh="准备并向ATO提交您的税务申报、BAS及相关文件">Prepare and lodge your tax returns, BAS, and related documents with the ATO</li>
+      <li data-en="Communicate with you about your tax affairs" data-zh="就您的税务事宜与您沟通">Communicate with you about your tax affairs</li>
+      <li data-en="Comply with our legal obligations as a registered tax agent" data-zh="履行我们作为注册税务代理的法律义务">Comply with our legal obligations as a registered tax agent</li>
+      <li data-en="Respond to your enquiries submitted through our website" data-zh="回复您通过网站提交的查询">Respond to your enquiries submitted through our website</li>
+      <li data-en="Send you relevant tax updates or reminders (only with your consent)" data-zh="向您发送相关税务更新或提醒（仅在您同意的情况下）">Send you relevant tax updates or reminders (only with your consent)</li>
+    </ul>
+    <p data-en="We will not use your information for any purpose beyond providing our professional services without your explicit consent." data-zh="未经您的明确同意，我们不会将您的信息用于提供专业服务以外的任何目的。">We will not use your information for any purpose beyond providing our professional services without your explicit consent.</p>
+  </div>
+
+  <div class="policy-section" id="s4">
+    <h2>4. <span data-en="Sharing Your Information" data-zh="信息共享">Sharing Your Information</span></h2>
+    <p data-en="We do not sell, rent, or trade your personal information to third parties. We may share your information only in the following circumstances:" data-zh="我们不会出售、出租或交易您的个人信息给第三方。我们只在以下情况下分享您的信息：">We do not sell, rent, or trade your personal information to third parties. We may share your information only in the following circumstances:</p>
+    <ul>
+      <li data-en="With the Australian Taxation Office (ATO) as required for lodgement" data-zh="依申报要求与澳大利亚税务局（ATO）共享">With the Australian Taxation Office (ATO) as required for lodgement</li>
+      <li data-en="With third-party software providers used for tax preparation (e.g. Xero, MYOB) — under strict confidentiality agreements" data-zh="与用于税务准备的第三方软件提供商共享（如Xero、MYOB）——须遵守严格的保密协议">With third-party software providers used for tax preparation (e.g. Xero, MYOB) — under strict confidentiality agreements</li>
+      <li data-en="When required by law or court order" data-zh="当法律或法院命令要求时">When required by law or court order</li>
+      <li data-en="With your explicit written consent" data-zh="在您明确书面同意的情况下">With your explicit written consent</li>
+    </ul>
+  </div>
+
+  <div class="policy-section" id="s5">
+    <h2>5. <span data-en="Data Security" data-zh="数据安全">Data Security</span></h2>
+    <p data-en="We take reasonable steps to protect your personal information from misuse, interference, loss, unauthorised access, modification, or disclosure. This includes:" data-zh="我们采取合理措施保护您的个人信息免遭滥用、干扰、丢失、未经授权的访问、修改或披露，包括：">We take reasonable steps to protect your personal information from misuse, interference, loss, unauthorised access, modification, or disclosure. This includes:</p>
+    <ul>
+      <li data-en="Encrypted email communication where possible" data-zh="尽可能使用加密电子邮件通信">Encrypted email communication where possible</li>
+      <li data-en="Password-protected document storage" data-zh="密码保护的文件存储">Password-protected document storage</li>
+      <li data-en="Limiting access to your information to only those who need it" data-zh="仅允许需要访问的人员查看您的信息">Limiting access to your information to only those who need it</li>
+      <li data-en="Secure disposal of physical documents when no longer required" data-zh="不再需要时安全处置纸质文件">Secure disposal of physical documents when no longer required</li>
+    </ul>
+    <p data-en="Client records are retained for a minimum of 5 years in compliance with the Tax Agent Services Act 2009." data-zh="根据2009年《税务代理服务法》，客户记录至少保留5年。">Client records are retained for a minimum of 5 years in compliance with the Tax Agent Services Act 2009.</p>
+  </div>
+
+  <div class="policy-section" id="s6">
+    <h2>6. <span data-en="Your Rights" data-zh="您的权利">Your Rights</span></h2>
+    <p data-en="Under the Australian Privacy Act 1988, you have the right to:" data-zh="根据1988年《澳大利亚隐私法》，您有权：">Under the Australian Privacy Act 1988, you have the right to:</p>
+    <ul>
+      <li data-en="Access the personal information we hold about you" data-zh="访问我们持有的您的个人信息">Access the personal information we hold about you</li>
+      <li data-en="Request correction of inaccurate or outdated information" data-zh="要求更正不准确或过时的信息">Request correction of inaccurate or outdated information</li>
+      <li data-en="Withdraw consent for marketing communications at any time" data-zh="随时撤回对营销通信的同意">Withdraw consent for marketing communications at any time</li>
+      <li data-en="Lodge a complaint about how we handle your information" data-zh="就我们处理您信息的方式提出投诉">Lodge a complaint about how we handle your information</li>
+    </ul>
+    <p data-en="To exercise any of these rights, please contact us at the details below. We will respond within 30 days." data-zh="如需行使上述任何权利，请通过以下联系方式与我们联系。我们将在30天内回复。">To exercise any of these rights, please contact us at the details below. We will respond within 30 days.</p>
+    <p data-en="If you are not satisfied with our response, you may contact the Office of the Australian Information Commissioner (OAIC) at oaic.gov.au." data-zh="如果您对我们的回复不满意，可联系澳大利亚信息专员办公室（OAIC）：oaic.gov.au。">If you are not satisfied with our response, you may contact the <a href="https://www.oaic.gov.au" target="_blank">Office of the Australian Information Commissioner (OAIC)</a>.</p>
+  </div>
+
+  <div class="policy-section" id="s7">
+    <h2>7. <span data-en="Cookies & Website" data-zh="Cookies与网站">Cookies & Website</span></h2>
+    <p data-en="Our website may use basic cookies to improve your browsing experience. These cookies do not collect personally identifiable information. You can disable cookies in your browser settings at any time." data-zh="我们的网站可能使用基本cookies以改善您的浏览体验。这些cookies不收集个人身份信息。您可以随时在浏览器设置中禁用cookies。">Our website may use basic cookies to improve your browsing experience. These cookies do not collect personally identifiable information. You can disable cookies in your browser settings at any time.</p>
+    <p data-en="Our website does not use advertising trackers, and we do not sell website visitor data to any third party." data-zh="我们的网站不使用广告跟踪器，也不会将网站访客数据出售给任何第三方。">Our website does not use advertising trackers, and we do not sell website visitor data to any third party.</p>
+  </div>
+
+  <div class="policy-section" id="s8">
+    <h2>8. <span data-en="Contact Us" data-zh="联系我们">Contact Us</span></h2>
+    <p data-en="If you have any questions or concerns about this Privacy Policy or how we handle your personal information, please get in touch:" data-zh="如果您对本隐私政策或我们处理个人信息的方式有任何疑问或顾虑，请与我们联系：">If you have any questions or concerns about this Privacy Policy or how we handle your personal information, please get in touch:</p>
+  </div>
+
+  <div class="contact-box">
+    <h3 data-en="Privacy Contact" data-zh="隐私联系">Privacy Contact</h3>
+    <p>📧 <a href="mailto:lawrence.yi@ysefinance.com.au">lawrence.yi@ysefinance.com.au</a></p>
+    <p>📞 <a href="tel:0433807771">0433 807 771</a></p>
+    <p>🌐 <a href="https://ysefinance.com.au">ysefinance.com.au</a></p>
+    <p style="margin-top:14px;" data-en="YSE Finance · Sydney, NSW, Australia · Registered Tax Agent under TASA 2009" data-zh="YSE Finance · 澳大利亚新南威尔士州悉尼 · 依据2009年税务代理服务法注册">YSE Finance · Sydney, NSW, Australia · Registered Tax Agent under TASA 2009</p>
+  </div>
+
+</div>
+
+<footer><div class="footer-inner">
+  <div class="footer-logo">YSE Finance</div>
+  <div class="footer-tagline" data-en="Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin" data-zh="悉尼注册税务代理 · 个人及小企业 · 中英双语">Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin</div>
+  <div class="footer-links">
+    <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+    <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+    <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+    <a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a>
+    <a href="blog.html" data-en="Blog" data-zh="博客">Blog</a>
+    <a href="privacy.html" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+  </div>
+  <div class="footer-bottom">© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009.</div>
+</div></footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const en = el.getAttribute('data-en'), zh = el.getAttribute('data-zh');
+      if (lang === 'zh' && zh) el.innerHTML = zh;
+      else if (lang === 'en' && en) el.innerHTML = en;
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | YSE Finance | Sydney Tax Agent</title>
+<meta name="description" content="Frequently asked questions about tax returns, BAS, CGT and more. YSE Finance — Sydney's bilingual tax agent.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0d2a4a; --navy-mid:#163d6e; --navy-light:#1e4f8c; --orange:#e8793a; --orange-light:#f5a06a; --cream:#faf7f2; --white:#ffffff; --gray:#8a8fa0; --text:#1a2332; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'DM Sans','Noto Sans SC',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+  .lang-bar { background:var(--navy); padding:8px 0; text-align:right; }
+  .lang-bar .inner { max-width:1100px; margin:0 auto; padding:0 32px; }
+  .lang-btn { background:none; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.7); padding:4px 14px; border-radius:20px; cursor:pointer; font-size:12px; font-family:inherit; margin-left:8px; transition:all 0.2s; }
+  .lang-btn.active,.lang-btn:hover { background:var(--orange); border-color:var(--orange); color:white; }
+  nav { background:var(--navy); position:sticky; top:0; z-index:100; box-shadow:0 2px 20px rgba(13,42,74,0.3); }
+  .nav-inner { max-width:1100px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .logo-mark { width:40px; height:40px; background:linear-gradient(135deg,var(--orange),var(--orange-light)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; color:white; font-size:18px; }
+  .logo-text { font-family:'Playfair Display',serif; font-size:20px; font-weight:600; color:white; }
+  .logo-sub { font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; display:block; margin-top:-2px; }
+  .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+  .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+  .nav-links a:hover,.nav-links a.active { color:var(--orange-light); }
+  .nav-cta { background:var(--orange)!important; color:white!important; padding:9px 22px; border-radius:6px; font-weight:600!important; }
+
+  .page-hero { background:var(--navy); padding:72px 32px 64px; position:relative; overflow:hidden; }
+  .page-hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 50% 100% at 80% 50%,rgba(30,79,140,0.5) 0%,transparent 70%),radial-gradient(ellipse 30% 60% at 10% 80%,rgba(232,121,58,0.1) 0%,transparent 60%); }
+  .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:60px 60px; }
+  .page-hero-inner { max-width:1100px; margin:0 auto; position:relative; z-index:2; }
+  .breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:20px; font-size:13px; color:rgba(255,255,255,0.4); }
+  .breadcrumb a { color:rgba(255,255,255,0.4); text-decoration:none; }
+  .breadcrumb span { color:var(--orange-light); }
+  .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(32px,4vw,52px); font-weight:700; color:white; line-height:1.15; margin-bottom:16px; }
+  .page-hero h1 .accent { color:var(--orange-light); }
+  .page-hero p { color:rgba(255,255,255,0.6); font-size:16px; max-width:560px; line-height:1.7; }
+
+  section { padding:80px 32px; }
+  .section-inner { max-width:1100px; margin:0 auto; }
+  .section-label { font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--orange); font-weight:600; margin-bottom:12px; }
+  .section-title { font-family:'Playfair Display',serif; font-size:clamp(26px,3vw,38px); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:12px; }
+
+  /* FAQ LAYOUT */
+  .faq-layout { display:grid; grid-template-columns:240px 1fr; gap:56px; margin-top:56px; align-items:start; }
+  .faq-nav { position:sticky; top:100px; }
+  .faq-nav h3 { font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); font-weight:600; margin-bottom:16px; }
+  .faq-nav-links { display:flex; flex-direction:column; gap:4px; }
+  .faq-nav-links a { color:#4a5568; text-decoration:none; font-size:14px; padding:8px 14px; border-radius:8px; transition:all 0.2s; border-left:2px solid transparent; }
+  .faq-nav-links a:hover, .faq-nav-links a.active { background:rgba(232,121,58,0.08); color:var(--orange); border-left-color:var(--orange); }
+
+  .faq-content { display:flex; flex-direction:column; gap:48px; }
+  .faq-group h2 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--navy); margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid rgba(13,42,74,0.07); display:flex; align-items:center; gap:12px; }
+  .faq-group h2 .icon { font-size:22px; }
+
+  .faq-item { background:white; border-radius:14px; border:1px solid rgba(13,42,74,0.06); overflow:hidden; margin-bottom:12px; }
+  .faq-question { display:flex; justify-content:space-between; align-items:center; padding:22px 26px; cursor:pointer; gap:16px; transition:background 0.2s; }
+  .faq-question:hover { background:rgba(232,121,58,0.03); }
+  .faq-q-text { font-size:15px; font-weight:600; color:var(--navy); line-height:1.4; flex:1; }
+  .faq-q-zh { font-family:'Noto Sans SC',sans-serif; font-size:13px; color:var(--gray); font-weight:400; display:block; margin-top:3px; }
+  .faq-toggle { width:28px; height:28px; background:rgba(232,121,58,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--orange); font-size:16px; flex-shrink:0; transition:transform 0.3s, background 0.2s; font-weight:700; line-height:1; }
+  .faq-item.open .faq-toggle { transform:rotate(45deg); background:var(--orange); color:white; }
+  .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+  .faq-item.open .faq-answer { max-height:500px; }
+  .faq-answer-inner { padding:0 26px 22px; border-top:1px solid rgba(13,42,74,0.05); }
+  .faq-answer-inner p { color:#4a5568; font-size:14px; line-height:1.8; margin-top:16px; }
+  .faq-answer-inner p .zh { font-family:'Noto Sans SC',sans-serif; font-size:13px; }
+  .faq-answer-inner .tip { background:rgba(232,121,58,0.08); border-left:3px solid var(--orange); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:14px; font-size:13px; color:var(--navy-mid); line-height:1.6; }
+
+  .cta-band { background:var(--navy); padding:72px 32px; }
+  .cta-inner { max-width:700px; margin:0 auto; text-align:center; }
+  .cta-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,3vw,38px); font-weight:700; color:white; margin-bottom:16px; }
+  .cta-inner p { color:rgba(255,255,255,0.6); font-size:15px; margin-bottom:32px; line-height:1.7; }
+  .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary { background:var(--orange); color:white; padding:14px 30px; border-radius:8px; text-decoration:none; font-weight:600; font-size:15px; transition:all 0.2s; }
+  .btn-primary:hover { background:var(--orange-light); transform:translateY(-1px); }
+  .btn-secondary { background:rgba(255,255,255,0.08); color:white; padding:14px 30px; border-radius:8px; text-decoration:none; font-weight:500; font-size:15px; border:1px solid rgba(255,255,255,0.2); transition:all 0.2s; }
+
+  footer { background:#071a2e; padding:40px 32px; text-align:center; }
+  .footer-inner { max-width:1100px; margin:0 auto; }
+  .footer-logo { font-family:'Playfair Display',serif; font-size:22px; color:white; font-weight:600; margin-bottom:8px; }
+  .footer-tagline { color:rgba(255,255,255,0.4); font-size:13px; margin-bottom:20px; }
+  .footer-links { display:flex; gap:24px; justify-content:center; margin-bottom:24px; flex-wrap:wrap; }
+  .footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:13px; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--orange-light); }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.06); padding-top:20px; color:rgba(255,255,255,0.25); font-size:12px; }
+
+  .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s,transform 0.6s; }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
+
+  @media (max-width:768px) {
+    .faq-layout { grid-template-columns:1fr; }
+    .faq-nav { display:none; }
+    nav .nav-links { display:none; }
+    section { padding:56px 20px; }
+    .page-hero { padding:56px 20px 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="lang-bar"><div class="inner">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div></div>
+
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">Y</div>
+    <div><div class="logo-text">YSE Finance</div><span class="logo-sub">Sydney Tax Agent</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="Home" data-zh="首页">Home</a></li>
+    <li><a href="services.html" data-en="Services" data-zh="服务项目">Services</a></li>
+    <li><a href="about.html" data-en="About" data-zh="关于我们">About</a></li>
+    <li><a href="faq.html" class="active" data-en="FAQ" data-zh="常见问题">FAQ</a></li>
+    <li><a href="index.html#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+  </ul>
+</div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html" data-en="Home" data-zh="首页">Home</a><span>›</span><span data-en="FAQ" data-zh="常见问题">FAQ</span></div>
+    <h1><span data-en="Your Questions," data-zh="您的问题，">Your Questions,</span><br><span class="accent" data-en="Answered Clearly" data-zh="清晰解答">Answered Clearly</span></h1>
+    <p data-en="No jargon, no confusion. Just straight answers to the most common tax questions we hear." data-zh="不讲行话，不绕弯子。直接回答我们最常听到的税务问题。">No jargon, no confusion. Just straight answers to the most common tax questions we hear.</p>
+  </div>
+</div>
+
+<section style="background:white;">
+  <div class="section-inner">
+    <div class="faq-layout">
+      <nav class="faq-nav fade-up">
+        <h3 data-en="Categories" data-zh="分类">Categories</h3>
+        <div class="faq-nav-links">
+          <a href="#general" data-en="General" data-zh="一般问题">General</a>
+          <a href="#individual" data-en="Individual Returns" data-zh="个人报税">Individual Returns</a>
+          <a href="#business" data-en="Small Business" data-zh="小企业">Small Business</a>
+          <a href="#property" data-en="Property & CGT" data-zh="房产与资本利得税">Property & CGT</a>
+          <a href="#working" data-en="Working with Us" data-zh="与我们合作">Working with Us</a>
+        </div>
+      </nav>
+
+      <div class="faq-content">
+
+        <!-- GENERAL -->
+        <div class="faq-group fade-up" id="general">
+          <h2><span class="icon">💡</span><span data-en="General Questions" data-zh="一般问题">General Questions</span></h2>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="Do I need a tax agent to lodge my return?" data-zh="">Do I need a tax agent to lodge my return?</span>
+                <span class="faq-q-zh" data-en="" data-zh="我需要税务代理帮我报税吗？">我需要税务代理帮我报税吗？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="You don't legally need one — but most people who use a tax agent get a better outcome. We know every deduction, we're up to date with ATO rules, and we're responsible for the accuracy of your return. For simple returns, we're often worth it for the peace of mind alone." data-zh="法律上不是必须的——但大多数使用税务代理的人都能获得更好的结果。我们了解每一项扣税项目，紧跟ATO规则，并对您申报的准确性负责。即使是简单的申报，仅凭安心感就往往物有所值。">You don't legally need one — but most people who use a tax agent get a better outcome. We know every deduction, we're up to date with ATO rules, and we're responsible for the accuracy of your return.</p>
+              <div class="tip" data-en="💡 Using a registered tax agent also gives you an extended lodgement deadline — often until May of the following year." data-zh="💡 使用注册税务代理还能获得延长的申报截止日期——通常延至次年5月。">💡 Using a registered tax agent also gives you an extended lodgement deadline — often until May of the following year.</div>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="When is the tax return deadline in Australia?" data-zh="">When is the tax return deadline in Australia?</span>
+                <span class="faq-q-zh" data-en="" data-zh="澳大利亚报税截止日期是什么时候？">澳大利亚报税截止日期是什么时候？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="The standard deadline for self-lodging is 31 October. If you use a registered tax agent like YSE Finance, you generally have until 15 May of the following year — provided you're registered with us before 31 October." data-zh="自行申报的标准截止日期是10月31日。如果您使用YSE Finance等注册税务代理，通常可延至次年5月15日——前提是您在10月31日前已在我们处注册。">The standard deadline for self-lodging is 31 October. If you use a registered tax agent like YSE Finance, you generally have until 15 May of the following year.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="Can you help me in Mandarin Chinese?" data-zh="">Can you help me in Mandarin Chinese?</span>
+                <span class="faq-q-zh" data-en="" data-zh="你们可以用普通话为我服务吗？">你们可以用普通话为我服务吗？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="Absolutely. Lawrence is fluent in both English and Mandarin Chinese. You can communicate entirely in Mandarin if that's more comfortable for you — emails, calls, meetings, all in your preferred language." data-zh="当然可以。Lawrence能够流利地使用英语和普通话。如果您更习惯用普通话，可以完全用普通话沟通——邮件、电话、会面，一切都用您偏好的语言。">Absolutely. Lawrence is fluent in both English and Mandarin Chinese. You can communicate entirely in Mandarin if that's more comfortable for you.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- INDIVIDUAL -->
+        <div class="faq-group fade-up" id="individual">
+          <h2><span class="icon">🧾</span><span data-en="Individual Returns" data-zh="个人报税">Individual Returns</span></h2>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="What documents do I need for my tax return?" data-zh="">What documents do I need for my tax return?</span>
+                <span class="faq-q-zh" data-en="" data-zh="报税需要哪些文件？">报税需要哪些文件？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="The basics are: your TFN, payment summaries (or access to myGov), bank interest statements, and any receipts for work-related expenses. If you have investments, rental properties or other income, we'll give you a tailored checklist when you book." data-zh="基本文件包括：您的税务档案号（TFN）、收入汇总（或myGov访问权限）、银行利息对账单，以及工作相关费用的收据。如果您有投资、出租房产或其他收入，预约后我们会为您提供定制清单。">The basics: your TFN, payment summaries, bank interest statements, and work-related expense receipts. We'll give you a tailored checklist when you book.</p>
+              <div class="tip" data-en="💡 Most of your income information is pre-filled from the ATO — you mainly need your deduction receipts." data-zh="💡 大多数收入信息已由ATO预填——您主要需要提供扣税收据。">💡 Most of your income information is pre-filled from the ATO — you mainly need your deduction receipts.</div>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="What can I claim as a work-related deduction?" data-zh="">What can I claim as a work-related deduction?</span>
+                <span class="faq-q-zh" data-en="" data-zh="哪些工作相关费用可以扣税？">哪些工作相关费用可以扣税？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="Common deductions include: uniforms and protective clothing, tools and equipment, home office expenses, work-related phone and internet, professional development courses, union fees, and travel between work sites. What you can claim depends on your specific occupation — we review this carefully for every client." data-zh="常见扣税项目包括：制服和防护服、工具和设备、家庭办公室费用、工作相关电话和网络、专业发展课程、工会费用，以及工作地点之间的交通费。可申报项目取决于您的具体职业——我们会为每位客户仔细审查。">Common deductions: uniforms, tools, home office expenses, phone/internet, professional development, union fees, and travel between work sites.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="I have a side income from freelancing / Uber / Airbnb. Do I need to declare it?" data-zh="">I have a side income from freelancing / Uber / Airbnb. Do I need to declare it?</span>
+                <span class="faq-q-zh" data-en="" data-zh="我有自由职业/Uber/Airbnb等副业收入，需要申报吗？">我有自由职业/Uber/Airbnb等副业收入，需要申报吗？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="Yes — all income must be declared, including gig economy earnings. The good news is that related expenses (e.g. car expenses for Uber, cleaning for Airbnb) can often be claimed back. The ATO has extensive data-matching and will detect undeclared income." data-zh="是的——所有收入都必须申报，包括零工经济收入。好消息是相关费用（如Uber的车辆费用、Airbnb的清洁费）通常可以申报扣税。ATO拥有广泛的数据匹配能力，会检测未申报的收入。">Yes — all income must be declared. The good news is related expenses can often be claimed. The ATO has extensive data-matching and will detect undeclared income.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- BUSINESS -->
+        <div class="faq-group fade-up" id="business">
+          <h2><span class="icon">🏢</span><span data-en="Small Business" data-zh="小企业">Small Business</span></h2>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="What is BAS and when does it need to be lodged?" data-zh="">What is BAS and when does it need to be lodged?</span>
+                <span class="faq-q-zh" data-en="" data-zh="什么是BAS，什么时候需要申报？">什么是BAS，什么时候需要申报？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="BAS (Business Activity Statement) is how businesses report and pay GST, PAYG withholding, and other tax obligations to the ATO. Most small businesses lodge quarterly — due dates are 28 October, 28 February, 28 April, and 28 July. Some businesses lodge monthly." data-zh="BAS（商业活动报告表）是企业向ATO申报和缴纳GST、PAYG预扣税及其他税务义务的方式。大多数小企业按季度申报——截止日期为10月28日、2月28日、4月28日和7月28日。部分企业按月申报。">BAS reports GST, PAYG withholding and other obligations. Most small businesses lodge quarterly — due 28 October, 28 February, 28 April, and 28 July.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="Should I operate as a sole trader or set up a company?" data-zh="">Should I operate as a sole trader or set up a company?</span>
+                <span class="faq-q-zh" data-en="" data-zh="我应该以个体户还是公司形式经营？">我应该以个体户还是公司形式经营？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="It depends on your income level, liability concerns, and growth plans. Sole trading is simpler and cheaper to set up. A company offers a flat 25% tax rate (for base rate entities) and better liability protection, but has higher compliance costs. We can run through the numbers for your specific situation." data-zh="这取决于您的收入水平、责任考量和增长计划。个体户设立更简单、成本更低。公司可享受统一25%税率（针对基础税率实体）和更好的责任保护，但合规成本较高。我们可以根据您的具体情况逐一分析。">It depends on income, liability concerns, and growth plans. We can run through the numbers for your specific situation — book a free consultation.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- PROPERTY -->
+        <div class="faq-group fade-up" id="property">
+          <h2><span class="icon">🏠</span><span data-en="Property & CGT" data-zh="房产与资本利得税">Property & CGT</span></h2>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="How does negative gearing work?" data-zh="">How does negative gearing work?</span>
+                <span class="faq-q-zh" data-en="" data-zh="负扣税是如何运作的？">负扣税是如何运作的？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="Negative gearing occurs when your rental property costs (interest, depreciation, repairs, etc.) exceed your rental income. The resulting loss can be offset against your other income (e.g. salary), reducing your overall tax bill. It's a legal and common strategy for property investors in Australia." data-zh="当您的租赁房产费用（利息、折旧、维修等）超过租金收入时，即产生负扣税。由此产生的亏损可以抵消您的其他收入（如工资），从而降低整体税务负担。这是澳大利亚房产投资者常用的合法策略。">Negative gearing is when rental costs exceed rental income. The loss offsets your other income (e.g. salary), reducing your overall tax bill. A legal and common strategy in Australia.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="Do I pay capital gains tax when I sell my home?" data-zh="">Do I pay capital gains tax when I sell my home?</span>
+                <span class="faq-q-zh" data-en="" data-zh="出售自住房需要缴纳资本利得税吗？">出售自住房需要缴纳资本利得税吗？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="Usually no — your main residence is generally exempt from CGT under the main residence exemption. However, there are exceptions: if you rented out part of the home, used it for business, or it was your main residence for only part of the ownership period, partial CGT may apply." data-zh="通常不需要——您的主要住所通常在主要住所豁免下免征资本利得税。但有例外：如果您出租了部分房屋、将其用于商业目的，或仅在部分持有期间作为主要住所，则可能适用部分资本利得税。">Usually no — your main residence is generally exempt. Exceptions apply if you rented it out, used it for business, or it wasn't your main residence the whole time.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="Do I need to pay tax on cryptocurrency gains?" data-zh="">Do I need to pay tax on cryptocurrency gains?</span>
+                <span class="faq-q-zh" data-en="" data-zh="加密货币收益需要缴税吗？">加密货币收益需要缴税吗？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="Yes. The ATO treats cryptocurrency as an asset subject to CGT. This means any disposal (selling, trading, or using crypto to buy goods/services) can trigger a taxable event. If you held the crypto for over 12 months, you may be eligible for the 50% CGT discount." data-zh="是的。ATO将加密货币视为需缴纳资本利得税的资产。这意味着任何处置行为（出售、交易或使用加密货币购买商品/服务）都可能触发应税事件。如果您持有加密货币超过12个月，可能有资格享受50%的资本利得税折扣。">Yes. The ATO treats crypto as a CGT asset. Selling, trading or using crypto can all trigger tax. Hold for 12+ months and you may get the 50% CGT discount.</p>
+              <div class="tip" data-en="💡 The ATO receives data from crypto exchanges — undeclared gains are commonly detected." data-zh="💡 ATO从加密货币交易所获取数据——未申报的收益很容易被发现。">💡 The ATO receives data from crypto exchanges — undeclared gains are commonly detected.</div>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- WORKING WITH US -->
+        <div class="faq-group fade-up" id="working">
+          <h2><span class="icon">🤝</span><span data-en="Working with YSE Finance" data-zh="与YSE Finance合作">Working with YSE Finance</span></h2>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="How much does it cost?" data-zh="">How much does it cost?</span>
+                <span class="faq-q-zh" data-en="" data-zh="费用是多少？">费用是多少？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="Pricing depends on the complexity of your situation. We always provide a clear, upfront quote before starting any work — no surprises. Book a free consultation and we'll tell you exactly what's involved and what it will cost." data-zh="定价取决于您情况的复杂程度。我们在开始任何工作前都会提供清晰、预先的报价——没有任何隐藏费用。预约免费咨询，我们会详细说明所涉及的内容和费用。">Pricing depends on complexity. We always provide a clear, upfront quote before starting. Book a free consultation and we'll tell you exactly what's involved and what it will cost.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="Can I switch to you from another tax agent?" data-zh="">Can I switch to you from another tax agent?</span>
+                <span class="faq-q-zh" data-en="" data-zh="我可以从其他税务代理转过来吗？">我可以从其他税务代理转过来吗？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="Absolutely — switching tax agents is straightforward. We handle the transfer process and notify the ATO on your behalf. You don't need to do anything special, and you don't need to wait until the end of the financial year." data-zh="当然可以——更换税务代理非常简单。我们会处理转移流程，并代表您通知ATO。您无需进行任何特殊操作，也不需要等到财务年度结束。">Absolutely — switching is straightforward. We handle the transfer and notify the ATO on your behalf. You don't need to wait until the end of the financial year.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggle(this)">
+              <div class="faq-q-text">
+                <span data-en="Do I need to meet in person or can everything be done online?" data-zh="">Do I need to meet in person or can everything be done online?</span>
+                <span class="faq-q-zh" data-en="" data-zh="需要面谈还是可以全程在线办理？">需要面谈还是可以全程在线办理？</span>
+              </div>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">
+              <p data-en="Everything can be done remotely — email, phone, or video call. We have clients all over Sydney and across Australia. If you prefer to meet in person, we can arrange that too." data-zh="一切都可以远程办理——电子邮件、电话或视频通话。我们的客户遍布悉尼各地及整个澳大利亚。如果您希望面谈，我们也可以安排。">Everything can be done remotely — email, phone, or video call. We have clients all across Sydney and Australia. In-person meetings can also be arranged.</p>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-inner fade-up">
+    <h2 data-en="Still Have Questions?" data-zh="还有其他问题？">Still Have Questions?</h2>
+    <p data-en="Book a free 15-minute consultation — no obligation, no jargon. We'll answer everything." data-zh="预约免费15分钟咨询——无需承诺，不讲行话。我们会回答您的一切问题。">Book a free 15-minute consultation — no obligation, no jargon. We'll answer everything.</p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-primary" data-en="📅 Book Free Consultation" data-zh="📅 预约免费咨询">📅 Book Free Consultation</a>
+      <a href="services.html" class="btn-secondary" data-en="View Our Services →" data-zh="查看服务项目 →">View Our Services →</a>
+    </div>
+  </div>
+</div>
+
+<footer><div class="footer-inner">
+  <div class="footer-logo">YSE Finance</div>
+  <div class="footer-tagline" data-en="Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin" data-zh="悉尼注册税务代理 · 个人及小企业 · 中英双语">Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin</div>
+  <div class="footer-links">
+    <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+    <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+    <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+    <a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a>
+    <a href="index.html#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+    <a href="privacy.html" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+  </div>
+  <div class="footer-bottom"><span data-en="© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009." data-zh="© 2025 YSE Finance 版权所有。依据2009年税务代理服务法注册。">© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009.</span></div>
+</div></footer>
+
+<script>
+  function toggle(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+  function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const en = el.getAttribute('data-en'), zh = el.getAttribute('data-zh');
+      if (lang === 'zh' && zh) el.innerHTML = zh;
+      else if (lang === 'en' && en) el.innerHTML = en;
+    });
+    document.querySelectorAll('.zh, .faq-q-zh').forEach(el => { el.style.display = lang === 'zh' ? 'block' : 'none'; });
+  }
+  document.querySelectorAll('.zh, .faq-q-zh').forEach(el => el.style.display = 'none');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); obs.unobserve(e.target); } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

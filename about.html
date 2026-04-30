@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | YSE Finance | Sydney Tax Agent</title>
+<meta name="description" content="Meet Lawrence Yi — Licensed Sydney Tax Agent at YSE Finance. Helping individuals and small businesses with tax since 2015. Bilingual English & Mandarin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2a4a;
+    --navy-mid: #163d6e;
+    --navy-light: #1e4f8c;
+    --orange: #e8793a;
+    --orange-light: #f5a06a;
+    --cream: #faf7f2;
+    --white: #ffffff;
+    --gray: #8a8fa0;
+    --text: #1a2332;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', 'Noto Sans SC', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+  /* LANG BAR */
+  .lang-bar { background: var(--navy); padding: 8px 0; text-align: right; }
+  .lang-bar .inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  .lang-btn { background: none; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); padding: 4px 14px; border-radius: 20px; cursor: pointer; font-size: 12px; font-family: inherit; margin-left: 8px; transition: all 0.2s; }
+  .lang-btn.active, .lang-btn:hover { background: var(--orange); border-color: var(--orange); color: white; }
+
+  /* NAV */
+  nav { background: var(--navy); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(13,42,74,0.3); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 40px; height: 40px; background: linear-gradient(135deg, var(--orange), var(--orange-light)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; color: white; font-size: 18px; }
+  .logo-text { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: white; }
+  .logo-sub { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-top: -2px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--orange-light); }
+  .nav-cta { background: var(--orange) !important; color: white !important; padding: 9px 22px; border-radius: 6px; font-weight: 600 !important; }
+  .nav-cta:hover { background: var(--orange-light) !important; }
+
+  /* PAGE HERO */
+  .page-hero { background: var(--navy); padding: 72px 32px 64px; position: relative; overflow: hidden; }
+  .page-hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 50% 100% at 80% 50%, rgba(30,79,140,0.5) 0%, transparent 70%), radial-gradient(ellipse 30% 60% at 10% 80%, rgba(232,121,58,0.1) 0%, transparent 60%); }
+  .page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; }
+  .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 13px; color: rgba(255,255,255,0.4); }
+  .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--orange-light); }
+  .breadcrumb span { color: var(--orange-light); }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; color: white; line-height: 1.15; margin-bottom: 16px; }
+  .page-hero h1 .accent { color: var(--orange-light); }
+  .page-hero p { color: rgba(255,255,255,0.6); font-size: 16px; max-width: 560px; line-height: 1.7; }
+  .page-hero p .zh { font-family: 'Noto Sans SC', sans-serif; font-size: 15px; }
+
+  /* SECTIONS */
+  section { padding: 80px 32px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 12px; }
+  .section-sub { color: var(--gray); font-size: 15px; line-height: 1.7; max-width: 560px; }
+
+  /* PROFILE */
+  .profile { background: white; }
+  .profile-grid { display: grid; grid-template-columns: 380px 1fr; gap: 72px; align-items: start; margin-top: 56px; }
+  .profile-card { background: var(--cream); border-radius: 20px; overflow: hidden; border: 1px solid rgba(13,42,74,0.07); position: sticky; top: 100px; }
+  .profile-photo { background: linear-gradient(135deg, var(--navy), var(--navy-light)); height: 280px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .profile-photo-placeholder { font-size: 100px; opacity: 0.3; }
+  .profile-photo-label { position: absolute; bottom: 16px; left: 16px; background: var(--orange); color: white; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; }
+  .profile-details { padding: 28px; }
+  .profile-name { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .profile-title { color: var(--orange); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 20px; }
+  .profile-badges { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  .profile-badge { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #4a5568; }
+  .profile-badge .icon { width: 28px; height: 28px; background: rgba(232,121,58,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .profile-contact { border-top: 1px solid rgba(13,42,74,0.07); padding-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .profile-contact a { display: flex; align-items: center; gap: 10px; color: var(--navy-mid); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
+  .profile-contact a:hover { color: var(--orange); }
+
+  .profile-content h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 20px; }
+  .profile-content p { color: #4a5568; font-size: 15px; line-height: 1.8; margin-bottom: 18px; }
+  .profile-content p .zh { font-family: 'Noto Sans SC', sans-serif; font-size: 14px; }
+  .profile-content p:last-child { margin-bottom: 0; }
+
+  .highlight-box { background: var(--navy); border-radius: 16px; padding: 28px 32px; margin: 32px 0; }
+  .highlight-box p { color: rgba(255,255,255,0.75) !important; font-style: italic; font-size: 17px !important; line-height: 1.7 !important; margin: 0 !important; }
+  .highlight-box p::before { content: '"'; color: var(--orange); font-family: 'Playfair Display', serif; font-size: 48px; line-height: 0; vertical-align: -18px; margin-right: 4px; }
+
+  /* CREDENTIALS */
+  .credentials { background: var(--cream); }
+  .cred-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .cred-card { background: white; border-radius: 16px; padding: 28px 26px; border: 1px solid rgba(13,42,74,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+  .cred-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(13,42,74,0.08); }
+  .cred-icon { width: 52px; height: 52px; background: linear-gradient(135deg, var(--navy), var(--navy-light)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px; }
+  .cred-card h3 { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .cred-card .zh-label { font-family: 'Noto Sans SC', sans-serif; font-size: 12px; color: var(--orange); font-weight: 500; margin-bottom: 10px; }
+  .cred-card p { color: var(--gray); font-size: 13px; line-height: 1.65; }
+
+  /* VALUES */
+  .values { background: white; }
+  .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; }
+  .value-item { display: flex; gap: 20px; align-items: flex-start; }
+  .value-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: rgba(13,42,74,0.07); line-height: 1; flex-shrink: 0; width: 48px; }
+  .value-content h3 { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .value-content .zh-label { font-family: 'Noto Sans SC', sans-serif; font-size: 12px; color: var(--orange); font-weight: 500; margin-bottom: 8px; }
+  .value-content p { color: var(--gray); font-size: 14px; line-height: 1.65; }
+
+  /* CTA BAND */
+  .cta-band { background: var(--navy); padding: 72px 32px; }
+  .cta-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+  .cta-inner h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px); font-weight: 700; color: white; margin-bottom: 16px; }
+  .cta-inner p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 32px; line-height: 1.7; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--orange); color: white; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.2s; }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,121,58,0.35); }
+  .btn-secondary { background: rgba(255,255,255,0.08); color: white; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 15px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+
+  /* FOOTER */
+  footer { background: #071a2e; padding: 40px 32px; text-align: center; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: white; font-weight: 600; margin-bottom: 8px; }
+  .footer-tagline { color: rgba(255,255,255,0.4); font-size: 13px; margin-bottom: 20px; }
+  .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; color: rgba(255,255,255,0.25); font-size: 12px; }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .profile-grid { grid-template-columns: 1fr; }
+    .profile-card { position: static; }
+    .cred-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+    section { padding: 56px 20px; }
+    .page-hero { padding: 56px 20px 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <div class="inner">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('zh')">中文</button>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">Y</div>
+      <div>
+        <div class="logo-text">YSE Finance</div>
+        <span class="logo-sub">Sydney Tax Agent</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-zh="首页">Home</a></li>
+      <li><a href="services.html" data-en="Services" data-zh="服务项目">Services</a></li>
+      <li><a href="about.html" class="active" data-en="About" data-zh="关于我们">About</a></li>
+      <li><a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a></li>
+      <li><a href="index.html#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <span>›</span>
+      <span data-en="About Us" data-zh="关于我们">About Us</span>
+    </div>
+    <h1>
+      <span data-en="The Person Behind" data-zh="专业背后的">The Person Behind</span><br>
+      <span class="accent" data-en="Your Tax Return" data-zh="那个用心的人">Your Tax Return</span>
+    </h1>
+    <p>
+      <span data-en="A licensed tax agent who genuinely cares about getting the best outcome for every client." data-zh="">A licensed tax agent who genuinely cares about getting the best outcome for every client.</span>
+      <span class="zh" data-en="" data-zh="持牌税务代理，用心为每一位客户争取最佳结果。">持牌税务代理，用心为每一位客户争取最佳结果。</span>
+    </p>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<section class="profile">
+  <div class="section-inner">
+    <div class="profile-grid">
+      <div class="profile-card fade-up">
+        <div class="profile-photo">
+          <div class="profile-photo-placeholder">👤</div>
+          <div class="profile-photo-label" data-en="Registered Tax Agent" data-zh="注册税务代理">Registered Tax Agent</div>
+        </div>
+        <div class="profile-details">
+          <div class="profile-name">Lawrence Yi</div>
+          <div class="profile-title" data-en="Founder & Principal Tax Agent · YSE Finance" data-zh="创始人 & 首席税务代理 · YSE Finance">Founder & Principal Tax Agent · YSE Finance</div>
+          <div class="profile-badges">
+            <div class="profile-badge"><div class="icon">🎓</div><span data-en="Bachelor of Commerce (Accounting)" data-zh="商学士（会计）">Bachelor of Commerce (Accounting)</span></div>
+            <div class="profile-badge"><div class="icon">📋</div><span data-en="Registered Tax Agent — TASA 2009" data-zh="注册税务代理 — TASA 2009">Registered Tax Agent — TASA 2009</span></div>
+            <div class="profile-badge"><div class="icon">📍</div><span data-en="Based in Sydney, NSW" data-zh="悉尼，新南威尔士州">Based in Sydney, NSW</span></div>
+            <div class="profile-badge"><div class="icon">💬</div><span data-en="English & Mandarin Chinese" data-zh="英语 & 普通话">English & Mandarin Chinese</span></div>
+          </div>
+          <div class="profile-contact">
+            <a href="mailto:lawrence.yi@ysefinance.com.au">✉️ lawrence.yi@ysefinance.com.au</a>
+            <a href="https://ysefinance.com.au">🌐 ysefinance.com.au</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-content fade-up">
+        <h2 data-en="Hi, I'm Lawrence." data-zh="你好，我是Lawrence。">Hi, I'm Lawrence.</h2>
+        <p>
+          <span data-en="I founded YSE Finance because I saw a real gap in the market — people needed a tax agent who was not just technically excellent, but also genuinely easy to talk to. Too often, clients feel intimidated or confused by their accountant. I wanted to change that." data-zh="">I founded YSE Finance because I saw a real gap in the market — people needed a tax agent who was not just technically excellent, but also genuinely easy to talk to. Too often, clients feel intimidated or confused by their accountant. I wanted to change that.</span>
+          <span class="zh" data-en="" data-zh="我创立YSE Finance，是因为我看到市场上有一个真实的缺口——人们需要的不仅是技术过硬的税务代理，更需要一个真正好沟通的人。太多客户在面对会计师时感到紧张或困惑。我想改变这一点。">我创立YSE Finance，是因为我看到市场上有一个真实的缺口——人们需要的不仅是技术过硬的税务代理，更需要一个真正好沟通的人。太多客户在面对会计师时感到紧张或困惑。我想改变这一点。</span>
+        </p>
+
+        <div class="highlight-box">
+          <p data-en="Tax doesn't have to be stressful. My job is to make it simple, transparent, and even a little reassuring." data-zh="报税不必是一件令人压力山大的事。我的工作，就是让它变得简单、透明，甚至让你松一口气。">Tax doesn't have to be stressful. My job is to make it simple, transparent, and even a little reassuring.</p>
+        </div>
+
+        <p>
+          <span data-en="With a background in accounting and years of experience working with Sydney individuals and small businesses, I bring both technical depth and practical know-how to every engagement. Whether you're lodging a simple return or navigating complex investment structures, I give every client the same careful attention." data-zh="">With a background in accounting and years of experience working with Sydney individuals and small businesses, I bring both technical depth and practical know-how to every engagement.</span>
+          <span class="zh" data-en="" data-zh="凭借会计专业背景和多年服务悉尼个人及小企业的经验，我将深厚的专业知识和实际操作经验融入每一次服务。无论是简单的个人报税，还是复杂的投资结构，我都同样认真对待每一位客户。">凭借会计专业背景和多年服务悉尼个人及小企业的经验，我将深厚的专业知识和实际操作经验融入每一次服务。无论是简单的个人报税，还是复杂的投资结构，我都同样认真对待每一位客户。</span>
+        </p>
+        <p>
+          <span data-en="Being bilingual in English and Mandarin means I can serve both the local Australian community and the Chinese-speaking community in Sydney — without anyone feeling lost in translation." data-zh="">Being bilingual in English and Mandarin means I can serve both the local Australian community and the Chinese-speaking community in Sydney — without anyone feeling lost in translation.</span>
+          <span class="zh" data-en="" data-zh="中英双语的能力让我能够同时服务本地澳洲客户和悉尼华人社区——不再有语言障碍，沟通更顺畅，理解更到位。">中英双语的能力让我能够同时服务本地澳洲客户和悉尼华人社区——不再有语言障碍，沟通更顺畅，理解更到位。</span>
+        </p>
+        <p>
+          <span data-en="Outside of work, I'm passionate about financial education and helping people understand their rights and obligations as taxpayers. The more you know, the better decisions you can make — and I'm here to help with that." data-zh="">Outside of work, I'm passionate about financial education and helping people understand their rights and obligations as taxpayers.</span>
+          <span class="zh" data-en="" data-zh="工作之外，我热衷于财务教育，帮助大家了解自己作为纳税人的权利和义务。了解越多，决策越好——而我就在这里帮助你。">工作之外，我热衷于财务教育，帮助大家了解自己作为纳税人的权利和义务。了解越多，决策越好——而我就在这里帮助你。</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label" data-en="Qualifications" data-zh="资质认证">Qualifications</div>
+      <h2 class="section-title" data-en="Qualified. Registered. Trusted." data-zh="资质齐全，值得信赖。">Qualified. Registered. Trusted.</h2>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-card fade-up">
+        <div class="cred-icon">📋</div>
+        <h3 data-en="Registered Tax Agent" data-zh="注册税务代理">Registered Tax Agent</h3>
+        <div class="zh-label" data-en="" data-zh="合法注册">合法注册</div>
+        <p data-en="Fully registered with the Tax Practitioners Board under the Tax Agent Services Act 2009 (TASA). Your returns are in safe, compliant hands." data-zh="依据2009年税务代理服务法（TASA），在税务从业者委员会正式注册。您的申报由合规专业人士处理。">Fully registered with the Tax Practitioners Board under the Tax Agent Services Act 2009 (TASA). Your returns are in safe, compliant hands.</p>
+      </div>
+      <div class="cred-card fade-up">
+        <div class="cred-icon">🎓</div>
+        <h3 data-en="Accounting Degree" data-zh="会计学位">Accounting Degree</h3>
+        <div class="zh-label" data-en="" data-zh="专业学历">专业学历</div>
+        <p data-en="Bachelor of Commerce majoring in Accounting, providing a strong technical foundation in Australian tax law, financial reporting, and business structures." data-zh="商学士（会计专业），为澳大利亚税法、财务报告及商业结构奠定了扎实的技术基础。">Bachelor of Commerce majoring in Accounting, providing a strong technical foundation in Australian tax law, financial reporting, and business structures.</p>
+      </div>
+      <div class="cred-card fade-up">
+        <div class="cred-icon">📚</div>
+        <h3 data-en="Ongoing CPD Training" data-zh="持续专业发展">Ongoing CPD Training</h3>
+        <div class="zh-label" data-en="" data-zh="持续进修">持续进修</div>
+        <p data-en="Committed to continuous professional development — staying up to date with ATO changes, new legislation, and evolving best practices every year." data-zh="持续参与专业发展培训，每年跟进ATO最新变化、新法规及行业最佳实践，确保服务始终与时俱进。">Committed to continuous professional development — staying up to date with ATO changes, new legislation, and evolving best practices every year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label" data-en="Our Values" data-zh="我们的价值观">Our Values</div>
+      <h2 class="section-title" data-en="What We Stand For" data-zh="我们坚持的原则">What We Stand For</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-item fade-up">
+        <div class="value-num">01</div>
+        <div class="value-content">
+          <h3 data-en="Honesty Above All" data-zh="诚实为先">Honesty Above All</h3>
+          <div class="zh-label" data-en="" data-zh="诚信">诚信</div>
+          <p data-en="We'll always tell you what we can and can't do — no overpromising, no surprises on your bill." data-zh="我们始终如实告知能做和不能做的事——不夸大承诺，账单无惊喜。">We'll always tell you what we can and can't do — no overpromising, no surprises on your bill.</p>
+        </div>
+      </div>
+      <div class="value-item fade-up">
+        <div class="value-num">02</div>
+        <div class="value-content">
+          <h3 data-en="Your Goals, Our Priority" data-zh="以您为先">Your Goals, Our Priority</h3>
+          <div class="zh-label" data-en="" data-zh="客户至上">客户至上</div>
+          <p data-en="Every recommendation we make is in your best interest — legally, financially, and personally." data-zh="我们提出的每一条建议，都以您的最大利益为出发点——法律、财务、个人情况三者兼顾。">Every recommendation we make is in your best interest — legally, financially, and personally.</p>
+        </div>
+      </div>
+      <div class="value-item fade-up">
+        <div class="value-num">03</div>
+        <div class="value-content">
+          <h3 data-en="Clear Communication" data-zh="清晰沟通">Clear Communication</h3>
+          <div class="zh-label" data-en="" data-zh="透明沟通">透明沟通</div>
+          <p data-en="Plain language, clear timelines, and no jargon. You'll always know what's happening and why." data-zh="简单语言，明确时间线，不说行话。您始终清楚地了解发生了什么以及原因。">Plain language, clear timelines, and no jargon. You'll always know what's happening and why.</p>
+        </div>
+      </div>
+      <div class="value-item fade-up">
+        <div class="value-num">04</div>
+        <div class="value-content">
+          <h3 data-en="Attention to Detail" data-zh="精益求精">Attention to Detail</h3>
+          <div class="zh-label" data-en="" data-zh="细致入微">细致入微</div>
+          <p data-en="We review every return thoroughly — because small details can mean big differences in your refund." data-zh="我们对每份申报都进行仔细审查——因为细节上的差异，往往意味着退税金额的显著变化。">We review every return thoroughly — because small details can mean big differences in your refund.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-inner fade-up">
+    <h2 data-en="Ready to Work Together?" data-zh="准备好合作了吗？">Ready to Work Together?</h2>
+    <p>
+      <span data-en="Book a free, no-obligation consultation and let's talk about your tax situation." data-zh="">Book a free, no-obligation consultation and let's talk about your tax situation.</span>
+      <span class="zh" data-en="" data-zh="预约免费咨询，无需任何承诺，轻松聊聊您的税务情况。">预约免费咨询，无需任何承诺，轻松聊聊您的税务情况。</span>
+    </p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn-primary" data-en="📅 Book Free Consultation" data-zh="📅 预约免费咨询">📅 Book Free Consultation</a>
+      <a href="services.html" class="btn-secondary" data-en="View Our Services →" data-zh="查看服务项目 →">View Our Services →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">YSE Finance</div>
+    <div class="footer-tagline" data-en="Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin" data-zh="悉尼注册税务代理 · 个人及小企业 · 中英双语">Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin</div>
+    <div class="footer-links">
+      <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+      <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+      <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+      <a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a>
+      <a href="index.html#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+    <a href="privacy.html" data-en="Privacy" data-zh="隐私政策">Privacy</a>
+    </div>
+    <div class="footer-bottom">
+      <span data-en="© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009." data-zh="© 2025 YSE Finance 版权所有。依据2009年税务代理服务法注册。">© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let currentLang = 'en';
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const en = el.getAttribute('data-en');
+      const zh = el.getAttribute('data-zh');
+      if (lang === 'zh' && zh) el.innerHTML = zh;
+      else if (lang === 'en' && en) el.innerHTML = en;
+    });
+    document.querySelectorAll('.zh').forEach(el => { el.style.display = lang === 'zh' ? 'block' : 'none'; });
+  }
+  document.querySelectorAll('.zh').forEach(el => el.style.display = 'none');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
