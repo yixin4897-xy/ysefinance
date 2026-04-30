@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Novated Lease Calculator | YSE Finance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#0d2a4a; --navy-mid:#163d6e; --navy-light:#1e4f8c;
+    --orange:#e8793a; --orange-light:#f5a06a;
+    --cream:#faf7f2; --white:#fff; --gray:#8a8fa0; --text:#1a2332;
+    --green:#2d9d6e; --green-light:#5dd4a8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'DM Sans','Noto Sans SC',sans-serif; background:var(--cream); color:var(--text); }
+
+  .lang-bar { background:var(--navy); padding:8px 0; text-align:right; }
+  .lang-bar .inner { max-width:1100px; margin:0 auto; padding:0 32px; }
+  .lang-btn { background:none; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.7); padding:4px 14px; border-radius:20px; cursor:pointer; font-size:12px; font-family:inherit; margin-left:8px; transition:all 0.2s; }
+  .lang-btn.active,.lang-btn:hover { background:var(--orange); border-color:var(--orange); color:white; }
+  nav { background:var(--navy); position:sticky; top:0; z-index:100; box-shadow:0 2px 20px rgba(13,42,74,0.3); }
+  .nav-inner { max-width:1100px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .logo-mark { width:40px; height:40px; background:linear-gradient(135deg,var(--orange),var(--orange-light)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; color:white; font-size:18px; }
+  .logo-text { font-family:'Playfair Display',serif; font-size:20px; font-weight:600; color:white; }
+  .logo-sub { font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; display:block; margin-top:-2px; }
+  .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+  .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--orange-light); }
+  .nav-cta { background:var(--orange)!important; color:white!important; padding:9px 22px; border-radius:6px; font-weight:600!important; }
+
+  .page-hero { background:var(--navy); padding:56px 32px 48px; position:relative; overflow:hidden; }
+  .page-hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 50% 100% at 80% 50%,rgba(30,79,140,0.5) 0%,transparent 70%); }
+  .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:60px 60px; }
+  .page-hero-inner { max-width:1100px; margin:0 auto; position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+  .breadcrumb { font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:12px; }
+  .breadcrumb a { color:rgba(255,255,255,0.4); text-decoration:none; }
+  .breadcrumb span { color:var(--orange-light); }
+  .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(28px,3.5vw,44px); font-weight:700; color:white; margin-bottom:8px; }
+  .page-hero h1 .accent { color:var(--orange-light); }
+  .page-hero p { color:rgba(255,255,255,0.55); font-size:15px; max-width:480px; line-height:1.65; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(45,157,110,0.2); border:1px solid rgba(45,157,110,0.4); color:#5dd4a8; padding:6px 16px; border-radius:20px; font-size:12px; font-weight:600; margin-bottom:16px; }
+
+  .calc-wrap { max-width:1100px; margin:0 auto; padding:48px 32px; display:grid; grid-template-columns:1fr 380px; gap:32px; align-items:start; }
+
+  .calc-card { background:white; border-radius:24px; padding:36px; border:1px solid rgba(13,42,74,0.07); box-shadow:0 4px 24px rgba(13,42,74,0.06); }
+  .calc-card h2 { font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); margin-bottom:6px; }
+  .calc-card .subtitle { color:var(--gray); font-size:13px; margin-bottom:28px; }
+
+  /* EV TOGGLE BANNER */
+  .ev-banner { background:linear-gradient(135deg,rgba(45,157,110,0.1),rgba(45,157,110,0.05)); border:1.5px solid rgba(45,157,110,0.25); border-radius:12px; padding:14px 18px; margin-bottom:24px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .ev-banner-text { font-size:13px; color:var(--green); font-weight:600; }
+  .ev-banner-sub { font-size:12px; color:var(--gray); display:block; margin-top:2px; }
+  .toggle { position:relative; width:44px; height:24px; flex-shrink:0; }
+  .toggle input { opacity:0; width:0; height:0; }
+  .toggle-slider { position:absolute; inset:0; background:#d0d5e0; border-radius:12px; cursor:pointer; transition:0.3s; }
+  .toggle-slider::before { content:''; position:absolute; width:18px; height:18px; left:3px; top:3px; background:white; border-radius:50%; transition:0.3s; box-shadow:0 1px 4px rgba(0,0,0,0.2); }
+  .toggle input:checked + .toggle-slider { background:var(--green); }
+  .toggle input:checked + .toggle-slider::before { transform:translateX(20px); }
+
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:20px; }
+  .form-row { display:flex; flex-direction:column; gap:6px; }
+  .form-row.full { grid-column:1/-1; }
+  .form-row label { font-size:12px; font-weight:600; color:var(--navy); letter-spacing:0.5px; text-transform:uppercase; }
+  .form-row label small { font-size:10px; color:var(--gray); font-weight:400; text-transform:none; letter-spacing:0; margin-left:4px; }
+  .input-wrap { position:relative; }
+  .input-prefix { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--gray); font-size:14px; font-weight:500; }
+  .input-suffix { position:absolute; right:14px; top:50%; transform:translateY(-50%); color:var(--gray); font-size:13px; }
+  .form-row input, .form-row select {
+    width:100%; padding:12px 40px 12px 32px; border:1.5px solid rgba(13,42,74,0.12);
+    border-radius:10px; font-family:inherit; font-size:15px; color:var(--text);
+    background:var(--cream); transition:border-color 0.2s, box-shadow 0.2s; outline:none;
+  }
+  .form-row select { padding-left:16px; padding-right:16px; }
+  .form-row input:focus, .form-row select:focus { border-color:var(--orange); box-shadow:0 0 0 3px rgba(232,121,58,0.12); background:white; }
+
+  .section-divider { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--orange); font-weight:600; margin:24px 0 16px; padding-bottom:8px; border-bottom:1px solid rgba(232,121,58,0.2); }
+
+  .calc-btn { width:100%; background:linear-gradient(135deg,var(--navy),var(--navy-light)); color:white; border:none; padding:16px; border-radius:12px; font-family:inherit; font-size:16px; font-weight:600; cursor:pointer; transition:all 0.2s; letter-spacing:0.3px; margin-top:4px; }
+  .calc-btn:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(13,42,74,0.25); }
+  .reset-btn { width:100%; background:transparent; color:var(--gray); border:1.5px solid rgba(13,42,74,0.12); padding:12px; border-radius:12px; font-family:inherit; font-size:14px; cursor:pointer; margin-top:10px; transition:all 0.2s; }
+  .reset-btn:hover { border-color:var(--orange); color:var(--orange); }
+
+  /* RESULTS */
+  .result-card { background:white; border-radius:24px; padding:32px; border:1px solid rgba(13,42,74,0.07); box-shadow:0 4px 24px rgba(13,42,74,0.06); position:sticky; top:90px; }
+  .result-card h3 { font-family:'Playfair Display',serif; font-size:20px; color:var(--navy); margin-bottom:20px; }
+  .result-empty { text-align:center; padding:32px 16px; color:var(--gray); }
+  .result-empty .icon { font-size:40px; margin-bottom:12px; opacity:0.4; }
+  .result-empty p { font-size:14px; line-height:1.6; }
+
+  .savings-hero { background:linear-gradient(135deg,var(--green),#1a7a52); border-radius:16px; padding:24px; margin-bottom:20px; text-align:center; }
+  .savings-hero .label { color:rgba(255,255,255,0.7); font-size:11px; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+  .savings-hero .amount { font-family:'Playfair Display',serif; font-size:38px; font-weight:700; color:white; }
+  .savings-hero .sub { color:rgba(255,255,255,0.6); font-size:12px; margin-top:6px; }
+
+  .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
+  .compare-box { border-radius:12px; padding:16px; text-align:center; }
+  .compare-box.standard { background:rgba(232,121,58,0.08); border:1.5px solid rgba(232,121,58,0.2); }
+  .compare-box.novated { background:rgba(45,157,110,0.08); border:1.5px solid rgba(45,157,110,0.2); }
+  .compare-box .clabel { font-size:11px; font-weight:600; letter-spacing:0.5px; margin-bottom:6px; }
+  .compare-box.standard .clabel { color:var(--orange); }
+  .compare-box.novated .clabel { color:var(--green); }
+  .compare-box .camount { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; }
+  .compare-box.standard .camount { color:var(--orange); }
+  .compare-box.novated .camount { color:var(--green); }
+  .compare-box .csub { font-size:11px; color:var(--gray); margin-top:3px; }
+
+  .result-rows { display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+  .result-row { display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:var(--cream); border-radius:8px; }
+  .result-row .rlabel { font-size:12px; color:#4a5568; }
+  .result-row .rval { font-size:13px; font-weight:600; color:var(--navy); }
+  .result-row .rval.green { color:var(--green); }
+  .result-row .rval.orange { color:var(--orange); }
+
+  .ev-saving-note { background:linear-gradient(135deg,rgba(45,157,110,0.12),rgba(45,157,110,0.06)); border:1.5px solid rgba(45,157,110,0.25); border-radius:10px; padding:12px 14px; font-size:12px; color:var(--green); font-weight:500; margin-bottom:12px; line-height:1.6; display:none; }
+  .disclaimer { background:rgba(232,121,58,0.07); border-left:3px solid var(--orange); border-radius:0 8px 8px 0; padding:12px 14px; font-size:12px; color:#6b7280; line-height:1.6; }
+
+  .info-cards { display:flex; flex-direction:column; gap:16px; margin-top:32px; }
+  .info-card { background:white; border-radius:16px; padding:22px; border:1px solid rgba(13,42,74,0.07); }
+  .info-card h4 { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .info-card p { font-size:13px; color:var(--gray); line-height:1.65; }
+
+  .cta-band { background:var(--navy); padding:56px 32px; margin-top:16px; }
+  .cta-inner { max-width:700px; margin:0 auto; text-align:center; }
+  .cta-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(22px,3vw,34px); font-weight:700; color:white; margin-bottom:12px; }
+  .cta-inner p { color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:24px; }
+  .btn-primary { background:var(--orange); color:white; padding:13px 28px; border-radius:8px; text-decoration:none; font-weight:600; font-size:15px; transition:all 0.2s; display:inline-block; }
+  .btn-primary:hover { background:var(--orange-light); transform:translateY(-1px); }
+
+  footer { background:#071a2e; padding:32px; text-align:center; }
+  .footer-logo { font-family:'Playfair Display',serif; font-size:20px; color:white; font-weight:600; margin-bottom:6px; }
+  .footer-links { display:flex; gap:20px; justify-content:center; margin:14px 0; flex-wrap:wrap; }
+  .footer-links a { color:rgba(255,255,255,0.45); text-decoration:none; font-size:12px; }
+  .footer-links a:hover { color:var(--orange-light); }
+  .footer-bottom { color:rgba(255,255,255,0.2); font-size:11px; border-top:1px solid rgba(255,255,255,0.05); padding-top:14px; margin-top:8px; }
+
+  @media(max-width:768px) {
+    .calc-wrap { grid-template-columns:1fr; padding:24px 16px; }
+    .form-grid { grid-template-columns:1fr; }
+    .result-card { position:static; }
+    .compare-grid { grid-template-columns:1fr; }
+    nav .nav-links { display:none; }
+    .page-hero { padding:40px 20px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-bar"><div class="inner">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div></div>
+
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">Y</div>
+    <div><div class="logo-text">YSE Finance</div><span class="logo-sub">Sydney Tax Agent</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="Home" data-zh="首页">Home</a></li>
+    <li><a href="services.html" data-en="Services" data-zh="服务">Services</a></li>
+    <li><a href="about.html" data-en="About" data-zh="关于">About</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+  </ul>
+</div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div>
+      <div class="breadcrumb"><a href="index.html">Home</a> › <a href="index.html#tools">Tools</a> › <span data-en="Novated Lease Calculator" data-zh="Novated Lease计算器">Novated Lease Calculator</span></div>
+      <h1><span class="accent" data-en="Novated Lease " data-zh="Novated Lease ">Novated Lease </span><span data-en="Calculator" data-zh="计算器">Calculator</span></h1>
+      <p data-en="See exactly how much you could save by salary packaging your next car. Compare novated lease vs standard car loan side by side." data-zh="清晰了解通过薪资打包购车可节省多少费用。并排比较Novated Lease与普通车贷。">See exactly how much you could save by salary packaging your next car. Compare novated lease vs standard car loan side by side.</p>
+    </div>
+    <div class="hero-badge">✓ <span data-en="Free Tool — No Sign-up" data-zh="免费工具 — 无需注册">Free Tool — No Sign-up</span></div>
+  </div>
+</div>
+
+<div class="calc-wrap">
+  <div>
+    <div class="calc-card">
+      <h2 data-en="Calculate Your Savings" data-zh="计算您的节省金额">Calculate Your Savings</h2>
+      <p class="subtitle" data-en="Based on ATO 2024–25 tax rates. FBT rate: 47%." data-zh="基于ATO 2024-25税率。FBT税率：47%。">Based on ATO 2024–25 tax rates. FBT rate: 47%.</p>
+
+      <div class="ev-banner">
+        <div>
+          <div class="ev-banner-text">🔋 <span data-en="Electric Vehicle?" data-zh="电动车？">Electric Vehicle?</span></div>
+          <small class="ev-banner-sub" data-en="EVs under $89,332 are exempt from FBT — massive extra savings!" data-zh="售价低于$89,332的电动车免征FBT——额外节省大量税款！">EVs under $89,332 are exempt from FBT — massive extra savings!</small>
+        </div>
+        <label class="toggle"><input type="checkbox" id="isEV" onchange="toggleEV()"><span class="toggle-slider"></span></label>
+      </div>
+
+      <div class="section-divider" data-en="YOUR DETAILS" data-zh="您的个人信息">YOUR DETAILS</div>
+      <div class="form-grid">
+        <div class="form-row full">
+          <label data-en="Annual Gross Salary" data-zh="年度税前薪资">Annual Gross Salary</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="salary" placeholder="e.g. 100000" min="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider" data-en="VEHICLE DETAILS" data-zh="车辆信息">VEHICLE DETAILS</div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label data-en="Vehicle Price (incl. GST)" data-zh="车辆价格（含GST）">Vehicle Price (incl. GST)</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="carPrice" placeholder="e.g. 45000" min="0">
+          </div>
+        </div>
+        <div class="form-row">
+          <label data-en="Lease Term" data-zh="租期">Lease Term</label>
+          <select id="leaseTerm">
+            <option value="1">1 year</option>
+            <option value="2">2 years</option>
+            <option value="3" selected>3 years</option>
+            <option value="4">4 years</option>
+            <option value="5">5 years</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label data-en="Annual KMs" data-zh="年行驶公里数">Annual KMs</label>
+          <select id="annualKms">
+            <option value="10000">10,000 km</option>
+            <option value="15000" selected>15,000 km</option>
+            <option value="20000">20,000 km</option>
+            <option value="25000">25,000 km</option>
+            <option value="30000">30,000 km</option>
+            <option value="40000">40,000 km</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label data-en="Interest Rate" data-zh="利率">Interest Rate <small data-en="(lease/loan)" data-zh="（租赁/贷款）">(lease/loan)</small></label>
+          <div class="input-wrap">
+            <input type="number" id="interestRate" placeholder="e.g. 7.5" value="7.5" min="0" max="30" step="0.1" style="padding-left:16px;">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+        <div class="form-row full">
+          <label data-en="Running Costs Included in Lease" data-zh="包含在租约中的运营费用">Running Costs Included in Lease <small data-en="(fuel, insurance, rego, servicing)" data-zh="（油费、保险、注册费、保养）">(fuel, insurance, rego, servicing)</small></label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="runningCosts" placeholder="e.g. 5000" value="5000" min="0">
+          </div>
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()" data-en="Calculate My Savings →" data-zh="计算我的节省金额 →">Calculate My Savings →</button>
+      <button class="reset-btn" onclick="resetForm()" data-en="Reset" data-zh="重置">Reset</button>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <h4>🚗 <span data-en="What is a Novated Lease?" data-zh="什么是Novated Lease？">What is a Novated Lease?</span></h4>
+        <p data-en="A novated lease is a three-way arrangement between you, your employer, and a leasing company. Your employer deducts lease payments from your pre-tax salary, reducing your taxable income — so you pay less tax overall." data-zh="Novated Lease是您、雇主和租赁公司之间的三方安排。您的雇主从税前薪资中扣除租赁付款，降低您的应税收入——从而整体少缴税款。">A novated lease is a three-way arrangement between you, your employer, and a leasing company. Your employer deducts lease payments from your pre-tax salary, reducing your taxable income — so you pay less tax overall.</p>
+      </div>
+      <div class="info-card">
+        <h4>🔋 <span data-en="EV FBT Exemption (from 1 July 2022)" data-zh="电动车FBT豁免（从2022年7月1日起）">EV FBT Exemption (from 1 July 2022)</span></h4>
+        <p data-en="Battery electric vehicles, plug-in hybrids, and hydrogen fuel cell vehicles under the luxury car tax threshold are fully exempt from Fringe Benefits Tax. This makes EVs dramatically cheaper via novated lease — often saving an extra $5,000–$15,000+ over the lease term." data-zh="售价低于豪华车税门槛的纯电动、插电式混合动力和氢燃料电池车辆完全免征附带福利税。这使得电动车通过Novated Lease购买的费用大幅降低——在租期内通常额外节省$5,000–$15,000+。">Battery electric vehicles, plug-in hybrids, and hydrogen fuel cell vehicles under the luxury car tax threshold are fully exempt from FBT. This makes EVs dramatically cheaper via novated lease.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="result-card">
+    <h3 data-en="Your Estimated Savings" data-zh="您的预计节省金额">Your Estimated Savings</h3>
+    <div id="resultArea">
+      <div class="result-empty">
+        <div class="icon">🚗</div>
+        <p data-en="Enter your salary and vehicle details, then click Calculate to see your estimated savings." data-zh="输入您的薪资和车辆信息，然后点击计算查看预计节省金额。">Enter your salary and vehicle details, then click Calculate to see your estimated savings.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <h2 data-en="Want a Personalised Analysis?" data-zh="想要个性化分析？">Want a Personalised Analysis?</h2>
+    <p data-en="This calculator gives a useful estimate — but your actual savings depend on your employer's FBT arrangements and specific lease terms. Lawrence can run the exact numbers for you." data-zh="此计算器提供有用的估算——但您的实际节省取决于雇主的FBT安排和具体租赁条款。Lawrence可以为您精确计算。">This calculator gives a useful estimate — but your actual savings depend on your employer's FBT arrangements and specific lease terms. Lawrence can run the exact numbers for you.</p>
+    <a href="index.html#contact" class="btn-primary" data-en="📅 Book Free Consultation" data-zh="📅 预约免费咨询">📅 Book Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">YSE Finance</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a>
+    <a href="faq.html">FAQ</a><a href="cgt-calculator.html">CGT Calculator</a><a href="privacy.html">Privacy</a>
+  </div>
+  <div class="footer-bottom">© 2025 YSE Finance. Registered Tax Agent under TASA 2009. This calculator provides estimates only and does not constitute financial advice.</div>
+</footer>
+
+<script>
+function n(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function fmtAUD(v) { return '$' + Math.abs(v).toLocaleString('en-AU', {minimumFractionDigits:0, maximumFractionDigits:0}); }
+
+function toggleEV() {
+  const isEV = document.getElementById('isEV').checked;
+  document.querySelector('.ev-banner').style.background = isEV
+    ? 'linear-gradient(135deg,rgba(45,157,110,0.2),rgba(45,157,110,0.1))'
+    : 'linear-gradient(135deg,rgba(45,157,110,0.1),rgba(45,157,110,0.05))';
+}
+
+// ATO 2024-25 tax
+function calcTax(income) {
+  if (income <= 18200) return 0;
+  if (income <= 45000) return (income - 18200) * 0.19;
+  if (income <= 120000) return 5092 + (income - 45000) * 0.325;
+  if (income <= 180000) return 29467 + (income - 120000) * 0.37;
+  return 51667 + (income - 180000) * 0.45;
+}
+function getMedicare(income) { return income > 26000 ? income * 0.02 : 0; }
+
+function calculate() {
+  const salary = n('salary');
+  const carPrice = n('carPrice');
+  const term = parseInt(document.getElementById('leaseTerm').value);
+  const annualKms = parseInt(document.getElementById('annualKms').value);
+  const rate = n('interestRate') / 100;
+  const runningCosts = n('runningCosts');
+  const isEV = document.getElementById('isEV').checked;
+
+  if (!salary || !carPrice) {
+    alert('Please enter your salary and vehicle price.');
+    return;
+  }
+
+  // Estimate annual lease payment (simple annuity)
+  const residualPct = term === 1 ? 0.65 : term === 2 ? 0.57 : term === 3 ? 0.46 : term === 4 ? 0.37 : 0.28;
+  const residual = carPrice * residualPct;
+  const leasedAmount = carPrice - residual / Math.pow(1 + rate, term);
+  const monthlyRate = rate / 12;
+  const n_months = term * 12;
+  const monthlyPayment = leasedAmount * (monthlyRate * Math.pow(1+monthlyRate,n_months)) / (Math.pow(1+monthlyRate,n_months)-1);
+  const annualLeasePayment = monthlyPayment * 12;
+
+  // FBT calculation (statutory formula method)
+  const statutoryPct = annualKms < 15000 ? 0.20 : annualKms < 25000 ? 0.20 : annualKms < 40000 ? 0.20 : 0.20;
+  const fbtBase = carPrice * statutoryPct;
+  const annualFBT = isEV ? 0 : fbtBase * 0.47;
+  const annualFBTGrossUp = isEV ? 0 : fbtBase * 2.0802 * 0.47; // Type 2 gross up
+
+  // Total annual novated cost (pre-tax + post-tax FBT portion)
+  const totalAnnualNovated = annualLeasePayment + runningCosts + annualFBTGrossUp;
+
+  // Tax with novated lease (salary reduced by pre-tax component)
+  const preTaxDeduction = annualLeasePayment + runningCosts;
+  const reducedSalary = Math.max(salary - preTaxDeduction, 0);
+  const taxNovated = calcTax(reducedSalary) + getMedicare(reducedSalary) + annualFBTGrossUp;
+
+  // Tax without novated lease (standard)
+  const taxStandard = calcTax(salary) + getMedicare(salary);
+
+  // Standard car loan repayment (same car price, same rate, same term)
+  const stdMonthly = carPrice * (monthlyRate * Math.pow(1+monthlyRate,n_months)) / (Math.pow(1+monthlyRate,n_months)-1);
+  const annualStdLoan = stdMonthly * 12;
+  const totalAnnualStandard = annualStdLoan + runningCosts + (taxStandard - calcTax(salary - annualStdLoan - runningCosts) - getMedicare(salary - annualStdLoan - runningCosts));
+
+  // Net after-tax cost comparison
+  const netNovatedCost = reducedSalary - (calcTax(reducedSalary) + getMedicare(reducedSalary)) + annualFBTGrossUp - (salary - taxStandard);
+  // Simpler: annual out-of-pocket
+  const takeHomeStandard = salary - taxStandard;
+  const takeHomeNovated = reducedSalary - (calcTax(reducedSalary) + getMedicare(reducedSalary));
+  const taxSavingAnnual = taxStandard - (calcTax(reducedSalary) + getMedicare(reducedSalary)) - annualFBTGrossUp;
+  const totalSavings = Math.max(taxSavingAnnual * term, 0);
+
+  const evNote = isEV ? `<div class="ev-saving-note" style="display:block;">🔋 EV FBT Exemption applied — saving approx. ${fmtAUD(annualFBTGrossUp * term)} in FBT over ${term} years!</div>` : '';
+
+  const html = `
+    <div class="savings-hero">
+      <div class="label">ESTIMATED TAX SAVING</div>
+      <div class="amount">${fmtAUD(totalSavings)}</div>
+      <div class="sub">Over ${term} year${term>1?'s':''} vs standard car loan</div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-box standard">
+        <div class="clabel">STANDARD LOAN</div>
+        <div class="camount">${fmtAUD(annualStdLoan + runningCosts)}</div>
+        <div class="csub">Annual cost (after-tax $)</div>
+      </div>
+      <div class="compare-box novated">
+        <div class="clabel">NOVATED LEASE</div>
+        <div class="camount">${fmtAUD(annualLeasePayment + runningCosts + annualFBTGrossUp)}</div>
+        <div class="csub">Annual cost (pre-tax $)</div>
+      </div>
+    </div>
+    ${evNote}
+    <div class="result-rows">
+      <div class="result-row"><span class="rlabel">Your Gross Salary</span><span class="rval">${fmtAUD(salary)}</span></div>
+      <div class="result-row"><span class="rlabel">Pre-tax Deduction (annual)</span><span class="rval orange">− ${fmtAUD(preTaxDeduction)}</span></div>
+      <div class="result-row"><span class="rlabel">Reduced Taxable Income</span><span class="rval">${fmtAUD(reducedSalary)}</span></div>
+      <div class="result-row"><span class="rlabel">Annual Tax Saving</span><span class="rval green">${fmtAUD(Math.max(taxSavingAnnual,0))}</span></div>
+      ${isEV ? '' : `<div class="result-row"><span class="rlabel">Annual FBT Cost</span><span class="rval orange">${fmtAUD(annualFBTGrossUp)}</span></div>`}
+      <div class="result-row" style="border-top:2px solid rgba(13,42,74,0.08);margin-top:4px;padding-top:12px;"><span class="rlabel" style="font-weight:700;color:var(--navy)">Total Saving (${term}yr)</span><span class="rval" style="font-size:16px;color:var(--green)">${fmtAUD(totalSavings)}</span></div>
+    </div>
+    <div class="disclaimer">⚠️ <strong>Estimate only.</strong> Actual savings depend on your employer's FBT arrangement, lease provider terms, and individual tax circumstances. This does not constitute financial advice.</div>
+  `;
+
+  document.getElementById('resultArea').innerHTML = html;
+}
+
+function resetForm() {
+  document.getElementById('salary').value = '';
+  document.getElementById('carPrice').value = '';
+  document.getElementById('leaseTerm').value = '3';
+  document.getElementById('annualKms').value = '15000';
+  document.getElementById('interestRate').value = '7.5';
+  document.getElementById('runningCosts').value = '5000';
+  document.getElementById('isEV').checked = false;
+  document.getElementById('resultArea').innerHTML = `<div class="result-empty"><div class="icon">🚗</div><p>Enter your salary and vehicle details, then click Calculate to see your estimated savings.</p></div>`;
+}
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const en = el.getAttribute('data-en'), zh = el.getAttribute('data-zh');
+    if (lang === 'zh' && zh) el.innerHTML = zh;
+    else if (lang === 'en' && en) el.innerHTML = en;
+  });
+  document.querySelectorAll('option[data-en]').forEach(el => {
+    const en = el.getAttribute('data-en'), zh = el.getAttribute('data-zh');
+    if (lang === 'zh' && zh) el.textContent = zh;
+    else if (lang === 'en' && en) el.textContent = en;
+  });
+}
+</script>
+</body>
+</html>

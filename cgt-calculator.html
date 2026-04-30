@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGT Calculator | YSE Finance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#0d2a4a; --navy-mid:#163d6e; --navy-light:#1e4f8c;
+    --orange:#e8793a; --orange-light:#f5a06a;
+    --cream:#faf7f2; --white:#fff; --gray:#8a8fa0; --text:#1a2332;
+    --green:#2d9d6e; --red:#e05252;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'DM Sans','Noto Sans SC',sans-serif; background:var(--cream); color:var(--text); }
+
+  /* NAV */
+  .lang-bar { background:var(--navy); padding:8px 0; text-align:right; }
+  .lang-bar .inner { max-width:1100px; margin:0 auto; padding:0 32px; }
+  .lang-btn { background:none; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.7); padding:4px 14px; border-radius:20px; cursor:pointer; font-size:12px; font-family:inherit; margin-left:8px; transition:all 0.2s; }
+  .lang-btn.active,.lang-btn:hover { background:var(--orange); border-color:var(--orange); color:white; }
+  nav { background:var(--navy); position:sticky; top:0; z-index:100; box-shadow:0 2px 20px rgba(13,42,74,0.3); }
+  .nav-inner { max-width:1100px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .logo-mark { width:40px; height:40px; background:linear-gradient(135deg,var(--orange),var(--orange-light)); border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-weight:700; color:white; font-size:18px; }
+  .logo-text { font-family:'Playfair Display',serif; font-size:20px; font-weight:600; color:white; }
+  .logo-sub { font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:1.5px; text-transform:uppercase; display:block; margin-top:-2px; }
+  .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+  .nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:14px; font-weight:500; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--orange-light); }
+  .nav-cta { background:var(--orange)!important; color:white!important; padding:9px 22px; border-radius:6px; font-weight:600!important; }
+
+  /* PAGE HERO */
+  .page-hero { background:var(--navy); padding:56px 32px 48px; position:relative; overflow:hidden; }
+  .page-hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 50% 100% at 80% 50%,rgba(30,79,140,0.5) 0%,transparent 70%); }
+  .page-hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:60px 60px; }
+  .page-hero-inner { max-width:1100px; margin:0 auto; position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+  .breadcrumb { font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:12px; }
+  .breadcrumb a { color:rgba(255,255,255,0.4); text-decoration:none; }
+  .breadcrumb span { color:var(--orange-light); }
+  .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(28px,3.5vw,44px); font-weight:700; color:white; margin-bottom:8px; }
+  .page-hero h1 .accent { color:var(--orange-light); }
+  .page-hero p { color:rgba(255,255,255,0.55); font-size:15px; max-width:480px; line-height:1.65; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(45,157,110,0.2); border:1px solid rgba(45,157,110,0.4); color:#5dd4a8; padding:6px 16px; border-radius:20px; font-size:12px; font-weight:600; margin-bottom:16px; }
+
+  /* MAIN LAYOUT */
+  .calc-wrap { max-width:1100px; margin:0 auto; padding:48px 32px; display:grid; grid-template-columns:1fr 380px; gap:32px; align-items:start; }
+
+  /* CALCULATOR CARD */
+  .calc-card { background:white; border-radius:24px; padding:36px; border:1px solid rgba(13,42,74,0.07); box-shadow:0 4px 24px rgba(13,42,74,0.06); }
+  .calc-card h2 { font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); margin-bottom:6px; }
+  .calc-card .subtitle { color:var(--gray); font-size:13px; margin-bottom:28px; }
+
+  /* TABS */
+  .asset-tabs { display:flex; gap:8px; margin-bottom:28px; flex-wrap:wrap; }
+  .asset-tab { padding:8px 18px; border-radius:8px; border:1.5px solid rgba(13,42,74,0.1); background:transparent; font-family:inherit; font-size:13px; font-weight:500; color:var(--gray); cursor:pointer; transition:all 0.2s; }
+  .asset-tab.active { background:var(--navy); color:white; border-color:var(--navy); }
+  .asset-tab:hover:not(.active) { border-color:var(--orange); color:var(--orange); }
+
+  /* FORM */
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:20px; }
+  .form-row { display:flex; flex-direction:column; gap:6px; }
+  .form-row.full { grid-column:1/-1; }
+  .form-row label { font-size:12px; font-weight:600; color:var(--navy); letter-spacing:0.5px; text-transform:uppercase; }
+  .input-wrap { position:relative; }
+  .input-prefix { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--gray); font-size:14px; font-weight:500; }
+  .input-suffix { position:absolute; right:14px; top:50%; transform:translateY(-50%); color:var(--gray); font-size:14px; }
+  .form-row input, .form-row select {
+    width:100%; padding:12px 16px 12px 32px; border:1.5px solid rgba(13,42,74,0.12);
+    border-radius:10px; font-family:inherit; font-size:15px; color:var(--text);
+    background:var(--cream); transition:border-color 0.2s, box-shadow 0.2s; outline:none;
+  }
+  .form-row select { padding-left:16px; }
+  .form-row input:focus, .form-row select:focus { border-color:var(--orange); box-shadow:0 0 0 3px rgba(232,121,58,0.12); background:white; }
+  .form-row input.no-prefix { padding-left:16px; }
+
+  /* TOGGLE ROW */
+  .toggle-row { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; background:var(--cream); border-radius:10px; margin-bottom:20px; }
+  .toggle-row label { font-size:14px; color:var(--text); font-weight:500; }
+  .toggle-row small { font-size:12px; color:var(--gray); display:block; }
+  .toggle { position:relative; width:44px; height:24px; flex-shrink:0; }
+  .toggle input { opacity:0; width:0; height:0; }
+  .toggle-slider { position:absolute; inset:0; background:#d0d5e0; border-radius:12px; cursor:pointer; transition:0.3s; }
+  .toggle-slider::before { content:''; position:absolute; width:18px; height:18px; left:3px; top:3px; background:white; border-radius:50%; transition:0.3s; box-shadow:0 1px 4px rgba(0,0,0,0.2); }
+  .toggle input:checked + .toggle-slider { background:var(--orange); }
+  .toggle input:checked + .toggle-slider::before { transform:translateX(20px); }
+
+  .calc-btn { width:100%; background:linear-gradient(135deg,var(--navy),var(--navy-light)); color:white; border:none; padding:16px; border-radius:12px; font-family:inherit; font-size:16px; font-weight:600; cursor:pointer; transition:all 0.2s; letter-spacing:0.3px; margin-top:4px; }
+  .calc-btn:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(13,42,74,0.25); }
+  .reset-btn { width:100%; background:transparent; color:var(--gray); border:1.5px solid rgba(13,42,74,0.12); padding:12px; border-radius:12px; font-family:inherit; font-size:14px; cursor:pointer; margin-top:10px; transition:all 0.2s; }
+  .reset-btn:hover { border-color:var(--orange); color:var(--orange); }
+
+  /* RESULTS */
+  .result-card { background:white; border-radius:24px; padding:32px; border:1px solid rgba(13,42,74,0.07); box-shadow:0 4px 24px rgba(13,42,74,0.06); position:sticky; top:90px; }
+  .result-card h3 { font-family:'Playfair Display',serif; font-size:20px; color:var(--navy); margin-bottom:20px; }
+  .result-empty { text-align:center; padding:32px 16px; color:var(--gray); }
+  .result-empty .icon { font-size:40px; margin-bottom:12px; opacity:0.4; }
+  .result-empty p { font-size:14px; line-height:1.6; }
+
+  .result-main { background:linear-gradient(135deg,var(--navy),var(--navy-light)); border-radius:16px; padding:24px; margin-bottom:20px; text-align:center; }
+  .result-main .label { color:rgba(255,255,255,0.6); font-size:12px; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+  .result-main .amount { font-family:'Playfair Display',serif; font-size:40px; font-weight:700; color:white; }
+  .result-main .amount.good { color:#5dd4a8; }
+  .result-main .sub { color:rgba(255,255,255,0.5); font-size:12px; margin-top:6px; }
+
+  .result-rows { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
+  .result-row { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; background:var(--cream); border-radius:10px; }
+  .result-row .rlabel { font-size:13px; color:#4a5568; }
+  .result-row .rval { font-size:14px; font-weight:600; color:var(--navy); }
+  .result-row .rval.green { color:var(--green); }
+  .result-row .rval.orange { color:var(--orange); }
+
+  .disclaimer { background:rgba(232,121,58,0.07); border-left:3px solid var(--orange); border-radius:0 8px 8px 0; padding:12px 14px; font-size:12px; color:#6b7280; line-height:1.6; margin-top:16px; }
+
+  /* INFO SIDEBAR */
+  .info-cards { display:flex; flex-direction:column; gap:16px; margin-top:32px; }
+  .info-card { background:white; border-radius:16px; padding:22px; border:1px solid rgba(13,42,74,0.07); }
+  .info-card h4 { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+  .info-card p { font-size:13px; color:var(--gray); line-height:1.65; }
+
+  .cta-band { background:var(--navy); padding:56px 32px; margin-top:16px; }
+  .cta-inner { max-width:700px; margin:0 auto; text-align:center; }
+  .cta-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(22px,3vw,34px); font-weight:700; color:white; margin-bottom:12px; }
+  .cta-inner p { color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:24px; }
+  .btn-primary { background:var(--orange); color:white; padding:13px 28px; border-radius:8px; text-decoration:none; font-weight:600; font-size:15px; transition:all 0.2s; display:inline-block; }
+  .btn-primary:hover { background:var(--orange-light); transform:translateY(-1px); }
+
+  footer { background:#071a2e; padding:32px; text-align:center; }
+  .footer-logo { font-family:'Playfair Display',serif; font-size:20px; color:white; font-weight:600; margin-bottom:6px; }
+  .footer-links { display:flex; gap:20px; justify-content:center; margin:14px 0; flex-wrap:wrap; }
+  .footer-links a { color:rgba(255,255,255,0.45); text-decoration:none; font-size:12px; }
+  .footer-links a:hover { color:var(--orange-light); }
+  .footer-bottom { color:rgba(255,255,255,0.2); font-size:11px; border-top:1px solid rgba(255,255,255,0.05); padding-top:14px; margin-top:8px; }
+
+  @media(max-width:768px) {
+    .calc-wrap { grid-template-columns:1fr; padding:24px 16px; }
+    .form-grid { grid-template-columns:1fr; }
+    .result-card { position:static; }
+    nav .nav-links { display:none; }
+    .page-hero { padding:40px 20px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-bar"><div class="inner">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div></div>
+
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">Y</div>
+    <div><div class="logo-text">YSE Finance</div><span class="logo-sub">Sydney Tax Agent</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="Home" data-zh="首页">Home</a></li>
+    <li><a href="services.html" data-en="Services" data-zh="服务">Services</a></li>
+    <li><a href="about.html" data-en="About" data-zh="关于">About</a></li>
+    <li><a href="faq.html" data-en="FAQ">FAQ</a></li>
+    <li><a href="index.html#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+  </ul>
+</div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div>
+      <div class="breadcrumb"><a href="index.html">Home</a> › <a href="index.html#tools">Tools</a> › <span data-en="CGT Calculator" data-zh="资本利得税计算器">CGT Calculator</span></div>
+      <h1><span class="accent" data-en="CGT " data-zh="资本利得税">CGT </span><span data-en="Calculator" data-zh="计算器">Calculator</span></h1>
+      <p data-en="Estimate your Australian capital gains tax on shares, property, or crypto. Free, instant, no sign-up required." data-zh="即时估算澳大利亚股票、房产或加密货币的资本利得税。免费使用，无需注册。">Estimate your Australian capital gains tax on shares, property, or crypto. Free, instant, no sign-up required.</p>
+    </div>
+    <div class="hero-badge">✓ <span data-en="Free Tool — No Sign-up" data-zh="免费工具 — 无需注册">Free Tool — No Sign-up</span></div>
+  </div>
+</div>
+
+<div class="calc-wrap">
+  <!-- CALCULATOR -->
+  <div>
+    <div class="calc-card">
+      <h2 data-en="Calculate Your CGT" data-zh="计算资本利得税">Calculate Your CGT</h2>
+      <p class="subtitle" data-en="Based on ATO 2024–25 individual tax rates" data-zh="基于ATO 2024-25年个人税率">Based on ATO 2024–25 individual tax rates</p>
+
+      <div class="asset-tabs">
+        <button class="asset-tab active" onclick="setAsset('shares', this)" data-en="📈 Shares / ETFs" data-zh="📈 股票/ETF">📈 Shares / ETFs</button>
+        <button class="asset-tab" onclick="setAsset('property', this)" data-en="🏠 Property" data-zh="🏠 房产">🏠 Property</button>
+        <button class="asset-tab" onclick="setAsset('crypto', this)" data-en="₿ Crypto" data-zh="₿ 加密货币">₿ Crypto</button>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <label data-en="Purchase Price" data-zh="购买价格">Purchase Price</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="buyPrice" placeholder="0.00" min="0">
+          </div>
+        </div>
+        <div class="form-row">
+          <label data-en="Sale Price" data-zh="出售价格">Sale Price</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="sellPrice" placeholder="0.00" min="0">
+          </div>
+        </div>
+        <div class="form-row">
+          <label data-en="Purchase Costs" data-zh="购买费用">Purchase Costs</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="buyCosts" placeholder="Brokerage, stamp duty..." min="0">
+          </div>
+        </div>
+        <div class="form-row">
+          <label data-en="Sale Costs" data-zh="出售费用">Sale Costs</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="sellCosts" placeholder="Agent fees, legal..." min="0">
+          </div>
+        </div>
+        <div class="form-row full" id="improvementsRow" style="display:none;">
+          <label data-en="Capital Improvements" data-zh="资本改善费用">Capital Improvements</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="improvements" placeholder="Renovations, extensions..." min="0">
+          </div>
+        </div>
+        <div class="form-row full">
+          <label data-en="Your Taxable Income (excl. this gain)" data-zh="您的应税收入（不含此收益）">Your Taxable Income (excl. this gain)</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="income" placeholder="e.g. 85000" min="0">
+          </div>
+        </div>
+        <div class="form-row full">
+          <label data-en="Holding Period" data-zh="持有期限">Holding Period</label>
+          <select id="holdPeriod">
+            <option value="long" data-en="More than 12 months (50% CGT discount applies)" data-zh="超过12个月（享受50%折扣）">More than 12 months (50% CGT discount applies)</option>
+            <option value="short" data-en="12 months or less (no discount)" data-zh="12个月或以内（无折扣）">12 months or less (no discount)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="toggle-row">
+        <div>
+          <label data-en="Australian Resident for Tax?" data-zh="是否为澳大利亚税务居民？">Australian Resident for Tax?</label>
+          <small data-en="Non-residents are not eligible for the 50% CGT discount" data-zh="非居民不享有50%资本利得税折扣">Non-residents are not eligible for the 50% CGT discount</small>
+        </div>
+        <label class="toggle"><input type="checkbox" id="resident" checked><span class="toggle-slider"></span></label>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()" data-en="Calculate My CGT →" data-zh="计算我的资本利得税 →">Calculate My CGT →</button>
+      <button class="reset-btn" onclick="resetForm()" data-en="Reset" data-zh="重置">Reset</button>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <h4>📌 <span data-en="How CGT Works in Australia" data-zh="澳大利亚资本利得税如何运作">How CGT Works in Australia</span></h4>
+        <p data-en="Capital gains are added to your income and taxed at your marginal rate. If you held the asset for more than 12 months (and you're an Australian resident), you get a 50% discount on the gain before it's taxed." data-zh="资本收益计入您的收入，按边际税率征税。如果您持有资产超过12个月（且为澳大利亚居民），收益在征税前享有50%折扣。">Capital gains are added to your income and taxed at your marginal rate. If you held the asset for more than 12 months (and you're an Australian resident), you get a 50% discount on the gain before it's taxed.</p>
+      </div>
+      <div class="info-card">
+        <h4>💡 <span data-en="Tip: Losses Can Offset Gains" data-zh="小贴士：亏损可以抵消收益">Tip: Losses Can Offset Gains</span></h4>
+        <p data-en="Capital losses from other assets can reduce your total taxable gain. If you have other assets with unrealised losses, timing their sale can reduce your CGT bill. Ask Lawrence about CGT planning strategies." data-zh="其他资产的资本亏损可以减少您的应税总收益。如果您有其他有未实现亏损的资产，适时出售可以降低资本利得税。向Lawrence咨询资本利得税规划策略。">Capital losses from other assets can reduce your total taxable gain. If you have other assets with unrealised losses, timing their sale can reduce your CGT bill. Ask Lawrence about CGT planning strategies.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="result-card">
+    <h3 data-en="Your Estimated CGT" data-zh="您的预计资本利得税">Your Estimated CGT</h3>
+    <div id="resultArea">
+      <div class="result-empty">
+        <div class="icon">📊</div>
+        <p data-en="Enter your details and click Calculate to see your estimated CGT." data-zh="输入您的详情并点击计算，查看预计资本利得税。">Enter your details and click Calculate to see your estimated CGT.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <h2 data-en="Want to Minimise Your CGT?" data-zh="想要最小化资本利得税？">Want to Minimise Your CGT?</h2>
+    <p data-en="This calculator gives you an estimate — but there are often strategies to legally reduce what you pay. Book a free consultation with Lawrence." data-zh="此计算器仅提供估算——但通常有合法策略可以减少您的应缴税款。预约与Lawrence的免费咨询。">This calculator gives you an estimate — but there are often strategies to legally reduce what you pay. Book a free consultation with Lawrence.</p>
+    <a href="index.html#contact" class="btn-primary" data-en="📅 Book Free Consultation" data-zh="📅 预约免费咨询">📅 Book Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">YSE Finance</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a>
+    <a href="faq.html">FAQ</a><a href="novated-calculator.html">Novated Calculator</a><a href="privacy.html">Privacy</a>
+  </div>
+  <div class="footer-bottom">© 2025 YSE Finance. Registered Tax Agent under TASA 2009. This calculator provides estimates only and does not constitute tax advice.</div>
+</footer>
+
+<script>
+let currentAsset = 'shares';
+
+function setAsset(type, btn) {
+  currentAsset = type;
+  document.querySelectorAll('.asset-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('improvementsRow').style.display = type === 'property' ? 'flex' : 'none';
+}
+
+function n(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+// ATO 2024-25 tax brackets
+function calcTax(income) {
+  if (income <= 18200) return 0;
+  if (income <= 45000) return (income - 18200) * 0.19;
+  if (income <= 120000) return 5092 + (income - 45000) * 0.325;
+  if (income <= 180000) return 29467 + (income - 120000) * 0.37;
+  return 51667 + (income - 180000) * 0.45;
+}
+
+function fmtAUD(n) {
+  return '$' + Math.abs(n).toLocaleString('en-AU', {minimumFractionDigits:0, maximumFractionDigits:0});
+}
+
+function calculate() {
+  const buy = n('buyPrice'), sell = n('sellPrice');
+  const buyCosts = n('buyCosts'), sellCosts = n('sellCosts');
+  const improvements = n('improvements');
+  const income = n('income');
+  const isLong = document.getElementById('holdPeriod').value === 'long';
+  const isResident = document.getElementById('resident').checked;
+
+  const costBase = buy + buyCosts + improvements;
+  const proceeds = sell - sellCosts;
+  const grossGain = proceeds - costBase;
+
+  let discountRate = (isLong && isResident) ? 0.5 : 0;
+  let taxableGain = grossGain > 0 ? grossGain * (1 - discountRate) : grossGain;
+  let discountAmount = grossGain > 0 ? grossGain * discountRate : 0;
+
+  const taxWithout = calcTax(income);
+  const taxWith = calcTax(income + Math.max(taxableGain, 0));
+  const cgtPayable = Math.max(taxWith - taxWithout, 0);
+  const effectiveRate = grossGain > 0 ? (cgtPayable / grossGain * 100) : 0;
+
+  const isLoss = grossGain < 0;
+
+  let html = '';
+  if (isLoss) {
+    html = `
+      <div class="result-main">
+        <div class="label" data-en="Capital Loss" data-zh="资本亏损">Capital Loss</div>
+        <div class="amount good">${fmtAUD(grossGain)}</div>
+        <div class="sub" data-en="No CGT payable — loss can offset future gains" data-zh="无需缴纳资本利得税——亏损可抵消未来收益">No CGT payable — loss can offset future gains</div>
+      </div>
+      <div class="result-rows">
+        <div class="result-row"><span class="rlabel">Cost Base</span><span class="rval">${fmtAUD(costBase)}</span></div>
+        <div class="result-row"><span class="rlabel">Net Proceeds</span><span class="rval">${fmtAUD(proceeds)}</span></div>
+        <div class="result-row"><span class="rlabel">Capital Loss</span><span class="rval green">${fmtAUD(grossGain)}</span></div>
+      </div>`;
+  } else {
+    html = `
+      <div class="result-main">
+        <div class="label">Estimated CGT Payable</div>
+        <div class="amount">${fmtAUD(cgtPayable)}</div>
+        <div class="sub">Effective rate: ${effectiveRate.toFixed(1)}% of gross gain</div>
+      </div>
+      <div class="result-rows">
+        <div class="result-row"><span class="rlabel">Cost Base</span><span class="rval">${fmtAUD(costBase)}</span></div>
+        <div class="result-row"><span class="rlabel">Net Proceeds</span><span class="rval">${fmtAUD(proceeds)}</span></div>
+        <div class="result-row"><span class="rlabel">Gross Capital Gain</span><span class="rval">${fmtAUD(grossGain)}</span></div>
+        ${discountAmount > 0 ? `<div class="result-row"><span class="rlabel">50% CGT Discount</span><span class="rval green">− ${fmtAUD(discountAmount)}</span></div>` : ''}
+        <div class="result-row"><span class="rlabel">Taxable Gain</span><span class="rval orange">${fmtAUD(taxableGain)}</span></div>
+        <div class="result-row"><span class="rlabel">Your Marginal Rate</span><span class="rval">${income > 0 ? getMarginalRate(income) : '—'}%</span></div>
+        <div class="result-row" style="border-top:2px solid rgba(13,42,74,0.08);margin-top:4px;padding-top:16px;"><span class="rlabel" style="font-weight:700;color:var(--navy)">CGT Payable</span><span class="rval" style="font-size:17px;color:var(--orange)">${fmtAUD(cgtPayable)}</span></div>
+      </div>`;
+  }
+
+  html += `<div class="disclaimer">⚠️ This is an <strong>estimate only</strong>. Actual CGT may vary based on your full tax situation, prior year losses, and other deductions. Always consult a registered tax agent.</div>`;
+
+  document.getElementById('resultArea').innerHTML = html;
+}
+
+function getMarginalRate(income) {
+  if (income <= 18200) return 0;
+  if (income <= 45000) return 19;
+  if (income <= 120000) return 32.5;
+  if (income <= 180000) return 37;
+  return 45;
+}
+
+function resetForm() {
+  ['buyPrice','sellPrice','buyCosts','sellCosts','improvements','income'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('holdPeriod').value = 'long';
+  document.getElementById('resident').checked = true;
+  document.getElementById('resultArea').innerHTML = `<div class="result-empty"><div class="icon">📊</div><p>Enter your details and click Calculate to see your estimated CGT.</p></div>`;
+}
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const en = el.getAttribute('data-en'), zh = el.getAttribute('data-zh');
+    if (lang === 'zh' && zh) el.innerHTML = zh;
+    else if (lang === 'en' && en) el.innerHTML = en;
+  });
+  document.querySelectorAll('option[data-en]').forEach(el => {
+    const en = el.getAttribute('data-en'), zh = el.getAttribute('data-zh');
+    if (lang === 'zh' && zh) el.textContent = zh;
+    else if (lang === 'en' && en) el.textContent = en;
+  });
+}
+</script>
+</body>
+</html>
