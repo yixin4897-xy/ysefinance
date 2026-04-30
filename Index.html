@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YSE Finance | Sydney Tax Agent | 悉尼税务代理</title>
+<meta name="description" content="YSE Finance – Licensed Sydney Tax Agent for individuals and small businesses. 专业悉尼税务代理，服务个人及小型企业。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2a4a;
+    --navy-mid: #163d6e;
+    --navy-light: #1e4f8c;
+    --orange: #e8793a;
+    --orange-light: #f5a06a;
+    --cream: #faf7f2;
+    --white: #ffffff;
+    --gray-light: #f0eff0;
+    --gray: #8a8fa0;
+    --text: #1a2332;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── LANGUAGE TOGGLE ── */
+  .lang-bar {
+    background: var(--navy);
+    padding: 8px 0;
+    text-align: right;
+  }
+  .lang-bar .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .lang-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.7);
+    padding: 4px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: inherit;
+    margin-left: 8px;
+    transition: all 0.2s;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: white;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(13,42,74,0.3);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: white;
+    font-size: 18px;
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.5px;
+  }
+  .logo-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-top: -2px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .nav-links a:hover { color: var(--orange-light); }
+  .nav-cta {
+    background: var(--orange) !important;
+    color: white !important;
+    padding: 9px 22px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--orange-light) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 32px 90px;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(30,79,140,0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(232,121,58,0.12) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,121,58,0.15);
+    border: 1px solid rgba(232,121,58,0.3);
+    color: var(--orange-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+  }
+  .hero-badge span { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .hero h1 .accent { color: var(--orange-light); }
+  .hero-sub-en {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+  }
+  .hero-sub-zh {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 17px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,121,58,0.35); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .trust-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 22px 26px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .trust-card:hover { transform: translateY(-2px); }
+  .trust-card-icon { font-size: 28px; margin-bottom: 10px; }
+  .trust-card h3 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .trust-card p {
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .trust-card p .zh {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 12px;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: white;
+    padding: 20px 32px;
+    border-bottom: 1px solid #e8eaf0;
+  }
+  .trust-bar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--navy-mid);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .trust-item .check {
+    width: 22px; height: 22px;
+    background: rgba(232,121,58,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 80px 32px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .section-sub {
+    color: var(--gray);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 560px;
+  }
+  .section-sub .zh {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: white; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .service-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    border: 1px solid rgba(13,42,74,0.06);
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--navy), var(--orange));
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(13,42,74,0.10); }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .service-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .service-card .zh-title {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    color: var(--orange);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .service-card p {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* ── WHY US ── */
+  .why-us { background: var(--navy); }
+  .why-us .section-title { color: white; }
+  .why-us .section-sub { color: rgba(255,255,255,0.55); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 56px;
+    align-items: center;
+  }
+  .why-list { display: flex; flex-direction: column; gap: 24px; }
+  .why-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .why-num {
+    width: 42px; height: 42px;
+    border: 1px solid rgba(232,121,58,0.4);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .why-content h4 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .why-content p {
+    color: rgba(255,255,255,0.55);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .why-content p .zh {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+  }
+  .why-visual {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 40px 36px;
+  }
+  .stat-row { margin-bottom: 32px; }
+  .stat-row:last-child { margin-bottom: 0; }
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .stat-bar-wrap {
+    background: rgba(255,255,255,0.06);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .stat-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange), var(--orange-light));
+    border-radius: 3px;
+    animation: growBar 1.5s ease forwards;
+    transform-origin: left;
+  }
+  @keyframes growBar { from{width:0} }
+  .stat-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+  }
+  .stat-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+
+  /* ── TOOLS ── */
+  .tools { background: var(--cream); }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .tool-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 30px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    border: 1px solid rgba(13,42,74,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+  }
+  .tool-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(13,42,74,0.09); }
+  .tool-icon {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+  .tool-info h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .tool-info .zh { font-family: 'Noto Sans SC', sans-serif; font-size: 13px; color: var(--orange); margin-bottom: 10px; }
+  .tool-info p { color: var(--gray); font-size: 14px; line-height: 1.6; }
+  .tool-arrow { margin-left: auto; color: var(--orange); font-size: 20px; align-self: center; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: white; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .testi-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 28px 26px;
+    border: 1px solid rgba(13,42,74,0.06);
+  }
+  .stars { color: var(--orange); font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testi-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testi-avatar {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .testi-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .testi-role { font-size: 12px; color: var(--gray); }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--navy); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-top: 48px;
+  }
+  .contact .section-title { color: white; }
+  .contact .section-sub { color: rgba(255,255,255,0.55); }
+  .contact-info { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+  .contact-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: rgba(232,121,58,0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .contact-item h4 { color: white; font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .contact-item p { color: rgba(255,255,255,0.55); font-size: 14px; }
+  .contact-item a { color: var(--orange-light); text-decoration: none; }
+
+  .contact-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 36px 32px;
+  }
+  .form-row { margin-bottom: 18px; }
+  .form-row label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-row input:focus,
+  .form-row select:focus,
+  .form-row textarea:focus {
+    border-color: var(--orange);
+  }
+  .form-row input::placeholder,
+  .form-row textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-row select option { background: var(--navy); }
+  .form-row textarea { height: 110px; resize: vertical; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-submit {
+    width: 100%;
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+    margin-top: 6px;
+  }
+  .form-submit:hover { background: var(--orange-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #071a2e;
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .footer-tagline {
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--orange-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 20px;
+    color: rgba(255,255,255,0.25);
+    font-size: 12px;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s, transform 0.6s;
+    pointer-events: none;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  /* Always allow interaction on form elements regardless of animation state */
+  .contact-form, .contact-form * {
+    pointer-events: auto !important;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-right { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-grid { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+    section { padding: 60px 20px; }
+    .hero { padding: 72px 20px 64px; min-height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <div class="inner">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('zh')">中文</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">Y</div>
+      <div>
+        <div class="logo-text">YSE Finance</div>
+        <span class="logo-sub">Sydney Tax Agent</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services" data-en="Services" data-zh="服务项目">Services</a></li>
+      <li><a href="#why" data-en="Why Us" data-zh="为何选择我们">Why Us</a></li>
+      <li><a href="#tools" data-en="Tax Tools" data-zh="税务工具">Tax Tools</a></li>
+      <li><a href="#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span></span>
+        <span data-en="Registered Tax Agent · Sydney" data-zh="注册税务代理 · 悉尼">Registered Tax Agent · Sydney</span>
+      </div>
+      <h1>
+        <span data-en="Tax Done Right," data-zh="专业报税，">Tax Done Right,</span><br>
+        <span class="accent" data-en="By Someone Who Cares" data-zh="用心服务每一位客户">By Someone Who Cares</span>
+      </h1>
+      <p class="hero-sub-en" data-en="Trusted by individuals & small businesses across Sydney." data-zh="">Trusted by individuals & small businesses across Sydney.</p>
+      <p class="hero-sub-zh" data-en="" data-zh="专业、亲切、高效——让报税变得简单。<br>服务悉尼个人及小企业，中英双语沟通。">专业、亲切、高效——让报税变得简单。<br>服务悉尼个人及小企业，中英双语沟通。</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary" data-en="📅 Book Free Consultation" data-zh="📅 免费预约咨询">📅 Book Free Consultation</a>
+        <a href="#services" class="btn-secondary" data-en="Our Services →" data-zh="查看服务 →">Our Services →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="trust-card">
+        <div class="trust-card-icon">🧾</div>
+        <h3 data-en="Individual Tax Returns" data-zh="个人报税">Individual Tax Returns</h3>
+        <p><span data-en="Maximise your refund. We handle everything from salary to investments." data-zh="">Maximise your refund. We handle everything from salary to investments.</span><span class="zh" data-en="" data-zh="最大化退税额，涵盖薪资、投资等所有收入。">最大化退税额，涵盖薪资、投资等所有收入。</span></p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-icon">🏢</div>
+        <h3 data-en="Small Business Tax" data-zh="小企业税务">Small Business Tax</h3>
+        <p><span data-en="BAS, company tax, payroll — we keep your business compliant." data-zh="">BAS, company tax, payroll — we keep your business compliant.</span><span class="zh" data-en="" data-zh="BAS申报、公司税、工资税，合规无忧。">BAS申报、公司税、工资税，合规无忧。</span></p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-card-icon">💬</div>
+        <h3 data-en="Bilingual Service" data-zh="中英双语服务">Bilingual Service</h3>
+        <p><span data-en="Communicate comfortably in English or Mandarin — no jargon." data-zh="">Communicate comfortably in English or Mandarin.</span><span class="zh" data-en="" data-zh="中文、英文都能沟通，专业术语用简单语言解释。">中文、英文都能沟通，专业术语用简单语言解释。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><div class="check">✓</div><span data-en="Registered Tax Agent (TASA)" data-zh="注册税务代理 (TASA)">Registered Tax Agent (TASA)</span></div>
+    <div class="trust-item"><div class="check">✓</div><span data-en="Sydney-based" data-zh="悉尼本地">Sydney-based</span></div>
+    <div class="trust-item"><div class="check">✓</div><span data-en="Individuals & Small Business" data-zh="个人及小企业">Individuals & Small Business</span></div>
+    <div class="trust-item"><div class="check">✓</div><span data-en="Mandarin & English" data-zh="中英双语">Mandarin & English</span></div>
+    <div class="trust-item"><div class="check">✓</div><span data-en="Fast Turnaround" data-zh="快速响应">Fast Turnaround</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label" data-en="What We Do" data-zh="服务项目">What We Do</div>
+      <h2 class="section-title" data-en="Comprehensive Tax Services" data-zh="全面税务服务">Comprehensive Tax Services</h2>
+      <p class="section-sub">
+        <span data-en="From personal returns to business compliance — we handle it all with care and precision." data-zh="">From personal returns to business compliance — we handle it all with care and precision.</span>
+        <span class="zh" data-en="" data-zh="从个人报税到企业合规，专业细心地为您处理每一项事务。">从个人报税到企业合规，专业细心地为您处理每一项事务。</span>
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">🧾</div>
+        <h3 data-en="Individual Tax Return" data-zh="个人所得税申报">Individual Tax Return</h3>
+        <div class="zh-title" data-en="" data-zh="个人所得税">个人所得税</div>
+        <p data-en="Salary, rental income, investments, deductions — we maximise your refund legally and accurately." data-zh="薪资、租金收入、投资、扣税项目——合法合规地最大化您的退税。">Salary, rental income, investments, deductions — we maximise your refund legally and accurately.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🏢</div>
+        <h3 data-en="Business Tax & BAS" data-zh="商业税务及BAS申报">Business Tax & BAS</h3>
+        <div class="zh-title" data-en="" data-zh="小企业税务">小企业税务</div>
+        <p data-en="BAS lodgement, company tax returns, payroll tax — keeping your business compliant year-round." data-zh="BAS申报、公司所得税、工资税——全年保持企业合规。">BAS lodgement, company tax returns, payroll tax — keeping your business compliant year-round.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🏠</div>
+        <h3 data-en="Investment Property Tax" data-zh="投资房产税务">Investment Property Tax</h3>
+        <div class="zh-title" data-en="" data-zh="房产投资">房产投资</div>
+        <p data-en="Rental deductions, depreciation, CGT planning — get the most from your property investment." data-zh="租金扣税、折旧计算、资本利得税规划——最大化房产投资回报。">Rental deductions, depreciation, CGT planning — get the most from your property investment.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📊</div>
+        <h3 data-en="CGT & Capital Gains" data-zh="资本利得税">CGT & Capital Gains</h3>
+        <div class="zh-title" data-en="" data-zh="资本利得税">资本利得税</div>
+        <p data-en="Shares, crypto, property sales — accurate CGT calculation and smart planning strategies." data-zh="股票、加密货币、房产出售——精准计算CGT并制定合理规划策略。">Shares, crypto, property sales — accurate CGT calculation and smart planning strategies.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🚗</div>
+        <h3 data-en="Novated Lease Advice" data-zh="Novated Lease咨询">Novated Lease Advice</h3>
+        <div class="zh-title" data-en="" data-zh="薪资打包">薪资打包</div>
+        <p data-en="Understand the tax benefits of novated leasing and whether it's right for your situation." data-zh="了解Novated Lease的税务优惠，评估是否适合您的情况。">Understand the tax benefits of novated leasing and whether it's right for your situation.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📋</div>
+        <h3 data-en="Tax Planning & Advice" data-zh="税务规划咨询">Tax Planning & Advice</h3>
+        <div class="zh-title" data-en="" data-zh="税务规划">税务规划</div>
+        <p data-en="Proactive advice to legally minimise your tax burden — for individuals and businesses alike." data-zh="主动提供合法省税建议，适合个人及企业客户。">Proactive advice to legally minimise your tax burden — for individuals and businesses alike.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us" id="why">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label" data-en="Why Choose Us" data-zh="为何选择我们">Why Choose Us</div>
+      <h2 class="section-title" data-en="Tax Should Be Simple." data-zh="报税，本该如此简单。">Tax Should Be Simple.</h2>
+      <p class="section-sub">
+        <span data-en="We combine professional expertise with a personal, approachable service." data-zh="">We combine professional expertise with a personal, approachable service.</span>
+        <span class="zh" data-en="" data-zh="专业能力与亲切服务并重，让您安心省心。">专业能力与亲切服务并重，让您安心省心。</span>
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-list fade-up">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div class="why-content">
+            <h4 data-en="Licensed & Registered" data-zh="持牌注册税务代理">Licensed & Registered</h4>
+            <p><span data-en="Fully registered with the Tax Practitioners Board under TASA 2009." data-zh="">Fully registered with the Tax Practitioners Board under TASA 2009.</span><span class="zh" data-en="" data-zh="依据TASA 2009在税务从业者委员会注册，资质有保障。">依据TASA 2009在税务从业者委员会注册，资质有保障。</span></p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div class="why-content">
+            <h4 data-en="Bilingual — No Barriers" data-zh="中英双语，沟通无障碍">Bilingual — No Barriers</h4>
+            <p><span data-en="Communicate in English or Mandarin — whichever is more comfortable for you." data-zh="">Communicate in English or Mandarin — whichever feels natural.</span><span class="zh" data-en="" data-zh="中文英文随意切换，用最舒适的方式沟通。">中文英文随意切换，用最舒适的方式沟通。</span></p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div class="why-content">
+            <h4 data-en="Plain English (& Chinese)" data-zh="清晰解释，不讲行话">Plain English (& Chinese)</h4>
+            <p><span data-en="We explain everything clearly — no confusing jargon, no surprises." data-zh="">We explain everything clearly — no jargon, no surprises.</span><span class="zh" data-en="" data-zh="用简单语言解释复杂税务，让您完全明白每一个细节。">用简单语言解释复杂税务，让您完全明白每一个细节。</span></p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div class="why-content">
+            <h4 data-en="Fast & Responsive" data-zh="快速响应">Fast & Responsive</h4>
+            <p><span data-en="Quick replies and clear timelines — no chasing needed." data-zh="">Quick replies and clear timelines — no chasing needed.</span><span class="zh" data-en="" data-zh="及时回复，明确告知进度，无需您反复催促。">及时回复，明确告知进度，无需您反复催促。</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual fade-up">
+        <div class="stat-row">
+          <div class="stat-label" data-en="Client Satisfaction" data-zh="客户满意度">Client Satisfaction</div>
+          <div class="stat-bar-wrap"><div class="stat-bar" style="width:97%"></div></div>
+          <div class="stat-value">
+            <span class="stat-num">97%</span>
+            <span class="stat-desc" data-en="Return Rate" data-zh="回头率">Return Rate</span>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label" data-en="Average Refund Increase" data-zh="平均退税提升">Average Refund Increase</div>
+          <div class="stat-bar-wrap"><div class="stat-bar" style="width:82%"></div></div>
+          <div class="stat-value">
+            <span class="stat-num">+$800</span>
+            <span class="stat-desc" data-en="vs. self-lodged" data-zh="对比自行申报">vs. self-lodged</span>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label" data-en="Response Time" data-zh="响应时间">Response Time</div>
+          <div class="stat-bar-wrap"><div class="stat-bar" style="width:95%"></div></div>
+          <div class="stat-value">
+            <span class="stat-num">&lt;24h</span>
+            <span class="stat-desc" data-en="Guaranteed Reply" data-zh="保证回复">Guaranteed Reply</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" id="tools">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label" data-en="Free Tools" data-zh="免费工具">Free Tools</div>
+      <h2 class="section-title" data-en="Calculate Before You Commit" data-zh="先算清楚，再做决定">Calculate Before You Commit</h2>
+      <p class="section-sub">
+        <span data-en="Use our free tax calculators to estimate your situation before booking." data-zh="">Use our free tax calculators to estimate your situation before booking.</span>
+        <span class="zh" data-en="" data-zh="预约咨询前，先用我们的免费计算器了解您的税务情况。">预约咨询前，先用我们的免费计算器了解您的税务情况。</span>
+      </p>
+    </div>
+    <div class="tools-grid fade-up">
+      <a href="cgt-calculator.html" class="tool-card">
+        <div class="tool-icon">📈</div>
+        <div class="tool-info">
+          <h3 data-en="CGT Calculator" data-zh="资本利得税计算器">CGT Calculator</h3>
+          <div class="zh" data-en="" data-zh="资本利得税">资本利得税</div>
+          <p data-en="Estimate capital gains tax on property, shares, or crypto sales." data-zh="计算房产、股票或加密货币出售的资本利得税。">Estimate capital gains tax on property, shares, or crypto sales.</p>
+        </div>
+        <div class="tool-arrow">→</div>
+      </a>
+      <a href="novated-calculator.html" class="tool-card">
+        <div class="tool-icon">🚗</div>
+        <div class="tool-info">
+          <h3 data-en="Novated Lease Calculator" data-zh="Novated Lease计算器">Novated Lease Calculator</h3>
+          <div class="zh" data-en="" data-zh="薪资打包计算">薪资打包计算</div>
+          <p data-en="See the real savings from salary packaging your next vehicle." data-zh="计算通过薪资打包购车的实际税务节省金额。">See the real savings from salary packaging your next vehicle.</p>
+        </div>
+        <div class="tool-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label" data-en="Client Reviews" data-zh="客户评价">Client Reviews</div>
+      <h2 class="section-title" data-en="What Our Clients Say" data-zh="客户怎么说">What Our Clients Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p data-en='"Lawrence made tax time stress-free. He explained everything clearly and got me a much better refund than I expected. Highly recommend!"' data-zh='"Lawrence让报税变得毫无压力。他解释得非常清晰，退税金额也超出了我的预期。强烈推荐！"'>"Lawrence made tax time stress-free. He explained everything clearly and got me a much better refund than I expected. Highly recommend!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sarah T.</div>
+            <div class="testi-role" data-en="Marketing Manager, Sydney" data-zh="市场经理，悉尼">Marketing Manager, Sydney</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p data-en='"作为小生意老板，税务一直让我头疼。YSE Finance用中文帮我处理一切，专业又亲切，真的省心很多！"' data-zh='"作为小生意老板，税务一直让我头疼。YSE Finance用中文帮我处理一切，专业又亲切，真的省心很多！"'>"作为小生意老板，税务一直让我头疼。YSE Finance用中文帮我处理一切，专业又亲切，真的省心很多！"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">王</div>
+          <div>
+            <div class="testi-name">王先生</div>
+            <div class="testi-role" data-en="Small Business Owner, Chatswood" data-zh="小企业主，车士活">小企业主，车士活</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p data-en='"I had a complex situation with investment properties and shares. Lawrence handled it all perfectly and saved me a significant amount. Very professional."' data-zh='"我有投资房产和股票的复杂情况。Lawrence处理得非常完美，帮我省了不少钱。非常专业。"'>"I had a complex situation with investment properties and shares. Lawrence handled it all perfectly and saved me a significant amount. Very professional."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Michael C.</div>
+            <div class="testi-role" data-en="IT Professional, North Sydney" data-zh="IT专业人士，北悉尼">IT Professional, North Sydney</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label" data-en="Get In Touch" data-zh="联系我们">Get In Touch</div>
+      <h2 class="section-title" data-en="Book Your Free Consultation" data-zh="预约免费咨询">Book Your Free Consultation</h2>
+      <p class="section-sub">
+        <span data-en="No obligation, no jargon. Just a friendly chat about your tax situation." data-zh="">No obligation, no jargon. Just a friendly chat about your tax situation.</span>
+        <span class="zh" data-en="" data-zh="无需承诺，无复杂条款。轻松聊聊您的税务情况即可。">无需承诺，无复杂条款。轻松聊聊您的税务情况即可。</span>
+      </p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info fade-up">
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <h4 data-en="Phone / WeChat" data-zh="电话 / 微信">Phone / WeChat</h4>
+              <p><a href="tel:0433807771">0433 807 771</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <h4 data-en="Email" data-zh="电子邮件">Email</h4>
+              <p><a href="mailto:lawrence.yi@ysefinance.com.au">lawrence.yi@ysefinance.com.au</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4 data-en="Location" data-zh="地址">Location</h4>
+              <p data-en="Sydney, NSW, Australia" data-zh="澳大利亚新南威尔士州悉尼">Sydney, NSW, Australia</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <h4 data-en="Languages" data-zh="服务语言">Languages</h4>
+              <p data-en="English & Mandarin Chinese" data-zh="英语 & 普通话">English & Mandarin Chinese</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">⏰</div>
+            <div>
+              <h4 data-en="Response Time" data-zh="响应时间">Response Time</h4>
+              <p data-en="Within 24 hours" data-zh="24小时内回复">Within 24 hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form fade-up visible">
+        <form id="contactForm" action="https://formspree.io/f/mdabowwq" method="POST">
+          <div class="form-grid">
+            <div class="form-row">
+              <label data-en="YOUR NAME" data-zh="您的姓名">YOUR NAME</label>
+              <input type="text" name="name" placeholder="John Smith / 王先生" required>
+            </div>
+            <div class="form-row">
+              <label data-en="EMAIL" data-zh="电子邮件">EMAIL</label>
+              <input type="email" name="email" placeholder="you@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <label data-en="PHONE (OPTIONAL)" data-zh="电话（可选）">PHONE (OPTIONAL)</label>
+            <input type="tel" name="phone" placeholder="04xx xxx xxx">
+          </div>
+          <div class="form-row">
+            <label data-en="I NEED HELP WITH" data-zh="咨询类型">I NEED HELP WITH</label>
+            <select name="service">
+              <option data-en="Individual Tax Return" data-zh="个人报税">Individual Tax Return</option>
+              <option data-en="Small Business Tax & BAS" data-zh="小企业税务/BAS">Small Business Tax & BAS</option>
+              <option data-en="Investment Property" data-zh="投资房产税务">Investment Property</option>
+              <option data-en="CGT / Shares / Crypto" data-zh="资本利得税/股票/加密货币">CGT / Shares / Crypto</option>
+              <option data-en="Tax Planning & Advice" data-zh="税务规划咨询">Tax Planning & Advice</option>
+              <option data-en="Other" data-zh="其他">Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label data-en="MESSAGE (OPTIONAL)" data-zh="留言（可选）">MESSAGE (OPTIONAL)</label>
+            <textarea name="message" placeholder="Tell us a bit about your situation... / 简单描述您的情况..."></textarea>
+          </div>
+          <!-- Success message (hidden by default) -->
+          <div id="formSuccess" style="display:none; background:rgba(45,157,110,0.15); border:1px solid rgba(45,157,110,0.4); border-radius:8px; padding:14px 18px; margin-bottom:14px; color:#5dd4a8; font-size:14px; text-align:center;">
+            ✅ <span data-en="Message sent! Lawrence will be in touch within 24 hours." data-zh="消息已发送！Lawrence将在24小时内与您联系。">Message sent! Lawrence will be in touch within 24 hours.</span>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn" data-en="📅 Send Message & Book Consultation" data-zh="📅 发送并预约咨询">📅 Send Message & Book Consultation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">YSE Finance</div>
+    <div class="footer-tagline" data-en="Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin" data-zh="悉尼注册税务代理 · 个人及小企业 · 中英双语">Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin</div>
+    <div class="footer-links">
+      <a href="#services" data-en="Services" data-zh="服务">Services</a>
+      <a href="#why" data-en="Why Us" data-zh="为何选择我们">Why Us</a>
+      <a href="#tools" data-en="Tax Tools" data-zh="税务工具">Tax Tools</a>
+      <a href="#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+    </div>
+    <div class="footer-bottom">
+      <span data-en="© 2025 YSE Finance. All rights reserved. YSE Finance is a registered tax agent under the Tax Agent Services Act 2009." data-zh="© 2025 YSE Finance 版权所有。YSE Finance 依据2009年税务代理服务法注册。">© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Language Toggle
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const en = el.getAttribute('data-en');
+      const zh = el.getAttribute('data-zh');
+      if (lang === 'zh' && zh) {
+        el.innerHTML = zh;
+      } else if (lang === 'en' && en) {
+        el.innerHTML = en;
+      }
+    });
+
+    // Hero special handling
+    document.querySelector('.hero-sub-en').style.display = lang === 'en' ? 'block' : 'none';
+    document.querySelector('.hero-sub-zh').style.display = lang === 'zh' ? 'block' : 'none';
+
+    // Hide zh-only elements in EN mode
+    document.querySelectorAll('.zh').forEach(el => {
+      el.style.display = lang === 'zh' ? 'block' : 'none';
+    });
+  }
+
+  // Init: hide zh elements
+  document.querySelectorAll('.zh').forEach(el => el.style.display = 'none');
+  document.querySelector('.hero-sub-zh').style.display = 'none';
+
+  // Formspree form submission
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.textContent = '⏳ Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          document.getElementById('formSuccess').style.display = 'block';
+          form.reset();
+          btn.textContent = '✅ Sent!';
+          setTimeout(() => {
+            btn.textContent = '📅 Send Message & Book Consultation';
+            btn.disabled = false;
+            document.getElementById('formSuccess').style.display = 'none';
+          }, 5000);
+        } else {
+          btn.textContent = '❌ Error — please email directly';
+          btn.disabled = false;
+        }
+      } catch(err) {
+        btn.textContent = '❌ Error — please email directly';
+        btn.disabled = false;
+      }
+    });
+  }
+
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
