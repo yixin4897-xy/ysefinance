@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property CGT Calculator Pro | YSE Finance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d2a4a;--navy-mid:#163d6e;--navy-light:#1e4f8c;--orange:#e8793a;--orange-light:#f5a06a;--cream:#faf7f2;--gray:#8a8fa0;--text:#1a2332;--green:#2d9d6e;--green-light:#5dd4a8;--red:#e05252;--yellow:#f59e0b;--blue:#3b82f6;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans','Noto Sans SC',sans-serif;background:var(--cream);color:var(--text);}
+.lang-bar{background:var(--navy);padding:8px 0;text-align:right;}
+.lang-bar .inner{max-width:1200px;margin:0 auto;padding:0 32px;}
+.lang-btn{background:none;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);padding:4px 14px;border-radius:20px;cursor:pointer;font-size:12px;font-family:inherit;margin-left:8px;transition:all 0.2s;}
+.lang-btn.active,.lang-btn:hover{background:var(--orange);border-color:var(--orange);color:white;}
+nav{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(13,42,74,0.3);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--orange),var(--orange-light));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:18px;}
+.logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:white;}
+.logo-sub{font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:-2px;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--orange-light);}
+.nav-cta{background:var(--orange)!important;color:white!important;padding:9px 20px;border-radius:6px;font-weight:600!important;}
+.page-hero{background:var(--navy);padding:52px 32px 44px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 85% 50%,rgba(30,79,140,0.5) 0%,transparent 70%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2;}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:12px;}
+.breadcrumb a{color:rgba(255,255,255,0.4);text-decoration:none;}
+.breadcrumb span{color:var(--orange-light);}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,44px);font-weight:700;color:white;margin-bottom:8px;line-height:1.15;}
+.page-hero h1 .accent{color:var(--orange-light);}
+.pro-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--orange),var(--orange-light));color:white;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;margin-left:10px;vertical-align:middle;}
+.page-hero p{color:rgba(255,255,255,0.55);font-size:14px;max-width:640px;line-height:1.65;margin-bottom:16px;}
+.hero-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.hero-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.65);padding:4px 12px;border-radius:20px;font-size:11px;font-weight:500;}
+.hero-tag.green{background:rgba(45,157,110,0.15);border-color:rgba(45,157,110,0.3);color:var(--green-light);}
+.hero-tag.orange{background:rgba(232,121,58,0.15);border-color:rgba(232,121,58,0.3);color:var(--orange-light);}
+.main-wrap{max-width:1200px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 390px;gap:24px;align-items:start;}
+.calc-card{background:white;border-radius:18px;padding:26px 28px;border:1px solid rgba(13,42,74,0.07);box-shadow:0 4px 20px rgba(13,42,74,0.05);margin-bottom:18px;}
+.steps-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.step-pill{background:var(--orange);color:white;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+.steps-header h2{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);font-weight:700;}
+.law-alert{border-radius:10px;padding:11px 14px;margin-bottom:14px;font-size:12px;line-height:1.65;display:none;align-items:flex-start;gap:9px;}
+.law-alert.pre1985{background:rgba(45,157,110,0.1);border:1px solid rgba(45,157,110,0.25);color:#1a6b47;}
+.law-alert.indexation{background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.25);color:#1d4ed8;}
+.law-alert.nonresident2017{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);color:#92600a;}
+.law-alert-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.form-row{display:flex;flex-direction:column;gap:5px;}
+.form-row.full{grid-column:1/-1;}
+.form-row label{font-size:11px;font-weight:600;color:var(--navy);letter-spacing:0.8px;text-transform:uppercase;}
+.hint{font-size:10px;color:var(--gray);font-weight:400;text-transform:none;letter-spacing:0;margin-left:4px;}
+.input-wrap{position:relative;}
+.input-prefix{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--gray);font-size:13px;pointer-events:none;}
+.form-row input,.form-row select{width:100%;padding:10px 14px 10px 28px;border:1.5px solid rgba(13,42,74,0.12);border-radius:9px;font-family:inherit;font-size:13px;color:var(--text);background:var(--cream);transition:all 0.2s;outline:none;}
+.form-row select,.form-row input.no-pre{padding-left:14px;}
+.form-row input:focus,.form-row select:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,121,58,0.1);background:white;}
+.indexation-box{background:rgba(59,130,246,0.05);border:1.5px solid rgba(59,130,246,0.2);border-radius:12px;padding:16px 18px;margin-top:14px;display:none;}
+.indexation-box h4{font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:10px;}
+.idx-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.idx-row{display:flex;justify-content:space-between;padding:7px 10px;background:white;border-radius:7px;font-size:12px;}
+.idx-label{color:var(--gray);}
+.idx-val{font-weight:600;color:var(--navy);}
+.timeline-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.timeline-header h3{font-size:13px;font-weight:600;color:var(--navy);}
+.add-period-btn{background:rgba(232,121,58,0.1);border:1.5px solid rgba(232,121,58,0.3);color:var(--orange);padding:5px 12px;border-radius:7px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.add-period-btn:hover{background:var(--orange);color:white;}
+.periods-list{display:flex;flex-direction:column;gap:9px;}
+.period-row{background:var(--cream);border-radius:11px;padding:12px 14px;border:1.5px solid rgba(13,42,74,0.07);}
+.period-row.ppor{border-left:3px solid var(--green);}
+.period-row.investment{border-left:3px solid var(--orange);}
+.period-row.absence{border-left:3px solid var(--yellow);}
+.period-top{display:grid;grid-template-columns:150px 1fr 1fr auto;gap:9px;align-items:end;}
+.period-select,.period-date{padding:8px 11px;border:1.5px solid rgba(13,42,74,0.1);border-radius:8px;font-family:inherit;font-size:12px;background:white;outline:none;width:100%;}
+.period-select:focus,.period-date:focus{border-color:var(--orange);}
+.period-extra{margin-top:10px;display:none;}
+.period-extra.show{display:block;}
+.remove-btn{width:26px;height:26px;background:rgba(224,82,82,0.1);border:none;border-radius:7px;color:var(--red);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.remove-btn:hover{background:var(--red);color:white;}
+.timeline-visual{height:8px;border-radius:4px;overflow:hidden;display:flex;gap:1px;}
+.tl-segment{height:100%;}
+.tl-ppor{background:var(--green);}
+.tl-investment{background:var(--orange);}
+.tl-absence{background:var(--yellow);}
+.timeline-legend{display:flex;gap:14px;margin-top:7px;flex-wrap:wrap;}
+.tl-legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--gray);}
+.tl-dot{width:7px;height:7px;border-radius:50%;}
+.absence-info{background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);border-radius:9px;padding:11px 13px;margin-top:10px;font-size:12px;color:#92600a;line-height:1.6;display:none;}
+.calc-btn{width:100%;background:linear-gradient(135deg,var(--navy),var(--navy-light));color:white;border:none;padding:15px;border-radius:12px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.calc-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(13,42,74,0.25);}
+.reset-btn{width:100%;background:transparent;color:var(--gray);border:1.5px solid rgba(13,42,74,0.1);padding:10px;border-radius:12px;font-family:inherit;font-size:13px;cursor:pointer;margin-top:9px;transition:all 0.2s;}
+.reset-btn:hover{border-color:var(--orange);color:var(--orange);}
+.info-box{background:white;border-radius:14px;padding:18px 20px;border:1px solid rgba(13,42,74,0.07);margin-top:18px;}
+.info-box h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:7px;}
+.info-box p{font-size:12px;color:var(--gray);line-height:1.65;}
+.result-panel{position:sticky;top:90px;display:flex;flex-direction:column;gap:16px;}
+.result-wrap{position:relative;border-radius:20px;overflow:hidden;}
+.paywall-overlay{position:absolute;inset:0;border-radius:20px;z-index:10;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:24px;text-align:center;background:rgba(250,247,242,0.93);backdrop-filter:blur(6px);}
+.paywall-lock{font-size:40px;margin-bottom:10px;}
+.paywall-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:7px;}
+.paywall-desc{font-size:12px;color:var(--gray);line-height:1.65;margin-bottom:16px;max-width:270px;}
+.paywall-price{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--orange);margin-bottom:3px;}
+.paywall-price-sub{font-size:11px;color:var(--gray);margin-bottom:16px;}
+.paywall-features{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;text-align:left;width:100%;max-width:260px;}
+.paywall-feature{display:flex;align-items:center;gap:7px;font-size:12px;color:#374151;}
+.paywall-feature .check{color:var(--green);font-weight:700;}
+.paypal-btn{background:#0070ba;color:white;border:none;padding:13px 24px;border-radius:9px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;width:100%;max-width:270px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.paypal-btn:hover{background:#005ea6;transform:translateY(-1px);}
+.paywall-guarantee{font-size:11px;color:var(--gray);margin-top:10px;}
+.result-card{background:white;border-radius:20px;padding:26px;border:1px solid rgba(13,42,74,0.07);box-shadow:0 4px 20px rgba(13,42,74,0.05);}
+.result-blurred{filter:blur(5px);pointer-events:none;user-select:none;}
+.cgt-hero{background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:15px;padding:22px;text-align:center;margin-bottom:16px;}
+.cgt-hero .hl{color:rgba(255,255,255,0.55);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:5px;}
+.cgt-hero .amount{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:white;line-height:1;}
+.cgt-hero .amount.zero{color:var(--green-light);}
+.cgt-hero .sub{color:rgba(255,255,255,0.5);font-size:11px;margin-top:7px;}
+.cgt-hero .method-badge{display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);padding:3px 10px;border-radius:20px;font-size:10px;font-weight:600;margin-top:8px;letter-spacing:0.5px;}
+.sec-title{font-size:11px;font-weight:700;color:var(--navy);letter-spacing:1px;text-transform:uppercase;margin:14px 0 9px;}
+.brows{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
+.brow{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--cream);border-radius:8px;}
+.brow .bl{font-size:12px;color:#4a5568;}
+.brow .bv{font-size:12px;font-weight:600;color:var(--navy);}
+.brow .bv.green{color:var(--green);}
+.brow .bv.orange{color:var(--orange);}
+.brow .bv.blue{color:var(--blue);}
+.brow .bv.red{color:var(--red);}
+.brow.total{background:rgba(13,42,74,0.06);border:1px solid rgba(13,42,74,0.1);}
+.brow.total .bl{font-weight:700;color:var(--navy);}
+.brow.total .bv{font-size:15px;color:var(--orange);}
+.brow.highlight{background:rgba(45,157,110,0.07);border:1px solid rgba(45,157,110,0.15);}
+.exemption-bar-wrap{margin:10px 0 14px;}
+.exemption-bar-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--gray);margin-bottom:5px;}
+.exemption-bar-track{height:9px;background:rgba(13,42,74,0.08);border-radius:5px;overflow:hidden;display:flex;}
+.bar-exempt{background:var(--green);}
+.bar-taxable{background:var(--orange);}
+.tips-card{background:white;border-radius:18px;padding:22px 24px;border:1px solid rgba(13,42,74,0.07);box-shadow:0 4px 20px rgba(13,42,74,0.05);}
+.tips-card h3{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:12px;}
+.tips-list{display:flex;flex-direction:column;gap:9px;}
+.tip-item{display:flex;gap:9px;align-items:flex-start;padding:10px 12px;border-radius:9px;border:1px solid transparent;}
+.tip-item.high{background:rgba(45,157,110,0.07);border-color:rgba(45,157,110,0.2);}
+.tip-item.medium{background:rgba(232,121,58,0.07);border-color:rgba(232,121,58,0.2);}
+.tip-item.info{background:rgba(13,42,74,0.04);border-color:rgba(13,42,74,0.1);}
+.tip-item.alert{background:rgba(224,82,82,0.07);border-color:rgba(224,82,82,0.2);}
+.tip-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
+.tip-text{font-size:12px;line-height:1.65;color:#374151;}
+.tip-text strong{color:var(--navy);}
+.disclaimer{background:rgba(232,121,58,0.07);border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:10px 12px;font-size:11px;color:#6b7280;line-height:1.65;margin-top:12px;}
+.cta-band{background:var(--navy);padding:52px 32px;margin-top:8px;}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center;}
+.cta-inner h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,32px);font-weight:700;color:white;margin-bottom:10px;}
+.cta-inner p{color:rgba(255,255,255,0.6);font-size:14px;margin-bottom:22px;line-height:1.7;}
+.btn-primary{background:var(--orange);color:white;padding:12px 26px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:all 0.2s;display:inline-block;}
+.btn-primary:hover{background:var(--orange-light);transform:translateY(-1px);}
+footer{background:#071a2e;padding:28px 32px;text-align:center;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:19px;color:white;font-weight:600;margin-bottom:5px;}
+.footer-links{display:flex;gap:18px;justify-content:center;margin:12px 0;flex-wrap:wrap;}
+.footer-links a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:12px;}
+.footer-links a:hover{color:var(--orange-light);}
+.footer-bottom{color:rgba(255,255,255,0.2);font-size:11px;border-top:1px solid rgba(255,255,255,0.05);padding-top:12px;margin-top:7px;}
+@media(max-width:900px){.main-wrap{grid-template-columns:1fr;padding:20px 16px;}.result-panel{position:static;}.form-grid{grid-template-columns:1fr;}.period-top{grid-template-columns:1fr 1fr;gap:7px;}nav .nav-links{display:none;}.page-hero{padding:36px 18px 28px;}}
+</style>
+</head>
+<body>
+<div class="lang-bar"><div class="inner">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+</div></div>
+<nav><div class="nav-inner">
+  <a href="index.html" class="logo"><div class="logo-mark">Y</div><div><div class="logo-text">YSE Finance</div><span class="logo-sub">Sydney Tax Agent</span></div></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="Home" data-zh="首页">Home</a></li>
+    <li><a href="services.html" data-en="Services" data-zh="服务">Services</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="index.html#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+  </ul>
+</div></nav>
+
+<div class="page-hero">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <a href="index.html#tools">Tools</a> › <span>Property CGT Pro</span></div>
+    <h1><span class="accent">Property CGT</span> Calculator <span class="pro-badge">PRO</span></h1>
+    <p data-en="Australia's most comprehensive property CGT calculator — covering all major tax law changes since 1985, PPOR/investment switching, 6-year absence rule, change-of-use revaluation, and automatic indexation vs 50% discount comparison." data-zh="澳洲最全面的房产资本利得税计算器——涵盖1985年以来所有重大税法变更、自住/投资切换、6年缺席规则、使用性质变更时的市场重估，以及物价指数法与50%折扣的自动比较。">Australia's most comprehensive property CGT calculator — covering all major tax law changes since 1985, PPOR/investment switching, 6-year absence rule, change-of-use revaluation, and automatic indexation vs 50% discount comparison.</p>
+    <div class="hero-tags">
+      <span class="hero-tag green">✓ Pre-1985 Full Exemption</span>
+      <span class="hero-tag green">✓ 6-Year Absence Rule</span>
+      <span class="hero-tag orange">✓ Indexation vs 50% Auto-Compare</span>
+      <span class="hero-tag orange">✓ Change-of-Use Revaluation</span>
+      <span class="hero-tag">✓ 2017 Non-Resident Rules</span>
+      <span class="hero-tag">✓ Tax Saving Strategies</span>
+    </div>
+  </div>
+</div>
+
+<div class="main-wrap">
+<div>
+  <!-- STEP 1 -->
+  <div class="calc-card">
+    <div class="steps-header"><div class="step-pill">1</div><h2 data-en="Property & Sale Details" data-zh="房产及交易信息">Property & Sale Details</h2></div>
+    <div class="law-alert pre1985" id="alertPre1985" style="display:none;">
+      <span class="law-alert-icon">🎉</span>
+      <div><strong>Pre-CGT Property!</strong> Purchased before 20 Sep 1985 — <strong>fully exempt from CGT</strong> regardless of usage or profit.</div>
+    </div>
+    <div class="law-alert indexation" id="alertIndexation" style="display:none;">
+      <span class="law-alert-icon">📊</span>
+      <div><strong>Indexation Era Purchase!</strong> We automatically compare the Indexation Method vs the 50% Discount and apply whichever saves you more tax.</div>
+    </div>
+    <div class="law-alert nonresident2017" id="alertNonResident2017" style="display:none;">
+      <span class="law-alert-icon">⚠️</span>
+      <div><strong>Non-Resident Transitional Rules:</strong> Because you held this property before 9 May 2017, partial main residence exemption may apply for the pre-2017 period.</div>
+    </div>
+    <div class="form-grid">
+      <div class="form-row"><label>Purchase Price</label><div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="buyPrice" placeholder="e.g. 500000" min="0" oninput="onInputChange()"></div></div>
+      <div class="form-row"><label>Sale Price</label><div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="sellPrice" placeholder="e.g. 950000" min="0"></div></div>
+      <div class="form-row"><label>Purchase Costs <span class="hint">(stamp duty, legal)</span></label><div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="buyCosts" placeholder="e.g. 22000" min="0" oninput="onInputChange()"></div></div>
+      <div class="form-row"><label>Sale Costs <span class="hint">(agent, legal)</span></label><div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="sellCosts" placeholder="e.g. 18000" min="0"></div></div>
+      <div class="form-row full"><label>Capital Improvements <span class="hint">(renovations, extensions — not repairs)</span></label><div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="improvements" placeholder="e.g. 35000" min="0" oninput="onInputChange()"></div></div>
+      <div class="form-row"><label>Purchase Date</label><input type="date" id="purchaseDate" class="no-pre" onchange="onDateChange()"></div>
+      <div class="form-row"><label>Sale / Contract Date</label><input type="date" id="saleDate" class="no-pre" onchange="onDateChange()"></div>
+    </div>
+    <div class="indexation-box" id="indexationBox">
+      <h4>📊 Indexation Method (CPI Adjustment)</h4>
+      <p style="font-size:12px;color:var(--gray);margin-bottom:12px;">For properties purchased 20 Sep 1985 – 21 Sep 1999, you can use the Indexation Method to adjust your cost base for inflation using CPI. We compare both methods automatically.</p>
+      <div class="idx-grid">
+        <div class="idx-row"><span class="idx-label">CPI at Purchase Quarter</span><span class="idx-val" id="cpiPurchase">—</span></div>
+        <div class="idx-row"><span class="idx-label">CPI Sep 1999 (frozen)</span><span class="idx-val">68.7</span></div>
+        <div class="idx-row"><span class="idx-label">Indexation Factor</span><span class="idx-val" id="idxFactor">—</span></div>
+        <div class="idx-row"><span class="idx-label">Indexed Cost Base</span><span class="idx-val" id="idxCostBase">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="calc-card">
+    <div class="steps-header"><div class="step-pill">2</div><h2 data-en="Your Tax Details" data-zh="您的税务信息">Your Tax Details</h2></div>
+    <div class="form-grid">
+      <div class="form-row full"><label>Taxable Income <span class="hint">(excl. property gain)</span></label><div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="income" placeholder="e.g. 85000" min="0"></div></div>
+      <div class="form-row"><label>Tax Residency</label>
+        <select id="residency" onchange="onResidencyChange()">
+          <option value="resident">Australian Resident</option>
+          <option value="non-resident">Non-Resident / Foreign</option>
+        </select>
+      </div>
+      <div class="form-row"><label>Ownership</label>
+        <select id="ownership">
+          <option value="sole">Sole owner (100%)</option>
+          <option value="joint">Joint 50/50</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="calc-card">
+    <div class="steps-header"><div class="step-pill">3</div><h2 data-en="Property Usage Timeline" data-zh="房产使用时间轴">Property Usage Timeline</h2></div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px;line-height:1.6;">Record each period of use. When switching from Main Residence to Investment, enter the market value at that point — it becomes the investment cost base.</p>
+    <div class="timeline-header">
+      <h3>Usage Periods</h3>
+      <button class="add-period-btn" onclick="addPeriod()">+ Add Period</button>
+    </div>
+    <div class="periods-list" id="periodsList"></div>
+    <div class="timeline-visual" id="timelineVisual" style="display:none;margin-top:12px;"></div>
+    <div class="timeline-legend" style="margin-top:8px;">
+      <div class="tl-legend-item"><div class="tl-dot" style="background:var(--green)"></div><span>PPOR</span></div>
+      <div class="tl-legend-item"><div class="tl-dot" style="background:var(--orange)"></div><span>Investment</span></div>
+      <div class="tl-legend-item"><div class="tl-dot" style="background:var(--yellow)"></div><span>Absence (6yr)</span></div>
+    </div>
+    <div class="absence-info" id="absenceInfo">
+      💡 <strong>6-Year Absence Rule:</strong> If you move out of your PPOR and rent it out (or leave it vacant), you may treat it as your main residence for up to 6 years — provided you don't nominate another PPOR during that time.
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()" data-en="🧮 Calculate My Property CGT" data-zh="🧮 计算我的房产资本利得税">🧮 Calculate My Property CGT</button>
+  <button class="reset-btn" onclick="resetAll()" data-en="Reset All" data-zh="全部重置">Reset All</button>
+
+  <div class="info-box">
+    <h4>📌 Key Australian CGT Law Dates</h4>
+    <p>• <strong>Pre 20 Sep 1985:</strong> Full CGT exemption — no CGT applies<br>
+    • <strong>20 Sep 1985 – 21 Sep 1999:</strong> Indexation method or 50% discount — we calculate both and apply the best<br>
+    • <strong>Post 21 Sep 1999:</strong> 50% discount only (held >12 months, residents)<br>
+    • <strong>Post 9 May 2017:</strong> Non-residents lose main residence exemption (transitional rules for pre-2017 holdings)<br>
+    • <strong>Change of use:</strong> When converting PPOR to investment, market value at conversion date becomes new cost base</p>
+  </div>
+</div>
+
+<!-- RESULTS PANEL -->
+<div class="result-panel">
+  <div class="result-wrap">
+    <div class="paywall-overlay" id="paywallOverlay">
+      <div class="paywall-lock">🔒</div>
+      <div class="paywall-title">Unlock Full Results</div>
+      <div class="paywall-desc">Get your complete CGT analysis including all tax law scenarios, method comparison, revaluation, and personalised strategies.</div>
+      <div class="paywall-price">A$19.99</div>
+      <div class="paywall-price-sub">One-time · Instant access</div>
+      <div class="paywall-features">
+        <div class="paywall-feature"><span class="check">✓</span> Full CGT breakdown & exemption analysis</div>
+        <div class="paywall-feature"><span class="check">✓</span> Indexation vs 50% — best method shown</div>
+        <div class="paywall-feature"><span class="check">✓</span> Pre-1985 & 2017 non-resident rules</div>
+        <div class="paywall-feature"><span class="check">✓</span> Change-of-use market revaluation</div>
+        <div class="paywall-feature"><span class="check">✓</span> 6-year absence rule calculation</div>
+        <div class="paywall-feature"><span class="check">✓</span> Personalised tax-saving tips</div>
+      </div>
+      <button class="paypal-btn" onclick="initiatePayPal()">💳 Pay A$19.99 with PayPal</button>
+      <div class="paywall-guarantee">🔒 Secure · Money-back guarantee</div>
+    </div>
+    <div class="result-card">
+      <div id="resultArea" class="result-blurred">
+        <div style="padding:10px;">
+          <div style="background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:15px;padding:22px;text-align:center;margin-bottom:14px;">
+            <div style="color:rgba(255,255,255,0.55);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:5px;">ESTIMATED CGT PAYABLE</div>
+            <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:white;">$XX,XXX</div>
+            <div style="color:rgba(255,255,255,0.5);font-size:11px;margin-top:7px;">Using optimal method · Eff. rate: XX.X%</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:var(--cream);border-radius:8px;"><span style="font-size:12px;color:#4a5568;">Gross Capital Gain</span><span style="font-size:12px;font-weight:600;">$XXX,XXX</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:var(--cream);border-radius:8px;"><span style="font-size:12px;color:#4a5568;">PPOR Exemption</span><span style="font-size:12px;font-weight:600;color:var(--green);">−$XX,XXX</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:var(--cream);border-radius:8px;"><span style="font-size:12px;color:#4a5568;">Best Discount Method</span><span style="font-size:12px;font-weight:600;color:var(--green);">−$XX,XXX</span></div>
+            <div style="display:flex;justify-content:space-between;padding:8px 12px;background:rgba(13,42,74,0.06);border-radius:8px;border:1px solid rgba(13,42,74,0.1);"><span style="font-size:12px;font-weight:700;color:var(--navy);">CGT Payable</span><span style="font-size:15px;font-weight:600;color:var(--orange);">$XX,XXX</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tips-card" id="tipsCard" style="display:none;">
+    <h3>💡 Tax Saving Strategies</h3>
+    <div class="tips-list" id="tipsList"></div>
+  </div>
+</div>
+</div>
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <h2>Need Expert Property Tax Advice?</h2>
+    <p>This calculator gives you a comprehensive estimate. For strategies to legally minimise your CGT before you sell, book a free consultation with Lawrence.</p>
+    <a href="index.html#contact" class="btn-primary">📅 Book Free Pre-Sale Consultation</a>
+  </div>
+</div>
+<footer>
+  <div class="footer-logo">YSE Finance</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a>
+    <a href="faq.html">FAQ</a><a href="cgt-calculator.html">CGT Calc</a>
+    <a href="novated-calculator.html">Novated Calc</a><a href="privacy.html">Privacy</a>
+  </div>
+  <div class="footer-bottom">© 2025 YSE Finance. Registered Tax Agent under TASA 2009. This calculator provides estimates only and does not constitute tax advice.</div>
+</footer>
+
+<script>
+const PRE_CGT_DATE=new Date('1985-09-20');
+const INDEXATION_END=new Date('1999-09-21');
+const NR_EXEMPTION=new Date('2017-05-09');
+const CPI_SEP1999=68.7;
+const CPI_DATA={'1985Q3':28.4,'1985Q4':29.3,'1986Q1':30.3,'1986Q2':31.3,'1986Q3':32.3,'1986Q4':33.0,'1987Q1':33.6,'1987Q2':34.0,'1987Q3':34.7,'1987Q4':35.5,'1988Q1':36.3,'1988Q2':37.1,'1988Q3':38.0,'1988Q4':38.7,'1989Q1':39.6,'1989Q2':40.9,'1989Q3':42.1,'1989Q4':42.9,'1990Q1':44.2,'1990Q2':44.8,'1990Q3':45.8,'1990Q4':46.4,'1991Q1':46.8,'1991Q2':47.1,'1991Q3':47.1,'1991Q4':47.1,'1992Q1':47.0,'1992Q2':47.3,'1992Q3':47.5,'1992Q4':47.7,'1993Q1':48.0,'1993Q2':48.3,'1993Q3':48.5,'1993Q4':48.9,'1994Q1':49.0,'1994Q2':49.3,'1994Q3':49.7,'1994Q4':50.2,'1995Q1':51.1,'1995Q2':51.6,'1995Q3':52.0,'1995Q4':52.2,'1996Q1':52.5,'1996Q2':52.8,'1996Q3':52.9,'1996Q4':53.1,'1997Q1':53.2,'1997Q2':53.1,'1997Q3':53.3,'1997Q4':53.2,'1998Q1':53.3,'1998Q2':53.5,'1998Q3':53.6,'1998Q4':53.7,'1999Q1':53.7,'1999Q2':53.8,'1999Q3':68.7};
+function getQKey(d){if(!d)return null;const dt=new Date(d),m=dt.getMonth(),q=m<3?1:m<6?2:m<9?3:4;return `${dt.getFullYear()}Q${q}`;}
+function getCPI(d){const k=getQKey(d);return k?CPI_DATA[k]||null:null;}
+let periods=[],pidCounter=0,isUnlocked=false;
+window.onload=()=>{addPeriod('ppor');if(sessionStorage.getItem('cgt_pro_unlocked')==='true')unlockResults();const p=new URLSearchParams(window.location.search);if(p.get('payment')==='success'){sessionStorage.setItem('cgt_pro_unlocked','true');unlockResults();window.history.replaceState({},'',window.location.pathname);}};
+function initiatePayPal(){
+  // Store return URL in sessionStorage so we can unlock after PayPal redirect
+  sessionStorage.setItem('cgt_return_url', location.href.split('?')[0]);
+  // Redirect to PayPal Payment Link
+  location.href='https://www.paypal.com/ncp/payment/DMVAASWBLNWHS';
+}
+function unlockResults(){isUnlocked=true;const o=document.getElementById('paywallOverlay'),a=document.getElementById('resultArea');if(o)o.style.display='none';if(a)a.classList.remove('result-blurred');const b=document.createElement('div');b.style.cssText='background:rgba(45,157,110,0.12);border:1px solid rgba(45,157,110,0.3);border-radius:9px;padding:11px 14px;font-size:12px;color:var(--green);text-align:center;margin-bottom:14px;font-weight:600;';b.innerHTML='✅ Payment successful! Full results unlocked.';const rc=document.querySelector('.result-card');if(rc)rc.insertBefore(b,rc.firstChild);setTimeout(()=>b.remove(),6000);}
+function onInputChange(){updateIndexationBox();}
+function onDateChange(){updateAlerts();updateIndexationBox();}
+function onResidencyChange(){updateAlerts();}
+function updateAlerts(){const pd=document.getElementById('purchaseDate').value,res=document.getElementById('residency').value;if(!pd)return;const pDate=new Date(pd);document.getElementById('alertPre1985').style.display=pDate<PRE_CGT_DATE?'flex':'none';document.getElementById('alertIndexation').style.display=(pDate>=PRE_CGT_DATE&&pDate<INDEXATION_END)?'flex':'none';document.getElementById('alertNonResident2017').style.display=(res==='non-resident'&&pDate<NR_EXEMPTION)?'flex':'none';}
+function updateIndexationBox(){const pd=document.getElementById('purchaseDate').value,bp=parseFloat(document.getElementById('buyPrice').value)||0,bc=parseFloat(document.getElementById('buyCosts').value)||0,im=parseFloat(document.getElementById('improvements').value)||0;if(!pd)return;const pDate=new Date(pd),box=document.getElementById('indexationBox');if(pDate>=PRE_CGT_DATE&&pDate<INDEXATION_END){box.style.display='block';const cpi=getCPI(pd),factor=cpi?CPI_SEP1999/cpi:null,cb=bp+bc+im,icb=factor?cb*factor:null;document.getElementById('cpiPurchase').textContent=cpi?cpi.toFixed(1):'—';document.getElementById('idxFactor').textContent=factor?factor.toFixed(4):'—';document.getElementById('idxCostBase').textContent=icb?'$'+Math.round(icb).toLocaleString('en-AU'):'—';}else{box.style.display='none';}}
+function addPeriod(t){const id=++pidCounter;periods.push({id,type:t||'ppor',from:'',to:'',marketValue:''});renderPeriods();}
+function removePeriod(id){if(periods.length<=1)return;periods=periods.filter(p=>p.id!==id);renderPeriods();}
+function updatePeriod(id,f,v){const p=periods.find(p=>p.id===id);if(p){p[f]=v;renderTimeline();checkAbsence();}}
+function onPeriodTypeChange(id,val,el){updatePeriod(id,'type',val);el.closest('.period-row').className='period-row '+val;const ex=el.closest('.period-row').querySelector('.period-extra');if(ex)ex.className='period-extra'+(val==='investment'?' show':'');}
+function renderPeriods(){const list=document.getElementById('periodsList');list.innerHTML='';periods.forEach(p=>{const row=document.createElement('div');row.className='period-row '+p.type;row.innerHTML=`<div class="period-top"><select class="period-select" onchange="onPeriodTypeChange(${p.id},this.value,this)"><option value="ppor" ${p.type==='ppor'?'selected':''}>🟢 Main Residence</option><option value="investment" ${p.type==='investment'?'selected':''}>🟠 Investment</option><option value="absence" ${p.type==='absence'?'selected':''}>🟡 Absence (6yr)</option></select><div style="display:flex;flex-direction:column;gap:3px;"><label style="font-size:10px;color:var(--gray);font-weight:600;text-transform:uppercase;">From</label><input class="period-date" type="date" value="${p.from}" onchange="updatePeriod(${p.id},'from',this.value)"></div><div style="display:flex;flex-direction:column;gap:3px;"><label style="font-size:10px;color:var(--gray);font-weight:600;text-transform:uppercase;">To</label><input class="period-date" type="date" value="${p.to}" onchange="updatePeriod(${p.id},'to',this.value)"></div>${periods.length>1?`<button class="remove-btn" onclick="removePeriod(${p.id})">×</button>`:'<div></div>'}</div><div class="period-extra${p.type==='investment'?' show':''}"><label style="font-size:10px;font-weight:700;color:var(--blue);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:5px;display:block;">🔵 Market Value at Start of Investment Period</label><div class="input-wrap" style="max-width:200px;"><span class="input-prefix">$</span><input type="number" style="padding:8px 14px 8px 26px;border:1.5px solid rgba(59,130,246,0.3);border-radius:8px;font-family:inherit;font-size:12px;background:white;outline:none;width:100%;" placeholder="e.g. 750000" value="${p.marketValue||''}" onchange="updatePeriod(${p.id},'marketValue',this.value)"></div><div style="font-size:11px;color:var(--gray);margin-top:5px;line-height:1.5;">Enter the market value when this property converted from PPOR to investment. This becomes the new CGT cost base for the investment portion. Leave blank if purchased as investment.</div></div>`;list.appendChild(row);});renderTimeline();checkAbsence();}
+function renderTimeline(){const vis=document.getElementById('timelineVisual'),valid=periods.filter(p=>p.from&&p.to&&p.from<p.to);if(!valid.length){vis.style.display='none';return;}const total=valid.reduce((s,p)=>s+daysBetween(p.from,p.to),0);if(!total){vis.style.display='none';return;}vis.style.display='flex';vis.innerHTML=valid.map(p=>{const d=daysBetween(p.from,p.to),cls=p.type==='ppor'?'tl-ppor':p.type==='investment'?'tl-investment':'tl-absence';return`<div class="tl-segment ${cls}" style="flex:${(d/total*100).toFixed(1)}" title="${p.type}: ${Math.round(d)} days"></div>`;}).join('');}
+function checkAbsence(){document.getElementById('absenceInfo').style.display=periods.some(p=>p.type==='absence')?'block':'none';}
+function daysBetween(d1,d2){return Math.max(0,(new Date(d2)-new Date(d1))/86400000);}
+function calcTax(i){if(i<=18200)return 0;if(i<=45000)return(i-18200)*0.19;if(i<=120000)return 5092+(i-45000)*0.325;if(i<=180000)return 29467+(i-120000)*0.37;return 51667+(i-180000)*0.45;}
+function getMR(i){if(i<=18200)return 0;if(i<=45000)return 19;if(i<=120000)return 32.5;if(i<=180000)return 37;return 45;}
+function fmt(n){return'$'+Math.abs(Math.round(n||0)).toLocaleString('en-AU');}
+function fmtPct(n){return(Math.round((n||0)*10)/10).toFixed(1)+'%';}
+
+function calculate(){
+  if(!isUnlocked){const o=document.getElementById('paywallOverlay');o.style.display='flex';o.scrollIntoView({behavior:'smooth',block:'center'});o.style.boxShadow='0 0 0 3px rgba(232,121,58,0.5)';setTimeout(()=>{o.style.boxShadow='';},800);return;}
+  const bp=parseFloat(document.getElementById('buyPrice').value)||0,sp=parseFloat(document.getElementById('sellPrice').value)||0,bc=parseFloat(document.getElementById('buyCosts').value)||0,sc=parseFloat(document.getElementById('sellCosts').value)||0,im=parseFloat(document.getElementById('improvements').value)||0,inc=parseFloat(document.getElementById('income').value)||0,pd=document.getElementById('purchaseDate').value,sd=document.getElementById('saleDate').value,res=document.getElementById('residency').value,own=document.getElementById('ownership').value;
+  if(!bp||!sp||!pd||!sd){alert('Please fill in purchase price, sale price, and both dates.');return;}
+  if(pd>=sd){alert('Sale date must be after purchase date.');return;}
+  const pDate=new Date(pd),sDate=new Date(sd),isRes=res==='resident',isJoint=own==='joint',totalDays=daysBetween(pd,sd),holdYrs=totalDays/365;
+
+  // PRE-1985
+  if(pDate<PRE_CGT_DATE){
+    const html=`<div class="cgt-hero"><div class="hl">CGT PAYABLE</div><div class="amount zero">$0</div><div class="sub">✅ Pre-CGT property — full exemption</div><div class="method-badge">PRE-20 SEP 1985</div></div><div class="brows"><div class="brow highlight"><span class="bl">Purchase Date</span><span class="bv green">${pd}</span></div><div class="brow"><span class="bl">CGT Commenced</span><span class="bv">20 Sep 1985</span></div><div class="brow"><span class="bl">Gross Gain (pre-tax)</span><span class="bv">${fmt(sp-sc-bp-bc-im)}</span></div><div class="brow total"><span class="bl">CGT Payable</span><span class="bv green">$0 — Fully Exempt</span></div></div><div class="disclaimer">Properties purchased before 20 September 1985 are fully exempt from CGT under Australian tax law. No CGT applies regardless of profit or usage.</div>`;
+    document.getElementById('resultArea').innerHTML=html;document.getElementById('resultArea').classList.remove('result-blurred');
+    generateTips({preCGT:true});return;
+  }
+
+  const costBase=bp+bc+im,proceeds=sp-sc,grossGain=proceeds-costBase;
+
+  // LOSS
+  if(grossGain<=0){
+    const html=`<div class="cgt-hero"><div class="hl">CAPITAL LOSS</div><div class="amount zero">${fmt(grossGain)}</div><div class="sub">No CGT payable — loss offsets future gains</div></div><div class="brows"><div class="brow"><span class="bl">Cost Base</span><span class="bv">${fmt(costBase)}</span></div><div class="brow"><span class="bl">Net Proceeds</span><span class="bv">${fmt(proceeds)}</span></div><div class="brow total"><span class="bl">Capital Loss</span><span class="bv green">${fmt(grossGain)}</span></div></div><div class="disclaimer">Declare this capital loss in your tax return — it can be carried forward indefinitely to offset future capital gains from any asset.</div>`;
+    document.getElementById('resultArea').innerHTML=html;document.getElementById('resultArea').classList.remove('result-blurred');
+    generateTips({isLoss:true});return;
+  }
+
+  // PERIODS
+  let pporD=0,invD=0,absD=0;
+  const vp=periods.filter(p=>p.from&&p.to&&p.from<p.to);
+  vp.forEach(p=>{const d=daysBetween(p.from,p.to);if(p.type==='ppor')pporD+=d;else if(p.type==='investment')invD+=d;else absD+=d;});
+
+  // 6-YEAR RULE
+  let absExempt=0,absExcess=0;
+  const MAX_ABS=2191;
+  if(absD>0&&isRes){const hasPP=vp.some(p=>p.type==='ppor');if(hasPP){absExempt=Math.min(absD,MAX_ABS);absExcess=Math.max(0,absD-MAX_ABS);}else{invD+=absD;absD=0;}}else if(absD>0){invD+=absD;absD=0;}
+  const unaccD=Math.max(0,totalDays-pporD-invD-absD);
+  const effPPOR=pporD+absExempt,effInv=invD+absExcess+unaccD,effTotal=effPPOR+effInv;
+  let exemptFrac=effTotal>0?effPPOR/effTotal:0;
+  if(effInv===0)exemptFrac=1;
+
+  // 2017 NON-RESIDENT
+  let nrPartial=false;
+  if(!isRes){
+    if(pDate<NR_EXEMPTION){const preDays=Math.min(daysBetween(pd,'2017-05-09'),totalDays);exemptFrac=pporD>0?Math.min(preDays/totalDays,exemptFrac):0;nrPartial=true;}
+    else exemptFrac=0;
+  }
+
+  const exemptGain=grossGain*exemptFrac,taxableGain=Math.max(0,grossGain*(1-exemptFrac));
+
+  // CHANGE-OF-USE REVALUATION
+  const invPeriods=vp.filter(p=>p.type==='investment'&&p.marketValue);
+  const hasReval=invPeriods.length>0;
+  let revalNote='';
+  if(hasReval){const mv=parseFloat(invPeriods[0].marketValue);revalNote=`<div class="sec-title">CHANGE-OF-USE REVALUATION</div><div class="brows"><div class="brow"><span class="bl">Original Cost Base</span><span class="bv">${fmt(costBase)}</span></div><div class="brow highlight"><span class="bl">Market Value at Conversion</span><span class="bv blue">${fmt(mv)}</span></div><div class="brow"><span class="bl">Investment CGT Basis</span><span class="bv">Market value applied ✓</span></div></div>`;}
+
+  // INDEXATION vs 50% DISCOUNT
+  const useIdx=pDate>=PRE_CGT_DATE&&pDate<INDEXATION_END;
+  let method='none',discAmt=0,idxDisc=0,pctDisc=0;
+  const can50=isRes&&holdYrs>1;
+  if(useIdx){
+    const cpi=getCPI(pd);
+    if(cpi){const factor=CPI_SEP1999/cpi,idxCB=costBase*factor,idxProc=proceeds,idxGG=idxProc-idxCB,idxTG=Math.max(0,idxGG*(1-exemptFrac));idxDisc=Math.max(0,taxableGain-idxTG);}
+    pctDisc=can50?taxableGain*0.5:0;
+    if(idxDisc>pctDisc){method='indexation';discAmt=idxDisc;}else if(pctDisc>0){method='50pct';discAmt=pctDisc;}
+  }else if(can50){method='50pct';discAmt=taxableGain*0.5;}
+
+  const netTG=Math.max(0,taxableGain-discAmt),ownerG=isJoint?netTG/2:netTG,ownerInc=isJoint?inc/2:inc;
+  const cgtPayable=Math.max(0,(calcTax(ownerInc+Math.max(ownerG,0))-calcTax(ownerInc))*(isJoint?2:1));
+  const effRate=grossGain>0?cgtPayable/grossGain*100:0;
+  const mLabel=method==='indexation'?'INDEXATION METHOD':method==='50pct'?'50% DISCOUNT METHOD':'NO DISCOUNT AVAILABLE';
+
+  let html=`<div class="cgt-hero"><div class="hl">ESTIMATED CGT PAYABLE</div><div class="amount">${fmt(cgtPayable)}</div><div class="sub">Effective rate: ${fmtPct(effRate)} of gross gain</div><div class="method-badge">✓ ${mLabel}</div></div>`;
+
+  if(useIdx){html+=`<div class="sec-title">METHOD COMPARISON</div><div class="brows"><div class="brow${method==='indexation'?' highlight':''}"><span class="bl">📊 Indexation saving</span><span class="bv${method==='indexation'?' green':' blue'}">${fmt(idxDisc)}${method==='indexation'?' ✓ BEST':''}</span></div><div class="brow${method==='50pct'?' highlight':''}"><span class="bl">✂️ 50% Discount saving</span><span class="bv${method==='50pct'?' green':' blue'}">${fmt(pctDisc)}${method==='50pct'?' ✓ BEST':''}</span></div></div>`;}
+  html+=revalNote;
+  html+=`<div class="sec-title">EXEMPTION ANALYSIS</div><div class="exemption-bar-wrap"><div class="exemption-bar-labels"><span>Exempt: ${fmtPct(exemptFrac*100)}</span><span>Taxable: ${fmtPct((1-exemptFrac)*100)}</span></div><div class="exemption-bar-track"><div class="bar-exempt" style="flex:${exemptFrac}"></div><div class="bar-taxable" style="flex:${1-exemptFrac}"></div></div></div><div class="brows"><div class="brow"><span class="bl">PPOR Days</span><span class="bv green">${Math.round(pporD)} days</span></div>${absExempt>0?`<div class="brow"><span class="bl">Absence Exempt (6yr)</span><span class="bv green">+${Math.round(absExempt)} days</span></div>`:''}${absExcess>0?`<div class="brow"><span class="bl">Absence Over 6yr Limit</span><span class="bv orange">${Math.round(absExcess)} days taxable</span></div>`:''}<div class="brow"><span class="bl">Investment Days</span><span class="bv orange">${Math.round(invD)} days</span></div>${nrPartial?`<div class="brow"><span class="bl">Non-Resident Pre-2017 Exemption</span><span class="bv blue">Applied ✓</span></div>`:''}</div>`;
+  html+=`<div class="sec-title">FINAL CALCULATION</div><div class="brows"><div class="brow"><span class="bl">Cost Base</span><span class="bv">${fmt(costBase)}</span></div><div class="brow"><span class="bl">Net Proceeds</span><span class="bv">${fmt(proceeds)}</span></div><div class="brow"><span class="bl">Gross Capital Gain</span><span class="bv">${fmt(grossGain)}</span></div><div class="brow"><span class="bl">PPOR Exemption (${fmtPct(exemptFrac*100)})</span><span class="bv green">− ${fmt(exemptGain)}</span></div><div class="brow"><span class="bl">Taxable Gain (pre-discount)</span><span class="bv">${fmt(taxableGain)}</span></div>${discAmt>0?`<div class="brow"><span class="bl">${method==='indexation'?'Indexation Discount':'50% CGT Discount'}</span><span class="bv green">− ${fmt(discAmt)}</span></div>`:''}<div class="brow"><span class="bl">Net Taxable Gain</span><span class="bv">${fmt(netTG)}</span></div>${isJoint?`<div class="brow"><span class="bl">Your 50% Share</span><span class="bv">${fmt(ownerG)}</span></div>`:''}<div class="brow"><span class="bl">Your Marginal Rate</span><span class="bv">${getMR(ownerInc)}%</span></div><div class="brow total"><span class="bl">Total CGT Payable</span><span class="bv">${fmt(cgtPayable)}</span></div></div><div class="disclaimer">⚠️ <strong>Estimate only.</strong> Based on ATO 2024–25 rates and time-apportionment. Always consult a registered tax agent before selling.</div>`;
+
+  document.getElementById('resultArea').innerHTML=html;
+  document.getElementById('resultArea').classList.remove('result-blurred');
+  generateTips({grossGain,exemptFrac,holdYrs,isRes,method,discAmt,absD,absExempt,absExcess,pporD,invD,cgtPayable,inc,isJoint,useIdx,idxDisc,pctDisc,nrPartial,hasReval,preCGT:false,isLoss:false});
+}
+
+function generateTips(d){
+  const card=document.getElementById('tipsCard'),list=document.getElementById('tipsList'),tips=[];
+  if(d.preCGT){tips.push({cls:'high',icon:'🎉',text:'<strong>Pre-CGT property — no tax payable at all.</strong> Ensure your sale contract is properly dated and documented. Note that improvements made after 20 September 1985 may need to be declared separately.'});}
+  else if(d.isLoss){tips.push({cls:'high',icon:'✅',text:'<strong>Declare this capital loss in your tax return</strong> even though no CGT is payable. Capital losses carry forward indefinitely and can offset future gains from any asset class — property, shares, or crypto.'});}
+  else{
+    if(d.useIdx&&d.idxDisc>d.pctDisc)tips.push({cls:'high',icon:'📊',text:`<strong>Indexation Method saves you more (${fmt(d.idxDisc)} vs ${fmt(d.pctDisc)}).</strong> This is automatically applied. Ensure you have documentation of your original purchase costs for ATO audit purposes.`});
+    if(d.useIdx&&d.pctDisc>d.idxDisc)tips.push({cls:'high',icon:'✂️',text:`<strong>50% Discount saves you more (${fmt(d.pctDisc)} vs ${fmt(d.idxDisc)}).</strong> This is automatically applied. Both methods are legitimate — always pick the better one.`});
+    if(d.holdYrs<1&&d.isRes)tips.push({cls:'high',icon:'⏳',text:'<strong>You are under the 12-month holding threshold.</strong> Delaying settlement until you pass 12 months unlocks the 50% CGT discount — potentially halving your taxable gain. This is one of the most powerful CGT reduction strategies available.'});
+    if(d.absExempt>0)tips.push({cls:'high',icon:'🏠',text:`<strong>6-year absence rule reduces your CGT significantly.</strong> ${Math.round(d.absExempt)} days of absence qualify for PPOR exemption. Keep records of when you moved out and any rental income declared during that period.`});
+    if(d.absExcess>0)tips.push({cls:'medium',icon:'⚠️',text:`<strong>Absence exceeded the 6-year limit</strong> — ${Math.round(d.absExcess)} excess days are fully taxable. If you haven't sold yet and can move back in, doing so resets the 6-year absence clock.`});
+    if(d.hasReval)tips.push({cls:'info',icon:'🔵',text:'<strong>Change-of-use revaluation applied.</strong> Using the market value at conversion as the investment cost base reduces taxable gain. Make sure you have a formal independent valuation report dated at the time of conversion — this is essential for ATO records.'});
+    if(d.nrPartial)tips.push({cls:'medium',icon:'🌏',text:'<strong>Non-resident transitional rules are complex.</strong> Partial exemption has been applied for your pre-2017 holding period, but the exact calculation depends on your specific residency history. Seek personalised advice.'});
+    if(!d.isRes&&!d.nrPartial)tips.push({cls:'alert',icon:'🚨',text:'<strong>Non-resident: significant CGT consequences.</strong> No 50% discount or main residence exemption applies. Foreign resident CGT withholding (12.5% on properties over $750K) applies at settlement — the buyer is legally required to withhold this amount.'});
+    if(d.isJoint)tips.push({cls:'info',icon:'👥',text:'<strong>Joint ownership splits the gain between two taxpayers.</strong> If one owner has significantly lower income in the year of sale, consider whether the sale timing could maximise the tax benefit of the income split.'});
+    if(d.cgtPayable>0)tips.push({cls:'medium',icon:'📉',text:'<strong>Unrealised capital losses can offset this gain.</strong> If you hold shares, crypto, or other assets currently in a loss position, crystallising those losses before settlement can directly reduce your CGT bill.'});
+    if(d.inc>120000&&d.isRes)tips.push({cls:'medium',icon:'💰',text:'<strong>High-income year consideration.</strong> CGT is taxed at your marginal rate. If your income will be substantially lower next financial year (e.g. career break, retirement), delaying settlement could significantly reduce the tax rate applied to your gain.'});
+    if(d.cgtPayable>8000)tips.push({cls:'info',icon:'📅',text:'<strong>Book a pre-sale consultation.</strong> With a CGT liability of this size, a 30-minute consultation with Lawrence before you exchange contracts could identify strategies to legally reduce what you owe.'});
+  }
+  if(!tips.length){card.style.display='none';return;}
+  list.innerHTML=tips.map(t=>`<div class="tip-item ${t.cls}"><span class="tip-icon">${t.icon}</span><span class="tip-text">${t.text}</span></div>`).join('');
+  card.style.display='block';
+}
+
+function resetAll(){['buyPrice','sellPrice','buyCosts','sellCosts','improvements','income','purchaseDate','saleDate'].forEach(id=>document.getElementById(id).value='');document.getElementById('residency').value='resident';document.getElementById('ownership').value='sole';['alertPre1985','alertIndexation','alertNonResident2017'].forEach(id=>document.getElementById(id).style.display='none');document.getElementById('indexationBox').style.display='none';periods=[];pidCounter=0;addPeriod('ppor');document.getElementById('resultArea').innerHTML='<div style="padding:20px;text-align:center;color:var(--gray);"><div style="font-size:40px;opacity:0.35;margin-bottom:12px;">🏡</div><p style="font-size:13px;">Fill in your details and click Calculate.</p></div>';document.getElementById('resultArea').classList.add('result-blurred');document.getElementById('tipsCard').style.display='none';if(!isUnlocked)document.getElementById('paywallOverlay').style.display='flex';}
+
+function setLang(lang){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');document.querySelectorAll('[data-en]').forEach(el=>{const en=el.getAttribute('data-en'),zh=el.getAttribute('data-zh');if(lang==='zh'&&zh)el.innerHTML=zh;else if(lang==='en'&&en)el.innerHTML=en;});}
+</script>
+</body>
+</html>
