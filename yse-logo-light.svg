@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 56" width="260" height="56">
+  <g transform="translate(2, 2)">
+    <polygon points="26,0 52,26 26,52 0,26" fill="#0d2a4a"/>
+    <polygon points="26,0 52,26 47,26 26,6 5,26 0,26" fill="#e8793a"/>
+    <text x="26" y="35" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="700" fill="white">Y</text>
+  </g>
+  <g transform="translate(64, 8)">
+    <text x="0" y="24" font-family="Georgia,serif" font-size="20" font-weight="700" fill="#0d2a4a">YSE Finance</text>
+    <text x="2" y="40" font-family="Arial,sans-serif" font-size="9" fill="#8a8fa0" letter-spacing="2">SYDNEY TAX AGENT</text>
+  </g>
+</svg>
