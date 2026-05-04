@@ -398,7 +398,7 @@ function calculate() {
       ${isEV ? '' : `<div class="result-row"><span class="rlabel">Annual FBT Cost</span><span class="rval orange">${fmtAUD(annualFBTGrossUp)}</span></div>`}
       <div class="result-row" style="border-top:2px solid rgba(13,42,74,0.08);margin-top:4px;padding-top:12px;"><span class="rlabel" style="font-weight:700;color:var(--navy)">Total Saving (${term}yr)</span><span class="rval" style="font-size:16px;color:var(--green)">${fmtAUD(totalSavings)}</span></div>
     </div>
-    <div class="disclaimer">⚠️ <strong>Estimate only.</strong> Actual savings depend on your employer's FBT arrangement, lease provider terms, and individual tax circumstances. This does not constitute financial advice.</div>
+    <div class="disclaimer">⚠️ This calculator is provided for general estimation purposes only and does not constitute tax advice or financial advice. Results are based on ATO 2024–25 rates and may not reflect your individual circumstances. YSE Finance accepts no liability for any loss arising from reliance on these estimates. Always consult a registered tax agent before making tax decisions.</div>
   `;
 
   document.getElementById('resultArea').innerHTML = html;

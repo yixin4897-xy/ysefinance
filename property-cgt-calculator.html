@@ -109,6 +109,9 @@ nav{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 20
 .paywall-feature .check{color:var(--green);font-weight:700;}
 .paypal-btn{background:#0070ba;color:white;border:none;padding:13px 24px;border-radius:9px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;width:100%;max-width:270px;display:flex;align-items:center;justify-content:center;gap:8px;}
 .paypal-btn:hover{background:#005ea6;transform:translateY(-1px);}
+.paypal-btn:disabled{background:rgba(0,112,186,0.45);cursor:not-allowed;transform:none;}
+.paywall-checkbox{display:flex;align-items:flex-start;gap:10px;margin:16px 0 10px;text-align:left;font-size:12px;color:var(--navy);line-height:1.5;}
+.paywall-checkbox input{margin-top:3px;}
 .paywall-guarantee{font-size:11px;color:var(--gray);margin-top:10px;}
 .result-card{background:white;border-radius:20px;padding:26px;border:1px solid rgba(13,42,74,0.07);box-shadow:0 4px 20px rgba(13,42,74,0.05);}
 .result-blurred{filter:blur(5px);pointer-events:none;user-select:none;}
@@ -303,7 +306,8 @@ footer{background:#071a2e;padding:28px 32px;text-align:center;}
         <div class="paywall-feature"><span class="check">✓</span> 6-year absence rule calculation</div>
         <div class="paywall-feature"><span class="check">✓</span> Personalised tax-saving tips</div>
       </div>
-      <button class="paypal-btn" onclick="initiatePayPal()">💳 Pay A$19.99 with PayPal</button>
+      <label class="paywall-checkbox"><input type="checkbox" id="disclaimerCheckbox" onchange="togglePayPal()"> <span>I have read and understood the disclaimer. I acknowledge this is an estimate only.</span></label>
+      <button class="paypal-btn" id="paypalButton" onclick="initiatePayPal()" disabled>💳 Pay A$19.99 with PayPal</button>
       <div class="paywall-guarantee">🔒 Secure · Money-back guarantee</div>
     </div>
     <div class="result-card">
@@ -359,10 +363,22 @@ function getCPI(d){const k=getQKey(d);return k?CPI_DATA[k]||null:null;}
 let periods=[],pidCounter=0,isUnlocked=false;
 window.onload=()=>{addPeriod('ppor');if(sessionStorage.getItem('cgt_pro_unlocked')==='true')unlockResults();const p=new URLSearchParams(window.location.search);if(p.get('payment')==='success'){sessionStorage.setItem('cgt_pro_unlocked','true');unlockResults();window.history.replaceState({},'',window.location.pathname);}};
 function initiatePayPal(){
+  const checkbox = document.getElementById('disclaimerCheckbox');
+  if(!checkbox || !checkbox.checked){
+    alert('Please confirm that you have read and understood the disclaimer before proceeding to PayPal.');
+    return;
+  }
   // Store return URL in sessionStorage so we can unlock after PayPal redirect
   sessionStorage.setItem('cgt_return_url', location.href.split('?')[0]);
   // Redirect to PayPal Payment Link
   location.href='https://www.paypal.com/ncp/payment/DMVAASWBLNWHS';
+}
+function togglePayPal(){
+  const button = document.getElementById('paypalButton');
+  const checkbox = document.getElementById('disclaimerCheckbox');
+  if(button && checkbox){
+    button.disabled = !checkbox.checked;
+  }
 }
 function unlockResults(){isUnlocked=true;const o=document.getElementById('paywallOverlay'),a=document.getElementById('resultArea');if(o)o.style.display='none';if(a)a.classList.remove('result-blurred');const b=document.createElement('div');b.style.cssText='background:rgba(45,157,110,0.12);border:1px solid rgba(45,157,110,0.3);border-radius:9px;padding:11px 14px;font-size:12px;color:var(--green);text-align:center;margin-bottom:14px;font-weight:600;';b.innerHTML='✅ Payment successful! Full results unlocked.';const rc=document.querySelector('.result-card');if(rc)rc.insertBefore(b,rc.firstChild);setTimeout(()=>b.remove(),6000);}
 function onInputChange(){updateIndexationBox();}
@@ -393,6 +409,7 @@ function calculate(){
   // PRE-1985
   if(pDate<PRE_CGT_DATE){
     const html=`<div class="cgt-hero"><div class="hl">CGT PAYABLE</div><div class="amount zero">$0</div><div class="sub">✅ Pre-CGT property — full exemption</div><div class="method-badge">PRE-20 SEP 1985</div></div><div class="brows"><div class="brow highlight"><span class="bl">Purchase Date</span><span class="bv green">${pd}</span></div><div class="brow"><span class="bl">CGT Commenced</span><span class="bv">20 Sep 1985</span></div><div class="brow"><span class="bl">Gross Gain (pre-tax)</span><span class="bv">${fmt(sp-sc-bp-bc-im)}</span></div><div class="brow total"><span class="bl">CGT Payable</span><span class="bv green">$0 — Fully Exempt</span></div></div><div class="disclaimer">Properties purchased before 20 September 1985 are fully exempt from CGT under Australian tax law. No CGT applies regardless of profit or usage.</div>`;
+    html += `<div class="disclaimer">⚠️ This calculator is provided for general estimation purposes only and does not constitute tax advice or financial advice. Results are based on ATO 2024–25 rates and may not reflect your individual circumstances. YSE Finance accepts no liability for any loss arising from reliance on these estimates. Always consult a registered tax agent before making tax decisions.</div>`;
     document.getElementById('resultArea').innerHTML=html;document.getElementById('resultArea').classList.remove('result-blurred');
     generateTips({preCGT:true});return;
   }
@@ -402,6 +419,7 @@ function calculate(){
   // LOSS
   if(grossGain<=0){
     const html=`<div class="cgt-hero"><div class="hl">CAPITAL LOSS</div><div class="amount zero">${fmt(grossGain)}</div><div class="sub">No CGT payable — loss offsets future gains</div></div><div class="brows"><div class="brow"><span class="bl">Cost Base</span><span class="bv">${fmt(costBase)}</span></div><div class="brow"><span class="bl">Net Proceeds</span><span class="bv">${fmt(proceeds)}</span></div><div class="brow total"><span class="bl">Capital Loss</span><span class="bv green">${fmt(grossGain)}</span></div></div><div class="disclaimer">Declare this capital loss in your tax return — it can be carried forward indefinitely to offset future capital gains from any asset.</div>`;
+    html += `<div class="disclaimer">⚠️ This calculator is provided for general estimation purposes only and does not constitute tax advice or financial advice. Results are based on ATO 2024–25 rates and may not reflect your individual circumstances. YSE Finance accepts no liability for any loss arising from reliance on these estimates. Always consult a registered tax agent before making tax decisions.</div>`;
     document.getElementById('resultArea').innerHTML=html;document.getElementById('resultArea').classList.remove('result-blurred');
     generateTips({isLoss:true});return;
   }
@@ -456,7 +474,7 @@ function calculate(){
   if(useIdx){html+=`<div class="sec-title">METHOD COMPARISON</div><div class="brows"><div class="brow${method==='indexation'?' highlight':''}"><span class="bl">📊 Indexation saving</span><span class="bv${method==='indexation'?' green':' blue'}">${fmt(idxDisc)}${method==='indexation'?' ✓ BEST':''}</span></div><div class="brow${method==='50pct'?' highlight':''}"><span class="bl">✂️ 50% Discount saving</span><span class="bv${method==='50pct'?' green':' blue'}">${fmt(pctDisc)}${method==='50pct'?' ✓ BEST':''}</span></div></div>`;}
   html+=revalNote;
   html+=`<div class="sec-title">EXEMPTION ANALYSIS</div><div class="exemption-bar-wrap"><div class="exemption-bar-labels"><span>Exempt: ${fmtPct(exemptFrac*100)}</span><span>Taxable: ${fmtPct((1-exemptFrac)*100)}</span></div><div class="exemption-bar-track"><div class="bar-exempt" style="flex:${exemptFrac}"></div><div class="bar-taxable" style="flex:${1-exemptFrac}"></div></div></div><div class="brows"><div class="brow"><span class="bl">PPOR Days</span><span class="bv green">${Math.round(pporD)} days</span></div>${absExempt>0?`<div class="brow"><span class="bl">Absence Exempt (6yr)</span><span class="bv green">+${Math.round(absExempt)} days</span></div>`:''}${absExcess>0?`<div class="brow"><span class="bl">Absence Over 6yr Limit</span><span class="bv orange">${Math.round(absExcess)} days taxable</span></div>`:''}<div class="brow"><span class="bl">Investment Days</span><span class="bv orange">${Math.round(invD)} days</span></div>${nrPartial?`<div class="brow"><span class="bl">Non-Resident Pre-2017 Exemption</span><span class="bv blue">Applied ✓</span></div>`:''}</div>`;
-  html+=`<div class="sec-title">FINAL CALCULATION</div><div class="brows"><div class="brow"><span class="bl">Cost Base</span><span class="bv">${fmt(costBase)}</span></div><div class="brow"><span class="bl">Net Proceeds</span><span class="bv">${fmt(proceeds)}</span></div><div class="brow"><span class="bl">Gross Capital Gain</span><span class="bv">${fmt(grossGain)}</span></div><div class="brow"><span class="bl">PPOR Exemption (${fmtPct(exemptFrac*100)})</span><span class="bv green">− ${fmt(exemptGain)}</span></div><div class="brow"><span class="bl">Taxable Gain (pre-discount)</span><span class="bv">${fmt(taxableGain)}</span></div>${discAmt>0?`<div class="brow"><span class="bl">${method==='indexation'?'Indexation Discount':'50% CGT Discount'}</span><span class="bv green">− ${fmt(discAmt)}</span></div>`:''}<div class="brow"><span class="bl">Net Taxable Gain</span><span class="bv">${fmt(netTG)}</span></div>${isJoint?`<div class="brow"><span class="bl">Your 50% Share</span><span class="bv">${fmt(ownerG)}</span></div>`:''}<div class="brow"><span class="bl">Your Marginal Rate</span><span class="bv">${getMR(ownerInc)}%</span></div><div class="brow total"><span class="bl">Total CGT Payable</span><span class="bv">${fmt(cgtPayable)}</span></div></div><div class="disclaimer">⚠️ <strong>Estimate only.</strong> Based on ATO 2024–25 rates and time-apportionment. Always consult a registered tax agent before selling.</div>`;
+  html+=`<div class="sec-title">FINAL CALCULATION</div><div class="brows"><div class="brow"><span class="bl">Cost Base</span><span class="bv">${fmt(costBase)}</span></div><div class="brow"><span class="bl">Net Proceeds</span><span class="bv">${fmt(proceeds)}</span></div><div class="brow"><span class="bl">Gross Capital Gain</span><span class="bv">${fmt(grossGain)}</span></div><div class="brow"><span class="bl">PPOR Exemption (${fmtPct(exemptFrac*100)})</span><span class="bv green">− ${fmt(exemptGain)}</span></div><div class="brow"><span class="bl">Taxable Gain (pre-discount)</span><span class="bv">${fmt(taxableGain)}</span></div>${discAmt>0?`<div class="brow"><span class="bl">${method==='indexation'?'Indexation Discount':'50% CGT Discount'}</span><span class="bv green">− ${fmt(discAmt)}</span></div>`:''}<div class="brow"><span class="bl">Net Taxable Gain</span><span class="bv">${fmt(netTG)}</span></div>${isJoint?`<div class="brow"><span class="bl">Your 50% Share</span><span class="bv">${fmt(ownerG)}</span></div>`:''}<div class="brow"><span class="bl">Your Marginal Rate</span><span class="bv">${getMR(ownerInc)}%</span></div><div class="brow total"><span class="bl">Total CGT Payable</span><span class="bv">${fmt(cgtPayable)}</span></div></div><div class="disclaimer">⚠️ This calculator is provided for general estimation purposes only and does not constitute tax advice or financial advice. Results are based on ATO 2024–25 rates and may not reflect your individual circumstances. YSE Finance accepts no liability for any loss arising from reliance on these estimates. Always consult a registered tax agent before making tax decisions.</div>`;
 
   document.getElementById('resultArea').innerHTML=html;
   document.getElementById('resultArea').classList.remove('result-blurred');
