@@ -399,6 +399,24 @@
     font-size: 14px;
     line-height: 1.65;
   }
+  .service-card.partner-service {
+    border-left: 3px solid var(--orange);
+    position: relative;
+  }
+  .service-card.partner-service .partner-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 12px;
+    transition: gap 0.2s;
+  }
+  .service-card.partner-service .partner-link:hover {
+    gap: 10px;
+  }
 
   /* ── WHY US ── */
   .why-us { background: var(--navy); }
@@ -753,7 +771,7 @@
       <img src="yse-logo-dark.svg" height="44" alt="YSE Finance">
     </a>
     <ul class="nav-links">
-      <li><a href="#services" data-en="Services" data-zh="服务项目">Services</a></li>
+      <li><a href="services.html" data-en="Services" data-zh="服务项目">Services</a></li>
       <li><a href="#why" data-en="Why Us" data-zh="为何选择我们">Why Us</a></li>
       <li><a href="#tools" data-en="Tax Tools" data-zh="税务工具">Tax Tools</a></li>
       <li><a href="#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
@@ -860,6 +878,13 @@
         <h3 data-en="Tax Planning & Advice" data-zh="税务规划咨询">Tax Planning & Advice</h3>
         <div class="zh-title" data-en="" data-zh="税务规划">税务规划</div>
         <p data-en="Proactive advice to legally minimise your tax burden — for individuals and businesses alike." data-zh="主动提供合法省税建议，适合个人及企业客户。">Proactive advice to legally minimise your tax burden — for individuals and businesses alike.</p>
+      </div>
+      <div class="service-card fade-up partner-service">
+        <div class="service-icon">🏗️</div>
+        <h3>Property Depreciation Report</h3>
+        <div class="zh-title">折旧报告</div>
+        <p>Claim wear and tear on your investment property. Exclusive partner pricing via Duo Tax — Australia's highest-rated quantity surveyors.</p>
+        <a href="https://duotax.com.au/forms/start/?rid=001Om00000XEZxP" target="_blank" class="partner-link">Partner Service →</a>
       </div>
     </div>
   </div>
