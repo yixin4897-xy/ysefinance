@@ -57,6 +57,25 @@
   .include-item::before { content:'✓'; color:var(--orange); font-weight:700; font-size:13px; flex-shrink:0; }
   .service-tag { background:rgba(232,121,58,0.1); color:var(--orange); font-size:11px; font-weight:600; letter-spacing:0.5px; padding:5px 12px; border-radius:20px; white-space:nowrap; align-self:flex-start; border:1px solid rgba(232,121,58,0.2); }
 
+  /* PARTNER CARD */
+  .partner-card { background:white; border-radius:20px; overflow:hidden; border:1px solid rgba(13,42,74,0.06); transition:box-shadow 0.2s; }
+  .partner-card:hover { box-shadow:0 12px 40px rgba(13,42,74,0.08); }
+  .partner-header { background:var(--navy); padding:40px; color:white; display:flex; gap:24px; align-items:flex-start; }
+  .partner-icon { width:64px; height:64px; background:rgba(232,121,58,0.2); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:32px; flex-shrink:0; }
+  .partner-header-text { flex:1; }
+  .partner-header-text h2 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:white; margin-bottom:4px; }
+  .partner-subtitle { font-size:13px; color:rgba(255,255,255,0.7); margin-bottom:10px; font-style:italic; }
+  .partner-badge { display:inline-block; background:var(--orange); color:white; font-size:11px; font-weight:600; letter-spacing:0.5px; padding:5px 12px; border-radius:20px; margin-bottom:0; }
+  .partner-body { padding:32px 40px; background:white; }
+  .partner-body p { color:#4a5568; font-size:14px; line-height:1.75; margin-bottom:24px; }
+  .partner-checklist { display:flex; flex-direction:column; gap:12px; margin-bottom:24px; }
+  .partner-check-item { display:flex; align-items:center; gap:12px; font-size:14px; color:var(--navy-mid); }
+  .partner-check-item::before { content:'✓'; color:var(--orange); font-weight:700; font-size:16px; flex-shrink:0; }
+  .partner-footer { padding:24px 40px; background:rgba(13,42,74,0.02); border-top:1px solid rgba(13,42,74,0.06); display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .partner-provider { color:var(--gray); font-size:13px; }
+  .partner-cta { background:var(--orange); color:white; padding:11px 24px; border-radius:8px; text-decoration:none; font-weight:600; font-size:14px; transition:all 0.2s; white-space:nowrap; }
+  .partner-cta:hover { background:var(--orange-light); transform:translateY(-1px); }
+
   /* PRICING NOTE */
   .pricing-note { background:var(--navy); border-radius:20px; padding:40px; margin-top:48px; display:flex; gap:32px; align-items:center; }
   .pricing-note-icon { font-size:48px; flex-shrink:0; }
@@ -104,6 +123,9 @@
     nav .nav-links { display:none; }
     section { padding:56px 20px; }
     .page-hero { padding:56px 20px 48px; }
+    .partner-header { flex-direction:column; }
+    .partner-footer { flex-direction:column; gap:16px; text-align:center; }
+    .partner-cta { width:100%; text-align:center; }
   }
 </style>
 </head>
@@ -191,6 +213,30 @@
           </div>
         </div>
         <div class="service-tag" data-en="Property" data-zh="房产">Property</div>
+      </div>
+
+      <div class="partner-card fade-up">
+        <div class="partner-header">
+          <div class="partner-icon">🏗️</div>
+          <div class="partner-header-text">
+            <h2>Property Depreciation Schedule</h2>
+            <div class="partner-subtitle">In partnership with Duo Tax</div>
+            <div class="partner-badge">Partner Pricing</div>
+          </div>
+        </div>
+        <div class="partner-body">
+          <p>A tax depreciation schedule allows you to claim the wear and tear on your investment property as a tax deduction — potentially saving you thousands each year.</p>
+          <div class="partner-checklist">
+            <div class="partner-check-item">ATO compliant reports</div>
+            <div class="partner-check-item">40-year depreciation schedule</div>
+            <div class="partner-check-item">5 business day turnaround</div>
+            <div class="partner-check-item">Exclusive partner pricing</div>
+          </div>
+        </div>
+        <div class="partner-footer">
+          <div class="partner-provider">Provided by Duo Tax Quantity Surveyors</div>
+          <a href="https://duotax.com.au/forms/start/?rid=001Om00000XEZxP" target="_blank" class="partner-cta">Order Report</a>
+        </div>
       </div>
 
       <div class="service-detail fade-up">
