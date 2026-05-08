@@ -347,7 +347,7 @@
   .services { background: white; }
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     margin-top: 48px;
   }
@@ -416,6 +416,48 @@
   }
   .service-card.partner-service .partner-link:hover {
     gap: 10px;
+  }
+  .partner-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--orange);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+  }
+  .service-card.partner-card {
+    position: relative;
+    border-left: 3px solid var(--orange);
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card.partner-card a {
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card.partner-card .service-icon {
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+  }
+  .services-view-all {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .services-view-all a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.2s;
+  }
+  .services-view-all a:hover {
+    color: var(--orange-light);
   }
 
   /* ── WHY US ── */
@@ -742,7 +784,7 @@
   @media (max-width: 768px) {
     .hero-inner { grid-template-columns: 1fr; gap: 40px; }
     .hero-right { display: none; }
-    .services-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid { grid-template-columns: 1fr; }
     .tools-grid { grid-template-columns: 1fr; }
     .testi-grid { grid-template-columns: 1fr; }
@@ -879,13 +921,27 @@
         <div class="zh-title" data-en="" data-zh="税务规划">税务规划</div>
         <p data-en="Proactive advice to legally minimise your tax burden — for individuals and businesses alike." data-zh="主动提供合法省税建议，适合个人及企业客户。">Proactive advice to legally minimise your tax burden — for individuals and businesses alike.</p>
       </div>
-      <div class="service-card fade-up partner-service">
-        <div class="service-icon">🏗️</div>
-        <h3>Property Depreciation Report</h3>
-        <div class="zh-title">折旧报告</div>
-        <p>Claim wear and tear on your investment property. Exclusive partner pricing via Duo Tax — Australia's highest-rated quantity surveyors.</p>
-        <a href="https://duotax.com.au/forms/start/?rid=001Om00000XEZxP" target="_blank" class="partner-link">Partner Service →</a>
+      <div class="service-card fade-up partner-card">
+        <div class="partner-badge">Partner</div>
+        <a href="https://duotax.com.au/forms/start/?rid=001Om00000XEZxP" target="_blank">
+          <div class="service-icon">🏗️</div>
+          <h3>Depreciation Report</h3>
+          <div class="zh-title" data-en="" data-zh="折旧报告 · Duo Tax">折旧报告 · Duo Tax</div>
+          <p data-en="Claim property wear & tear. Partner pricing via Duo Tax — Australia's highest-rated quantity surveyors." data-zh="申报房产折旧。通过Duo Tax获得合作价格——澳洲顶级房产勘估公司。">Claim property wear & tear. Partner pricing via Duo Tax — Australia's highest-rated quantity surveyors.</p>
+        </a>
       </div>
+      <div class="service-card fade-up partner-card">
+        <div class="partner-badge">Partner</div>
+        <a href="services.html#homeloan">
+          <div class="service-icon">🏦</div>
+          <h3>Home Loan Referral</h3>
+          <div class="zh-title" data-en="" data-zh="房贷转介 · CBA · Westpac">房贷转介 · CBA · Westpac</div>
+          <p data-en="Direct introductions to CBA, Westpac & St George. Referral commission may apply — no cost to you." data-zh="直接介绍CBA、Westpac和St George。可能有转介佣金——对您无成本。">Direct introductions to CBA, Westpac & St George. Referral commission may apply — no cost to you.</p>
+        </a>
+      </div>
+    </div>
+    <div class="services-view-all fade-up">
+      <a href="services.html" data-en="View all services →" data-zh="查看所有服务 →">View all services →</a>
     </div>
   </div>
 </section>
