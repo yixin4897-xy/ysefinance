@@ -142,6 +142,23 @@ nav{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 20
 .bar-exempt{background:var(--green);}
 .bar-taxable{background:var(--orange);}
 .tips-card{background:white;border-radius:18px;padding:22px 24px;border:1px solid rgba(13,42,74,0.07);box-shadow:0 4px 20px rgba(13,42,74,0.05);}
+.download-pdf-btn{width:100%;background:#0d2a4a;color:white;border:none;padding:14px 18px;border-radius:14px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s;display:block;margin:0 auto 0px;}
+.download-pdf-btn:hover{background:#0b253d;transform:translateY(-1px);}
+.printable-report{display:none;}
+.printable-report .report-page{width:100%;max-width:900px;margin:0 auto;padding:28px 30px;color:#111;background:white;}
+.printable-report .report-header{margin-bottom:24px;}
+.printable-report .report-header h1{font-family:'Playfair Display',serif;font-size:36px;color:var(--navy);margin-bottom:6px;}
+.printable-report .report-header p{font-size:14px;color:#1f2b42;line-height:1.65;margin:4px 0;}
+.printable-report .report-section{margin-bottom:24px;}
+.printable-report .report-section h2{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:12px;}
+.printable-report .report-section .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid rgba(17,17,17,0.08);}
+.printable-report .report-section .row:last-child{border-bottom:none;}
+.printable-report .report-section .label{font-size:13px;color:#333;flex:1;}
+.printable-report .report-section .value{font-size:13px;color:#111;flex:1;text-align:right;font-weight:600;}
+.printable-report .report-final{padding:18px 20px;border:1px solid rgba(13,42,74,0.12);border-radius:14px;background:rgba(13,42,74,0.04);}
+.printable-report .report-final .amount{font-family:'Playfair Display',serif;font-size:30px;color:var(--navy);margin-top:6px;}
+.printable-report .report-disclaimer{page-break-before:always;padding-top:10px;font-size:11px;color:#111;line-height:1.6;}
+.printable-report .report-footer{border-top:1px solid rgba(17,17,17,0.12);padding-top:14px;margin-top:18px;font-size:11px;color:#111;line-height:1.5;}
 .tips-card h3{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:12px;}
 .tips-list{display:flex;flex-direction:column;gap:9px;}
 .tip-item{display:flex;gap:9px;align-items:flex-start;padding:10px 12px;border-radius:9px;border:1px solid transparent;}
@@ -166,6 +183,15 @@ footer{background:#071a2e;padding:28px 32px;text-align:center;}
 .footer-links a:hover{color:var(--orange-light);}
 .footer-bottom{color:rgba(255,255,255,0.2);font-size:11px;border-top:1px solid rgba(255,255,255,0.05);padding-top:12px;margin-top:7px;}
 @media(max-width:900px){.main-wrap{grid-template-columns:1fr;padding:20px 16px;}.result-panel{position:static;}.form-grid{grid-template-columns:1fr;}.period-top{grid-template-columns:1fr 1fr;gap:7px;}nav .nav-links{display:none;}.page-hero{padding:36px 18px 28px;}}
+@media print{
+  body{background:white;color:#000;}
+  .lang-bar, nav, .main-wrap, .cta-band, footer, .paywall-overlay, .calc-btn, .reset-btn, .tips-card, .download-pdf-btn, .result-card, .result-panel, .calc-card{display:none !important;}
+  .printable-report{display:block !important;}
+  .printable-report *{color:#000 !important;background:transparent !important;box-shadow:none !important;text-shadow:none !important;}
+  .printable-report .report-page{margin:0;padding:0;width:auto;max-width:none;}
+  .printable-report .report-section{page-break-inside:avoid;}
+  .printable-report .report-disclaimer{page-break-before:always;}
+}
 </style>
 </head>
 <body>
@@ -256,8 +282,7 @@ footer{background:#071a2e;padding:28px 32px;text-align:center;}
           <option value="sole">Sole owner (100%)</option>
           <option value="joint">Joint 50/50</option>
         </select>
-      </div>
-    </div>
+      </div>      <div class="form-row full"><label>Your Name (for PDF report)</label><input type="text" id="clientName" placeholder="Optional"></div>    </div>
   </div>
 
   <!-- STEP 3 -->
@@ -330,6 +355,7 @@ footer{background:#071a2e;padding:28px 32px;text-align:center;}
           </div>
         </div>
       </div>
+      <button id="downloadPdfButton" class="download-pdf-btn" style="display:none;" onclick="downloadPdfReport()">⬇️ Download PDF Report</button>
     </div>
   </div>
   <div class="tips-card" id="tipsCard" style="display:none;">
@@ -338,6 +364,8 @@ footer{background:#071a2e;padding:28px 32px;text-align:center;}
   </div>
 </div>
 </div>
+
+<div class="printable-report" id="printableReport" style="display:none;"></div>
 
 <div class="cta-band">
   <div class="cta-inner">
@@ -364,7 +392,7 @@ const CPI_SEP1999=68.7;
 const CPI_DATA={'1985Q3':28.4,'1985Q4':29.3,'1986Q1':30.3,'1986Q2':31.3,'1986Q3':32.3,'1986Q4':33.0,'1987Q1':33.6,'1987Q2':34.0,'1987Q3':34.7,'1987Q4':35.5,'1988Q1':36.3,'1988Q2':37.1,'1988Q3':38.0,'1988Q4':38.7,'1989Q1':39.6,'1989Q2':40.9,'1989Q3':42.1,'1989Q4':42.9,'1990Q1':44.2,'1990Q2':44.8,'1990Q3':45.8,'1990Q4':46.4,'1991Q1':46.8,'1991Q2':47.1,'1991Q3':47.1,'1991Q4':47.1,'1992Q1':47.0,'1992Q2':47.3,'1992Q3':47.5,'1992Q4':47.7,'1993Q1':48.0,'1993Q2':48.3,'1993Q3':48.5,'1993Q4':48.9,'1994Q1':49.0,'1994Q2':49.3,'1994Q3':49.7,'1994Q4':50.2,'1995Q1':51.1,'1995Q2':51.6,'1995Q3':52.0,'1995Q4':52.2,'1996Q1':52.5,'1996Q2':52.8,'1996Q3':52.9,'1996Q4':53.1,'1997Q1':53.2,'1997Q2':53.1,'1997Q3':53.3,'1997Q4':53.2,'1998Q1':53.3,'1998Q2':53.5,'1998Q3':53.6,'1998Q4':53.7,'1999Q1':53.7,'1999Q2':53.8,'1999Q3':68.7};
 function getQKey(d){if(!d)return null;const dt=new Date(d),m=dt.getMonth(),q=m<3?1:m<6?2:m<9?3:4;return `${dt.getFullYear()}Q${q}`;}
 function getCPI(d){const k=getQKey(d);return k?CPI_DATA[k]||null:null;}
-let periods=[],pidCounter=0,isUnlocked=false;
+let periods=[],pidCounter=0,isUnlocked=false,lastReportData=null;
 window.onload=()=>{addPeriod('ppor');if(sessionStorage.getItem('cgt_pro_unlocked')==='true')unlockResults();const p=new URLSearchParams(window.location.search);if(p.get('payment')==='success'){sessionStorage.setItem('cgt_pro_unlocked','true');unlockResults();window.history.replaceState({},'',window.location.pathname);}};
 function initiatePayPal(){
   const checkbox = document.getElementById('disclaimerCheckbox');
@@ -384,7 +412,11 @@ function togglePayPal(){
     button.disabled = !checkbox.checked;
   }
 }
-function unlockResults(){isUnlocked=true;const o=document.getElementById('paywallOverlay'),a=document.getElementById('resultArea');if(o)o.style.display='none';if(a)a.classList.remove('result-blurred');const b=document.createElement('div');b.style.cssText='background:rgba(45,157,110,0.12);border:1px solid rgba(45,157,110,0.3);border-radius:9px;padding:11px 14px;font-size:12px;color:var(--green);text-align:center;margin-bottom:14px;font-weight:600;';b.innerHTML='✅ Payment successful! Full results unlocked.';const rc=document.querySelector('.result-card');if(rc)rc.insertBefore(b,rc.firstChild);setTimeout(()=>b.remove(),6000);}
+function unlockResults(){isUnlocked=true;const o=document.getElementById('paywallOverlay'),a=document.getElementById('resultArea');if(o)o.style.display='none';if(a)a.classList.remove('result-blurred');updatePdfButtonState();const b=document.createElement('div');b.style.cssText='background:rgba(45,157,110,0.12);border:1px solid rgba(45,157,110,0.3);border-radius:9px;padding:11px 14px;font-size:12px;color:var(--green);text-align:center;margin-bottom:14px;font-weight:600;';b.innerHTML='✅ Payment successful! Full results unlocked.';const rc=document.querySelector('.result-card');if(rc)rc.insertBefore(b,rc.firstChild);setTimeout(()=>b.remove(),6000);}
+function updatePdfButtonState(){const btn=document.getElementById('downloadPdfButton');if(!btn)return;btn.style.display=(isUnlocked&&lastReportData)?'block':'none';}
+function formatReportDate(d){return d.toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'});}
+function buildPrintReport(data){const name=data.clientName?data.clientName:'Client';return `<div class="report-page"><div class="report-header"><h1>YSE Finance</h1><p>Property CGT Estimate Report</p><p>Date generated: ${formatReportDate(data.generatedAt)}</p><p>Prepared for: ${name}</p></div><div class="report-section"><h2>Property & Sale Details</h2><div class="row"><span class="label">Purchase Price</span><span class="value">${fmt(data.purchasePrice)}</span></div><div class="row"><span class="label">Sale Price</span><span class="value">${fmt(data.salePrice)}</span></div><div class="row"><span class="label">Purchase Costs</span><span class="value">${fmt(data.purchaseCosts)}</span></div><div class="row"><span class="label">Sale Costs</span><span class="value">${fmt(data.saleCosts)}</span></div><div class="row"><span class="label">Capital Improvements</span><span class="value">${fmt(data.improvements)}</span></div><div class="row"><span class="label">Division 43 Add Back</span><span class="value">${fmt(data.div43)}</span></div><div class="row"><span class="label">Purchase Date</span><span class="value">${data.purchaseDate}</span></div><div class="row"><span class="label">Sale / Contract Date</span><span class="value">${data.saleDate}</span></div></div><div class="report-section"><h2>Cost Base Calculation</h2><div class="row"><span class="label">Purchase Price + Costs + Improvements</span><span class="value">${fmt(data.purchasePrice+data.purchaseCosts+data.improvements)}</span></div><div class="row"><span class="label">Less Division 43 Depreciation</span><span class="value">${fmt(data.div43)}</span></div><div class="row"><span class="label">Total Cost Base</span><span class="value">${fmt(data.costBase)}</span></div></div><div class="report-section"><h2>Exemption Analysis</h2><div class="row"><span class="label">PPOR Days</span><span class="value">${Math.round(data.pporDays)} days</span></div><div class="row"><span class="label">Investment Days</span><span class="value">${Math.round(data.investmentDays)} days</span></div><div class="row"><span class="label">Absence Days</span><span class="value">${Math.round(data.absenceDays)} days</span></div><div class="row"><span class="label">Absence Exempt (6yr)</span><span class="value">${Math.round(data.absenceExempt)} days</span></div><div class="row"><span class="label">Absence Excess</span><span class="value">${Math.round(data.absenceExcess)} days</span></div><div class="row"><span class="label">Exempt Fraction</span><span class="value">${fmtPct(data.exemptFrac*100)}</span></div><div class="row"><span class="label">Taxable Fraction</span><span class="value">${fmtPct((1-data.exemptFrac)*100)}</span></div></div><div class="report-section report-final"><h2>Final CGT Payable</h2><div class="row"><span class="label">Gross Capital Gain</span><span class="value">${fmt(data.grossGain)}</span></div><div class="row"><span class="label">Exempt Gain</span><span class="value">${fmt(data.exemptGain)}</span></div><div class="row"><span class="label">Taxable Gain</span><span class="value">${fmt(data.taxableGain)}</span></div><div class="row"><span class="label">${data.method==='Pre-CGT'?'Result':'Applied Method'}</span><span class="value">${data.methodLabel||data.method}</span></div><div class="row"><span class="label">Discount / Indexation Savings</span><span class="value">${fmt(data.discAmt)}</span></div><div class="row"><span class="label">Total CGT Payable</span><span class="value">${fmt(data.cgtPayable)}</span></div><div class="amount">${fmt(data.cgtPayable)}</div></div><div class="report-disclaimer"><strong>Important Disclaimer & Limitations</strong><br><br>This report has been generated by the YSE Finance Property CGT Calculator and is provided for general estimation purposes only. It does not constitute tax advice, financial advice, legal advice, or a substitute for professional consultation with a registered tax agent or financial adviser.<br><br>The calculations in this report are based on publicly available Australian Taxation Office (ATO) tax rates and rules as at the 2024–25 financial year and are subject to change. Results are estimates only and may not accurately reflect your individual tax circumstances, including but not limited to: prior year capital losses, other income sources, superannuation contributions, foreign income, Medicare levy surcharge, private health insurance rebate adjustments, or any other factors specific to your situation.<br><br>YSE Finance Pty Ltd, Lawrence Yi, and any associated persons accept no liability for any loss, damage, or adverse tax outcome arising from reliance on this report or the estimates contained herein. This report does not create a client-agent relationship between you and YSE Finance.<br><br>Division 43 capital works depreciation add-back figures should be verified against a formal depreciation schedule prepared by a qualified quantity surveyor. The 6-year absence rule calculations are based on information provided by the user and have not been independently verified.<br><br>For non-residents, tax obligations may differ significantly from the estimates shown. Foreign resident withholding tax obligations and double tax treaty provisions have not been considered in this report.<br><br>Before making any decision to sell a property or act on the estimates in this report, you should seek advice from a registered tax agent. YSE Finance offers a free pre-sale consultation — contact us at lawrence.yi@ysefinance.com.au or 0433 807 771.<br><br>YSE Finance Pty Ltd is a registered tax agent under the Tax Agent Services Act 2009 (TASA). Tax Agent Registration details are available on the Tax Practitioners Board website at tpb.gov.au.<br><br>本报告由YSE Finance房产资本利得税计算器生成，仅供一般估算参考，不构成税务建议、财务建议、法律建议，亦不能替代与注册税务代理或财务顾问的专业咨询。<br><br>本报告中的计算基于2024-25财年澳大利亚税务局（ATO）公开的税率及规则，如有变动，恕不另行通知。计算结果仅为估算，可能无法准确反映您的个人税务情况，包括但不限于：往年资本亏损结转、其他收入来源、养老金供款、海外收入等个人因素。<br><br>YSE Finance Pty Ltd、Lawrence Yi及相关人员对因依赖本报告或其中估算而产生的任何损失、损害或不利税务结果不承担任何责任。本报告不构成您与YSE Finance之间的委托代理关系。<br><br>在做出任何出售房产的决定或依据本报告采取行动之前，您应寻求注册税务代理的专业意见。YSE Finance提供免费售前咨询——请联系 lawrence.yi@ysefinance.com.au 或 0433 807 771。</div><div class="report-footer"><p>Generated by YSE Finance Property CGT Calculator</p><p>ysefinance.com.au | 0433 807 771 | lawrence.yi@ysefinance.com.au</p><p>This report is valid for the date generated only. Tax laws change — always verify with a registered tax agent.</p></div></div>`;}
+function downloadPdfReport(){const reportEl=document.getElementById('printableReport');if(!reportEl||!lastReportData){return;}reportEl.innerHTML=buildPrintReport(lastReportData);window.print();}
 function onInputChange(){updateIndexationBox();}
 function onDateChange(){updateAlerts();updateIndexationBox();}
 function onResidencyChange(){updateAlerts();}
@@ -415,6 +447,8 @@ function calculate(){
     const html=`<div class="cgt-hero"><div class="hl">CGT PAYABLE</div><div class="amount zero">$0</div><div class="sub">✅ Pre-CGT property — full exemption</div><div class="method-badge">PRE-20 SEP 1985</div></div><div class="brows"><div class="brow highlight"><span class="bl">Purchase Date</span><span class="bv green">${pd}</span></div><div class="brow"><span class="bl">CGT Commenced</span><span class="bv">20 Sep 1985</span></div><div class="brow"><span class="bl">Gross Gain (pre-tax)</span><span class="bv">${fmt(sp-sc-bp-bc-im)}</span></div><div class="brow total"><span class="bl">CGT Payable</span><span class="bv green">$0 — Fully Exempt</span></div></div><div class="disclaimer">Properties purchased before 20 September 1985 are fully exempt from CGT under Australian tax law. No CGT applies regardless of profit or usage.</div>`;
     html += `<div class="disclaimer">⚠️ This calculator is provided for general estimation purposes only and does not constitute tax advice or financial advice. Results are based on ATO 2024–25 rates and may not reflect your individual circumstances. YSE Finance accepts no liability for any loss arising from reliance on these estimates. Always consult a registered tax agent before making tax decisions.</div>`;
     document.getElementById('resultArea').innerHTML=html;document.getElementById('resultArea').classList.remove('result-blurred');
+    lastReportData={generatedAt:new Date(),clientName:document.getElementById('clientName').value.trim(),purchasePrice:bp,salePrice:sp,purchaseCosts:bc,saleCosts:sc,improvements:im,div43:div43,purchaseDate:pd,saleDate:sd,costBase:bp+bc+im-div43,proceeds:sp-sc,grossGain:sp-sc-bp-bc-im,method:'Pre-CGT',methodLabel:'PRE-20 SEP 1985',discAmt:0,cgtPayable:0,effRate:0,exemptFrac:1,pporDays:0,investmentDays:0,absenceDays:0,absenceExempt:0,absenceExcess:0,nrPartial:false,hasReval:false};
+    updatePdfButtonState();
     generateTips({preCGT:true});return;
   }
 
@@ -425,6 +459,8 @@ function calculate(){
     const html=`<div class="cgt-hero"><div class="hl">CAPITAL LOSS</div><div class="amount zero">${fmt(grossGain)}</div><div class="sub">No CGT payable — loss offsets future gains</div></div><div class="brows"><div class="brow"><span class="bl">Cost Base</span><span class="bv">${fmt(costBase)}</span></div><div class="brow"><span class="bl">Net Proceeds</span><span class="bv">${fmt(proceeds)}</span></div><div class="brow total"><span class="bl">Capital Loss</span><span class="bv green">${fmt(grossGain)}</span></div></div><div class="disclaimer">Declare this capital loss in your tax return — it can be carried forward indefinitely to offset future capital gains from any asset.</div>`;
     html += `<div class="disclaimer">⚠️ This calculator is provided for general estimation purposes only and does not constitute tax advice or financial advice. Results are based on ATO 2024–25 rates and may not reflect your individual circumstances. YSE Finance accepts no liability for any loss arising from reliance on these estimates. Always consult a registered tax agent before making tax decisions.</div>`;
     document.getElementById('resultArea').innerHTML=html;document.getElementById('resultArea').classList.remove('result-blurred');
+    lastReportData={generatedAt:new Date(),clientName:document.getElementById('clientName').value.trim(),purchasePrice:bp,salePrice:sp,purchaseCosts:bc,saleCosts:sc,improvements:im,div43:div43,purchaseDate:pd,saleDate:sd,costBase:costBase,proceeds:proceeds,grossGain:grossGain,method:'Capital Loss',methodLabel:'Capital Loss',discAmt:0,cgtPayable:0,effRate:0,exemptFrac:0,pporDays:0,investmentDays:0,absenceDays:0,absenceExempt:0,absenceExcess:0,nrPartial:false,hasReval:false};
+    updatePdfButtonState();
     generateTips({isLoss:true});return;
   }
 
@@ -482,6 +518,8 @@ function calculate(){
 
   document.getElementById('resultArea').innerHTML=html;
   document.getElementById('resultArea').classList.remove('result-blurred');
+  lastReportData={generatedAt:new Date(),clientName:document.getElementById('clientName').value.trim(),purchasePrice:bp,salePrice:sp,purchaseCosts:bc,saleCosts:sc,improvements:im,div43:div43,purchaseDate:pd,saleDate:sd,costBase:costBase,proceeds:proceeds,grossGain:grossGain,exemptGain:exemptGain,taxableGain:taxableGain,methodLabel:mLabel,method:mLabel,discAmt:discAmt,cgtPayable:cgtPayable,effRate:effRate,exemptFrac:exemptFrac,pporDays:pporD,investmentDays:invD,absenceDays:absD,absenceExempt:absExempt,absenceExcess:absExcess,nrPartial:nrPartial,hasReval:hasReval,useIdx:useIdx,idxDisc:idxDisc,pctDisc:pctDisc,inc:inc,isJoint:isJoint};
+  updatePdfButtonState();
   generateTips({grossGain,exemptFrac,holdYrs,isRes,method,discAmt,absD,absExempt,absExcess,pporD,invD,cgtPayable,inc,isJoint,useIdx,idxDisc,pctDisc,nrPartial,hasReval,preCGT:false,isLoss:false,div43});
 }
 
@@ -509,7 +547,7 @@ function generateTips(d){
   card.style.display='block';
 }
 
-function resetAll(){['buyPrice','sellPrice','buyCosts','sellCosts','improvements','div43','income','purchaseDate','saleDate'].forEach(id=>document.getElementById(id).value='');document.getElementById('residency').value='resident';document.getElementById('ownership').value='sole';['alertPre1985','alertIndexation','alertNonResident2017'].forEach(id=>document.getElementById(id).style.display='none');document.getElementById('indexationBox').style.display='none';periods=[];pidCounter=0;addPeriod('ppor');document.getElementById('resultArea').innerHTML='<div style="padding:20px;text-align:center;color:var(--gray);"><div style="font-size:40px;opacity:0.35;margin-bottom:12px;">🏡</div><p style="font-size:13px;">Fill in your details and click Calculate.</p></div>';document.getElementById('resultArea').classList.add('result-blurred');document.getElementById('tipsCard').style.display='none';if(!isUnlocked)document.getElementById('paywallOverlay').style.display='flex';}
+function resetAll(){['buyPrice','sellPrice','buyCosts','sellCosts','improvements','div43','income','purchaseDate','saleDate','clientName'].forEach(id=>document.getElementById(id).value='');document.getElementById('residency').value='resident';document.getElementById('ownership').value='sole';['alertPre1985','alertIndexation','alertNonResident2017'].forEach(id=>document.getElementById(id).style.display='none');document.getElementById('indexationBox').style.display='none';periods=[];pidCounter=0;lastReportData=null;addPeriod('ppor');document.getElementById('resultArea').innerHTML='<div style="padding:20px;text-align:center;color:var(--gray);"><div style="font-size:40px;opacity:0.35;margin-bottom:12px;">🏡</div><p style="font-size:13px;">Fill in your details and click Calculate.</p></div>';document.getElementById('resultArea').classList.add('result-blurred');document.getElementById('tipsCard').style.display='none';updatePdfButtonState();if(!isUnlocked)document.getElementById('paywallOverlay').style.display='flex';}
 
 function setLang(lang){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');document.querySelectorAll('[data-en]').forEach(el=>{const en=el.getAttribute('data-en'),zh=el.getAttribute('data-zh');if(lang==='zh'&&zh)el.innerHTML=zh;else if(lang==='en'&&en)el.innerHTML=en;});}
 </script>
