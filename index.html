@@ -3,59 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YSE Finance | Sydney Tax Agent | 悉尼税务代理</title>
-<meta name="description" content="YSE Finance – Licensed Sydney Tax Agent for individuals and small businesses. 专业悉尼税务代理，服务个人及小型企业。">
+<title>Sydney Tax Agent & Tax Accountant | Mandarin & English | YSE Finance</title>
+<meta name="description" content="YSE Finance is a registered Sydney tax agent and tax accountant for individuals and small businesses. Mandarin and English tax return, BAS, CGT and tax planning support.">
+<link rel="canonical" href="https://ysefinance.com.au/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="YSE Finance">
+<meta property="og:title" content="Sydney Tax Agent & Tax Accountant | YSE Finance">
+<meta property="og:description" content="Registered Sydney tax agent for individuals and small businesses. Mandarin and English support for tax returns, BAS, CGT and tax planning.">
+<meta property="og:url" content="https://ysefinance.com.au/">
+<meta property="og:image" content="https://ysefinance.com.au/yse-logo-dark.svg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sydney Tax Agent & Tax Accountant | YSE Finance">
+<meta name="twitter:description" content="Registered Sydney tax agent for individuals and small businesses. Mandarin and English tax support.">
+<meta name="twitter:image" content="https://ysefinance.com.au/yse-logo-dark.svg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["AccountingService", "LocalBusiness"],
-  "name": "YSE Finance",
-  "legalName": "YSE Finance Pty Ltd",
-  "description": "Registered Sydney tax agent specialising in individual and small business tax returns, BAS lodgement, investment property tax, CGT, and tax planning. Bilingual service in English and Mandarin.",
-  "url": "https://ysefinance.com.au",
-  "logo": "https://ysefinance.com.au/yse-logo-dark.svg",
-  "telephone": "+61433807771",
-  "email": "lawrence.yi@ysefinance.com.au",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Sydney",
-    "addressRegion": "NSW",
-    "addressCountry": "AU"
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": "Sydney"
-  },
-  "hasCredential": "Registered Tax Agent under Tax Agent Services Act 2009 (TASA)",
-  "knowsLanguage": ["English", "Mandarin Chinese"],
-  "priceRange": "$$",
-  "openingHours": "Mo-Fr 09:00-17:00",
-  "sameAs": [
-    "https://www.linkedin.com/company/ysefinance"
-  ],
-  "founder": {
-    "@type": "Person",
-    "name": "Lawrence Yi",
-    "jobTitle": "Registered Tax Agent",
-    "knowsLanguage": ["English", "Mandarin Chinese"]
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Tax Services",
-    "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Individual Tax Return", "description": "Personal income tax return lodgement for Sydney residents including salary, rental, investment and CGT"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Small Business Tax & BAS", "description": "Business tax returns, BAS lodgement, GST and payroll tax for Sydney small businesses"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Investment Property Tax", "description": "Rental income, negative gearing, depreciation and CGT for investment property owners"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Capital Gains Tax", "description": "CGT calculation and planning for property, shares and crypto sales in Australia"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Novated Lease Advice", "description": "Salary packaging and novated lease tax advice for Australian employees"}}
-    ]
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "2",
-    "bestRating": "5"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://ysefinance.com.au/#website",
+      "name": "YSE Finance",
+      "url": "https://ysefinance.com.au/",
+      "inLanguage": ["en-AU", "zh-Hans"]
+    },
+    {
+      "@type": ["Organization", "LocalBusiness", "AccountingService", "TaxPreparationService"],
+      "@id": "https://ysefinance.com.au/#business",
+      "name": "YSE Finance",
+      "legalName": "YSE Finance Pty Ltd",
+      "description": "Registered Sydney tax agent and tax accountant specialising in individual tax returns, small business tax, BAS lodgement, investment property tax, CGT, and tax planning. Bilingual service in English and Mandarin.",
+      "url": "https://ysefinance.com.au/",
+      "logo": "https://ysefinance.com.au/yse-logo-dark.svg",
+      "image": "https://ysefinance.com.au/yse-logo-dark.svg",
+      "telephone": "+61433807771",
+      "email": "lawrence.yi@ysefinance.com.au",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sydney",
+        "addressRegion": "NSW",
+        "addressCountry": "AU"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Sydney"},
+        {"@type": "AdministrativeArea", "name": "New South Wales"}
+      ],
+      "availableLanguage": ["English", "Mandarin Chinese"],
+      "hasCredential": "Registered Tax Agent under Tax Agent Services Act 2009 (TASA)",
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://ysefinance.com.au/about.html#lawrence-yi",
+        "name": "Lawrence Yi",
+        "jobTitle": "Registered Tax Agent",
+        "knowsLanguage": ["English", "Mandarin Chinese"]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Tax Services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Individual Tax Return Sydney", "description": "Personal income tax return lodgement for Sydney residents including salary, rental, investment and CGT."}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Small Business Tax Agent Sydney", "description": "Business tax returns, BAS lodgement, GST and payroll tax support for Sydney small businesses."}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Investment Property Tax", "description": "Rental income, negative gearing, depreciation and CGT support for investment property owners."}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Capital Gains Tax", "description": "CGT calculation and planning for property, shares and crypto sales in Australia."}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Novated Lease Advice", "description": "Salary packaging and novated lease tax advice for Australian employees."}}
+        ]
+      }
+    }
+  ]
 }
 </script>
 <link rel="icon" type="image/svg+xml" href="yse-icon-dark.svg">
@@ -941,37 +963,37 @@
     <div class="services-grid">
       <div class="service-card fade-up">
         <div class="service-icon">🧾</div>
-        <h3 data-en="Individual Tax Return" data-zh="个人所得税申报">Individual Tax Return</h3>
+        <h3><a href="services.html#individual-tax-return" style="color:inherit;text-decoration:none;" data-en="Individual Tax Return" data-zh="个人所得税申报">Individual Tax Return</a></h3>
         <div class="zh-title" data-en="" data-zh="个人所得税">个人所得税</div>
         <p data-en="Salary, rental income, investments, deductions — we maximise your refund legally and accurately." data-zh="薪资、租金收入、投资、扣税项目——合法合规地最大化您的退税。">Salary, rental income, investments, deductions — we maximise your refund legally and accurately.</p>
       </div>
       <div class="service-card fade-up">
         <div class="service-icon">🏢</div>
-        <h3 data-en="Business Tax & BAS" data-zh="商业税务及BAS申报">Business Tax & BAS</h3>
+        <h3><a href="services.html#small-business-tax-bas" style="color:inherit;text-decoration:none;" data-en="Business Tax & BAS" data-zh="商业税务及BAS申报">Business Tax & BAS</a></h3>
         <div class="zh-title" data-en="" data-zh="小企业税务">小企业税务</div>
         <p data-en="BAS lodgement, company tax returns, payroll tax — keeping your business compliant year-round." data-zh="BAS申报、公司所得税、工资税——全年保持企业合规。">BAS lodgement, company tax returns, payroll tax — keeping your business compliant year-round.</p>
       </div>
       <div class="service-card fade-up">
         <div class="service-icon">🏠</div>
-        <h3 data-en="Investment Property Tax" data-zh="投资房产税务">Investment Property Tax</h3>
+        <h3><a href="services.html#investment-property-tax" style="color:inherit;text-decoration:none;" data-en="Investment Property Tax" data-zh="投资房产税务">Investment Property Tax</a></h3>
         <div class="zh-title" data-en="" data-zh="房产投资">房产投资</div>
         <p data-en="Rental deductions, depreciation, CGT planning — get the most from your property investment." data-zh="租金扣税、折旧计算、资本利得税规划——最大化房产投资回报。">Rental deductions, depreciation, CGT planning — get the most from your property investment.</p>
       </div>
       <div class="service-card fade-up">
         <div class="service-icon">📊</div>
-        <h3 data-en="CGT & Capital Gains" data-zh="资本利得税">CGT & Capital Gains</h3>
+        <h3><a href="services.html#cgt-capital-gains" style="color:inherit;text-decoration:none;" data-en="CGT & Capital Gains" data-zh="资本利得税">CGT & Capital Gains</a></h3>
         <div class="zh-title" data-en="" data-zh="资本利得税">资本利得税</div>
         <p data-en="Shares, crypto, property sales — accurate CGT calculation and smart planning strategies." data-zh="股票、加密货币、房产出售——精准计算CGT并制定合理规划策略。">Shares, crypto, property sales — accurate CGT calculation and smart planning strategies.</p>
       </div>
       <div class="service-card fade-up">
         <div class="service-icon">🚗</div>
-        <h3 data-en="Novated Lease Advice" data-zh="Novated Lease咨询">Novated Lease Advice</h3>
+        <h3><a href="services.html#novated-lease-tax-advice" style="color:inherit;text-decoration:none;" data-en="Novated Lease Advice" data-zh="Novated Lease咨询">Novated Lease Advice</a></h3>
         <div class="zh-title" data-en="" data-zh="薪资打包">薪资打包</div>
         <p data-en="Understand the tax benefits of novated leasing and whether it's right for your situation." data-zh="了解Novated Lease的税务优惠，评估是否适合您的情况。">Understand the tax benefits of novated leasing and whether it's right for your situation.</p>
       </div>
       <div class="service-card fade-up">
         <div class="service-icon">📋</div>
-        <h3 data-en="Tax Planning & Advice" data-zh="税务规划咨询">Tax Planning & Advice</h3>
+        <h3><a href="services.html#tax-planning-advisory" style="color:inherit;text-decoration:none;" data-en="Tax Planning & Advice" data-zh="税务规划咨询">Tax Planning & Advice</a></h3>
         <div class="zh-title" data-en="" data-zh="税务规划">税务规划</div>
         <p data-en="Proactive advice to legally minimise your tax burden — for individuals and businesses alike." data-zh="主动提供合法省税建议，适合个人及企业客户。">Proactive advice to legally minimise your tax burden — for individuals and businesses alike.</p>
       </div>
@@ -981,7 +1003,7 @@
           <div class="service-icon">🏗️</div>
           <h3>Depreciation Report</h3>
           <div class="zh-title" data-en="" data-zh="折旧报告 · Duo Tax">折旧报告 · Duo Tax</div>
-          <p data-en="Claim property wear & tear. Partner pricing via Duo Tax — Australia's highest-rated quantity surveyors." data-zh="申报房产折旧。通过Duo Tax获得合作价格——澳洲顶级房产勘估公司。">Claim property wear & tear. Partner pricing via Duo Tax — Australia's highest-rated quantity surveyors.</p>
+          <p data-en="Claim property wear & tear. Partner pricing via Duo Tax — a specialist quantity surveyor partner." data-zh="申报房产折旧。通过Duo Tax获得合作价格——专业房产勘估合作伙伴。">Claim property wear & tear. Partner pricing via Duo Tax — a specialist quantity surveyor partner.</p>
         </a>
       </div>
       <div class="service-card fade-up partner-card">

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /*-LOCAL.html
+
+Sitemap: https://ysefinance.com.au/sitemap.xml
