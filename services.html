@@ -10,6 +10,7 @@
 
   gtag('config', 'G-V4FJRRJBD9');
 </script>
+<script src="/conversion-tracking.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tax Agent Services Sydney | YSE Finance</title>
@@ -186,6 +187,9 @@
   .service-detail-body h2 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--navy); margin-bottom:4px; }
   .service-detail-body .zh-title { font-family:'Noto Sans SC',sans-serif; font-size:13px; color:var(--orange); font-weight:500; margin-bottom:14px; }
   .service-detail-body p { color:#4a5568; font-size:14px; line-height:1.75; margin-bottom:18px; }
+  .service-inline-cta { margin-top:-12px; margin-bottom:28px; padding-left:152px; }
+  .service-inline-cta a { color:var(--orange); text-decoration:none; font-size:14px; font-weight:600; }
+  .service-inline-cta a:hover { color:var(--orange-light); text-decoration:underline; }
   .answer-summary { background:rgba(13,42,74,0.035); border-left:3px solid var(--orange); border-radius:8px; padding:14px 16px; margin:0 0 18px; color:#374151; font-size:13px; line-height:1.65; }
   .answer-summary strong { color:var(--navy); }
   .includes-list { display:flex; flex-direction:column; gap:8px; }
@@ -281,6 +285,7 @@
 
   @media (max-width:768px) {
     .service-detail { grid-template-columns:1fr; }
+    .service-inline-cta { padding-left:0; margin-top:-8px; }
     .service-tag { align-self:flex-start; }
     .process-steps { grid-template-columns:1fr 1fr; }
     .process-steps::before { display:none; }
@@ -304,23 +309,23 @@
 </div></div>
 
 <nav><div class="nav-inner">
-  <a href="index.html" class="logo">
+  <a href="/" class="logo">
     <img src="yse-logo-dark.svg" height="44" alt="YSE Finance">
   </a>
   <ul class="nav-links">
-    <li><a href="index.html" data-en="Home" data-zh="首页">Home</a></li>
+    <li><a href="/" data-en="Home" data-zh="首页">Home</a></li>
     <li><a href="services.html" class="active" data-en="Services" data-zh="服务项目">Services</a></li>
     <li><a href="blog/index.html" data-en="Blog" data-zh="博客">Blog</a></li>
     <li><a href="about.html" data-en="About" data-zh="关于我们">About</a></li>
     <li><a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a></li>
-    <li><a href="index.html#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+    <li><a href="/#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
   </ul>
 </div></nav>
 
 <div class="page-hero">
   <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
   <div class="page-hero-inner">
-    <div class="breadcrumb"><a href="index.html" data-en="Home" data-zh="首页">Home</a><span>›</span><span data-en="Services" data-zh="服务项目">Services</span></div>
+    <div class="breadcrumb"><a href="/" data-en="Home" data-zh="首页">Home</a><span>›</span><span data-en="Services" data-zh="服务项目">Services</span></div>
     <h1><span data-en="Everything You Need," data-zh="您需要的一切，">Everything You Need,</span><br><span class="accent" data-en="Under One Roof" data-zh="一站式解决">Under One Roof</span></h1>
     <p data-en="From simple individual returns to complex business structures — we handle it all with care." data-zh="从简单的个人报税到复杂的企业结构，我们细心处理每一项事务。">From simple individual returns to complex business structures — we handle it all with care.</p>
   </div>
@@ -351,6 +356,9 @@
         </div>
         <div class="service-tag" data-en="Most Popular" data-zh="最受欢迎">Most Popular</div>
       </div>
+      <div class="service-inline-cta fade-up">
+        <a href="/#contact" data-cta-location="service_individual" data-service-context="individual_tax" data-en="Need help with this? Request a free initial consultation. →" data-zh="需要个人报税协助？预约免费初步咨询。→">Need help with this? Request a free initial consultation. →</a>
+      </div>
 
       <div class="service-detail fade-up" id="small-business-tax-bas">
         <div class="service-big-icon">🏢</div>
@@ -368,6 +376,9 @@
           </div>
         </div>
         <div class="service-tag" data-en="Business" data-zh="企业">Business</div>
+      </div>
+      <div class="service-inline-cta fade-up">
+        <a href="/#contact" data-cta-location="service_small_business" data-service-context="small_business_bas" data-en="Need help with this? Request a free initial consultation. →" data-zh="需要小企业税务或 BAS 协助？预约免费初步咨询。→">Need help with this? Request a free initial consultation. →</a>
       </div>
 
       <div class="service-detail fade-up" id="investment-property-tax">
@@ -436,7 +447,7 @@
         </div>
         <div class="loan-footer">
           <div class="loan-footer-text">Personalised introduction to the right lender for your situation</div>
-          <a href="index.html#contact" class="loan-cta">Enquire Now</a>
+          <a href="/#contact" class="loan-cta">Enquire Now</a>
         </div>
       </div>
 
@@ -465,7 +476,7 @@
           <p data-en="Not a paid service — but we offer a free online calculator to help you estimate your savings from novated leasing. Enter your salary, car price and lease term to instantly see how much you could save in pre-tax dollars." data-zh="这不是收费服务——但我们提供免费在线计算器，帮助您估算Novated Lease的节省金额。输入您的薪资、车价和租期，即时查看可节省的税前金额。">Not a paid service — but we offer a free online calculator to help you estimate your savings from novated leasing. Enter your salary, car price and lease term to instantly see how much you could save.</p>
           <div class="answer-summary"><strong>Summary:</strong> The novated lease calculator helps Australian employees estimate possible salary packaging tax savings before asking for personalised advice.</div>
           <div style="margin-top:18px;">
-            <a href="index.html#tools" style="display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:white;text-decoration:none;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:600;transition:background 0.2s;" onmouseover="this.style.background='#f5a06a'" onmouseout="this.style.background='#e8793a'">
+            <a href="/#tools" style="display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:white;text-decoration:none;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:600;transition:background 0.2s;" onmouseover="this.style.background='#f5a06a'" onmouseout="this.style.background='#e8793a'">
               <span data-en="🧮 Open Free Calculator" data-zh="🧮 打开免费计算器">🧮 Open Free Calculator</span>
             </a>
           </div>
@@ -496,7 +507,7 @@
       <div class="pricing-note-icon">💬</div>
       <div>
         <h3 data-en="Not sure which service you need?" data-zh="不确定需要哪项服务？">Not sure which service you need?</h3>
-        <p data-en="Every situation is different. Book a free 15-minute consultation and we'll tell you exactly what you need — and give you a clear, upfront quote before we start anything. No surprises." data-zh="每个情况都不一样。预约免费15分钟咨询，我们会准确告诉您所需服务，并在开始前提供清晰报价。没有任何隐藏费用。">Every situation is different. Book a free 15-minute consultation and we'll tell you exactly what you need — and give you a clear, upfront quote. No surprises. <a href="index.html#contact" data-en="Book now →" data-zh="立即预约 →">Book now →</a></p>
+        <p data-en="Every situation is different. Book a free 15-minute consultation and we'll tell you exactly what you need — and give you a clear, upfront quote before we start anything. No surprises." data-zh="每个情况都不一样。预约免费15分钟咨询，我们会准确告诉您所需服务，并在开始前提供清晰报价。没有任何隐藏费用。">Every situation is different. Book a free 15-minute consultation and we'll tell you exactly what you need — and give you a clear, upfront quote. No surprises. <a href="/#contact" data-en="Book now →" data-zh="立即预约 →">Book now →</a></p>
       </div>
     </div>
   </div>
@@ -566,7 +577,7 @@
     <h2 data-en="Ready to Get Started?" data-zh="准备好开始了吗？">Ready to Get Started?</h2>
     <p data-en="Book a free consultation today. No obligation, no jargon — just clear, helpful advice." data-zh="今天就预约免费咨询。无需承诺，不说行话——只有清晰、有用的建议。">Book a free consultation today. No obligation, no jargon — just clear, helpful advice.</p>
     <div class="cta-btns">
-      <a href="index.html#contact" class="btn-primary" data-en="📅 Book Free Consultation" data-zh="📅 预约免费咨询">📅 Book Free Consultation</a>
+      <a href="/#contact" class="btn-primary" data-en="📅 Book Free Consultation" data-zh="📅 预约免费咨询">📅 Book Free Consultation</a>
       <a href="faq.html" class="btn-secondary" data-en="Read our FAQ →" data-zh="查看常见问题 →">Read our FAQ →</a>
     </div>
   </div>
@@ -574,13 +585,13 @@
 
 <footer><div class="footer-inner">
   <div class="footer-logo">YSE Finance</div>
-  <div class="footer-tagline" data-en="Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin" data-zh="悉尼注册税务代理 · 个人及小企业 · 中英双语">Licensed Sydney Tax Agent · Individuals & Small Business · English & Mandarin</div>
+  <div class="footer-tagline" data-en="Registered Tax Agent · Individuals & Small Business · English & Mandarin" data-zh="悉尼注册税务代理 · 个人及小企业 · 中英双语">Registered Tax Agent · Individuals & Small Business · English & Mandarin</div>
   <div class="footer-links">
-    <a href="index.html" data-en="Home" data-zh="首页">Home</a>
+    <a href="/" data-en="Home" data-zh="首页">Home</a>
     <a href="services.html" data-en="Services" data-zh="服务">Services</a>
     <a href="about.html" data-en="About" data-zh="关于我们">About</a>
     <a href="faq.html" data-en="FAQ" data-zh="常见问题">FAQ</a>
-    <a href="index.html#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+    <a href="/#contact" data-en="Contact" data-zh="联系我们">Contact</a>
     <a href="privacy.html" data-en="Privacy" data-zh="隐私政策">Privacy</a>
   </div>
   <div class="footer-bottom"><span data-en="© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009." data-zh="© 2025 YSE Finance 版权所有。依据2009年税务代理服务法注册。">© 2025 YSE Finance. All rights reserved. Registered Tax Agent under TASA 2009.</span></div>
