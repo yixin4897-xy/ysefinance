@@ -1,7 +1,27 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "model": "AEHI",
-  "status": "PINNED_SERIES_METADATA_PENDING",
-  "notes": "Do not fill with guessed keys. Confirm via ABS Data Explorer API Developer tab, original release tables and series metadata. Review calculation horizon and seasonal adjustment independently.",
-  "series": []
+  "status": "E01_DOCUMENTED_ABS_API_SERIES__LIVE_CROSSCHECK_PENDING",
+  "notes": "E01 SDMX key and dimensions are documented verbatim in official ABS Understanding SDMX Data user guide, which gives the chain-volume, seasonally-adjusted GDP-per-capita series. Quarterly percent change is an AEHI proposed transformation and not an ABS model score. Download/runtime and latest numeric releases not yet verified; outputs stay REVIEW_REQUIRED.",
+  "official_documentation_url": "https://www.abs.gov.au/statistics/application-programming-interfaces-apis/data-api-user-guide/understanding-sdmx-data",
+  "series": [
+    {
+      "code": "E01",
+      "approved_series_metadata": true,
+      "series_id": "ABS:ANA_AGG(1.1.0)/M1.GPM_PCA.20.AUS.Q",
+      "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG,1.1.0/M1.GPM_PCA.20.AUS.Q?startPeriod=2010-Q1&format=csv",
+      "frequency": "quarterly",
+      "expected_dimensions": {
+        "MEASURE": "M1",
+        "DATA_ITEM": "GPM_PCA",
+        "TSEST": "20",
+        "REGION": "AUS",
+        "FREQ": "Q"
+      },
+      "verified_metric_definition": "Real seasonally adjusted GDP per capita — quarter-on-quarter change in chain volume level",
+      "source_raw_unit": "AUD per person, chain-volume measure",
+      "value_transform": "qoq_pct_change",
+      "publication_status": "CANDIDATE_ONLY_PENDING_API_RUNTIME_AND_RELEASE_CROSSCHECK"
+    }
+  ]
 }
