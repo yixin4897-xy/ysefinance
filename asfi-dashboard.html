@@ -208,6 +208,17 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 </div>
 <div class="indicator-provenance" id="apra-provenance"><strong>Source:</strong> APRA quarterly authorised deposit-taking institution property exposures statistics (QPEX), June 2026. Workbook coverage: all ADIs excluding other ADIs, Level 2. Data subject to revision.</div>
 </section>
+<section class="block indicator-section" id="banking-indicators" aria-labelledby="banking-title">
+<div class="indicator-section-head"><div><h2 id="banking-title">Banking Resilience · APRA</h2><p>Industry capital strength and stable funding, using APRA's June 2026 release.</p></div><span class="indicator-data-status" id="banking-data-status">Awaiting APRA verification</span></div>
+<div class="indicator-card-grid">
+<article class="indicator-data-card"><div class="data-tag">S05 · APRA Tab 1c</div><h3>Common Equity Tier 1 Capital Ratio</h3><div class="indicator-big" id="s05-value">—</div><p class="indicator-period" id="s05-period">Official data pending</p><p class="indicator-change" id="s05-change">Quarterly change: —</p><p class="indicator-formula">CET1 ratio; the 2023 APRA capital framework change affects historical comparisons.</p><a href="https://www.apra.gov.au/news-and-publications/quarterly-authorised-deposit-taking-institution-statistics" target="_blank" rel="noopener noreferrer">APRA performance statistics ↗</a></article>
+<article class="indicator-data-card"><div class="data-tag">S06 · APRA Tab 1e</div><h3>Net Stable Funding Ratio</h3><div class="indicator-big" id="s06-value">—</div><p class="indicator-period" id="s06-period">Official data pending</p><p class="indicator-change" id="s06-change">Quarterly change: —</p><p class="indicator-formula">NSFR for relevant LCR-regulated ADIs; coverage is not identical to CET1.</p><a href="https://www.apra.gov.au/news-and-publications/quarterly-authorised-deposit-taking-institution-statistics" target="_blank" rel="noopener noreferrer">APRA performance statistics ↗</a></article>
+</div>
+<div class="raw-history"><div class="raw-history-heading"><div><h3>Banking Resilience — Quarterly History</h3><p>APRA statistical ratios; historical observations may have been revised.</p></div><div class="history-switch" role="group" aria-label="Banking resilience chart selection"><button type="button" id="bank-history-s05" class="active" aria-pressed="true">S05 CET1</button><button type="button" id="bank-history-s06" aria-pressed="false">S06 NSFR</button></div></div>
+<div class="raw-history-empty" id="bank-history-empty">Banking history will appear after source checks.</div><svg id="bank-history-chart" class="indicator-history-chart" viewBox="0 0 700 238" role="img" aria-label="Banking resilience historical trend" style="display:none"></svg>
+<div class="history-footnote" id="bank-history-footnote">CET1 starts 2013 Q1; NSFR starts 2018 Q1.</div></div>
+<div class="indicator-provenance" id="banking-provenance"><strong>Source:</strong> APRA Quarterly ADI Performance Statistics. S05 and S06 have different covered populations; no ASFI scores are shown.</div>
+</section>
 <section class="details-grid" aria-label="Historical evidence and publication status">
 <div class="block trend-panel"><h2>Historical Trend</h2><div class="trend-empty"><div><div class="lock-circle"><svg class="ic"><use href="#i-lock"/></svg></div><strong>Available after validation</strong><p>No historical composite trend is published yet. We will display verified quarterly scores here after original-data vintage checks.</p></div></div></div>
 <div class="right-col"><div class="block side-panel release"><h2>Publication Status: <span id="asfi-release-status">HOLD</span></h2><p>Composite score not yet released. HOLD means the research has not passed its publication requirements; it is not an economic distress signal.</p></div>
@@ -383,6 +394,47 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
    ' · calculated ratios, current-revision vintage, all ADIs excluding other ADIs. Composite ASFI score remains HOLD.';
   draw(selected);
  }).catch(()=>{/* no fabricated APRA values on errors */});
+})();
+</script>
+<script>
+/* V3.9 banking ratios are independently gated; never publish composite scores. */
+(function(){
+ const defs={S05:{table:'Tab 1c',row:64},S06:{table:'Tab 1e',row:83}},buttons={S05:document.getElementById('bank-history-s05'),S06:document.getElementById('bank-history-s06')};
+ const plot=document.getElementById('bank-history-chart'),empty=document.getElementById('bank-history-empty'),foot=document.getElementById('bank-history-footnote'),format=new Intl.NumberFormat('en-AU',{minimumFractionDigits:1,maximumFractionDigits:1});
+ const ns='http://www.w3.org/2000/svg';const node=(name,attrs={})=>{const e=document.createElementNS(ns,name);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,String(v)));return e;};
+ let records={},selected='S05';
+ const check=(s,code)=>{
+  if(!s||s.code!==code||s.unit!=='%'||!s.source||s.source.table!==defs[code].table||s.source.row!==defs[code].row||!Array.isArray(s.observations)||s.observations.length<16)return false;
+  const list=s.observations;return list.every((o,i)=>/^\d{4} Q[1-4]$/.test(o.period)&&(!i||o.period>list[i-1].period)&&Number.isFinite(o.value)&&o.value>=0&&o.value<=200);
+ };
+ function showCard(code){
+  const s=records[code],a=s.observations;const last=a.at(-1),prior=a.at(-2),change=last.value-prior.value,p=code.toLowerCase();
+  document.getElementById(p+'-value').textContent=format.format(last.value)+'%';
+  document.getElementById(p+'-period').textContent='Observation: '+last.period+' · APRA release: '+s.source.release_date;
+  document.getElementById(p+'-change').textContent='Change vs prior quarter: '+(change>0?'+':'')+format.format(change)+' pp';
+ }
+ function draw(code){
+  selected=code;Object.entries(buttons).forEach(([k,b])=>{b.classList.toggle('active',k===code);b.setAttribute('aria-pressed',String(k===code))});
+  plot.replaceChildren();const s=records[code];if(!s){plot.style.display='none';empty.style.display='grid';return;}
+  empty.style.display='none';plot.style.display='block';const v=s.observations.slice(-24);
+  const min=Math.min(...v.map(d=>d.value)),max=Math.max(...v.map(d=>d.value)),span=Math.max(max-min,.1),lo=Math.max(0,min-span*.15),hi=max+span*.15;
+  const x=i=>70+i*600/Math.max(1,v.length-1),y=value=>195-(value-lo)/(hi-lo)*150;
+  for(let i=0;i<4;i++){const val=lo+(hi-lo)*i/3,Y=y(val);plot.appendChild(node('line',{x1:70,x2:670,y1:Y,y2:Y,stroke:'#e7edf3'}));let text=node('text',{x:62,y:Y+4,'font-size':11,'text-anchor':'end',fill:'#688097'});text.textContent=format.format(val)+'%';plot.appendChild(text)}
+  plot.appendChild(node('polyline',{points:v.map((d,i)=>x(i)+','+y(d.value)).join(' '),stroke:'#e8793a','stroke-width':3,fill:'none','stroke-linejoin':'round','stroke-linecap':'round'}));
+  [0,Math.floor((v.length-1)/2),v.length-1].forEach(i=>{let t=node('text',{x:x(i),y:225,'font-size':11,fill:'#688097','text-anchor':i===0?'start':i===v.length-1?'end':'middle'});t.textContent=v[i].period;plot.appendChild(t)});
+  plot.appendChild(node('circle',{cx:x(v.length-1),cy:y(v.at(-1).value),r:5,fill:'#e8793a',stroke:'#fff','stroke-width':2}));
+  let t=node('title');t.textContent=code+' · '+v[0].period+'–'+v.at(-1).period+' · '+format.format(v.at(-1).value)+'%';plot.appendChild(t);
+  foot.textContent=code+' · '+s.source.table+' row '+s.source.row+' · last 24 quarters plotted · revised APRA June 2026 vintage. '+s.source.comparability_warning;
+ }
+ Object.entries(buttons).forEach(([code,b])=>b.addEventListener('click',()=>draw(code)));
+ fetch('/asfi-banking-indicators.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Unavailable');return r.json()}).then(data=>{
+  if(!data||data.model!=='ASFI'||data.data_status!=='VERIFIED_FOR_PUBLIC_DISPLAY'||data.composite_release_status!=='HOLD'||!Array.isArray(data.series)||!data.source_workbook_sha256||data.source_workbook_sha256.length!==64)return;
+  const series={};for(const code of Object.keys(defs)){const s=data.series.find(q=>q.code===code);if(!check(s,code))return;series[code]=s;}
+  records=series;Object.keys(defs).forEach(showCard);
+  document.getElementById('banking-data-status').textContent='Verified APRA observations';
+  document.getElementById('banking-provenance').textContent='APRA performance statistics, published '+data.publication_date+'; original workbook SHA-256 '+data.source_workbook_sha256+'. CET1 methodology changed in 2023. NSFR covers the relevant regulated bank population. All composite scores remain HOLD.';
+  draw(selected);
+ }).catch(()=>{/* no unverified values */});
 })();
 </script>
 </body></html>
