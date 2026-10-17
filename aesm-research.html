@@ -24,7 +24,7 @@ if (location.hostname === 'ysefinance.com.au' || location.hostname === 'www.ysef
 <meta property="og:locale" content="en_AU">
 <meta property="og:site_name" content="YSE Finance">
 <meta property="og:title" content="AESM Research | Australian Economic Sustainability Model | YSE Finance">
-<meta property="og:description" content="Read the research methodology, indicators and data-quality safeguards for AESM, an independent economic sustainability research initiative.">
+<meta property="og:description" content="Explore AESM, the AEHI and ASFI research pillars and the planned AESI composite, with independent methods and data-quality safeguards.">
 <meta property="og:url" content="https://ysefinance.com.au/aesm-research.html">
 <meta property="og:image" content="https://ysefinance.com.au/yse-logo-dark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@ if (location.hostname === 'ysefinance.com.au' || location.hostname === 'www.ysef
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="https://ysefinance.com.au/yse-icon-dark.svg">
 <title>AESM Research | Australian Economic Sustainability Model | YSE Finance</title>
-<meta name="description" content="Explore the methodology, eight ASFI indicators, research status and official sources for the Australian Economic Sustainability Model (AESM) from YSE Finance.">
+<meta name="description" content="Explore the AESM research framework, AEHI economic-health indicators, ASFI financial-sustainability indicators and planned AESI composite from YSE Finance.">
 <style>
 :root { --navy:#142b45; --navy2:#0d243b; --teal:#087f8c; --teal2:#096a76; --sky:#e9f5f6; --ink:#20334b; --muted:#586c7f; --line:#dbe6ed; --page:#f5f8fb; --white:#fff; --amber:#8d6720; --amber-bg:#fff7e8; --shadow:0 15px 40px rgba(18,44,68,.065) }
 * { box-sizing:border-box } html{ scroll-behavior:smooth } body {margin:0;font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--page)}
@@ -124,21 +124,116 @@ th,td{border-color:#ebe8e5}
 @media(max-width:1050px){.nav-links{gap:13px}.nav-links a{font-size:12px}.yse-nav-logo{max-width:170px}}
 @media(max-width:760px){.nav-in{padding-top:13px;padding-bottom:13px;gap:12px}.nav-links{width:100%;display:flex;justify-content:space-between;gap:9px;flex-wrap:wrap}.nav-links .cta{padding:8px 11px}.yse-nav-logo{max-width:190px}}
 @media(max-width:420px){.nav-links{justify-content:flex-start;gap:11px 14px}.nav-links a{font-size:12px}}
+/* AESM V3.6 — Master Dashboard, based on the established YSE Finance brand. */
+.aes-master{margin-top:12px}
+.aes-master .section-head p{max-width:850px}
+.aes-pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.aes-pillar{border-radius:15px;background:white;border:1px solid var(--line);box-shadow:var(--shadow);padding:27px 27px 22px;display:flex;flex-direction:column;min-width:0}
+.aes-pillar.asfi-card{border-top:4px solid var(--orange)}
+.aes-pillar.aehi-card{border-top:4px solid #3976a5}
+.aes-card-heading{display:flex;gap:13px;align-items:center}
+.aes-monogram{width:47px;height:47px;flex-shrink:0;display:grid;place-items:center;border-radius:13px;background:#e7f2fc;color:#23628b;font:700 22px "Playfair Display",Georgia,serif}
+.asfi-card .aes-monogram{background:#fff0e4;color:#b65320}
+.aes-card-overline{font-size:11px;color:var(--muted);letter-spacing:.11em;text-transform:uppercase;font-weight:700}
+.aes-pillar h3,.aes-final h3{font-family:"Playfair Display",Georgia,serif;color:var(--navy);font-size:27px;line-height:1.25;margin:4px 0}
+.aes-pillar h3 span,.aes-final h3 span{font-family:"DM Sans",sans-serif;font-size:12px;font-weight:600;display:block;line-height:1.6;color:var(--muted)}
+.aes-card-desc{color:#526376;font-size:13px;line-height:1.7;flex:1;margin:18px 0 25px}
+.aes-card-foot{display:flex;gap:7px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:19px}
+.aes-count{font-size:12px;color:var(--navy);font-weight:700}
+.aes-state{display:inline-flex;background:#fff3e9;border:1px solid #f1dac7;color:#9b4f25;padding:5px 10px;border-radius:30px;font-size:11px;font-weight:700}
+.aehi-card .aes-state{background:#edf4fb;color:#2b668d;border-color:#dce9f5}
+.aes-card-link{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:16px;font-size:13px;font-weight:700;text-decoration:none;color:#a8491c}
+.aes-card-link:hover{text-decoration:underline}
+.aes-combination{margin-top:16px}
+.aes-flow{display:flex;align-items:center;justify-content:center;gap:14px;color:#6a7c90;font-size:12px;font-weight:700;padding:8px 0 13px}
+.aes-flow span{border:1px solid #d9e2e9;background:white;padding:6px 12px;border-radius:6px;color:var(--navy)}
+.aes-flow b{font-size:17px;color:#ac5b2a}
+.aes-final{border:1px solid #cddce8;background:linear-gradient(110deg,#eff6fc,#f8fafc);border-radius:15px;display:flex;justify-content:space-between;gap:18px;align-items:center;padding:25px 27px}
+.aes-final p{font-size:12px;line-height:1.7;color:#596e80;max-width:725px;margin:9px 0 0}
+.aes-final-status{background:white;border:1px solid #dce5ee;border-radius:10px;padding:15px 19px;min-width:210px;text-align:center}
+.aes-final-status span{display:block;font-size:10px;color:#62748a}
+.aes-final-status strong{display:block;color:#b65423;font:700 19px "Playfair Display",Georgia,serif;padding:7px 0}
+.aes-quality-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:13px}
+.aes-quality-strip>div{padding:14px 16px;background:white;border:1px solid var(--line);border-radius:10px;min-width:0}
+.aes-quality-strip strong{display:block;color:var(--navy);font-size:12px;margin-bottom:4px}
+.aes-quality-strip span{font-size:11px;line-height:1.5;display:block;color:#637384}
+@media(max-width:760px){.aes-pillars{grid-template-columns:1fr}.aes-final{align-items:stretch;flex-direction:column}.aes-final-status{min-width:0}.aes-quality-strip{grid-template-columns:1fr}.aes-pillar{padding:22px}.aes-master .section-head p{font-size:13px}}
+
+/* V3.6 review refinements: section navigation and non-additive model flow. */
+.aes-section-nav{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:14px 16px;margin:10px 0 24px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+.aes-section-nav .aes-nav-label{font-size:11px;font-weight:700;color:var(--navy);margin-right:6px;letter-spacing:.04em}
+.aes-section-nav a{font-size:11px;font-weight:700;color:#365875;background:#f0f5f9;border:1px solid #e2eaf0;border-radius:25px;padding:6px 11px;text-decoration:none}
+.aes-section-nav a:hover,.aes-section-nav a:focus-visible{background:#ffeadb;color:#9f451f;border-color:#e7b99a}
+.aes-flow{position:relative;padding:18px 0 20px;gap:15px}
+.aes-flow-join{min-width:140px;font-size:10px;text-align:center;font-weight:700;color:#526a83;line-height:1.4}
+.aes-flow-arrows{display:inline-block;color:#a95b2b;font-size:19px;letter-spacing:17px;line-height:1.2;padding-left:15px}
+@media(max-width:500px){.aes-section-nav{padding:12px;gap:7px}.aes-section-nav .aes-nav-label{flex-basis:100%}.aes-flow-join{min-width:110px;font-size:9px}.aes-flow{gap:7px}}
 </style>
 </head>
 <body>
 <div class="topline"><div class="wrap">Independent research initiative · YSE Finance · Sydney, Australia</div></div>
 <header class="nav"><div class="wrap nav-in"><a aria-label="YSE Finance home" class="wordmark" href="/"><img class="yse-nav-logo" src="yse-logo-dark.svg" alt="YSE Finance — Sydney Tax Agent" width="204" height="44"></a><nav aria-label="Primary" class="nav-links"><a href="/">Home</a><a href="/services.html">Services</a><a href="/blog/">Blog</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a class="current" href="/aesm-research.html" aria-current="page">Research</a><a class="cta" href="/#contact">Book Consultation</a></nav></div></header>
-<section class="hero"><div class="wrap"><div class="eyebrow">Economic Research / Methodology / v3.4</div><h1>How resilient is Australia's economy?</h1><p class="deck">The Australian Economic Sustainability Model (AESM) is an independent research framework examining households, credit, banking resilience and public finances through transparent official data.</p><div class="hero-meta"><span class="pill hold">Research methodology · ASFI score on hold</span><span class="pill">Quarterly review</span><span class="pill">RBA · APRA · ABS data sources</span></div><div class="hero-links"><a href="/asfi-dashboard.html">Explore the ASFI dashboard →</a><a class="ghost" href="#methodology">How it works →</a></div></div></section>
+<section class="hero" aria-labelledby="aesm-title"><div class="wrap">
+<div class="eyebrow">YSE Finance · Independent Economic Research · v3.6</div>
+<h1 id="aesm-title">Australian Economic Sustainability Model</h1>
+<p class="deck">A research framework for understanding Australia's economic health, financial resilience and long-term sustainability.</p>
+<div class="hero-meta"><span class="pill">Quarterly research review</span><span class="pill">RBA · APRA · ABS</span><span class="pill hold">Composite indices not yet published</span></div>
+<div class="hero-links"><a href="#model-map">Explore the model structure ↓</a><a class="ghost" href="#methodology">Research methodology →</a></div>
+</div></section>
 <main class="wrap main">
-<section class="intro" aria-label="Research status"><article class="panel"><div class="section-kicker">What this research is</div><h2>A framework, not a forecast.</h2><p>AESM is being developed to examine whether Australian economic growth and financial obligations appear sustainable over time. It distinguishes <strong>vulnerability</strong>—exposure to economic shocks—from <strong>resilience</strong>—the capacity to absorb them.</p><p>The first proposed component, the <strong>Australian Self-Financing Index (ASFI)</strong>, contains eight indicators in four dimensions. A separate <strong>Australian Economic Health Index (AEHI)</strong> is in the design stage. An overall <strong>AESI</strong> has not been launched.</p></article><aside class="stat"><span class="label">Public ASFI composite score</span><span class="value" aria-label="Not published">Not released</span><span class="caption">Publication status: HOLD · Methodology and historical data validation underway.</span><div class="rule"><strong>What HOLD means:</strong> the evidence and publication controls are not yet complete. It is <strong>not</strong> a warning that the Australian economy is in distress.</div></aside></section>
-<section id="framework" class="section"><div class="section-kicker">01 / ASFI Framework</div><div class="section-head"><div><h2>Four lenses on economic sustainability</h2><p>The dimensions are displayed separately so strong bank buffers do not automatically conceal household financial stress.</p></div></div><div class="dim-grid">
+<nav class="aes-section-nav" aria-label="AESM research sections"><span class="aes-nav-label">Explore research</span><a href="#model-map">Model overview</a><a href="#framework">ASFI framework</a><a href="#indicators">8 indicators</a><a href="#aehi">AEHI scope</a><a href="#methodology">Methodology</a><a href="#sources">Sources</a></nav>
+<section id="model-map" class="section aes-master" aria-labelledby="aes-master-title">
+<div class="section-kicker">01 / Model architecture</div>
+<div class="section-head"><div>
+<h2 id="aes-master-title">One framework. Two distinct perspectives.</h2>
+<p>AESM studies the state of the real economy and the capacity of households, banks and governments to sustain their financial commitments. Both perspectives matter; neither replaces the other.</p>
+</div></div>
+<div class="aes-pillars">
+<article class="aes-pillar aehi-card">
+  <div class="aes-card-heading"><div class="aes-monogram" aria-hidden="true">H</div><div><div class="aes-card-overline">Pillar 01 · Economic health</div><h3>AEHI <span>Australian Economic Health Index</span></h3></div></div>
+  <p class="aes-card-desc">Growth, productivity, business investment, household income, consumption, employment, profitability, external balances and inflation.</p>
+  <div class="aes-card-foot"><span class="aes-count">12 proposed indicators</span><span class="aes-state">Design stage</span></div>
+  <a class="aes-card-link" href="#aehi">Explore AEHI research scope <span aria-hidden="true">→</span></a>
+</article>
+<article class="aes-pillar asfi-card">
+  <div class="aes-card-heading"><div class="aes-monogram" aria-hidden="true">F</div><div><div class="aes-card-overline">Pillar 02 · Financial sustainability</div><h3>ASFI <span>Australian Self-Financing Index</span></h3></div></div>
+  <p class="aes-card-desc">Household vulnerability, mortgage credit risk, banking resilience and government debt and interest burdens.</p>
+  <div class="aes-card-foot"><span class="aes-count">8 indicators · 4 dimensions</span><span class="aes-state">Score on HOLD</span></div>
+  <a class="aes-card-link" href="/asfi-dashboard.html">Open ASFI research dashboard <span aria-hidden="true">→</span></a>
+</article>
+</div>
+<div class="aes-combination" aria-label="Proposed future index structure">
+  <div class="aes-flow" aria-hidden="true"><span>AEHI</span><span class="aes-flow-join">Conceptual integration<br><span class="aes-flow-arrows">↘ &nbsp; ↙</span></span><span>ASFI</span></div>
+  <div class="aes-final">
+    <div><div class="aes-card-overline">Proposed composite index · Future phase</div><h3>AESI <span>Australian Economic Sustainability Index</span></h3>
+    <p>No AESI score, component weightings or economic risk labels have been approved. Duplicate signals, including AEHI E11 and ASFI S08, must be addressed before a combined index is defined.</p></div>
+    <div class="aes-final-status"><span class="aes-final-status-top">Composite index</span><strong>Not published</strong><span>Methodology under development</span></div>
+  </div>
+</div>
+<div class="aes-quality-strip">
+  <div><strong>Quarterly review</strong><span>Published as source data becomes available, not necessarily at quarter-end</span></div>
+  <div><strong>Evidence first</strong><span>Source releases, observation dates and revisions are checked</span></div>
+  <div><strong>Publication gate</strong><span>Experimental scores remain withheld until approved</span></div>
+</div>
+</section>
+
+<section class="intro" aria-label="Research principles">
+<article class="panel"><div class="section-kicker">Research principles</div><h2>A framework, not a forecast.</h2>
+<p>AESM is an independent research initiative of YSE Finance, not a rating issued by Australian government agencies. It distinguishes <strong>vulnerability</strong>—exposure to economic shocks—from <strong>resilience</strong>—the capacity to absorb them.</p>
+<p>Preliminary historical studies are exploratory. The individual indicators can be discussed publicly, but unverified composite scores are not presented as predictive economic ratings.</p>
+</article>
+<aside class="stat"><span class="label">Model publication readiness</span><span class="value" aria-label="Not published">HOLD</span>
+<span class="caption">AEHI, ASFI and AESI composite scores: Not released.</span>
+<div class="rule"><strong>What HOLD means:</strong> data and methodology checks remain incomplete. HOLD does <strong>not</strong> indicate an economic crisis or distress rating.</div>
+</aside>
+</section>
+<section id="framework" class="section"><div class="section-kicker">02 / ASFI Framework</div><div class="section-head"><div><h2>Four lenses on economic sustainability</h2><p>The dimensions are displayed separately so strong bank buffers do not automatically conceal household financial stress.</p></div></div><div class="dim-grid">
 <article class="dimension"><div class="num">DIMENSION 01</div><h3>Household Vulnerability</h3><p>Household leverage and housing interest burden relative to income.</p><div class="ids">S01 · S02</div></article>
 <article class="dimension"><div class="num">DIMENSION 02</div><h3>Mortgage Credit Risk</h3><p>Riskier new lending and the performance of existing residential mortgages.</p><div class="ids">S03 · S04</div></article>
 <article class="dimension"><div class="num">DIMENSION 03</div><h3>Banking Resilience</h3><p>Bank capital and stable funding buffers that may help absorb shocks.</p><div class="ids">S05 · S06</div></article>
 <article class="dimension"><div class="num">DIMENSION 04</div><h3>Fiscal Sustainability</h3><p>Changes in government debt relative to GDP and the interest burden on revenue.</p><div class="ids">S07 · S08</div></article>
 </div></section>
-<section id="indicators" class="section"><div class="section-kicker">02 / Indicator dictionary</div><div class="section-head"><div><h2>Eight indicators. Definitions first.</h2><p>These are the proposed public metric definitions. Numeric results remain withheld until original data vintages and methodology pass release checks.</p></div></div><div class="table-shell"><div class="filterbar" role="group" aria-label="Filter indicators"><button type="button" class="active" data-filter="all" aria-pressed="true">All eight</button><button type="button" data-filter="0" aria-pressed="false">Households</button><button type="button" data-filter="1" aria-pressed="false">Mortgages</button><button type="button" data-filter="2" aria-pressed="false">Banks</button><button type="button" data-filter="3" aria-pressed="false">Fiscal</button></div><div class="table-scroll"><table><thead><tr><th>Code</th><th>Indicator</th><th>Source</th><th>Unit</th><th>Score</th></tr></thead><tbody><tr data-dim="0"><td><span class="code">S01</span></td><td><strong>Household Debt to Disposable Income</strong></td><td>RBA E2</td><td>%</td><td><span class="no-value" aria-label="Not published">—</span></td></tr>
+<section id="indicators" class="section"><div class="section-kicker">03 / Indicator dictionary</div><div class="section-head"><div><h2>Eight indicators. Definitions first.</h2><p>These are the proposed public metric definitions. Numeric results remain withheld until original data vintages and methodology pass release checks.</p></div></div><div class="table-shell"><div class="filterbar" role="group" aria-label="Filter indicators"><button type="button" class="active" data-filter="all" aria-pressed="true">All eight</button><button type="button" data-filter="0" aria-pressed="false">Households</button><button type="button" data-filter="1" aria-pressed="false">Mortgages</button><button type="button" data-filter="2" aria-pressed="false">Banks</button><button type="button" data-filter="3" aria-pressed="false">Fiscal</button></div><div class="table-scroll"><table><thead><tr><th>Code</th><th>Indicator</th><th>Source</th><th>Unit</th><th>Score</th></tr></thead><tbody><tr data-dim="0"><td><span class="code">S01</span></td><td><strong>Household Debt to Disposable Income</strong></td><td>RBA E2</td><td>%</td><td><span class="no-value" aria-label="Not published">—</span></td></tr>
 <tr data-dim="0"><td><span class="code">S02</span></td><td><strong>Housing Interest Charged to Household Disposable Income</strong></td><td>RBA E13</td><td>%</td><td><span class="no-value" aria-label="Not published">—</span></td></tr>
 <tr data-dim="1"><td><span class="code">S03</span></td><td><strong>High DTI Mortgage Lending Share (≥6x)</strong></td><td>APRA Property Exposures</td><td>%</td><td><span class="no-value" aria-label="Not published">—</span></td></tr>
 <tr data-dim="1"><td><span class="code">S04</span></td><td><strong>Residential Mortgage NPL Ratio</strong></td><td>APRA Property Exposures</td><td>%</td><td><span class="no-value" aria-label="Not published">—</span></td></tr>
@@ -146,9 +241,9 @@ th,td{border-color:#ebe8e5}
 <tr data-dim="2"><td><span class="code">S06</span></td><td><strong>Net Stable Funding Ratio (NSFR)</strong></td><td>APRA Performance</td><td>%</td><td><span class="no-value" aria-label="Not published">—</span></td></tr>
 <tr data-dim="3"><td><span class="code">S07</span></td><td><strong>Change in General Government Net Debt to GDP</strong></td><td>ABS Annual GFS</td><td>pp</td><td><span class="no-value" aria-label="Not published">—</span></td></tr>
 <tr data-dim="3"><td><span class="code">S08</span></td><td><strong>Government Interest Expenses to Revenue</strong></td><td>ABS Annual GFS</td><td>%</td><td><span class="no-value" aria-label="Not published">—</span></td></tr></tbody></table></div><div class="table-note">Unpublished scores are shown as “—”; this does not represent zero. “pp” means percentage points. All names and ratios are subject to final definition review.</div></div></section>
-<section id="methodology" class="section"><div class="section-kicker">03 / Methodology and evidence</div><div class="section-head"><div><h2>Designed to be auditable</h2><p>Quarterly review means examining newly published evidence each quarter—not pretending every source is available immediately on quarter-end.</p></div></div><div class="twocol"><article class="panel"><h2>Research process</h2><ol class="steps"><li><strong>Collect and preserve source releases.</strong><span>Record the original observation period, source, release date, unit, and any statistical revision.</span></li><li><strong>Build a point-in-time dataset.</strong><span>Only incorporate observations after their public release date; preserve earlier versions.</span></li><li><strong>Assess each dimension separately.</strong><span>Test economic scoring assumptions against independent outcomes, not just historical percentiles.</span></li><li><strong>Validate before publication.</strong><span>Require scope comparability, full evidence, independent methodology review and editorial sign-off.</span></li></ol></article><article class="panel"><h2>Current evidence limits</h2><div class="callout caution"><strong>Research limitations:</strong> exact contemporaneous RBA E2/E13 readings for the historical 2025 Q4 test remain unverified. Some APRA readings are rounded or use an earlier quarter. Previous validation windows were short, overlapping and partly influenced by the pandemic.</div><p>The preliminary 0–100 piecewise scoring system uses researcher-selected thresholds. They are <strong>not</strong> official regulatory safety benchmarks and have not been validated as recession probabilities.</p><p>A score near any proposed alert line must not be treated as a forecast, investment signal or policy judgement.</p></article></div>
+<section id="methodology" class="section"><div class="section-kicker">04 / Methodology and evidence</div><div class="section-head"><div><h2>Designed to be auditable</h2><p>Quarterly review means examining newly published evidence each quarter—not pretending every source is available immediately on quarter-end.</p></div></div><div class="twocol"><article class="panel"><h2>Research process</h2><ol class="steps"><li><strong>Collect and preserve source releases.</strong><span>Record the original observation period, source, release date, unit, and any statistical revision.</span></li><li><strong>Build a point-in-time dataset.</strong><span>Only incorporate observations after their public release date; preserve earlier versions.</span></li><li><strong>Assess each dimension separately.</strong><span>Test economic scoring assumptions against independent outcomes, not just historical percentiles.</span></li><li><strong>Validate before publication.</strong><span>Require scope comparability, full evidence, independent methodology review and editorial sign-off.</span></li></ol></article><article class="panel"><h2>Current evidence limits</h2><div class="callout caution"><strong>Research limitations:</strong> exact contemporaneous RBA E2/E13 readings for the historical 2025 Q4 test remain unverified. Some APRA readings are rounded or use an earlier quarter. Previous validation windows were short, overlapping and partly influenced by the pandemic.</div><p>The preliminary 0–100 piecewise scoring system uses researcher-selected thresholds. They are <strong>not</strong> official regulatory safety benchmarks and have not been validated as recession probabilities.</p><p>A score near any proposed alert line must not be treated as a forecast, investment signal or policy judgement.</p></article></div>
 <div class="panel" style="margin-top:20px"><h2>Comparability and accounting decisions</h2><div class="twocol"><div><h3>Interest burden is not total repayments</h3><p>S02 uses RBA <em>Housing Interest Charged to Household Disposable Income</em>. It is not the scheduled mortgage repayment ratio, which includes principal. RBA changed the relevant statistical publication in February 2023.</p><h3>Bank regulation differs by institution</h3><p>Capital and funding requirements depend on the applicable prudential framework. For applicable NSFR-regulated institutions, 100% is the regulatory minimum; research scoring anchors above it remain illustrative.</p></div><div><h3>Accrual fiscal interest, not cash paid</h3><p>S08 is defined as ABS General Government <em>Interest Expenses n.e.c.</em> divided by <em>Total GFS Revenue</em> for all government levels, excluding separately reported defined-benefit superannuation interest.</p><h3>Annual data are not backdated</h3><p>S07 and S08 refer to financial years. They enter any quarterly research snapshot only after their source release becomes public, and later ABS revisions are retained as separate versions.</p></div></div></div></section>
-<section class="section"><div class="section-kicker">04 / Longer-term design</div><article class="panel"><h2>AEHI — Australian Economic Health Index <span class="muted" style="font-size:14px;font-weight:500">(proposed, not scored)</span></h2><p>The wider model also considers productivity, income, consumption, profitability, labour conditions, the external sector and inflation. Its twelve research measures are proposed below, but the index has not been calibrated for publication.</p><details><summary style="cursor:pointer;font-weight:750;color:var(--teal)">View the 12 proposed AEHI measures</summary><ol class="aehi-list"><li><span class="code">E01</span> Real GDP per Capita Growth</li>
+<section id="aehi" class="section"><div class="section-kicker">05 / AEHI scope</div><article class="panel"><h2>AEHI — Australian Economic Health Index <span class="muted" style="font-size:14px;font-weight:500">(proposed, not scored)</span></h2><p>The wider model also considers productivity, income, consumption, profitability, labour conditions, the external sector and inflation. Its twelve research measures are proposed below, but the index has not been calibrated for publication.</p><details><summary style="cursor:pointer;font-weight:750;color:var(--teal)">View the 12 proposed AEHI measures</summary><ol class="aehi-list"><li><span class="code">E01</span> Real GDP per Capita Growth</li>
 <li><span class="code">E02</span> Labour Productivity Growth</li>
 <li><span class="code">E03</span> Real Private Business Investment Growth</li>
 <li><span class="code">E04</span> Real Household Disposable Income per Capita Growth</li>
@@ -160,14 +255,14 @@ th,td{border-color:#ebe8e5}
 <li><span class="code">E10</span> General Government Net Debt to GDP</li>
 <li><span class="code">E11</span> Government Interest Expenses to Revenue</li>
 <li><span class="code">E12</span> Trimmed Mean Inflation</li></ol></details><div class="callout" style="margin-top:15px"><strong>Design safeguard:</strong> AEHI E11 and ASFI S08 currently describe the same government interest burden. Before any AESI composite is defined, the methodology must avoid counting the same fiscal signal twice without explicit justification.</div></article></section>
-<section id="sources" class="section"><div class="section-kicker">05 / Sources and governance</div><div class="twocol"><article class="panel"><h2>Official source directories</h2><p>Research references primarily come from three independent public agencies. The links below lead to the agency publication areas; they are not a substitute for an archived, date-specific original dataset.</p><ul class="sources"><li><a href="https://www.rba.gov.au/statistics/tables/" target="_blank" rel="noopener noreferrer">Reserve Bank of Australia — Statistical Tables <span aria-hidden="true">↗</span></a><span class="source-org">RBA</span></li>
+<section id="sources" class="section"><div class="section-kicker">06 / Sources and governance</div><div class="twocol"><article class="panel"><h2>Official source directories</h2><p>Research references primarily come from three independent public agencies. The links below lead to the agency publication areas; they are not a substitute for an archived, date-specific original dataset.</p><ul class="sources"><li><a href="https://www.rba.gov.au/statistics/tables/" target="_blank" rel="noopener noreferrer">Reserve Bank of Australia — Statistical Tables <span aria-hidden="true">↗</span></a><span class="source-org">RBA</span></li>
 <li><a href="https://www.rba.gov.au/statistics/tables/changes-to-tables.html" target="_blank" rel="noopener noreferrer">Reserve Bank of Australia — Changes to Statistical Tables <span aria-hidden="true">↗</span></a><span class="source-org">RBA</span></li>
 <li><a href="https://www.apra.gov.au/news-and-publications/quarterly-authorised-deposit-taking-institution-statistics" target="_blank" rel="noopener noreferrer">APRA — Quarterly ADI Statistics <span aria-hidden="true">↗</span></a><span class="source-org">APRA</span></li>
 <li><a href="https://www.abs.gov.au/statistics/economy/government/government-finance-statistics-annual/latest-release" target="_blank" rel="noopener noreferrer">ABS — Government Finance Statistics, Annual <span aria-hidden="true">↗</span></a><span class="source-org">ABS</span></li>
 <li><a href="https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release" target="_blank" rel="noopener noreferrer">ABS — Australian National Accounts <span aria-hidden="true">↗</span></a><span class="source-org">ABS</span></li></ul></article><article class="panel faq"><h2>Frequently asked questions</h2><details open><summary>Why is there no published ASFI score?</summary><p>Original-source verification, scope checks and independent validation are incomplete. A data-quality HOLD must not be mistaken for an adverse economic assessment.</p></details><details><summary>Will AESM be updated quarterly?</summary><p>The plan is a quarterly research review. Some inputs are published after quarter-end and ABS fiscal measures are annual, so any future public update will follow verified release dates.</p></details><details><summary>Can AESM predict a recession?</summary><p>No reliable forward predictive claim has been established. The earlier backtests are exploratory, use limited overlapping windows and include unusual pandemic periods.</p></details><details><summary>Is AESM published by the RBA, ABS or APRA?</summary><p>No. AESM is an independent YSE Finance research initiative that references public statistics issued by those agencies.</p></details></article></div></section>
 <section class="section"><div class="callout caution"><strong>Independent research disclaimer:</strong> AESM, ASFI, AEHI and AESI are research concepts developed independently of the Reserve Bank of Australia, the Australian Prudential Regulation Authority and the Australian Bureau of Statistics. This page is for general information only, not personalised financial, investment, tax or legal advice. No official economic-safety rating or validated predictive accuracy is claimed. The research methodology is subject to ongoing validation; no composite score is currently published.</div></section>
 </main>
-<footer class="footer"><div class="wrap"><div><strong>YSE Finance</strong><p>Independent Australian economic sustainability research · Methodology v3.4 · 17 October 2026. Historical case referenced as of 31 December 2025, not a live 2026 risk assessment.</p><p>© 2026 YSE Finance. Research methodology only. No composite score published.</p></div><div><a href="/">Home</a><br><a href="/services.html">Services</a><br><a href="/#contact">Contact</a></div></div></footer>
+<footer class="footer"><div class="wrap"><div><strong>YSE Finance</strong><p>Independent Australian economic sustainability research · AESM Master Framework v3.6 · 17 October 2026. Historical case referenced as of 31 December 2025, not a live 2026 risk assessment.</p><p>© 2026 YSE Finance. Research methodology only. No composite score published.</p></div><div><a href="/">Home</a><br><a href="/services.html">Services</a><br><a href="/#contact">Contact</a></div></div></footer>
 <script>
 (() => { const buttons=[...document.querySelectorAll('[data-filter]')]; const rows=[...document.querySelectorAll('tbody tr[data-dim]')]; buttons.forEach(b=>b.addEventListener('click',()=>{const filter=b.dataset.filter; buttons.forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on))});rows.forEach(r=>r.hidden=filter!=='all'&&r.dataset.dim!==filter) })); })();
 </script>
