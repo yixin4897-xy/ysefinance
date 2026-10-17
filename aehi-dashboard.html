@@ -68,7 +68,7 @@ footer{background:var(--navy);padding:32px 0;color:#c9d8e7;font-size:12px}footer
     [0,Math.floor((values.length-1)/2),values.length-1].forEach(i=>{let t=n("text",{x:x(i),y:229,"text-anchor":i===0?"start":i===values.length-1?"end":"middle","font-size":11,fill:"#66809a"});t.textContent=values[i].period;chart.appendChild(t);});
     chart.appendChild(n("circle",{cx:x(values.length-1),cy:y(values.at(-1).value),r:5,fill:"#e8793a",stroke:"white","stroke-width":2}));
     const title=n("title");title.textContent=id+": "+values[0].period+" to "+values.at(-1).period;chart.appendChild(title);
-    source.textContent="ABS series "+s.source.verified_series_id+" · Published "+s.source.publication_date+" · "+s.frequency+" source observations. Historical data may be revised.";
+    source.textContent="ABS series "+s.source.verified_series_id+" · Reference release: "+s.source.publication_date+" · "+s.frequency+" observations; downloaded API data may contain later revisions (not original publication vintage).";
   }
   buttons.forEach(b=>b.addEventListener("click",()=>draw(b.dataset.select)));
   fetch("/aehi-verified-indicators.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("No approved data");return r.json()}).then(d=>{
@@ -78,7 +78,7 @@ footer{background:var(--navy);padding:32px 0;color:#c9d8e7;font-size:12px}footer
     series=approved;
     for(const code of labels){const s=approved[code];if(!s)continue;const latest=s.observations.at(-1),prefix=code.toLowerCase();
       document.getElementById(prefix+"-value").textContent=num.format(latest.value)+"%";
-      document.getElementById(prefix+"-period").textContent=latest.period+" · ABS release: "+s.source.publication_date;
+      document.getElementById(prefix+"-period").textContent=latest.period+" · ABS reference release: "+s.source.publication_date;
       const chip=document.querySelector('[data-code="'+code+'"] .ind-status');chip.textContent="Verified";
     }
     const count=Object.keys(approved).length;
