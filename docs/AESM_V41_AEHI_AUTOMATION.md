@@ -33,3 +33,14 @@ Primary official URLs are declared in `aehi-source-registry.json`.
 Before merging this branch, test the scheduled workflow with real ABS pages, pin extracted file URLs and series IDs, establish the correct update frequency, and verify the review PR is created only when new source content actually appears. Do not put unreviewed candidates on the website.
 
 Current status: **Architecture and source monitoring pilot only. No AEHI numerical observations have yet been imported or published.**
+
+## Implemented AEHI dashboard pilot
+
+- `aehi-dashboard.html`: standalone responsive AEHI research page with five indicator cards and a chart chooser, all numeric values gated by `aehi-verified-indicators.json`.
+- `aehi-verified-indicators.json`: deliberately empty and `AWAITING_SOURCE_VERIFICATION`; **no fabricated numbers**. The page will render verified data only when `VERIFIED_FOR_PUBLIC_DISPLAY`, an exact source series ID, release date and 64-character source file hash are present.
+- AESM master AEHI pillar links to the new page in the development branch.
+- `scripts/import_aehi_abs_csv.py`: strict candidate-only parser for exact source CSV exports; accepts an independently verified ABS series ID and checks dates, frequency, percentage units and numerical observations. E12 is intentionally blocked until the CPI trimmed-mean monthly/quarterly comparability specification is signed off.
+
+ABS maintains a free SDMX REST API with CSV output (https://data.api.abs.gov.au/rest/), documented at https://www.abs.gov.au/statistics/application-programming-interfaces-apis/data-api-user-guide. Do not guess a dataflow ID or series key; use ABS Data Explorer to retrieve the correct original series and inspect metadata before pinning any automated data query.
+
+The scheduled release-page scanner added earlier is a **metadata-only discovery prototype**, not yet an actual numeric refresh. It emits workflow artifacts and **does not** automatically approve or publish AEHI indicator figures. Implement true official-series API retrieval only after the precise identifiers and historical units are verified.
