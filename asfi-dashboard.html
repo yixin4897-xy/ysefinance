@@ -190,7 +190,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <svg id="indicator-history-chart" class="indicator-history-chart" viewBox="0 0 700 238" role="img" aria-label="Quarterly indicator history chart" style="display:none"></svg>
 <div class="history-footnote" id="history-footnote">Data source: RBA E2 and E13. Dates refer to observation quarters, not original publication dates.</div>
 </div>
-<div class="indicator-provenance" id="indicator-provenance"><strong>Provenance:</strong> The source data must pass series-ID, observation-date, revision and editorial checks. Composite ASFI and dimension scores remain withheld.</div>
+<div class="indicator-provenance" id="indicator-provenance"><strong>Provenance:</strong> RBA source series, observation dates and statistical types must be verified for each vintage. Composite ASFI and dimension scores remain withheld.</div>
 </section>
 <section class="details-grid" aria-label="Historical evidence and publication status">
 <div class="block trend-panel"><h2>Historical Trend</h2><div class="trend-empty"><div><div class="lock-circle"><svg class="ic"><use href="#i-lock"/></svg></div><strong>Available after validation</strong><p>No historical composite trend is published yet. We will display verified quarterly scores here after original-data vintage checks.</p></div></div></div>
@@ -253,7 +253,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     const s=seriesByCode[code],pfx=code.toLowerCase();
     const cur=s.observations[s.observations.length-1],prior=s.observations[s.observations.length-2];
     document.getElementById(pfx+'-value').textContent=fmt.format(cur.value)+'%';
-    document.getElementById(pfx+'-period').textContent='Observation: '+cur.period;
+    document.getElementById(pfx+'-period').textContent='Observation: '+cur.period+' · RBA release: '+s.source.publication_date;
     const delta=cur.value-prior.value;
     document.getElementById(pfx+'-change').textContent='Change vs previous observation: '+(delta>0?'+':'')+fmt.format(delta)+' pp';
   }
@@ -296,7 +296,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   }
   Object.entries(selectButtons).forEach(([key,button])=>button.addEventListener('click',()=>draw(key)));
   fetch('/asfi-indicators.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Data unavailable');return r.json();}).then(data=>{
-    if(data.model!=='ASFI'||data.data_status!==STATUS_OK||data.composite_release_status!=='HOLD'||!Array.isArray(data.series)||!data.source_retrieved_utc){return;}
+    if(data.model!=='ASFI'||data.data_status!==STATUS_OK||data.composite_release_status!=='HOLD'||!Array.isArray(data.series)||!data.source_file_reviewed_utc){return;}
     const verified={};
     for(const code of Object.keys(expected)){
       const s=data.series.find(x=>x.code===code);
@@ -305,7 +305,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     seriesByCode=verified;
     Object.keys(expected).forEach(paintCard);
     document.getElementById('indicator-data-status').textContent='Verified RBA observations';
-    document.getElementById('indicator-provenance').textContent='Official RBA CSV data, downloaded '+data.source_retrieved_utc+'. Historical RBA tables can be revised. ASFI scoring remains on HOLD.';
+    document.getElementById('indicator-provenance').textContent='Official RBA CSVs reviewed '+data.source_file_reviewed_utc+' · E2 source published '+verified.S01.source.publication_date+' · E13 source published '+verified.S02.source.publication_date+'. Historical data are current revised-vintage, not real-time snapshots. ASFI scoring remains HOLD.';
     draw(selected);
   }).catch(()=>{/* Keep blank; never invent or infer missing official observations. */});
 })();
