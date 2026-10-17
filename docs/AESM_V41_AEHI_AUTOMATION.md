@@ -61,3 +61,17 @@ python scripts/aehi_abs_api_import.py --config docs/aehi-pinned-series.json --co
 A dedicated **manual** workflow `.github/workflows/aehi-e01-live-review.yml` runs these tests on GitHub-hosted infrastructure and (on successful download) uploads a candidate JSON artifact. It has only read permission and **does not push**, create score records or edit the public dashboard dataset.
 
 **Release limitations**: The exact API request and latest numeric observations have **not** been exercised in this environment because external API hostname resolution failed. The ABS public documentation grounds the key, not a completed live run. A person must review the initial sample against ABS published National Accounts, confirm source freshness, verify growth convention, release date and historical revisions before enabling live AEHI display. E05 and E06 still lack pinned verified series keys; do not infer their keys from series naming conventions.
+
+## E06 first official LF series discovery (18 October 2026)
+
+ABS's Labour Force release links to a Data Explorer dataflow `ABS:LF` with series selection `M9.3.1599.30+10+20.AUS.M`. The estimate type is among three alternatives, therefore **do not approve an exact E06 series on the basis of the URL alone**. Our first single-series probe selects `M9.3.1599.20.AUS.M` as a **candidate for examination**, not as a verified unemployment-rate series. Check the source dataset's six dimension labels, rate units and observation values. ABS Labour Force, Australia official release: https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release .
+
+Command from the local feature branch:
+
+```powershell
+python scripts/aehi_e06_discover.py
+```
+
+The discovery program writes only `data-candidates/aehi-e06-source-discovery.json`. No official E06 history is imported or displayed at this stage. After verifying dimensions against ABS source metadata, pin the exact key and run the review-only CSV importer with 12+ months, validate against the release's headline seasonally adjusted unemployment rate, and only then stage any E06 values for Dashboard review.
+
+E01 dashboard footnotes now distinguish the **June 2026 reference release date** from the version of data subsequently downloaded from the live ABS API. These dates must never be confused.
