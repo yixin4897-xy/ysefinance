@@ -1,0 +1,287 @@
+{
+  "schema_version": "1.0",
+  "model": "ASFI",
+  "data_status": "VERIFIED_FOR_PUBLIC_DISPLAY",
+  "composite_release_status": "HOLD",
+  "source_file_reviewed_date": "2026-10-17",
+  "source_workbook_sha256": "be570149ec853fdae93be1f405724af697c7a1a33ed383894c0a6014dc112cb6",
+  "publication_date": "2026-09-17",
+  "data_vintage": "APRA QPEX June 2026 official workbook. Historical revisions possible. Calculated ratios use underlying dollar amounts and are not APRA pre-rounded percentages.",
+  "scope": "All ADIs (excluding 'other ADIs'); Level 2; QPEX Tab 1b and Tab 1c",
+  "series": [
+    {
+      "code": "S03",
+      "name": "New owner-occupied and investor housing loans at DTI ≥6",
+      "unit": "%",
+      "source": {
+        "publisher": "APRA",
+        "workbook": "Quarterly authorised deposit-taking institution property exposures statistics June 2026",
+        "table": "Tab 1c",
+        "numerator": "Debt-to-income ≥ 6x (row 35)",
+        "denominator": "Owner-occupied + investment new term loans funded (rows 9 + 10)",
+        "units": "AUD millions, percentage calculated",
+        "release_date": "2026-09-17",
+        "sha256": "be570149ec853fdae93be1f405724af697c7a1a33ed383894c0a6014dc112cb6"
+      },
+      "observations": [
+        {
+          "period": "2019 Q1",
+          "value": 14.8269
+        },
+        {
+          "period": "2019 Q2",
+          "value": 14.5582
+        },
+        {
+          "period": "2019 Q3",
+          "value": 15.0829
+        },
+        {
+          "period": "2019 Q4",
+          "value": 16.4191
+        },
+        {
+          "period": "2020 Q1",
+          "value": 16.348
+        },
+        {
+          "period": "2020 Q2",
+          "value": 16.043
+        },
+        {
+          "period": "2020 Q3",
+          "value": 16.3423
+        },
+        {
+          "period": "2020 Q4",
+          "value": 17.2801
+        },
+        {
+          "period": "2021 Q1",
+          "value": 18.9473
+        },
+        {
+          "period": "2021 Q2",
+          "value": 21.8536
+        },
+        {
+          "period": "2021 Q3",
+          "value": 23.2905
+        },
+        {
+          "period": "2021 Q4",
+          "value": 24.327
+        },
+        {
+          "period": "2022 Q1",
+          "value": 23.1276
+        },
+        {
+          "period": "2022 Q2",
+          "value": 22.1567
+        },
+        {
+          "period": "2022 Q3",
+          "value": 17.0778
+        },
+        {
+          "period": "2022 Q4",
+          "value": 11.0046
+        },
+        {
+          "period": "2023 Q1",
+          "value": 7.5185
+        },
+        {
+          "period": "2023 Q2",
+          "value": 6.1
+        },
+        {
+          "period": "2023 Q3",
+          "value": 5.6606
+        },
+        {
+          "period": "2023 Q4",
+          "value": 5.5667
+        },
+        {
+          "period": "2024 Q1",
+          "value": 5.2086
+        },
+        {
+          "period": "2024 Q2",
+          "value": 4.9963
+        },
+        {
+          "period": "2024 Q3",
+          "value": 5.5874
+        },
+        {
+          "period": "2024 Q4",
+          "value": 5.7792
+        },
+        {
+          "period": "2025 Q1",
+          "value": 5.2697
+        },
+        {
+          "period": "2025 Q2",
+          "value": 5.4591
+        },
+        {
+          "period": "2025 Q3",
+          "value": 6.074
+        },
+        {
+          "period": "2025 Q4",
+          "value": 6.8122
+        },
+        {
+          "period": "2026 Q1",
+          "value": 6.3874
+        },
+        {
+          "period": "2026 Q2",
+          "value": 5.5607
+        }
+      ]
+    },
+    {
+      "code": "S04",
+      "name": "Non-performing residential property loans as share of credit outstanding",
+      "unit": "%",
+      "source": {
+        "publisher": "APRA",
+        "workbook": "Quarterly authorised deposit-taking institution property exposures statistics June 2026",
+        "table": "Tab 1b",
+        "numerator": "Non-performing loans (row 69)",
+        "denominator": "Total credit outstanding (row 16)",
+        "units": "AUD millions, percentage calculated",
+        "release_date": "2026-09-17",
+        "sha256": "be570149ec853fdae93be1f405724af697c7a1a33ed383894c0a6014dc112cb6"
+      },
+      "observations": [
+        {
+          "period": "2019 Q1",
+          "value": 0.8721
+        },
+        {
+          "period": "2019 Q2",
+          "value": 0.9315
+        },
+        {
+          "period": "2019 Q3",
+          "value": 0.9199
+        },
+        {
+          "period": "2019 Q4",
+          "value": 0.8966
+        },
+        {
+          "period": "2020 Q1",
+          "value": 0.9364
+        },
+        {
+          "period": "2020 Q2",
+          "value": 1.1072
+        },
+        {
+          "period": "2020 Q3",
+          "value": 1.0583
+        },
+        {
+          "period": "2020 Q4",
+          "value": 1.013
+        },
+        {
+          "period": "2021 Q1",
+          "value": 1.0449
+        },
+        {
+          "period": "2021 Q2",
+          "value": 1.0148
+        },
+        {
+          "period": "2021 Q3",
+          "value": 0.9102
+        },
+        {
+          "period": "2021 Q4",
+          "value": 0.8229
+        },
+        {
+          "period": "2022 Q1",
+          "value": 0.8153
+        },
+        {
+          "period": "2022 Q2",
+          "value": 0.7829
+        },
+        {
+          "period": "2022 Q3",
+          "value": 0.7124
+        },
+        {
+          "period": "2022 Q4",
+          "value": 0.6755
+        },
+        {
+          "period": "2023 Q1",
+          "value": 0.7199
+        },
+        {
+          "period": "2023 Q2",
+          "value": 0.7631
+        },
+        {
+          "period": "2023 Q3",
+          "value": 0.806
+        },
+        {
+          "period": "2023 Q4",
+          "value": 0.8565
+        },
+        {
+          "period": "2024 Q1",
+          "value": 0.958
+        },
+        {
+          "period": "2024 Q2",
+          "value": 1.0372
+        },
+        {
+          "period": "2024 Q3",
+          "value": 1.0614
+        },
+        {
+          "period": "2024 Q4",
+          "value": 1.0521
+        },
+        {
+          "period": "2025 Q1",
+          "value": 1.0778
+        },
+        {
+          "period": "2025 Q2",
+          "value": 1.0738
+        },
+        {
+          "period": "2025 Q3",
+          "value": 1.0429
+        },
+        {
+          "period": "2025 Q4",
+          "value": 0.9863
+        },
+        {
+          "period": "2026 Q1",
+          "value": 0.9881
+        },
+        {
+          "period": "2026 Q2",
+          "value": 1.0111
+        }
+      ]
+    }
+  ]
+}
