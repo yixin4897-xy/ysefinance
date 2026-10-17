@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0",
+  "model": "AEHI",
+  "status": "PINNED_SERIES_METADATA_PENDING",
+  "notes": "Do not fill with guessed keys. Confirm via ABS Data Explorer API Developer tab, original release tables and series metadata. Review calculation horizon and seasonal adjustment independently.",
+  "series": []
+}
