@@ -11,7 +11,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 
-URL="https://data.api.abs.gov.au/rest/dataflow/ABS/ANA_EXP/+?references=all"
+URL="https://data.api.abs.gov.au/rest/dataflow/ABS/ANA_EXP/1.0.0?references=all"
 OUT=Path("data-candidates/aehi-e05-ana-exp-structure.json")
 MAX=6_000_000
 
