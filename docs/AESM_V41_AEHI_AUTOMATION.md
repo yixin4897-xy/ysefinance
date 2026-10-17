@@ -75,3 +75,21 @@ python scripts/aehi_e06_discover.py
 The discovery program writes only `data-candidates/aehi-e06-source-discovery.json`. No official E06 history is imported or displayed at this stage. After verifying dimensions against ABS source metadata, pin the exact key and run the review-only CSV importer with 12+ months, validate against the release's headline seasonally adjusted unemployment rate, and only then stage any E06 values for Dashboard review.
 
 E01 dashboard footnotes now distinguish the **June 2026 reference release date** from the version of data subsequently downloaded from the live ABS API. These dates must never be confused.
+
+## E06 pinned source and next review step (18 October 2026)
+
+The first LF M9 candidate was a **labour force count**, not an unemployment rate, and was rightly rejected. A narrowly scoped query over LF measures for `SEX=3`, `AGE=1599`, `TSEST=20`, `REGION=AUS`, `FREQ=M` identified `MEASURE=M13` as the national unemployment rate candidate. The local ABS API returned **2026-09 = 4.7183473%**. ABS's September 2026 Labour Force release published 15 October 2026 reports **seasonally adjusted unemployment = 4.7%** (https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/sep-2026). This agrees to one decimal place. The API and originally published snapshots need not have identical historical revisions; **August 2026 M13 about 4.615% versus ABS September release's rounded prior-August figure of 4.7% should be investigated before approving historical series**.
+
+Pinned candidate query is in `docs/aehi-pinned-series.json`:
+
+```
+https://data.api.abs.gov.au/rest/data/ABS,LF,/M13.3.1599.20.AUS.M?startPeriod=2010-01&format=csv
+```
+
+To download **review-only** E06 monthly history (does not alter public Dashboard):
+
+```powershell
+python scripts/aehi_abs_api_import.py --config docs/aehi-pinned-series.json --code E06
+```
+
+Inspect `data-candidates/aehi-e06-api-review.json`, source identifier and series length, verify all observations are monthly and latest period is September 2026, check the latest data against ABS, and upload the candidate file for a full source review. A successful download is not a publication approval.
