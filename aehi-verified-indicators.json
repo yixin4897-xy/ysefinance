@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "model": "AEHI",
+  "data_status": "AWAITING_SOURCE_VERIFICATION",
+  "composite_release_status": "HOLD",
+  "notes": "No verified ABS numeric data have been imported. This file intentionally contains no approved time series.",
+  "series": []
+}
