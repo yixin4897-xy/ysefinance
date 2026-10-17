@@ -105,6 +105,31 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 @media(max-width:1050px){.site-nav{gap:14px}.metrics-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.score-block{grid-column:span 3;min-height:auto}.mini-metric{min-height:170px}.dimension-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:740px){.header-in{align-items:flex-start;flex-direction:column;gap:8px;padding:12px 0}.brand img{width:178px}.site-nav{gap:13px;padding-bottom:8px}.site-nav a{font-size:12px}.hero{padding:42px 0 64px}.wrap{width:min(100% - 32px,1180px)}.hero-sub{font-size:16px}.metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.score-block{grid-column:span 2}.mini-metric{min-height:155px}.details-grid{grid-template-columns:1fr}.footer-in{display:block}}
 @media(max-width:460px){.metrics-grid{grid-template-columns:1fr}.score-block{grid-column:span 1}.mini-metric{min-height:125px}.mini-metric .metric-icon{margin-bottom:12px}.dimension-grid{grid-template-columns:1fr}.score-main{gap:13px}.score-symbol{width:60px;height:60px}.score-number{font-size:36px}.section-shell{padding:17px}.dashboard-label{display:block}.dashboard-label p{margin-top:6px}.site-nav .consult{padding:8px 11px}}
+/* V3.7 official source data — independent from composite scoring */
+.indicator-section{padding:23px;margin-top:16px}
+.indicator-section-head,.raw-history-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}
+.indicator-section-head h2{font:700 25px/1.2 "Playfair Display",Georgia,serif;color:var(--navy);margin:0 0 6px}
+.indicator-section-head p,.raw-history-heading p{font-size:12px;color:var(--muted);margin:0}
+.indicator-data-status{border:1px solid #f2d7c3;border-radius:20px;background:#fff5ed;color:#965220;padding:6px 11px;font-size:11px;font-weight:700;white-space:nowrap}
+.indicator-data-card{border:1px solid var(--line);border-radius:11px;padding:19px;min-width:0}
+.indicator-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+.data-tag{font-size:11px;font-weight:700;letter-spacing:.04em;color:#9d552c;margin-bottom:7px}
+.indicator-data-card h3{margin:0;color:var(--navy);font-size:14px}
+.indicator-big{font:700 37px/1.25 "Playfair Display",Georgia,serif;color:var(--navy);margin:14px 0 2px}
+.indicator-period,.indicator-change{margin:4px 0;font-size:11px;color:var(--muted)}
+.indicator-change{margin-bottom:12px}
+.indicator-data-card a{font-size:12px;font-weight:700}
+.raw-history{border:1px solid var(--line);border-radius:11px;padding:18px}
+.raw-history-heading h3{color:var(--navy);font-size:16px;margin:0 0 4px}
+.history-switch{display:flex;align-items:center;gap:4px;background:#f1f4f8;border-radius:24px;padding:4px}
+.history-switch button{border:0;border-radius:18px;background:transparent;color:#62778e;cursor:pointer;font-family:inherit;font-size:11px;font-weight:700;padding:7px 12px}
+.history-switch button.active{background:white;color:var(--navy);box-shadow:0 2px 6px rgba(13,42,74,.08)}
+.raw-history-empty{display:grid;place-items:center;text-align:center;background:linear-gradient(#f8fbfd,#f7fafd);min-height:190px;margin-top:12px;border-radius:8px;border:1px dashed #d7e2ed;color:var(--muted);font-size:12px;padding:20px}
+.indicator-history-chart{display:block;width:100%;height:auto;max-height:245px;margin:10px 0}
+.history-footnote,.indicator-provenance{color:var(--muted);font-size:11px;line-height:1.55;margin-top:12px}
+.indicator-provenance{background:#f4f7fa;padding:12px;border-radius:8px}
+@media(max-width:740px){.indicator-section-head,.raw-history-heading{display:block}.indicator-data-status{display:inline-block;margin-top:9px}.history-switch{width:max-content;margin-top:10px}}
+@media(max-width:540px){.indicator-card-grid{grid-template-columns:1fr}.indicator-section{padding:16px}.indicator-big{font-size:32px}}
 </style>
 </head>
 <body>
@@ -153,6 +178,20 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <article class="dimension-card"><div class="dim-top"><div class="dim-icon"><svg class="ic"><use href="#i-fiscal"/></svg></div><div><h3>Fiscal Sustainability</h3><p>Net debt changes and government interest burden.</p></div></div><div class="dim-track" aria-hidden="true"></div><div class="dim-status"><span class="dim-code">S07 · S08</span> · Score pending</div></article>
 </div>
 </section>
+<section class="block indicator-section" id="raw-indicators" aria-labelledby="raw-indicators-title">
+<div class="indicator-section-head"><div><h2 id="raw-indicators-title">Official Indicator Data</h2><p>RBA quarterly observations, separate from the unpublished ASFI scoring model.</p></div><span id="indicator-data-status" class="indicator-data-status">Awaiting source verification</span></div>
+<div class="indicator-card-grid">
+<article class="indicator-data-card"><div class="data-tag">S01 · RBA E2</div><h3>Household Debt / Disposable Income</h3><div class="indicator-big" id="s01-value">—</div><p class="indicator-period" id="s01-period">Official data not yet imported</p><p class="indicator-change" id="s01-change">Quarterly change: —</p><a href="https://www.rba.gov.au/statistics/tables/" target="_blank" rel="noopener noreferrer">RBA source table E2 ↗</a></article>
+<article class="indicator-data-card"><div class="data-tag">S02 · RBA E13</div><h3>Housing Interest Charged / Income</h3><div class="indicator-big" id="s02-value">—</div><p class="indicator-period" id="s02-period">Official data not yet imported</p><p class="indicator-change" id="s02-change">Quarterly change: —</p><a href="https://www.rba.gov.au/statistics/tables/" target="_blank" rel="noopener noreferrer">RBA source table E13 ↗</a></article>
+</div>
+<div class="raw-history">
+<div class="raw-history-heading"><div><h3>Official Quarterly History</h3><p>Current RBA data vintage; observations are subject to retrospective revision.</p></div><div class="history-switch" role="group" aria-label="Select indicator trend"><button id="history-s01" type="button" class="active" aria-pressed="true">S01 Debt</button><button id="history-s02" type="button" aria-pressed="false">S02 Interest</button></div></div>
+<div class="raw-history-empty" id="raw-history-empty">Historical figures will appear here after official-source verification.</div>
+<svg id="indicator-history-chart" class="indicator-history-chart" viewBox="0 0 700 238" role="img" aria-label="Quarterly indicator history chart" style="display:none"></svg>
+<div class="history-footnote" id="history-footnote">Data source: RBA E2 and E13. Dates refer to observation quarters, not original publication dates.</div>
+</div>
+<div class="indicator-provenance" id="indicator-provenance"><strong>Provenance:</strong> The source data must pass series-ID, observation-date, revision and editorial checks. Composite ASFI and dimension scores remain withheld.</div>
+</section>
 <section class="details-grid" aria-label="Historical evidence and publication status">
 <div class="block trend-panel"><h2>Historical Trend</h2><div class="trend-empty"><div><div class="lock-circle"><svg class="ic"><use href="#i-lock"/></svg></div><strong>Available after validation</strong><p>No historical composite trend is published yet. We will display verified quarterly scores here after original-data vintage checks.</p></div></div></div>
 <div class="right-col"><div class="block side-panel release"><h2>Publication Status: <span id="asfi-release-status">HOLD</span></h2><p>Composite score not yet released. HOLD means the research has not passed its publication requirements; it is not an economic distress signal.</p></div>
@@ -190,6 +229,85 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     }
     document.getElementById('asfi-quality').textContent='Approved';
   }catch(_err){/* Keep the score withheld on any data or network error. */}
+})();
+</script>
+<script>
+/* The raw-data gate is separate from the ASFI composite-score gate. */
+(function(){
+  const STATUS_OK='VERIFIED_FOR_PUBLIC_DISPLAY';
+  const expected={S01:['E2','BHFDDIT'],S02:['E13','LPHTICRI']};
+  const selectButtons={S01:document.getElementById('history-s01'),S02:document.getElementById('history-s02')};
+  const chart=document.getElementById('indicator-history-chart');
+  const blank=document.getElementById('raw-history-empty');
+  const foot=document.getElementById('history-footnote');
+  let seriesByCode={};
+  let selected='S01';
+  const fmt=new Intl.NumberFormat('en-AU',{minimumFractionDigits:1,maximumFractionDigits:2});
+  const check=(s,code)=>{
+    if(!s||s.code!==code||s.unit!=='%'||!s.source||s.source.table!==expected[code][0]||s.source.series_id!==expected[code][1]||!Array.isArray(s.observations)||s.observations.length<12)return false;
+    const dates=s.observations.map(o=>o.period);
+    const period=/^\d{4} Q[1-4]$/;
+    return dates.every((p,i)=>period.test(p)&&(!i||p>dates[i-1])&&Number.isFinite(s.observations[i].value)&&s.observations[i].value>=0&&s.observations[i].value<=1000);
+  };
+  function paintCard(code){
+    const s=seriesByCode[code],pfx=code.toLowerCase();
+    const cur=s.observations[s.observations.length-1],prior=s.observations[s.observations.length-2];
+    document.getElementById(pfx+'-value').textContent=fmt.format(cur.value)+'%';
+    document.getElementById(pfx+'-period').textContent='Observation: '+cur.period;
+    const delta=cur.value-prior.value;
+    document.getElementById(pfx+'-change').textContent='Change vs previous observation: '+(delta>0?'+':'')+fmt.format(delta)+' pp';
+  }
+  const ns='http://www.w3.org/2000/svg';
+  const make=(name,attributes)=>{
+    const el=document.createElementNS(ns,name);
+    Object.entries(attributes||{}).forEach(([k,v])=>el.setAttribute(k,String(v)));
+    return el;
+  };
+  function draw(code){
+    selected=code;
+    Object.entries(selectButtons).forEach(([key,button])=>{const on=key===code;button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on));});
+    const series=seriesByCode[code];
+    chart.replaceChildren();
+    if(!series){chart.style.display='none';blank.style.display='grid';return;}
+    blank.style.display='none';chart.style.display='block';
+    // Limit display to recent 24 quarters; underlying JSON retains full history.
+    const data=series.observations.slice(-24);
+    const min=Math.min(...data.map(x=>x.value)),max=Math.max(...data.map(x=>x.value));
+    const range=Math.max(max-min,0.05),low=Math.max(0,min-range*.15),high=max+range*.15;
+    const x=i=>70+(i*(600/Math.max(1,data.length-1)));
+    const y=v=>195-((v-low)/(high-low))*150;
+    for(let i=0;i<4;i++){
+      const v=low+(high-low)*i/3,Y=y(v);
+      chart.appendChild(make('line',{x1:70,y1:Y,x2:670,y2:Y,stroke:'#e7edf3','stroke-width':1}));
+      const lbl=make('text',{x:62,y:Y+4,'text-anchor':'end','font-size':11,fill:'#688097'});
+      lbl.textContent=fmt.format(v)+'%';chart.appendChild(lbl);
+    }
+    const line=make('polyline',{points:data.map((p,i)=>x(i)+','+y(p.value)).join(' '),fill:'none',stroke:'#e8793a','stroke-width':3,'stroke-linejoin':'round','stroke-linecap':'round'});
+    chart.appendChild(line);
+    [0,Math.floor((data.length-1)/2),data.length-1].forEach(i=>{
+      const t=make('text',{x:x(i),y:225,'text-anchor':i===0?'start':i===data.length-1?'end':'middle','font-size':11,fill:'#688097'});
+      t.textContent=data[i].period;chart.appendChild(t);
+    });
+    const last=data[data.length-1];
+    chart.appendChild(make('circle',{cx:x(data.length-1),cy:y(last.value),r:5,fill:'#e8793a',stroke:'#fff','stroke-width':2}));
+    const title=make('title');title.textContent=code+' · '+data[0].period+' to '+last.period+' · '+fmt.format(last.value)+'%';
+    chart.appendChild(title);
+    foot.textContent='RBA '+series.source.table+' · series '+series.source.series_id+' · '+data.length+' recent quarters shown · Source vintage includes revisions.';
+  }
+  Object.entries(selectButtons).forEach(([key,button])=>button.addEventListener('click',()=>draw(key)));
+  fetch('/asfi-indicators.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Data unavailable');return r.json();}).then(data=>{
+    if(data.model!=='ASFI'||data.data_status!==STATUS_OK||data.composite_release_status!=='HOLD'||!Array.isArray(data.series)||!data.source_retrieved_utc){return;}
+    const verified={};
+    for(const code of Object.keys(expected)){
+      const s=data.series.find(x=>x.code===code);
+      if(!check(s,code))return;verified[code]=s;
+    }
+    seriesByCode=verified;
+    Object.keys(expected).forEach(paintCard);
+    document.getElementById('indicator-data-status').textContent='Verified RBA observations';
+    document.getElementById('indicator-provenance').textContent='Official RBA CSV data, downloaded '+data.source_retrieved_utc+'. Historical RBA tables can be revised. ASFI scoring remains on HOLD.';
+    draw(selected);
+  }).catch(()=>{/* Keep blank; never invent or infer missing official observations. */});
 })();
 </script>
 </body></html>
