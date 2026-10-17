@@ -44,3 +44,20 @@ Current status: **Architecture and source monitoring pilot only. No AEHI numeric
 ABS maintains a free SDMX REST API with CSV output (https://data.api.abs.gov.au/rest/), documented at https://www.abs.gov.au/statistics/application-programming-interfaces-apis/data-api-user-guide. Do not guess a dataflow ID or series key; use ABS Data Explorer to retrieve the correct original series and inspect metadata before pinning any automated data query.
 
 The scheduled release-page scanner added earlier is a **metadata-only discovery prototype**, not yet an actual numeric refresh. It emits workflow artifacts and **does not** automatically approve or publish AEHI indicator figures. Implement true official-series API retrieval only after the precise identifiers and historical units are verified.
+
+## E01 officially documented ABS series (October 2026 implementation)
+
+ABS `Understanding SDMX Data` explicitly demonstrates `ABS:ANA_AGG(1.1.0)`, `M1.GPM_PCA.20.AUS.Q` with M1 = chain-volume, GPM_PCA = GDP per capita, 20 = seasonally adjusted, AUS = Australia, Q = quarterly. Document: https://www.abs.gov.au/statistics/application-programming-interfaces-apis/data-api-user-guide/understanding-sdmx-data.
+
+The pinned query is kept in `docs/aehi-pinned-series.json`, and the API importer now derives **quarter-on-quarter percentage change** `100 * (level_t / level_(t-1) - 1)`, after verifying quarterly continuity. This growth convention is a proposed AEHI research choice; the originally published ABS series contains *levels*, not a pre-existing AEHI score.
+
+Run locally from repository root:
+
+```powershell
+python -m unittest discover -s tests -p "test_aehi_abs_api_import.py" -v
+python scripts/aehi_abs_api_import.py --config docs/aehi-pinned-series.json --code E01 --output data-candidates/aehi-e01-api-review.json
+```
+
+A dedicated **manual** workflow `.github/workflows/aehi-e01-live-review.yml` runs these tests on GitHub-hosted infrastructure and (on successful download) uploads a candidate JSON artifact. It has only read permission and **does not push**, create score records or edit the public dashboard dataset.
+
+**Release limitations**: The exact API request and latest numeric observations have **not** been exercised in this environment because external API hostname resolution failed. The ABS public documentation grounds the key, not a completed live run. A person must review the initial sample against ABS published National Accounts, confirm source freshness, verify growth convention, release date and historical revisions before enabling live AEHI display. E05 and E06 still lack pinned verified series keys; do not infer their keys from series naming conventions.
