@@ -130,6 +130,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 .indicator-provenance{background:#f4f7fa;padding:12px;border-radius:8px}
 @media(max-width:740px){.indicator-section-head,.raw-history-heading{display:block}.indicator-data-status{display:inline-block;margin-top:9px}.history-switch{width:max-content;margin-top:10px}}
 @media(max-width:540px){.indicator-card-grid{grid-template-columns:1fr}.indicator-section{padding:16px}.indicator-big{font-size:32px}}
+.indicator-formula{font-size:11px;line-height:1.55;color:#5c7084;margin:9px 0 12px;min-height:34px}
+#apra-indicators{margin-top:16px}
 </style>
 </head>
 <body>
@@ -191,6 +193,20 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <div class="history-footnote" id="history-footnote">Data source: RBA E2 and E13. Dates refer to observation quarters, not original publication dates.</div>
 </div>
 <div class="indicator-provenance" id="indicator-provenance"><strong>Provenance:</strong> RBA source series, observation dates and statistical types must be verified for each vintage. Composite ASFI and dimension scores remain withheld.</div>
+</section>
+<section class="block indicator-section" id="apra-indicators" aria-labelledby="apra-indicators-title">
+<div class="indicator-section-head"><div><h2 id="apra-indicators-title">Mortgage Credit Risk · APRA</h2><p>Quarterly industry-wide mortgage origination and non-performing loan ratios.</p></div><span id="apra-data-status" class="indicator-data-status">Awaiting APRA verification</span></div>
+<div class="indicator-card-grid">
+<article class="indicator-data-card"><div class="data-tag">S03 · APRA QPEX Tab 1c</div><h3>New Housing Loans with DTI ≥6x</h3><div class="indicator-big" id="s03-value">—</div><p class="indicator-period" id="s03-period">Source file under review</p><p class="indicator-change" id="s03-change">Quarterly change: —</p><p class="indicator-formula">Ratio of high-DTI lending to new owner-occupied and investor term loans funded.</p><a href="https://www.apra.gov.au/news-and-publications/quarterly-authorised-deposit-taking-institution-statistics" target="_blank" rel="noopener noreferrer">Official APRA statistics ↗</a></article>
+<article class="indicator-data-card"><div class="data-tag">S04 · APRA QPEX Tab 1b</div><h3>Non-performing Residential Loans</h3><div class="indicator-big" id="s04-value">—</div><p class="indicator-period" id="s04-period">Source file under review</p><p class="indicator-change" id="s04-change">Quarterly change: —</p><p class="indicator-formula">Non-performing residential-property loans / total residential credit outstanding.</p><a href="https://www.apra.gov.au/news-and-publications/quarterly-authorised-deposit-taking-institution-statistics" target="_blank" rel="noopener noreferrer">Official APRA statistics ↗</a></article>
+</div>
+<div class="raw-history"><div class="raw-history-heading"><div><h3>APRA Quarterly History</h3><p>Calculated percentage ratios from APRA's original QPEX workbook amounts.</p></div>
+<div class="history-switch" role="group" aria-label="Select APRA mortgage risk indicator"><button id="apra-history-s03" type="button" class="active" aria-pressed="true">S03 High DTI</button><button id="apra-history-s04" type="button" aria-pressed="false">S04 NPL</button></div></div>
+<div class="raw-history-empty" id="apra-history-empty">APRA historical values will appear after source verification.</div>
+<svg id="apra-history-chart" class="indicator-history-chart" viewBox="0 0 700 238" role="img" aria-label="APRA mortgage risk indicator quarterly history" style="display:none"></svg>
+<div class="history-footnote" id="apra-history-footnote">Historical observation quarters are not publication dates. No ASFI composite scores are displayed.</div>
+</div>
+<div class="indicator-provenance" id="apra-provenance"><strong>Source:</strong> APRA quarterly authorised deposit-taking institution property exposures statistics (QPEX), June 2026. Workbook coverage: all ADIs excluding other ADIs, Level 2. Data subject to revision.</div>
 </section>
 <section class="details-grid" aria-label="Historical evidence and publication status">
 <div class="block trend-panel"><h2>Historical Trend</h2><div class="trend-empty"><div><div class="lock-circle"><svg class="ic"><use href="#i-lock"/></svg></div><strong>Available after validation</strong><p>No historical composite trend is published yet. We will display verified quarterly scores here after original-data vintage checks.</p></div></div></div>
@@ -308,6 +324,65 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     document.getElementById('indicator-provenance').textContent='Official RBA CSVs reviewed '+data.source_file_reviewed_utc+' · E2 source published '+verified.S01.source.publication_date+' · E13 source published '+verified.S02.source.publication_date+'. Historical data are current revised-vintage, not real-time snapshots. ASFI scoring remains HOLD.';
     draw(selected);
   }).catch(()=>{/* Keep blank; never invent or infer missing official observations. */});
+})();
+</script>
+<script>
+/* V3.8 APRA raw ratio chart: separate from RBA and the unpublished ASFI scores. */
+(function(){
+ const expected={S03:['Tab 1c',35],S04:['Tab 1b',69]};
+ const chart=document.getElementById('apra-history-chart'),empty=document.getElementById('apra-history-empty');
+ const foot=document.getElementById('apra-history-footnote');
+ const btn={S03:document.getElementById('apra-history-s03'),S04:document.getElementById('apra-history-s04')};
+ const format=new Intl.NumberFormat('en-AU',{minimumFractionDigits:2,maximumFractionDigits:2});
+ let verified={},selected='S03';
+ const ns='http://www.w3.org/2000/svg';
+ const el=(tag,attrs={})=>{const x=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>x.setAttribute(k,String(v)));return x;};
+ const check=(s,code)=>{
+  if(!s||s.code!==code||s.unit!=='%'||!s.source||s.source.table!==expected[code][0]||
+     !s.source.numerator.includes('row '+expected[code][1])||!Array.isArray(s.observations)||s.observations.length<12)return false;
+  return s.observations.every((o,i,a)=>/^\d{4} Q[1-4]$/.test(o.period)&&
+       (!i||o.period>a[i-1].period)&&Number.isFinite(o.value)&&o.value>=0&&o.value<=100);
+ };
+ function paint(code){
+  const s=verified[code],latest=s.observations.at(-1),prev=s.observations.at(-2),p=code.toLowerCase();
+  document.getElementById(p+'-value').textContent=format.format(latest.value)+'%';
+  document.getElementById(p+'-period').textContent='Observation: '+latest.period+' · APRA release: '+s.source.release_date;
+  const delta=latest.value-prev.value;
+  document.getElementById(p+'-change').textContent='Change from prior quarter: '+(delta>0?'+':'')+format.format(delta)+' pp';
+ }
+ function draw(code){
+  selected=code;Object.entries(btn).forEach(([k,b])=>{b.classList.toggle('active',k===code);b.setAttribute('aria-pressed',String(k===code));});
+  chart.replaceChildren();const s=verified[code];if(!s){chart.style.display='none';empty.style.display='grid';return;}
+  empty.style.display='none';chart.style.display='block';const points=s.observations.slice(-24);
+  const min=Math.min(...points.map(o=>o.value)),max=Math.max(...points.map(o=>o.value)),range=Math.max(max-min,.02);
+  const lo=Math.max(0,min-range*.15),hi=max+range*.15;
+  const x=i=>70+i*600/Math.max(points.length-1,1),y=v=>195-(v-lo)/(hi-lo)*150;
+  for(let i=0;i<4;i++){
+   const val=lo+(hi-lo)*i/3,Y=y(val);chart.appendChild(el('line',{x1:70,y1:Y,x2:670,y2:Y,stroke:'#e7edf3'}));
+   const t=el('text',{x:62,y:Y+4,'text-anchor':'end','font-size':11,fill:'#688097'});t.textContent=format.format(val)+'%';chart.appendChild(t);
+  }
+  chart.appendChild(el('polyline',{points:points.map((p,i)=>x(i)+','+y(p.value)).join(' '),stroke:'#e8793a','stroke-width':3,fill:'none','stroke-linecap':'round','stroke-linejoin':'round'}));
+  [0,Math.floor((points.length-1)/2),points.length-1].forEach(i=>{const t=el('text',{x:x(i),y:225,'text-anchor':i===0?'start':i===points.length-1?'end':'middle','font-size':11,fill:'#688097'});t.textContent=points[i].period;chart.appendChild(t);});
+  chart.appendChild(el('circle',{cx:x(points.length-1),cy:y(points.at(-1).value),r:5,fill:'#e8793a',stroke:'#fff','stroke-width':2}));
+  const title=el('title');title.textContent=code+' '+points[0].period+' to '+points.at(-1).period+'; latest '+format.format(points.at(-1).value)+'%';chart.appendChild(title);
+  foot.textContent=code+' · '+s.source.table+' · calculated from APRA AUD-million values · '+points.length+' recent quarters shown · historical revisions possible.';
+ }
+ Object.entries(btn).forEach(([code,b])=>b.addEventListener('click',()=>draw(code)));
+ fetch('/asfi-apra-indicators.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Unavailable');return r.json()}).then(data=>{
+  if(!data||data.model!=='ASFI'||data.data_status!=='VERIFIED_FOR_PUBLIC_DISPLAY'||
+     data.composite_release_status!=='HOLD'||!data.source_workbook_sha256||data.source_workbook_sha256.length!==64||
+     !Array.isArray(data.series))return;
+  const series={};
+  for(const code of Object.keys(expected)){
+   const s=data.series.find(x=>x.code===code);if(!check(s,code))return;series[code]=s;
+  }
+  verified=series;Object.keys(expected).forEach(paint);
+  document.getElementById('apra-data-status').textContent='Verified APRA observations';
+  document.getElementById('apra-provenance').textContent='APRA QPEX workbook published '+data.publication_date+
+   ' · sourced from uploaded official workbook · original SHA-256: '+data.source_workbook_sha256+
+   ' · calculated ratios, current-revision vintage, all ADIs excluding other ADIs. Composite ASFI score remains HOLD.';
+  draw(selected);
+ }).catch(()=>{/* no fabricated APRA values on errors */});
 })();
 </script>
 </body></html>
