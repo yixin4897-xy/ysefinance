@@ -1,15 +1,15 @@
 {
   "schema_version": "1.1",
   "model": "AEHI",
-  "status": "E01_DOCUMENTED_ABS_API_SERIES__LIVE_CROSSCHECK_PENDING",
-  "notes": "E01 SDMX key and dimensions are documented verbatim in official ABS Understanding SDMX Data user guide, which gives the chain-volume, seasonally-adjusted GDP-per-capita series. Quarterly percent change is an AEHI proposed transformation and not an ABS model score. Download/runtime and latest numeric releases not yet verified; outputs stay REVIEW_REQUIRED.",
+  "status": "E01_OFFICIAL_CURRENT_VERSION_QUERY__RUNTIME_CONFIRMATION_PENDING",
+  "notes": "ABS guide's worked CSV URL omits the dataflow version ABS,ANA_AGG, rather than hardcoding 1.1.0. Earlier version-pinned URL returned HTTP 404. This is a query correction, not a completed live-source verification.",
   "official_documentation_url": "https://www.abs.gov.au/statistics/application-programming-interfaces-apis/data-api-user-guide/understanding-sdmx-data",
   "series": [
     {
       "code": "E01",
       "approved_series_metadata": true,
-      "series_id": "ABS:ANA_AGG(1.1.0)/M1.GPM_PCA.20.AUS.Q",
-      "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG,1.1.0/M1.GPM_PCA.20.AUS.Q?startPeriod=2010-Q1&format=csv",
+      "series_id": "ABS:ANA_AGG (current version) / M1.GPM_PCA.20.AUS.Q",
+      "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG,/M1.GPM_PCA.20.AUS.Q?startPeriod=2010-Q1&format=csv",
       "frequency": "quarterly",
       "expected_dimensions": {
         "MEASURE": "M1",
