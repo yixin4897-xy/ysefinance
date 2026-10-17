@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "model": "AEHI",
-  "status": "E01_OFFICIAL_CURRENT_VERSION_QUERY__RUNTIME_CONFIRMATION_PENDING",
+  "status": "E01_REVIEWED__E06_SOURCE_CANDIDATE_PINNED__E06_DOWNLOAD_REQUIRED",
   "notes": "ABS guide's worked CSV URL omits the dataflow version ABS,ANA_AGG, rather than hardcoding 1.1.0. Earlier version-pinned URL returned HTTP 404. This is a query correction, not a completed live-source verification.",
   "official_documentation_url": "https://www.abs.gov.au/statistics/application-programming-interfaces-apis/data-api-user-guide/understanding-sdmx-data",
   "series": [
@@ -22,6 +22,28 @@
       "source_raw_unit": "AUD per person, chain-volume measure",
       "value_transform": "qoq_pct_change",
       "publication_status": "CANDIDATE_ONLY_PENDING_API_RUNTIME_AND_RELEASE_CROSSCHECK"
+    },
+    {
+      "code": "E06",
+      "approved_series_metadata": true,
+      "series_id": "ABS:LF (current version) / M13.3.1599.20.AUS.M",
+      "url": "https://data.api.abs.gov.au/rest/data/ABS,LF,/M13.3.1599.20.AUS.M?startPeriod=2010-01&format=csv",
+      "frequency": "monthly",
+      "expected_dimensions": {
+        "MEASURE": "M13",
+        "SEX": "3",
+        "AGE": "1599",
+        "TSEST": "20",
+        "REGION": "AUS",
+        "FREQ": "M"
+      },
+      "verified_metric_definition": "National unemployment rate, persons aged 15 years and over, seasonally adjusted, monthly",
+      "source_raw_unit": "Percent (not number of unemployed persons)",
+      "value_transform": "identity",
+      "publication_status": "CANDIDATE_ONLY_PENDING_FULL_HISTORICAL_DOWNLOAD_AND_FIELD_REVIEW",
+      "latest_official_release_reference": "2026-10-15",
+      "official_reference_url": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/sep-2026",
+      "reference_check": "ABS September 2026 seasonally adjusted unemployment 4.7%; E06 candidate API M13 gives 4.7183473%."
     }
   ]
 }
