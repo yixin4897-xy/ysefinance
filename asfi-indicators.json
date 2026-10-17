@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "model": "ASFI",
+  "data_status": "AWAITING_OFFICIAL_SOURCE_IMPORT",
+  "composite_release_status": "HOLD",
+  "source_retrieved_utc": null,
+  "data_vintage": null,
+  "notes": "The import pipeline is ready. RBA original CSVs must be downloaded and verified before observations can be published.",
+  "series": [
+    {
+      "code": "S01",
+      "name": "Household debt to disposable income",
+      "unit": "%",
+      "source": {
+        "publisher": "Reserve Bank of Australia",
+        "table": "E2",
+        "series_id": "BHFDDIT",
+        "source_url": "https://www.rba.gov.au/statistics/tables/csv/e2-data.csv"
+      },
+      "observations": []
+    },
+    {
+      "code": "S02",
+      "name": "Housing interest charged to household disposable income",
+      "unit": "%",
+      "source": {
+        "publisher": "Reserve Bank of Australia",
+        "table": "E13",
+        "series_id": "LPHTICRI",
+        "source_url": "https://www.rba.gov.au/statistics/tables/csv/e13-data.csv"
+      },
+      "observations": []
+    }
+  ]
+}
