@@ -1,64 +1,55 @@
 #!/usr/bin/env python3
-"""Discover E05 HFCE within official ABS ANA_EXP (GDP expenditure) dataflow.
+"""Inspect actual SDMX dimension order for ABS ANA_EXP E05 discovery.
 
-Read-only metadata/one-quarter discovery. Never alters published AEHI data.
-The ANA_AGG flow was excluded after source directory inspection showed that
-ANA_EXP is the GDP-expenditure dataflow.
+The earlier guessed ANA_AGG-shaped data key returned HTTP 422.
+This tool makes a METADATA-ONLY request, does not fetch raw time series,
+and never touches the public dashboard or composite scores.
 """
-import csv
-import io
 import json
 from pathlib import Path
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 
-# Filter to chain-volume (M1), seasonally adjusted (20), Australia (AUS),
-# and quarterly (Q), subject to validation of actual ANA_EXP dimension order.
-URL="https://data.api.abs.gov.au/rest/data/ABS,ANA_EXP,/M1..20.AUS.Q?startPeriod=2026-Q2&endPeriod=2026-Q2&format=csvfilewithlabels"
-DEST=Path("data-candidates/aehi-e05-ana-exp-discovery.json")
-MAX_BYTES=8_000_000
+URL="https://data.api.abs.gov.au/rest/dataflow/ABS/ANA_EXP/+?references=all"
+OUT=Path("data-candidates/aehi-e05-ana-exp-structure.json")
+MAX=6_000_000
 
 def main():
-    request=urllib.request.Request(URL,headers={
-        "User-Agent":"YSEFinance-AESM/4.1-E05-source-discovery",
-        "Accept":"text/csv","Accept-Encoding":"identity"})
-    with urllib.request.urlopen(request,timeout=45) as response:
-        target=urllib.parse.urlparse(response.geturl())
+    req=urllib.request.Request(URL,headers={"User-Agent":"YSEFinance-AESM/4.1-metadata-discovery","Accept":"application/xml"})
+    with urllib.request.urlopen(req,timeout=50) as resp:
+        target=urllib.parse.urlparse(resp.geturl())
         if target.scheme!="https" or target.hostname!="data.api.abs.gov.au":
-            raise ValueError("Unexpected redirect")
-        raw=response.read(MAX_BYTES+1)
-    if len(raw)>MAX_BYTES:raise ValueError("Query too broad; refine ANA_EXP dimensions")
-    table=csv.DictReader(io.StringIO(raw.decode("utf-8-sig")))
-    fields=table.fieldnames or []
-    if "OBS_VALUE" not in fields or "TIME_PERIOD" not in fields:
-        raise ValueError("Unexpected SDMX CSV format")
-    rows=list(table)
-    if not rows or len(rows)>2000:raise ValueError("No rows or too many; inspect dataflow dimensions")
-    # CSV with labels has both DATA_ITEM (code) and Data Item (readable description).
-    item_fields=[x for x in fields if "item" in x.lower() or "component" in x.lower()]
-    descriptions=[]
-    for row in rows:
-        name=" ".join(str(row.get(k,"")) for k in item_fields)
-        descriptions.append({"code":row.get("DATA_ITEM"),"name":name,
-            "measure":row.get("MEASURE"),"adjustment":row.get("TSEST"),
-            "region":row.get("REGION"),"frequency":row.get("FREQ"),
-            "period":row.get("TIME_PERIOD"),"value":row.get("OBS_VALUE"),
-            "unit":row.get("Unit of Measure",row.get("UNIT_MEASURE")),
-            "unit_multiplier":row.get("UNIT_MULT")})
-    matches=[v for v in descriptions if any(term in v["name"].lower()
-            for term in ("household","consumption","hfce"))]
-    report={"status":"DISCOVERY_ONLY_NOT_APPROVED","source_url":URL,
-      "csv_columns":fields,"rows_returned":len(rows),
-      "candidate_rows":matches,
-      "all_row_names":[{"code":x["code"],"name":x["name"]} for x in descriptions[:300]],
-      "note":"Confirm total HFCE (exclude government, per capita or subcategory), original chain-volume and seasonal adjustment fields, 2026 Q2 benchmark and exact series before candidate import."}
-    DEST.parent.mkdir(parents=True,exist_ok=True)
-    DEST.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-    print("ABS flow: ANA_EXP | rows:",len(rows),"| HFCE-related:",len(matches))
-    for x in matches[:30]:
-        print("CODE:",x["code"],"|",x["name"],"| VALUE:",x["value"],
-              "| ADJUSTMENT:",x["adjustment"],"| UNIT:",x["unit"])
-    print("Source discovery saved:",DEST)
-    print("No published indicators or index scores changed.")
+            raise ValueError("Unexpected origin")
+        raw=resp.read(MAX+1)
+    if len(raw)>MAX:raise ValueError("Metadata response too large")
+    root=ET.fromstring(raw)
+    def local(tag):return tag.rsplit("}",1)[-1]
+    structures=[]
+    for dsd in root.iter():
+        if local(dsd.tag)!="DataStructure":continue
+        dimensions=[]
+        for elem in dsd.iter():
+            if local(elem.tag) not in ("Dimension","TimeDimension"):continue
+            dims={"id":elem.get("id"),"position":elem.get("position")}
+            refs=[x.attrib for x in elem.iter() if local(x.tag)=="Ref"]
+            if refs:dims["references"]=refs[:3]
+            dimensions.append(dims)
+        if dimensions:
+            structures.append({"id":dsd.get("id"),"version":dsd.get("version"),"dimensions":dimensions})
+    report={"status":"DISCOVERY_ONLY_NOT_APPROVED","request_url":URL,"data_structures":structures,
+       "warning":"No E05 series value or estimated growth rate is approved. Fix query key only after inspecting the real ANA_EXP dimension order."}
+    OUT.parent.mkdir(exist_ok=True,parents=True)
+    OUT.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    print("ANA_EXP data structures found:",len(structures))
+    for st in structures:
+        print("Structure:",st["id"],st["version"])
+        for dim in st["dimensions"]:
+            print("  Position",dim["position"],"ID",dim["id"])
+    print("Saved metadata:",OUT)
+    if not structures:
+        raise ValueError("No referenced data structure found; metadata URL may need adjustment")
+    print("No public data or composite scores changed.")
 
-if __name__=="__main__":main()
+if __name__=="__main__":
+    main()
