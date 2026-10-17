@@ -158,6 +158,16 @@ th,td{border-color:#ebe8e5}
 .aes-quality-strip strong{display:block;color:var(--navy);font-size:12px;margin-bottom:4px}
 .aes-quality-strip span{font-size:11px;line-height:1.5;display:block;color:#637384}
 @media(max-width:760px){.aes-pillars{grid-template-columns:1fr}.aes-final{align-items:stretch;flex-direction:column}.aes-final-status{min-width:0}.aes-quality-strip{grid-template-columns:1fr}.aes-pillar{padding:22px}.aes-master .section-head p{font-size:13px}}
+
+/* V3.6 review refinements: section navigation and non-additive model flow. */
+.aes-section-nav{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:14px 16px;margin:10px 0 24px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+.aes-section-nav .aes-nav-label{font-size:11px;font-weight:700;color:var(--navy);margin-right:6px;letter-spacing:.04em}
+.aes-section-nav a{font-size:11px;font-weight:700;color:#365875;background:#f0f5f9;border:1px solid #e2eaf0;border-radius:25px;padding:6px 11px;text-decoration:none}
+.aes-section-nav a:hover,.aes-section-nav a:focus-visible{background:#ffeadb;color:#9f451f;border-color:#e7b99a}
+.aes-flow{position:relative;padding:18px 0 20px;gap:15px}
+.aes-flow-join{min-width:140px;font-size:10px;text-align:center;font-weight:700;color:#526a83;line-height:1.4}
+.aes-flow-arrows{display:inline-block;color:#a95b2b;font-size:19px;letter-spacing:17px;line-height:1.2;padding-left:15px}
+@media(max-width:500px){.aes-section-nav{padding:12px;gap:7px}.aes-section-nav .aes-nav-label{flex-basis:100%}.aes-flow-join{min-width:110px;font-size:9px}.aes-flow{gap:7px}}
 </style>
 </head>
 <body>
@@ -171,6 +181,7 @@ th,td{border-color:#ebe8e5}
 <div class="hero-links"><a href="#model-map">Explore the model structure ↓</a><a class="ghost" href="#methodology">Research methodology →</a></div>
 </div></section>
 <main class="wrap main">
+<nav class="aes-section-nav" aria-label="AESM research sections"><span class="aes-nav-label">Explore research</span><a href="#model-map">Model overview</a><a href="#framework">ASFI framework</a><a href="#indicators">8 indicators</a><a href="#aehi">AEHI scope</a><a href="#methodology">Methodology</a><a href="#sources">Sources</a></nav>
 <section id="model-map" class="section aes-master" aria-labelledby="aes-master-title">
 <div class="section-kicker">01 / Model architecture</div>
 <div class="section-head"><div>
@@ -192,7 +203,7 @@ th,td{border-color:#ebe8e5}
 </article>
 </div>
 <div class="aes-combination" aria-label="Proposed future index structure">
-  <div class="aes-flow" aria-hidden="true"><span>AEHI</span><b>+</b><span>ASFI</span><b>↓</b></div>
+  <div class="aes-flow" aria-hidden="true"><span>AEHI</span><span class="aes-flow-join">Conceptual integration<br><span class="aes-flow-arrows">↘ &nbsp; ↙</span></span><span>ASFI</span></div>
   <div class="aes-final">
     <div><div class="aes-card-overline">Proposed composite index · Future phase</div><h3>AESI <span>Australian Economic Sustainability Index</span></h3>
     <p>No AESI score, component weightings or economic risk labels have been approved. Duplicate signals, including AEHI E11 and ASFI S08, must be addressed before a combined index is defined.</p></div>
