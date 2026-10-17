@@ -1,0 +1,50 @@
+{
+  "model": "ASFI",
+  "schema_version": "1.0",
+  "release_status": "HOLD",
+  "methodology_approved": false,
+  "publication_approved": false,
+  "period": null,
+  "publication_date": null,
+  "composite_score": null,
+  "quarterly_change": null,
+  "dimensions": [
+    {
+      "code": "HOUSEHOLD",
+      "name": "Household Vulnerability",
+      "indicators": [
+        "S01",
+        "S02"
+      ],
+      "score": null
+    },
+    {
+      "code": "MORTGAGE",
+      "name": "Mortgage Credit Risk",
+      "indicators": [
+        "S03",
+        "S04"
+      ],
+      "score": null
+    },
+    {
+      "code": "BANKING",
+      "name": "Banking Resilience",
+      "indicators": [
+        "S05",
+        "S06"
+      ],
+      "score": null
+    },
+    {
+      "code": "FISCAL",
+      "name": "Fiscal Sustainability",
+      "indicators": [
+        "S07",
+        "S08"
+      ],
+      "score": null
+    }
+  ],
+  "notice": "HOLD means the research has not passed publication controls, not economic distress."
+}
