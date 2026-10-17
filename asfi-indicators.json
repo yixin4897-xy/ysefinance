@@ -3,9 +3,8 @@
   "model": "ASFI",
   "data_status": "VERIFIED_FOR_PUBLIC_DISPLAY",
   "composite_release_status": "HOLD",
-  "source_retrieved_utc": "2026-10-17T00:00:00Z",
   "data_vintage": "RBA CSV files supplied for review on 17 Oct 2026; E2 published 25 Sep 2026, E13 published 13 Aug 2026. Data are current revised-vintage observations, not point-in-time backtest snapshots.",
-  "notes": "S01 and S02 official source observations extracted from the uploaded RBA CSVs. S02 2026 Q2 is blank in the source, so its latest observation is 2026 Q1. Development branch only until visual/editorial approval. Composite scoring remains HOLD.",
+  "notes": "RBA source CSVs supplied by the user and checked against file metadata and recorded SHA-256 hashes on 17 Oct 2026. Source files were not downloaded by the assistant. S02 2026 Q2 has an empty cell; latest observation is 2026 Q1. ASFI composite scoring remains HOLD. Development branch preview only pending user acceptance.",
   "series": [
     {
       "code": "S01",
@@ -603,5 +602,6 @@
         }
       ]
     }
-  ]
+  ],
+  "source_file_reviewed_utc": "2026-10-17T10:35:39Z"
 }
