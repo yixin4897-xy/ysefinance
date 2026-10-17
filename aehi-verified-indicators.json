@@ -1,8 +1,291 @@
 {
   "schema_version": "1.0",
   "model": "AEHI",
-  "data_status": "AWAITING_SOURCE_VERIFICATION",
+  "data_status": "VERIFIED_FOR_PUBLIC_DISPLAY",
   "composite_release_status": "HOLD",
-  "notes": "No verified ABS numeric data have been imported. This file intentionally contains no approved time series.",
-  "series": []
+  "notes": "Only E01 has reviewed 65-quarter raw derived history. 2026-09-02 is June 2026 national accounts reference release, not guaranteed API download vintage. No composite score. Other E-series remain pending.",
+  "series": [
+    {
+      "code": "E01",
+      "name": "Real seasonally adjusted GDP per capita — quarter-on-quarter change in chain volume level",
+      "unit": "%",
+      "frequency": "quarterly",
+      "source": {
+        "publisher": "ABS",
+        "verified_series_id": "ABS:ANA_AGG (current version) / M1.GPM_PCA.20.AUS.Q",
+        "source_url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG,/M1.GPM_PCA.20.AUS.Q?startPeriod=2010-Q1&format=csv",
+        "source_file_sha256": "a7d64c3990a56128ab0a3356831066dbf1388d601cbbbd95811e439fbfcdc544",
+        "publication_date": "2026-09-02",
+        "review_required_for_publication_date": true,
+        "publication_date_role": "ABS June 2026 national accounts release reference; NOT source download/vintage timestamp",
+        "source_file_reviewed_date": "2026-10-18",
+        "data_vintage": "Current ABS API revised observations as downloaded by user, not original publication-vintage observations",
+        "original_level_series_key": "M1.GPM_PCA.20.AUS.Q",
+        "growth_derived_by": "100 × (quarterly seasonally adjusted chain-volume GDP-per-capita level / preceding quarter level − 1)"
+      },
+      "growth_convention": "quarter_on_quarter_percent",
+      "observations": [
+        {
+          "period": "2010 Q2",
+          "value": 0.27671
+        },
+        {
+          "period": "2010 Q3",
+          "value": 0.34034
+        },
+        {
+          "period": "2010 Q4",
+          "value": 0.49503
+        },
+        {
+          "period": "2011 Q1",
+          "value": -0.62486
+        },
+        {
+          "period": "2011 Q2",
+          "value": 0.84909
+        },
+        {
+          "period": "2011 Q3",
+          "value": 0.94207
+        },
+        {
+          "period": "2011 Q4",
+          "value": 0.67628
+        },
+        {
+          "period": "2012 Q1",
+          "value": 0.618
+        },
+        {
+          "period": "2012 Q2",
+          "value": 0.2626
+        },
+        {
+          "period": "2012 Q3",
+          "value": 0.14649
+        },
+        {
+          "period": "2012 Q4",
+          "value": -0.00887
+        },
+        {
+          "period": "2013 Q1",
+          "value": 0.12856
+        },
+        {
+          "period": "2013 Q2",
+          "value": -0.05313
+        },
+        {
+          "period": "2013 Q3",
+          "value": 0.41639
+        },
+        {
+          "period": "2013 Q4",
+          "value": 0.40584
+        },
+        {
+          "period": "2014 Q1",
+          "value": 0.42177
+        },
+        {
+          "period": "2014 Q2",
+          "value": 0.12688
+        },
+        {
+          "period": "2014 Q3",
+          "value": 0.03933
+        },
+        {
+          "period": "2014 Q4",
+          "value": -0.00437
+        },
+        {
+          "period": "2015 Q1",
+          "value": 0.62462
+        },
+        {
+          "period": "2015 Q2",
+          "value": -0.25611
+        },
+        {
+          "period": "2015 Q3",
+          "value": 0.62669
+        },
+        {
+          "period": "2015 Q4",
+          "value": 0.22922
+        },
+        {
+          "period": "2016 Q1",
+          "value": 0.52643
+        },
+        {
+          "period": "2016 Q2",
+          "value": 0.2232
+        },
+        {
+          "period": "2016 Q3",
+          "value": -0.41972
+        },
+        {
+          "period": "2016 Q4",
+          "value": 0.73545
+        },
+        {
+          "period": "2017 Q1",
+          "value": -0.07685
+        },
+        {
+          "period": "2017 Q2",
+          "value": 0.17518
+        },
+        {
+          "period": "2017 Q3",
+          "value": 0.57155
+        },
+        {
+          "period": "2017 Q4",
+          "value": 0.05513
+        },
+        {
+          "period": "2018 Q1",
+          "value": 0.68243
+        },
+        {
+          "period": "2018 Q2",
+          "value": 0.30312
+        },
+        {
+          "period": "2018 Q3",
+          "value": -0.02938
+        },
+        {
+          "period": "2018 Q4",
+          "value": -0.12176
+        },
+        {
+          "period": "2019 Q1",
+          "value": 0.43718
+        },
+        {
+          "period": "2019 Q2",
+          "value": -0.09626
+        },
+        {
+          "period": "2019 Q3",
+          "value": 0.16339
+        },
+        {
+          "period": "2019 Q4",
+          "value": 0.22167
+        },
+        {
+          "period": "2020 Q1",
+          "value": -0.45071
+        },
+        {
+          "period": "2020 Q2",
+          "value": -6.94223
+        },
+        {
+          "period": "2020 Q3",
+          "value": 3.49581
+        },
+        {
+          "period": "2020 Q4",
+          "value": 3.3995
+        },
+        {
+          "period": "2021 Q1",
+          "value": 2.29004
+        },
+        {
+          "period": "2021 Q2",
+          "value": 0.53912
+        },
+        {
+          "period": "2021 Q3",
+          "value": -1.8379
+        },
+        {
+          "period": "2021 Q4",
+          "value": 3.36516
+        },
+        {
+          "period": "2022 Q1",
+          "value": 0.58093
+        },
+        {
+          "period": "2022 Q2",
+          "value": 0.40911
+        },
+        {
+          "period": "2022 Q3",
+          "value": -0.11984
+        },
+        {
+          "period": "2022 Q4",
+          "value": 0.23596
+        },
+        {
+          "period": "2023 Q1",
+          "value": -0.04389
+        },
+        {
+          "period": "2023 Q2",
+          "value": -0.2874
+        },
+        {
+          "period": "2023 Q3",
+          "value": -0.2562
+        },
+        {
+          "period": "2023 Q4",
+          "value": -0.48162
+        },
+        {
+          "period": "2024 Q1",
+          "value": -0.12099
+        },
+        {
+          "period": "2024 Q2",
+          "value": -0.214
+        },
+        {
+          "period": "2024 Q3",
+          "value": -0.09711
+        },
+        {
+          "period": "2024 Q4",
+          "value": 0.06481
+        },
+        {
+          "period": "2025 Q1",
+          "value": -0.0081
+        },
+        {
+          "period": "2025 Q2",
+          "value": 0.40076
+        },
+        {
+          "period": "2025 Q3",
+          "value": 0.12902
+        },
+        {
+          "period": "2025 Q4",
+          "value": 0.56777
+        },
+        {
+          "period": "2026 Q1",
+          "value": -0.05205
+        },
+        {
+          "period": "2026 Q2",
+          "value": 0.03605
+        }
+      ]
+    }
+  ]
 }
