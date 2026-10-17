@@ -68,9 +68,10 @@ def parse(config,rows,digest):
     if code=="E06" and freq!="monthly":raise ValueError("E06 unemployment is monthly")
     if code=="E12":raise ValueError("E12 held pending CPI methodology approval")
     if code in ("E01","E04","E05") and freq!="quarterly":raise ValueError("National Accounts must be quarterly")
-    if not config.get("verified_metric_definition") or config.get("value_transform") not in ("identity","ratio_to_percent"):
+    if not config.get("verified_metric_definition") or config.get("value_transform") not in ("identity","ratio_to_percent","qoq_pct_change"):
         raise ValueError("Metric and unit transformation must be explicitly approved")
     observations=[]
+    raw_levels=[]
     for row in rows:
         if any(row.get(k)!=v for k,v in dimensions.items()):
             raise ValueError("Downloaded CSV contained unexpected ABS series dimensions")
@@ -82,18 +83,37 @@ def parse(config,rows,digest):
             raise ValueError("Missing observation for "+period)
         try: value=float(value_text)
         except ValueError as ex:raise ValueError("Invalid OBS_VALUE") from ex
-        if not (-10000<value<10000):raise ValueError("Out-of-range magnitude")
+        if not (-1e10<value<1e10):raise ValueError("Out-of-range magnitude")
+        if config["value_transform"]=="qoq_pct_change" and value<=0:
+            raise ValueError("Growth base levels must be strictly positive")
         if config["value_transform"]=="ratio_to_percent":value*=100
         if code=="E06" and not 0<=value<=30:raise ValueError("Invalid unemployment rate")
-        display=period.replace("-Q"," Q") if freq=="quarterly" else period.replace("-"," M")
-        observations.append({"period":display,"value":round(value,5)})
+        display=period.replace("-Q"," Q") if freq=="quarterly" else period.replace("-", " M")
+        raw_levels.append((period,value,display))
+    if config["value_transform"]=="qoq_pct_change":
+        if freq!="quarterly" or code not in ("E01","E04","E05"):
+            raise ValueError("QoQ transformation is reserved for quarterly national accounts")
+        for i in range(1,len(raw_levels)):
+            prev,base,_=raw_levels[i-1]
+            period,value,display=raw_levels[i]
+            def quarter_index(v):
+                y,q=v.split("-Q")
+                return int(y)*4+int(q)
+            if quarter_index(period)!=quarter_index(prev)+1:
+                raise ValueError("Missing quarter in source levels before growth computation")
+            observations.append({"period":display,"value":round((value/base-1)*100,5)})
+    else:
+        observations=[{"period":display,"value":round(value,5)} for _,value,display in raw_levels]
     if len(observations)<12:raise ValueError("Insufficient observations")
+    if code in ("E01","E04","E05") and config["value_transform"]=="identity":
+        raise ValueError("National Accounts raw level cannot be displayed as growth percentage")
     if any(a["period"]>=b["period"] for a,b in zip(observations,observations[1:])):
         raise ValueError("Duplicate or out-of-order ABS observations")
     return {"code":code,"name":config["verified_metric_definition"],"unit":"%",
             "frequency":freq,"source":{"publisher":"ABS","verified_series_id":config["series_id"],
             "source_url":config["url"],"source_file_sha256":digest,
             "publication_date":None,"review_required_for_publication_date":True},
+            "growth_convention":("quarter_on_quarter_percent" if config["value_transform"]=="qoq_pct_change" else "original_source_units"),
             "observations":observations}
 
 def main():
