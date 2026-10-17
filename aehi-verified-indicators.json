@@ -3,7 +3,7 @@
   "model": "AEHI",
   "data_status": "VERIFIED_FOR_PUBLIC_DISPLAY",
   "composite_release_status": "HOLD",
-  "notes": "Only E01 has reviewed 65-quarter raw derived history. 2026-09-02 is June 2026 national accounts reference release, not guaranteed API download vintage. No composite score. Other E-series remain pending.",
+  "notes": "E01 and E06 official ABS-derived/raw source histories verified for development display only; E01 quarterly, E06 monthly. Source reference publication dates are not downloaded API vintage dates. Other AEHI indicators and all composite scores remain HOLD.",
   "series": [
     {
       "code": "E01",
@@ -284,6 +284,832 @@
         {
           "period": "2026 Q2",
           "value": 0.03605
+        }
+      ]
+    },
+    {
+      "code": "E06",
+      "name": "National unemployment rate, persons aged 15 years and over, seasonally adjusted, monthly",
+      "unit": "%",
+      "frequency": "monthly",
+      "source": {
+        "publisher": "ABS",
+        "verified_series_id": "ABS:LF (current version) / M13.3.1599.20.AUS.M",
+        "source_url": "https://data.api.abs.gov.au/rest/data/ABS,LF,/M13.3.1599.20.AUS.M?startPeriod=2010-01&format=csv",
+        "source_file_sha256": "60a685dc0cd93ee01e37f8a3a9eef08c4c941e5c7e2f12cf0f662cf3c783ed49",
+        "publication_date": "2026-10-15",
+        "review_required_for_publication_date": true,
+        "publication_date_role": "ABS September 2026 Labour Force release reference (not precise current API-vintage download timestamp)",
+        "source_file_reviewed_date": "2026-10-18",
+        "data_vintage": "Current ABS Data API revision vintage downloaded by user, not archived as-first-published monthly release snapshots",
+        "official_release_url": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/sep-2026",
+        "latest_release_comparison": "2026 M09: 4.71835% rounds to ABS 4.7%, 2026 M08: 4.65161% rounds to 4.7%; raw month-on-month change 0.06674 percentage points rounds to reported +0.1pp."
+      },
+      "growth_convention": "original_source_units",
+      "observations": [
+        {
+          "period": "2010 M01",
+          "value": 5.26645
+        },
+        {
+          "period": "2010 M02",
+          "value": 5.29862
+        },
+        {
+          "period": "2010 M03",
+          "value": 5.42321
+        },
+        {
+          "period": "2010 M04",
+          "value": 5.49995
+        },
+        {
+          "period": "2010 M05",
+          "value": 5.2303
+        },
+        {
+          "period": "2010 M06",
+          "value": 5.14456
+        },
+        {
+          "period": "2010 M07",
+          "value": 5.28753
+        },
+        {
+          "period": "2010 M08",
+          "value": 5.02577
+        },
+        {
+          "period": "2010 M09",
+          "value": 5.05388
+        },
+        {
+          "period": "2010 M10",
+          "value": 5.28595
+        },
+        {
+          "period": "2010 M11",
+          "value": 5.10937
+        },
+        {
+          "period": "2010 M12",
+          "value": 4.87664
+        },
+        {
+          "period": "2011 M01",
+          "value": 5.00388
+        },
+        {
+          "period": "2011 M02",
+          "value": 4.97248
+        },
+        {
+          "period": "2011 M03",
+          "value": 4.92735
+        },
+        {
+          "period": "2011 M04",
+          "value": 4.96091
+        },
+        {
+          "period": "2011 M05",
+          "value": 5.01418
+        },
+        {
+          "period": "2011 M06",
+          "value": 4.91725
+        },
+        {
+          "period": "2011 M07",
+          "value": 5.09209
+        },
+        {
+          "period": "2011 M08",
+          "value": 5.26056
+        },
+        {
+          "period": "2011 M09",
+          "value": 5.22155
+        },
+        {
+          "period": "2011 M10",
+          "value": 5.189
+        },
+        {
+          "period": "2011 M11",
+          "value": 5.23165
+        },
+        {
+          "period": "2011 M12",
+          "value": 5.19684
+        },
+        {
+          "period": "2012 M01",
+          "value": 5.04853
+        },
+        {
+          "period": "2012 M02",
+          "value": 5.19256
+        },
+        {
+          "period": "2012 M03",
+          "value": 5.18451
+        },
+        {
+          "period": "2012 M04",
+          "value": 4.99633
+        },
+        {
+          "period": "2012 M05",
+          "value": 5.20171
+        },
+        {
+          "period": "2012 M06",
+          "value": 5.16355
+        },
+        {
+          "period": "2012 M07",
+          "value": 5.18129
+        },
+        {
+          "period": "2012 M08",
+          "value": 5.14525
+        },
+        {
+          "period": "2012 M09",
+          "value": 5.48862
+        },
+        {
+          "period": "2012 M10",
+          "value": 5.41219
+        },
+        {
+          "period": "2012 M11",
+          "value": 5.25766
+        },
+        {
+          "period": "2012 M12",
+          "value": 5.43283
+        },
+        {
+          "period": "2013 M01",
+          "value": 5.39044
+        },
+        {
+          "period": "2013 M02",
+          "value": 5.39544
+        },
+        {
+          "period": "2013 M03",
+          "value": 5.64228
+        },
+        {
+          "period": "2013 M04",
+          "value": 5.59094
+        },
+        {
+          "period": "2013 M05",
+          "value": 5.61123
+        },
+        {
+          "period": "2013 M06",
+          "value": 5.69705
+        },
+        {
+          "period": "2013 M07",
+          "value": 5.63425
+        },
+        {
+          "period": "2013 M08",
+          "value": 5.82559
+        },
+        {
+          "period": "2013 M09",
+          "value": 5.70732
+        },
+        {
+          "period": "2013 M10",
+          "value": 5.82521
+        },
+        {
+          "period": "2013 M11",
+          "value": 5.79768
+        },
+        {
+          "period": "2013 M12",
+          "value": 5.90169
+        },
+        {
+          "period": "2014 M01",
+          "value": 5.94822
+        },
+        {
+          "period": "2014 M02",
+          "value": 5.87829
+        },
+        {
+          "period": "2014 M03",
+          "value": 5.87753
+        },
+        {
+          "period": "2014 M04",
+          "value": 5.80696
+        },
+        {
+          "period": "2014 M05",
+          "value": 5.93189
+        },
+        {
+          "period": "2014 M06",
+          "value": 6.05178
+        },
+        {
+          "period": "2014 M07",
+          "value": 6.17611
+        },
+        {
+          "period": "2014 M08",
+          "value": 6.10877
+        },
+        {
+          "period": "2014 M09",
+          "value": 6.23769
+        },
+        {
+          "period": "2014 M10",
+          "value": 6.36073
+        },
+        {
+          "period": "2014 M11",
+          "value": 6.2987
+        },
+        {
+          "period": "2014 M12",
+          "value": 6.1075
+        },
+        {
+          "period": "2015 M01",
+          "value": 6.35315
+        },
+        {
+          "period": "2015 M02",
+          "value": 6.15565
+        },
+        {
+          "period": "2015 M03",
+          "value": 6.10628
+        },
+        {
+          "period": "2015 M04",
+          "value": 6.11565
+        },
+        {
+          "period": "2015 M05",
+          "value": 5.93372
+        },
+        {
+          "period": "2015 M06",
+          "value": 6.01207
+        },
+        {
+          "period": "2015 M07",
+          "value": 6.27853
+        },
+        {
+          "period": "2015 M08",
+          "value": 6.11407
+        },
+        {
+          "period": "2015 M09",
+          "value": 6.17534
+        },
+        {
+          "period": "2015 M10",
+          "value": 5.9155
+        },
+        {
+          "period": "2015 M11",
+          "value": 5.85273
+        },
+        {
+          "period": "2015 M12",
+          "value": 5.74315
+        },
+        {
+          "period": "2016 M01",
+          "value": 6.04281
+        },
+        {
+          "period": "2016 M02",
+          "value": 5.69675
+        },
+        {
+          "period": "2016 M03",
+          "value": 5.65648
+        },
+        {
+          "period": "2016 M04",
+          "value": 5.64876
+        },
+        {
+          "period": "2016 M05",
+          "value": 5.72477
+        },
+        {
+          "period": "2016 M06",
+          "value": 5.70034
+        },
+        {
+          "period": "2016 M07",
+          "value": 5.69784
+        },
+        {
+          "period": "2016 M08",
+          "value": 5.63414
+        },
+        {
+          "period": "2016 M09",
+          "value": 5.66603
+        },
+        {
+          "period": "2016 M10",
+          "value": 5.60001
+        },
+        {
+          "period": "2016 M11",
+          "value": 5.76976
+        },
+        {
+          "period": "2016 M12",
+          "value": 5.83904
+        },
+        {
+          "period": "2017 M01",
+          "value": 5.68551
+        },
+        {
+          "period": "2017 M02",
+          "value": 5.896
+        },
+        {
+          "period": "2017 M03",
+          "value": 5.84945
+        },
+        {
+          "period": "2017 M04",
+          "value": 5.61286
+        },
+        {
+          "period": "2017 M05",
+          "value": 5.55133
+        },
+        {
+          "period": "2017 M06",
+          "value": 5.62863
+        },
+        {
+          "period": "2017 M07",
+          "value": 5.61075
+        },
+        {
+          "period": "2017 M08",
+          "value": 5.5447
+        },
+        {
+          "period": "2017 M09",
+          "value": 5.46454
+        },
+        {
+          "period": "2017 M10",
+          "value": 5.40655
+        },
+        {
+          "period": "2017 M11",
+          "value": 5.45687
+        },
+        {
+          "period": "2017 M12",
+          "value": 5.61967
+        },
+        {
+          "period": "2018 M01",
+          "value": 5.52589
+        },
+        {
+          "period": "2018 M02",
+          "value": 5.58457
+        },
+        {
+          "period": "2018 M03",
+          "value": 5.53399
+        },
+        {
+          "period": "2018 M04",
+          "value": 5.54919
+        },
+        {
+          "period": "2018 M05",
+          "value": 5.44146
+        },
+        {
+          "period": "2018 M06",
+          "value": 5.34884
+        },
+        {
+          "period": "2018 M07",
+          "value": 5.3005
+        },
+        {
+          "period": "2018 M08",
+          "value": 5.25266
+        },
+        {
+          "period": "2018 M09",
+          "value": 5.01969
+        },
+        {
+          "period": "2018 M10",
+          "value": 5.00413
+        },
+        {
+          "period": "2018 M11",
+          "value": 5.11131
+        },
+        {
+          "period": "2018 M12",
+          "value": 5.02058
+        },
+        {
+          "period": "2019 M01",
+          "value": 5.05113
+        },
+        {
+          "period": "2019 M02",
+          "value": 4.99574
+        },
+        {
+          "period": "2019 M03",
+          "value": 5.09295
+        },
+        {
+          "period": "2019 M04",
+          "value": 5.22409
+        },
+        {
+          "period": "2019 M05",
+          "value": 5.20341
+        },
+        {
+          "period": "2019 M06",
+          "value": 5.2674
+        },
+        {
+          "period": "2019 M07",
+          "value": 5.28276
+        },
+        {
+          "period": "2019 M08",
+          "value": 5.26255
+        },
+        {
+          "period": "2019 M09",
+          "value": 5.22798
+        },
+        {
+          "period": "2019 M10",
+          "value": 5.30396
+        },
+        {
+          "period": "2019 M11",
+          "value": 5.1743
+        },
+        {
+          "period": "2019 M12",
+          "value": 5.04204
+        },
+        {
+          "period": "2020 M01",
+          "value": 5.25039
+        },
+        {
+          "period": "2020 M02",
+          "value": 5.11605
+        },
+        {
+          "period": "2020 M03",
+          "value": 5.20356
+        },
+        {
+          "period": "2020 M04",
+          "value": 6.30814
+        },
+        {
+          "period": "2020 M05",
+          "value": 7.00102
+        },
+        {
+          "period": "2020 M06",
+          "value": 7.43809
+        },
+        {
+          "period": "2020 M07",
+          "value": 7.44644
+        },
+        {
+          "period": "2020 M08",
+          "value": 6.79276
+        },
+        {
+          "period": "2020 M09",
+          "value": 6.92237
+        },
+        {
+          "period": "2020 M10",
+          "value": 6.94879
+        },
+        {
+          "period": "2020 M11",
+          "value": 6.81205
+        },
+        {
+          "period": "2020 M12",
+          "value": 6.56246
+        },
+        {
+          "period": "2021 M01",
+          "value": 6.27789
+        },
+        {
+          "period": "2021 M02",
+          "value": 5.85047
+        },
+        {
+          "period": "2021 M03",
+          "value": 5.68033
+        },
+        {
+          "period": "2021 M04",
+          "value": 5.47187
+        },
+        {
+          "period": "2021 M05",
+          "value": 5.12186
+        },
+        {
+          "period": "2021 M06",
+          "value": 5.03678
+        },
+        {
+          "period": "2021 M07",
+          "value": 4.73275
+        },
+        {
+          "period": "2021 M08",
+          "value": 4.56754
+        },
+        {
+          "period": "2021 M09",
+          "value": 4.70153
+        },
+        {
+          "period": "2021 M10",
+          "value": 5.23352
+        },
+        {
+          "period": "2021 M11",
+          "value": 4.63336
+        },
+        {
+          "period": "2021 M12",
+          "value": 4.2121
+        },
+        {
+          "period": "2022 M01",
+          "value": 4.16754
+        },
+        {
+          "period": "2022 M02",
+          "value": 4.03392
+        },
+        {
+          "period": "2022 M03",
+          "value": 3.98911
+        },
+        {
+          "period": "2022 M04",
+          "value": 3.85765
+        },
+        {
+          "period": "2022 M05",
+          "value": 3.94969
+        },
+        {
+          "period": "2022 M06",
+          "value": 3.61753
+        },
+        {
+          "period": "2022 M07",
+          "value": 3.45701
+        },
+        {
+          "period": "2022 M08",
+          "value": 3.51847
+        },
+        {
+          "period": "2022 M09",
+          "value": 3.59748
+        },
+        {
+          "period": "2022 M10",
+          "value": 3.43257
+        },
+        {
+          "period": "2022 M11",
+          "value": 3.51523
+        },
+        {
+          "period": "2022 M12",
+          "value": 3.52787
+        },
+        {
+          "period": "2023 M01",
+          "value": 3.66293
+        },
+        {
+          "period": "2023 M02",
+          "value": 3.61271
+        },
+        {
+          "period": "2023 M03",
+          "value": 3.60118
+        },
+        {
+          "period": "2023 M04",
+          "value": 3.71079
+        },
+        {
+          "period": "2023 M05",
+          "value": 3.59868
+        },
+        {
+          "period": "2023 M06",
+          "value": 3.53137
+        },
+        {
+          "period": "2023 M07",
+          "value": 3.72804
+        },
+        {
+          "period": "2023 M08",
+          "value": 3.66433
+        },
+        {
+          "period": "2023 M09",
+          "value": 3.5539
+        },
+        {
+          "period": "2023 M10",
+          "value": 3.77278
+        },
+        {
+          "period": "2023 M11",
+          "value": 3.92974
+        },
+        {
+          "period": "2023 M12",
+          "value": 3.98818
+        },
+        {
+          "period": "2024 M01",
+          "value": 4.09415
+        },
+        {
+          "period": "2024 M02",
+          "value": 3.74346
+        },
+        {
+          "period": "2024 M03",
+          "value": 3.90592
+        },
+        {
+          "period": "2024 M04",
+          "value": 4.0903
+        },
+        {
+          "period": "2024 M05",
+          "value": 4.01601
+        },
+        {
+          "period": "2024 M06",
+          "value": 4.04993
+        },
+        {
+          "period": "2024 M07",
+          "value": 4.21484
+        },
+        {
+          "period": "2024 M08",
+          "value": 4.10897
+        },
+        {
+          "period": "2024 M09",
+          "value": 4.00526
+        },
+        {
+          "period": "2024 M10",
+          "value": 4.08257
+        },
+        {
+          "period": "2024 M11",
+          "value": 3.93268
+        },
+        {
+          "period": "2024 M12",
+          "value": 3.99819
+        },
+        {
+          "period": "2025 M01",
+          "value": 4.12854
+        },
+        {
+          "period": "2025 M02",
+          "value": 4.0752
+        },
+        {
+          "period": "2025 M03",
+          "value": 4.08489
+        },
+        {
+          "period": "2025 M04",
+          "value": 4.06399
+        },
+        {
+          "period": "2025 M05",
+          "value": 4.1131
+        },
+        {
+          "period": "2025 M06",
+          "value": 4.33792
+        },
+        {
+          "period": "2025 M07",
+          "value": 4.26269
+        },
+        {
+          "period": "2025 M08",
+          "value": 4.22279
+        },
+        {
+          "period": "2025 M09",
+          "value": 4.42634
+        },
+        {
+          "period": "2025 M10",
+          "value": 4.31873
+        },
+        {
+          "period": "2025 M11",
+          "value": 4.3144
+        },
+        {
+          "period": "2025 M12",
+          "value": 4.11531
+        },
+        {
+          "period": "2026 M01",
+          "value": 4.08166
+        },
+        {
+          "period": "2026 M02",
+          "value": 4.30668
+        },
+        {
+          "period": "2026 M03",
+          "value": 4.29031
+        },
+        {
+          "period": "2026 M04",
+          "value": 4.50148
+        },
+        {
+          "period": "2026 M05",
+          "value": 4.39354
+        },
+        {
+          "period": "2026 M06",
+          "value": 4.44937
+        },
+        {
+          "period": "2026 M07",
+          "value": 4.48918
+        },
+        {
+          "period": "2026 M08",
+          "value": 4.65161
+        },
+        {
+          "period": "2026 M09",
+          "value": 4.71835
         }
       ]
     }
