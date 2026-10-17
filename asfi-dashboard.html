@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0d2a4a">
+<meta name="robots" content="noindex,follow" data-aesm-review="v3.5-draft">
+<link rel="canonical" href="https://ysefinance.com.au/asfi-dashboard.html">
+<title>ASFI Dashboard | Australian Self-Financing Index | YSE Finance</title>
+<meta name="description" content="Research dashboard for the Australian Self-Financing Index (ASFI). Explore the framework, four financial sustainability dimensions and validation status.">
+<meta property="og:title" content="ASFI Research Dashboard | YSE Finance">
+<meta property="og:description" content="Australian Self-Financing Index — research dashboard and methodology, with composite scores withheld pending validation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ysefinance.com.au/asfi-dashboard.html">
+<meta property="og:image" content="https://ysefinance.com.au/yse-logo-dark.svg">
+<link rel="icon" href="/yse-icon-dark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d2a4a;--navy2:#163d6e;--orange:#e8793a;--orange2:#f5a06a;--cream:#faf7f2;--text:#1a2332;--muted:#617184;--line:#e1e7ed;--white:#fff;--blue:#e8f2fc;--blueink:#2a598e;--orange-bg:#fff0e5;--shadow:0 9px 27px rgba(13,42,74,.065)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--text);font-family:"DM Sans",system-ui,sans-serif;font-size:15px;line-height:1.55}
+a{color:#b54d1e}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+.wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+.site-header{background:var(--navy);position:relative;z-index:3;box-shadow:0 2px 18px rgba(0,0,0,.15)}
+.header-in{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{flex-shrink:0;display:block}
+.brand img{width:206px;height:auto;display:block}
+.site-nav{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.site-nav a{font-size:13px;font-weight:600;text-decoration:none;color:#d7e0eb;white-space:nowrap}
+.site-nav a:hover,.site-nav a.current{color:var(--orange2)}
+.site-nav a.current{border-bottom:2px solid var(--orange);padding-bottom:7px}
+.site-nav .consult{background:var(--orange);color:white;border-radius:7px;padding:11px 17px;border:0}
+.site-nav .consult:hover{background:var(--orange2);color:var(--navy)}
+.hero{background:linear-gradient(105deg,#0d2a4a 0%,#143d68 70%,#224d70 100%);color:#fff;position:relative;overflow:hidden;padding:56px 0 74px}
+.hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 67px,rgba(255,255,255,.025) 68px),repeating-linear-gradient(90deg,transparent,transparent 67px,rgba(255,255,255,.025) 68px);pointer-events:none}
+.hero:after{content:"";position:absolute;width:600px;height:600px;border:1px solid rgba(255,255,255,.085);border-radius:50%;right:-110px;top:-325px;box-shadow:0 0 0 85px rgba(255,255,255,.022),0 0 0 180px rgba(255,255,255,.012);pointer-events:none}
+.hero-in{position:relative;z-index:1}
+.kicker{font-size:11px;letter-spacing:.19em;text-transform:uppercase;color:#f5aa7c;font-weight:700}
+.hero h1{font:700 clamp(32px,4.8vw,54px)/1.13 "Playfair Display",Georgia,serif;max-width:890px;margin:14px 0 7px}
+.hero-sub{font-size:19px;color:#c5d9ec;margin:0 0 15px}
+.hero-desc{max-width:770px;color:#deebf5;margin:0;font-size:15px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.hero-tag{border:1px solid rgba(255,255,255,.27);background:rgba(255,255,255,.065);border-radius:20px;padding:5px 12px;font-size:11px;color:#e1ebf6}
+.page-body{position:relative;margin-top:-28px;padding-bottom:70px}
+.block{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.dashboard-label{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}
+.dashboard-label h2{font:700 26px/1.2 "Playfair Display",Georgia,serif;color:var(--navy);margin:0}
+.dashboard-label p{margin:0;color:var(--muted);font-size:12px}
+.metrics-grid{display:grid;grid-template-columns:minmax(0,2.6fr) repeat(3,minmax(0,1fr));gap:12px}
+.score-block{padding:27px 26px;min-height:211px}
+.score-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:18px}
+.score-main{display:flex;align-items:center;gap:20px}
+.score-symbol{width:79px;height:79px;border-radius:50%;background:#e7f2fc;display:grid;place-items:center;color:var(--blueink);flex-shrink:0}
+.score-number{font-size:42px;letter-spacing:-.035em;line-height:1;font-weight:700;color:var(--navy)}
+.score-number span{font-size:24px;font-weight:500;color:#718195}
+.score-caption{color:var(--muted);font-size:12px;margin-top:12px;max-width:440px}
+.status-chip{display:inline-flex;align-items:center;gap:6px;background:var(--orange-bg);color:#a34a18;border-radius:100px;font-size:12px;font-weight:700;padding:5px 11px;margin-top:11px}
+.mini-metric{padding:23px 17px;min-height:211px}
+.metric-icon{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;background:var(--blue);color:var(--blueink);margin-bottom:23px}
+.mini-metric h3{font-size:13px;margin:0 0 11px;color:var(--navy)}
+.metric-value{font:700 23px/1.15 "Playfair Display",Georgia,serif;color:var(--navy);margin-bottom:9px}
+.metric-detail{color:var(--muted);font-size:11px}
+.quality-value{display:inline-block;padding:7px 10px;background:#fff6e3;color:#8a5d1b;font:700 12px "DM Sans",sans-serif;border-radius:30px}
+.ic{width:23px;height:23px;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.section-shell{margin-top:16px;padding:24px}
+.dimension-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-top:18px}
+.dimension-card{border:1px solid var(--line);border-radius:10px;padding:18px 14px;background:#fff;min-width:0}
+.dim-top{display:flex;align-items:center;gap:11px;min-height:66px}
+.dim-icon{width:45px;height:45px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:#eaf3fe;color:#245b99}
+.dimension-card:nth-child(2) .dim-icon{background:#fff1e5;color:#cf5b1d}
+.dimension-card:nth-child(3) .dim-icon{background:#e6f5ed;color:#27744e}
+.dimension-card:nth-child(4) .dim-icon{background:#f0eafb;color:#7148a3}
+.dimension-card h3{font-size:13px;line-height:1.3;color:var(--navy);margin:0 0 3px}
+.dimension-card p{margin:0;color:var(--muted);font-size:11px;line-height:1.5}
+.dim-track{height:9px;margin:16px 0 10px;background:#e4e9ef;border-radius:20px}
+.dim-status{font-size:11px;color:#63758c;display:flex;align-items:center;gap:7px}
+.dim-status:before{content:"";height:8px;width:8px;border-radius:50%;background:#9aabc0;display:block}
+.dim-code{color:#9c5a2d;font-weight:700}
+.details-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,1fr);gap:13px;margin-top:16px}
+.trend-panel{padding:23px;min-height:300px}
+.trend-panel h2,.side-panel h2{font-size:18px;margin:0 0 11px;color:var(--navy)}
+.trend-empty{min-height:207px;border-radius:9px;display:flex;align-items:center;justify-content:center;text-align:center;background-color:#f7fafd;background-image:linear-gradient(#edf2f7 1px,transparent 1px),linear-gradient(90deg,#edf2f7 1px,transparent 1px);background-size:64px 46px;padding:24px;color:#526884}
+.lock-circle{height:48px;width:48px;display:grid;place-items:center;border-radius:50%;background:#e8eef6;color:#405e85;margin:0 auto 8px}
+.trend-empty strong{color:#2a405f;display:block;margin-bottom:3px}
+.trend-empty p{margin:0 auto;font-size:12px;max-width:330px}
+.right-col{display:flex;flex-direction:column;gap:13px}
+.side-panel{padding:20px 22px;flex:1}
+.release{border:1px solid #f3d4b6;background:#fff6ef}
+.release h2{color:#a94419}
+.release p,.side-panel p{font-size:12px;color:#586d82;margin:5px 0 0}
+.release p{color:#78533b}
+.source-strip{font-size:11px;color:#5b7088;margin-top:13px}
+.panel-link{display:inline-block;font-size:12px;font-weight:700;margin-top:12px}
+.review-note{margin-top:16px;padding:15px 19px;background:#e8f1f9;color:#294d70;border:1px solid #d7e5f0;border-radius:11px;font-size:12px}
+.review-note strong{display:block;margin-bottom:2px}
+.page-footer{background:var(--navy);color:#c6d7e8;padding:35px 0}
+.footer-in{display:flex;align-items:start;justify-content:space-between;gap:24px}
+.page-footer p{font-size:11px;max-width:760px}
+.page-footer a{color:#ffd2b8}
+.sr-only{position:absolute;overflow:hidden;white-space:nowrap;width:1px;height:1px;clip:rect(0,0,0,0)}
+@media(max-width:1050px){.site-nav{gap:14px}.metrics-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.score-block{grid-column:span 3;min-height:auto}.mini-metric{min-height:170px}.dimension-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:740px){.header-in{align-items:flex-start;flex-direction:column;gap:8px;padding:12px 0}.brand img{width:178px}.site-nav{gap:13px;padding-bottom:8px}.site-nav a{font-size:12px}.hero{padding:42px 0 64px}.wrap{width:min(100% - 32px,1180px)}.hero-sub{font-size:16px}.metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.score-block{grid-column:span 2}.mini-metric{min-height:155px}.details-grid{grid-template-columns:1fr}.footer-in{display:block}}
+@media(max-width:460px){.metrics-grid{grid-template-columns:1fr}.score-block{grid-column:span 1}.mini-metric{min-height:125px}.mini-metric .metric-icon{margin-bottom:12px}.dimension-grid{grid-template-columns:1fr}.score-main{gap:13px}.score-symbol{width:60px;height:60px}.score-number{font-size:36px}.section-shell{padding:17px}.dashboard-label{display:block}.dashboard-label p{margin-top:6px}.site-nav .consult{padding:8px 11px}}
+</style>
+</head>
+<body>
+<svg aria-hidden="true" class="sr-only" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V13h3v7M10 20V8h3v12M16 20V4h3v16"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-9M15 6h6v6"/></symbol>
+<symbol id="i-data" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 2 16 2 16 0V5M4 12v7c0 2 16 2 16 0v-7"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v10H3zM9 21v-7h6v7"/></symbol>
+<symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9h18L12 3zM5 9v10M10 9v10M14 9v10M19 9v10M3 21h18"/></symbol>
+<symbol id="i-credit" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+<symbol id="i-fiscal" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h3M14 15h2"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+</svg>
+<header class="site-header"><div class="wrap header-in">
+<a class="brand" href="/" aria-label="YSE Finance home"><img src="/yse-logo-dark.svg" alt="YSE Finance — Sydney Tax Agent" width="206" height="44"></a>
+<nav class="site-nav" aria-label="Main navigation">
+<a href="/">Home</a><a href="/services.html">Services</a><a href="/blog/">Blog</a><a href="/aesm-research.html" class="current" aria-current="page">Research</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a class="consult" href="/#contact">Book Consultation</a>
+</nav></div></header>
+<section class="hero"><div class="wrap hero-in">
+<div class="kicker">YSE Finance · Economic Research</div>
+<h1>Australian Self-Financing Index</h1>
+<p class="hero-sub">ASFI · Quarterly Financial Sustainability Monitor</p>
+<p class="hero-desc">An independent research framework examining household debt, mortgage credit risk, banking resilience and public finances. Designed for transparent quarterly review, not as an official economic forecast.</p>
+<div class="hero-tags"><span class="hero-tag">Research dashboard</span><span class="hero-tag">Composite score withheld</span><span class="hero-tag">RBA · APRA · ABS</span></div>
+</div></section>
+<main class="wrap page-body">
+<h2 class="sr-only">ASFI publication readiness</h2>
+<section class="metrics-grid" aria-label="Publication and score summary">
+<div class="block score-block">
+<div class="score-title">Composite Score</div>
+<div class="score-main"><div class="score-symbol"><svg class="ic" style="width:36px;height:36px"><use href="#i-chart"/></svg></div>
+<div><div class="score-number"><span id="asfi-score">—</span> <span>/ 100</span></div><div class="status-chip" id="asfi-score-status">Pending Validation</div></div></div>
+<p class="score-caption" id="asfi-score-note">Score will be published following data verification, methodology approval and publication sign-off.</p>
+</div>
+<div class="block mini-metric"><div class="metric-icon"><svg class="ic"><use href="#i-trend"/></svg></div><h3>Quarterly Change</h3><div class="metric-value" id="asfi-qoq">—</div><div class="metric-detail">vs. Previous Quarter</div></div>
+<div class="block mini-metric"><div class="metric-icon"><svg class="ic"><use href="#i-data"/></svg></div><h3>Data Status</h3><div class="quality-value" id="asfi-quality">Under Review</div><div class="metric-detail" style="margin-top:9px">Original releases under audit</div></div>
+<div class="block mini-metric"><div class="metric-icon"><svg class="ic"><use href="#i-calendar"/></svg></div><h3>Update Cycle</h3><div class="metric-value">Quarterly</div><div class="metric-detail">Subject to official release dates</div></div>
+</section>
+<section class="block section-shell" id="dimensions" aria-labelledby="dimensions-title">
+<div class="dashboard-label"><h2 id="dimensions-title">Economic Dimensions</h2><p>Four ASFI dimensions · Eight underlying indicators</p></div>
+<div class="dimension-grid">
+<article class="dimension-card"><div class="dim-top"><div class="dim-icon"><svg class="ic"><use href="#i-home"/></svg></div><div><h3>Household Vulnerability</h3><p>Debt and housing interest relative to income.</p></div></div><div class="dim-track" aria-hidden="true"></div><div class="dim-status"><span class="dim-code">S01 · S02</span> · Score pending</div></article>
+<article class="dimension-card"><div class="dim-top"><div class="dim-icon"><svg class="ic"><use href="#i-credit"/></svg></div><div><h3>Mortgage Credit Risk</h3><p>High debt-to-income lending and mortgage arrears.</p></div></div><div class="dim-track" aria-hidden="true"></div><div class="dim-status"><span class="dim-code">S03 · S04</span> · Score pending</div></article>
+<article class="dimension-card"><div class="dim-top"><div class="dim-icon"><svg class="ic"><use href="#i-bank"/></svg></div><div><h3>Banking Resilience</h3><p>Bank capital and stable funding buffers.</p></div></div><div class="dim-track" aria-hidden="true"></div><div class="dim-status"><span class="dim-code">S05 · S06</span> · Score pending</div></article>
+<article class="dimension-card"><div class="dim-top"><div class="dim-icon"><svg class="ic"><use href="#i-fiscal"/></svg></div><div><h3>Fiscal Sustainability</h3><p>Net debt changes and government interest burden.</p></div></div><div class="dim-track" aria-hidden="true"></div><div class="dim-status"><span class="dim-code">S07 · S08</span> · Score pending</div></article>
+</div>
+</section>
+<section class="details-grid" aria-label="Historical evidence and publication status">
+<div class="block trend-panel"><h2>Historical Trend</h2><div class="trend-empty"><div><div class="lock-circle"><svg class="ic"><use href="#i-lock"/></svg></div><strong>Available after validation</strong><p>No historical composite trend is published yet. We will display verified quarterly scores here after original-data vintage checks.</p></div></div></div>
+<div class="right-col"><div class="block side-panel release"><h2>Publication Status: <span id="asfi-release-status">HOLD</span></h2><p>Composite score not yet released. HOLD means the research has not passed its publication requirements; it is not an economic distress signal.</p></div>
+<div class="block side-panel"><h2>Methodology Notes</h2><p>Eight ASFI indicators are assessed in four dimensions. Original observation dates, release dates and revisions are tracked using official RBA, APRA and ABS statistics.</p><a class="panel-link" href="/aesm-research.html#methodology">Read the complete methodology →</a></div>
+<div class="source-strip">Sources: RBA · APRA · ABS · Intended update cycle: Quarterly</div></div>
+</section>
+<div class="review-note" role="note"><strong>Independent research, not an official economic rating.</strong> Current page shows the publication framework only. No composite or dimension scores, recession probabilities or investment signals have been approved for publication. <a href="/aesm-research.html#sources">Official source directories →</a></div>
+</main>
+<footer class="page-footer"><div class="wrap footer-in"><div><strong>YSE Finance · Economic Research</strong><p>Australian Self-Financing Index (ASFI) is part of AESM. Indicators and scoring methodology remain under validation. For general information only; not personalised investment, financial, tax or legal advice.</p></div><div><a href="/aesm-research.html">Full AESM methodology</a><br><a href="/#contact">Contact</a></div></div></footer>
+<script>
+/*
+ * Defence-in-depth publication gate.
+ * The public JSON never contains a composite score while status = HOLD.
+ * No score is rendered unless both editorial approvals are true and the
+ * source has a valid release period, publication date and numeric values.
+ * This is not a substitute for server-side review and change approvals.
+ */
+(async function(){
+  try{
+    const response=await fetch('/asfi-public-status.json',{cache:'no-store'});
+    if(!response.ok) return;
+    const data=await response.json();
+    const ok=data&&data.model==='ASFI'&&data.release_status==='PUBLISHED'&&
+      data.methodology_approved===true&&data.publication_approved===true&&
+      typeof data.period==='string'&&/^\d{4} Q[1-4]$/.test(data.period)&&
+      typeof data.publication_date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(data.publication_date)&&
+      Number.isFinite(data.composite_score)&&data.composite_score>=0&&data.composite_score<=100;
+    if(!ok)return;
+    document.getElementById('asfi-score').textContent=data.composite_score.toFixed(1);
+    document.getElementById('asfi-score-status').textContent='Published · '+data.period;
+    document.getElementById('asfi-score-note').textContent='Published '+data.publication_date+' · See methodology for limitations.';
+    document.getElementById('asfi-release-status').textContent='PUBLISHED';
+    if(Number.isFinite(data.quarterly_change)){
+      document.getElementById('asfi-qoq').textContent=(data.quarterly_change>0?'+':'')+data.quarterly_change.toFixed(1)+' pts';
+    }
+    document.getElementById('asfi-quality').textContent='Approved';
+  }catch(_err){/* Keep the score withheld on any data or network error. */}
+})();
+</script>
+</body></html>
