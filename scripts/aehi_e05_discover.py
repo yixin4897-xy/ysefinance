@@ -24,18 +24,26 @@ def main():
     rows=list(table)
     if "OBS_VALUE" not in columns or "TIME_PERIOD" not in columns: raise ValueError("Not ABS observations")
     if len(rows)>1000: raise ValueError("Unexpectedly broad query")
-    matches=[]
-    for row in rows:
-        label=" ".join(str(v) for k,v in row.items() if "DATA_ITEM" in k.upper())
-        if any(word in label.lower() for word in ("consumption","household","hfce")):
-            matches.append(row)
+    # ABS CSV labels use a human-readable "Data Item" column in addition to
+    # the machine-readable DATA_ITEM code. Keep both during discovery.
+    fields=("DATA_ITEM","Data Item","MEASURE","Measure","TSEST","Adjustment Type",
+            "REGION","Region","FREQ","Frequency","TIME_PERIOD","OBS_VALUE",
+            "UNIT_MEASURE","Unit of Measure","UNIT_MULT","Unit of Multiplier")
+    details=[{k:row.get(k,"") for k in fields if k in columns} for row in rows]
+    matches=[row for row in details if any(term in
+        (str(row.get("Data Item",""))+" "+str(row.get("DATA_ITEM",""))).lower()
+        for term in ("household","consumption","hfce"))]
     report={"status":"DISCOVERY_ONLY_NOT_APPROVED","source_url":URL,"csv_columns":columns,
-       "rows_returned":len(rows),"possible_consumption_rows":matches[:100],
-       "note":"Confirm household final consumption expenditure, chain volume, seasonally adjusted, Australia quarterly, reference quarter, unit, source ID and source-revision method before coding a growth series."}
+       "rows_returned":len(rows),"candidate_rows":details,
+       "possible_consumption_rows":matches,
+       "note":"Discovery only. Confirm HFCE total (not government consumption or GDP), chain volume, seasonal adjustment, Australia, quarter, units and source revision before importing E05."}
     DEST.parent.mkdir(exist_ok=True,parents=True)
     DEST.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print("Rows examined:",len(rows),"candidate labels:",len(matches))
-    for row in matches[:15]:print({k:v for k,v in row.items() if k in ("DATA_ITEM","TIME_PERIOD","OBS_VALUE","UNIT_MEASURE","UNIT_MULT") or "DATA_ITEM:" in k})
+    for row in details:
+        print("CODE:",row.get("DATA_ITEM",""),"LABEL:",row.get("Data Item",""),
+              "PERIOD:",row.get("TIME_PERIOD",""),"VALUE:",row.get("OBS_VALUE",""),
+              "UNIT:",row.get("Unit of Measure",row.get("UNIT_MEASURE","")))
     print("Saved review-only discovery file:",DEST)
     print("No AEHI public data or composite scores changed.")
 if __name__=="__main__":main()
