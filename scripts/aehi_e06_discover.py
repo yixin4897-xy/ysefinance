@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Inspect (do not publish) ABS Labour Force E06 candidate series via the official Data API.
 
-The ABS Labour Force Data Explorer link identifies dataflow LF and provides
-M9.3.1599.30+10+20.AUS.M as a set of estimation-method series. We PROBE
-the 20 member and verify labels before treating it as a valid E06.
+The prior M9 probe returned approximately 15,500 (thousands), not a rate.
+This script now discovers MEASURE codes for the same Australian population and
+seasonally-adjusted monthly observations; no guessed measure code is approved.
 No public file, approved data or ASFI/AEHI index score is modified.
 """
 import argparse
@@ -14,7 +14,7 @@ from pathlib import Path
 import urllib.parse
 import urllib.request
 
-API="https://data.api.abs.gov.au/rest/data/ABS,LF,/M9.3.1599.20.AUS.M?startPeriod=2023-01&format=csv"
+API="https://data.api.abs.gov.au/rest/data/ABS,LF,/.3.1599.20.AUS.M?startPeriod=2026-07&format=csv"
 MAX_BYTES=3_000_000
 
 def probe(url):
@@ -33,10 +33,16 @@ def probe(url):
         raise ValueError("ABS returned no SDMX CSV observations")
     data=list(table)
     if not data:raise ValueError("Zero observations")
+    if len(data)>1000:raise ValueError("Too many series; discovery must be narrowly scoped")
     dimensions=[h for h in headers if h not in ("TIME_PERIOD","OBS_VALUE","OBS_STATUS","UNIT_MEASURE","UNIT_MULT","DECIMALS","CONF_STATUS","TIME_FORMAT","OBS_CONF","OBS_COM") and not h.endswith("_LABEL")]
     # This is an examination report only; the operator must confirm
     # each dimension using ABS Data Explorer, particularly measure M9.
+    by_measure={}
+    for row in data:
+        key=row.get("MEASURE","")
+        by_measure.setdefault(key,[]).append({"period":row.get("TIME_PERIOD"),"value":row.get("OBS_VALUE"),"unit":row.get("UNIT_MEASURE"),"unit_multiplier":row.get("UNIT_MULT")})
     report={"status":"DISCOVERY_ONLY_NOT_APPROVED","source_url":url,"row_count":len(data),
+      "measure_candidates":{k:v[-3:] for k,v in sorted(by_measure.items())},
       "columns":headers,"candidate_dimensions":{h:sorted({r.get(h,"") for r in data})[:12] for h in dimensions},
       "first_rows":data[:2],"last_rows":data[-5:],
       "checks_to_complete":["MEASURE is unemployment RATE, not number of unemployed people",
@@ -56,10 +62,9 @@ def main():
     print("E06 candidate source probe succeeded (NOT verified):")
     print("Rows:",report["row_count"])
     print("CSV columns:",", ".join(report["columns"]))
-    print("Latest 3 observations:")
-    for row in report["last_rows"][-3:]:
-        print(row.get("TIME_PERIOD"),row.get("OBS_VALUE")," | ",
-              "; ".join(f"{k}={v}" for k,v in report["candidate_dimensions"].items()))
+    print("Potential measures and latest values (unapproved):")
+    for measure,latest in report["measure_candidates"].items():
+        print(measure,":",", ".join(str(x["period"])+ "="+str(x["value"]) for x in latest))
     print("Discovery report:",args.output)
     print("No publicly displayed data or index scores changed.")
 
