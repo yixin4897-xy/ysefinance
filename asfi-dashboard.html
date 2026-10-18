@@ -132,6 +132,20 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 @media(max-width:540px){.indicator-card-grid{grid-template-columns:1fr}.indicator-section{padding:16px}.indicator-big{font-size:32px}}
 .indicator-formula{font-size:11px;line-height:1.55;color:#5c7084;margin:9px 0 12px;min-height:34px}
 #apra-indicators{margin-top:16px}
+
+/* Unified YSE Finance research mobile menu. */
+.research-mobile-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;background:transparent;border:1px solid rgba(255,255,255,.38);border-radius:8px;color:white;font:24px/1 Arial,sans-serif;cursor:pointer}
+.research-mobile-toggle:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+@media(max-width:768px){
+.header-in{position:relative;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;padding:12px 0}
+.brand img{width:min(63vw,204px);max-width:100%;height:auto}
+.research-mobile-toggle{display:inline-flex}
+.header-in .site-nav{display:none;position:absolute;top:100%;left:0;right:0;z-index:110;background:var(--navy);border-top:1px solid rgba(255,255,255,.12);padding:12px 16px 18px;box-shadow:0 15px 20px rgba(0,0,0,.2);max-height:calc(100vh - 90px);overflow-y:auto}
+.header-in .site-nav.is-open{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.header-in .site-nav a{display:block;font-size:14px;padding:11px 8px;border-bottom:1px solid rgba(255,255,255,.12)}
+.header-in .site-nav a.current{border-bottom:1px solid rgba(255,255,255,.12);color:var(--orange2)}
+.header-in .site-nav .consult{text-align:center;margin-top:10px;border:0}
+}
 </style>
 </head>
 <body>
@@ -148,8 +162,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 </svg>
 <header class="site-header"><div class="wrap header-in">
 <a class="brand" href="/" aria-label="YSE Finance home"><img src="/yse-logo-dark.svg" alt="YSE Finance — Sydney Tax Agent" width="206" height="44"></a>
-<nav class="site-nav" aria-label="Main navigation">
-<a href="/">Home</a><a href="/services.html">Services</a><a href="/blog/">Blog</a><a href="/aesm-research.html" class="current" aria-current="page">Research</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a class="consult" href="/#contact">Book Consultation</a>
+<button type="button" class="research-mobile-toggle" id="researchMobileToggle" aria-label="Open navigation menu" aria-controls="researchMobileNav" aria-expanded="false">☰</button>
+<nav class="site-nav" id="researchMobileNav" aria-label="Main navigation">
+<a href="/">Home</a><a href="/services.html">Services</a><a href="/blog/">Blog</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a href="/aesm-research.html">Research (AESM)</a><a href="/aehi-dashboard.html">AEHI Dashboard</a><a href="/asfi-dashboard.html" class="current" aria-current="page">ASFI Dashboard</a><a class="consult" href="/#contact">Book Consultation</a>
 </nav></div></header>
 <section class="hero"><div class="wrap hero-in">
 <div class="kicker">YSE Finance · Economic Research</div>
@@ -435,6 +450,33 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   document.getElementById('banking-provenance').textContent='APRA performance statistics, published '+data.publication_date+'; original workbook SHA-256 '+data.source_workbook_sha256+'. CET1 methodology changed in 2023. NSFR covers the relevant regulated bank population. All composite scores remain HOLD.';
   draw(selected);
  }).catch(()=>{/* no unverified values */});
+})();
+</script>
+
+<script>
+/* Shared research-page mobile navigation; no data or scoring changes. */
+(() => {
+  const toggle = document.getElementById('researchMobileToggle');
+  const menu = document.getElementById('researchMobileNav');
+  if (!toggle || !menu) return;
+  const setOpen = open => {
+    menu.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    toggle.textContent = open ? '×' : '☰';
+  };
+  toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('click', event => {
+    if (!toggle.contains(event.target) && !menu.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  window.addEventListener('resize', () => { if (window.innerWidth > 768) setOpen(false); });
 })();
 </script>
 </body></html>
