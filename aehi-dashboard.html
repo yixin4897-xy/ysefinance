@@ -24,10 +24,23 @@ main{position:relative;margin-top:-22px;padding-bottom:60px}.box{border:1px soli
 footer{background:var(--navy);padding:32px 0;color:#c9d8e7;font-size:12px}footer a{color:#ffbb94}
 @media(max-width:900px){.indicator-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{align-items:flex-start;flex-direction:column;padding:13px 0;gap:9px}.nav nav{gap:13px}}
 @media(max-width:620px){.indicator-grid{grid-template-columns:1fr}.overview,.trend-header,.section-title{display:block}.hold{display:inline-block;margin-top:15px}.select-controls{margin-top:13px}.indicator{min-height:185px}.hero{padding:40px 0 57px}.nav img{max-width:200px}}
+
+/* Unified YSE Finance research mobile menu. */
+.research-mobile-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;background:transparent;border:1px solid rgba(255,255,255,.38);border-radius:8px;color:white;font:24px/1 Arial,sans-serif;cursor:pointer}
+.research-mobile-toggle:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+@media(max-width:768px){
+.wrap.nav{position:relative;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;min-height:68px}
+.nav img{width:min(63vw,204px);max-width:100%;height:auto}
+.research-mobile-toggle{display:inline-flex}
+.nav nav{display:none;position:absolute;top:100%;left:0;right:0;z-index:110;background:var(--navy);border-top:1px solid rgba(255,255,255,.12);padding:12px 16px 18px;box-shadow:0 15px 20px rgba(0,0,0,.2);max-height:calc(100vh - 90px);overflow-y:auto}
+.nav nav.is-open{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.nav nav a{display:block;font-size:14px;padding:11px 8px;border-bottom:1px solid rgba(255,255,255,.12)}
+.nav nav .cta{text-align:center;margin-top:10px;border:0}
+}
 </style>
 </head>
 <body>
-<header><div class="wrap nav"><a href="/" aria-label="YSE Finance home"><img src="/yse-logo-dark.svg" alt="YSE Finance — Sydney Tax Agent" width="204" height="44"></a><nav aria-label="Main navigation"><a href="/">Home</a><a href="/services.html">Services</a><a href="/blog/">Blog</a><a class="current" href="/aesm-research.html">Research</a><a href="/asfi-dashboard.html">ASFI</a><a href="/#contact" class="cta">Book Consultation</a></nav></div></header>
+<header><div class="wrap nav"><a href="/" aria-label="YSE Finance home"><img src="/yse-logo-dark.svg" alt="YSE Finance — Sydney Tax Agent" width="204" height="44"></a><button type="button" class="research-mobile-toggle" id="researchMobileToggle" aria-label="Open navigation menu" aria-controls="researchMobileNav" aria-expanded="false">☰</button><nav id="researchMobileNav" aria-label="Main navigation"><a href="/">Home</a><a href="/services.html">Services</a><a href="/blog/">Blog</a><a href="/aesm-research.html">Research (AESM)</a><a class="current" aria-current="page" href="/aehi-dashboard.html">AEHI Dashboard</a><a href="/asfi-dashboard.html">ASFI Dashboard</a><a href="/#contact" class="cta">Book Consultation</a></nav></div></header>
 <section class="hero"><div class="wrap"><div class="eyebrow">YSE Finance · Economic Research · AESM</div><h1>Australian Economic Health Index</h1><p class="subtitle">AEHI · Real Economy &amp; Economic Health</p><p>Official economic measures covering growth, household purchasing power, consumption, labour-market conditions and underlying inflation. Data series and definitions are reviewed individually; a composite AEHI score has not been published.</p><div class="pills"><span class="pill">12 proposed AEHI indicators</span><span class="pill">First five: source verification</span><span class="pill">ABS Official Statistics</span></div></div></section>
 <main class="wrap">
 <div class="box overview"><div><h2>Economic Health Monitor</h2><p id="aehi-overview-note">Five core measures are being prepared from original ABS releases. Figures remain hidden until exact series and calculations are verified.</p></div><span class="hold">Composite Score: HOLD</span></div>
@@ -85,6 +98,33 @@ footer{background:var(--navy);padding:32px 0;color:#c9d8e7;font-size:12px}footer
     document.getElementById("aehi-overview-note").textContent=count+" of 5 core measures have passed verified-source publication checks. Other measures remain withheld.";
     draw(selected);
   }).catch(()=>{/* no unverified or fabricated statistics */});
+})();
+</script>
+
+<script>
+/* Shared research-page mobile navigation; no data or scoring changes. */
+(() => {
+  const toggle = document.getElementById('researchMobileToggle');
+  const menu = document.getElementById('researchMobileNav');
+  if (!toggle || !menu) return;
+  const setOpen = open => {
+    menu.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    toggle.textContent = open ? '×' : '☰';
+  };
+  toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('click', event => {
+    if (!toggle.contains(event.target) && !menu.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  window.addEventListener('resize', () => { if (window.innerWidth > 768) setOpen(false); });
 })();
 </script>
 </body></html>
