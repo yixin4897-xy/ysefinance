@@ -223,6 +223,10 @@
   }
   .nav-cta:hover { background: var(--orange-light) !important; }
 
+  /* Mobile menu is intentionally separate from desktop navigation. */
+  .mobile-menu-toggle, .mobile-nav-links { display: none; }
+  .mobile-menu-toggle { border: 1px solid rgba(255,255,255,.38); background: transparent; color: white; border-radius: 8px; width: 44px; height: 44px; align-items: center; justify-content: center; cursor: pointer; font: inherit; font-size: 24px; line-height: 1; }
+  .mobile-menu-toggle:focus-visible, .mobile-nav-links a:focus-visible { outline: 3px solid var(--orange-light); outline-offset: 3px; }
   /* ── HERO ── */
   .hero {
     background: var(--navy);
@@ -273,7 +277,9 @@
     letter-spacing: 0.5px;
     margin-bottom: 24px;
   }
-  .hero-badge span { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+  .hero-badge > span:first-child { flex: 0 0 6px; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+  .hero-badge > span:last-child { display: inline; width: auto; height: auto; animation: none; }
+  .hero-badge { max-width: 100%; line-height: 1.45; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
 
   .hero h1 {
@@ -876,6 +882,16 @@
     .contact-grid { grid-template-columns: 1fr; gap: 40px; }
     .form-grid { grid-template-columns: 1fr; }
     nav .nav-links { display: none; }
+    .nav-inner { padding: 0 20px; position: relative; }
+    .nav-inner .logo img { max-width: min(65vw, 235px); height: auto; max-height: 48px; }
+    .mobile-menu-toggle { display: inline-flex; flex: 0 0 44px; }
+    .mobile-nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; z-index: 110; padding: 12px 20px 20px; margin: 0; list-style: none; background: var(--navy); box-shadow: 0 15px 24px rgba(0,0,0,.2); border-top: 1px solid rgba(255,255,255,.12); }
+    .mobile-nav-links.is-open { display: block; }
+    .mobile-nav-links a { display: block; color: #fff; text-decoration: none; padding: 12px 10px; font-size: 15px; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .mobile-nav-links a:hover { color: var(--orange-light); }
+    .mobile-nav-links .nav-cta { display: block; text-align: center; margin-top: 14px; border: 0; }
+    .hero-badge { display: inline-flex; width: fit-content; white-space: normal; align-items: center; gap: 9px; margin-bottom: 20px; }
+    .hero h1 { clear: both; overflow-wrap: normal; }
     section { padding: 60px 20px; }
     .hero { padding: 72px 20px 64px; min-height: auto; }
   }
@@ -903,6 +919,15 @@
       <li><a href="/aesm-research.html" data-en="Research" data-zh="经济研究">Research</a></li>
       <li><a href="#why" data-en="Why Us" data-zh="为何选择我们">Why Us</a></li>
       <li><a href="#tools" data-en="Tax Tools" data-zh="税务工具">Tax Tools</a></li>
+      <li><a href="#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
+    </ul>
+    <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-controls="mobileNavLinks" aria-expanded="false">☰</button>
+    <ul class="mobile-nav-links" id="mobileNavLinks">
+      <li><a href="/" data-en="Home" data-zh="首页">Home</a></li>
+      <li><a href="services.html" data-en="Services" data-zh="服务项目">Services</a></li>
+      <li><a href="blog/index.html" data-en="Blog" data-zh="博客">Blog</a></li>
+      <li><a href="/aesm-research.html" data-en="Research (AESM)" data-zh="经济研究 (AESM)">Research (AESM)</a></li>
+      <li><a href="/asfi-dashboard.html" data-en="ASFI Dashboard" data-zh="ASFI 数据面板">ASFI Dashboard</a></li>
       <li><a href="#contact" class="nav-cta" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</a></li>
     </ul>
   </div>
@@ -1320,6 +1345,28 @@
 </footer>
 
 <script>
+  // Mobile navigation: click, keyboard, outside click and desktop resize.
+  const mobileToggle = document.getElementById('mobileMenuToggle');
+  const mobileLinks = document.getElementById('mobileNavLinks');
+  function setMobileMenu(open) {
+    mobileLinks.classList.toggle('is-open', open);
+    mobileToggle.setAttribute('aria-expanded', String(open));
+    mobileToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    mobileToggle.textContent = open ? '×' : '☰';
+  }
+  mobileToggle.addEventListener('click', () => setMobileMenu(mobileToggle.getAttribute('aria-expanded') !== 'true'));
+  mobileLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMobileMenu(false)));
+  document.addEventListener('click', event => {
+    if (!mobileToggle.contains(event.target) && !mobileLinks.contains(event.target)) setMobileMenu(false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && mobileToggle.getAttribute('aria-expanded') === 'true') {
+      setMobileMenu(false);
+      mobileToggle.focus();
+    }
+  });
+  window.addEventListener('resize', () => { if (window.innerWidth > 768) setMobileMenu(false); });
+
   // Language Toggle
   let currentLang = 'en';
 
