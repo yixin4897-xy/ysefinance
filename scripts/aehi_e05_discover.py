@@ -39,7 +39,7 @@ def main():
         if codes:
             candidates=[x for x in codes if any(k in (x["name"]+" "+x["id"]).lower() for k in INTEREST)]
             lists.append({"id":cl.attrib.get("id"),"version":cl.attrib.get("version"),"total_codes":len(codes),
-                          "matching_codes":candidates[:100],"sample_codes":codes[:8]})
+                          "matching_codes":candidates[:100],"sample_codes":codes})
     if not lists:raise ValueError("No embedded codelists found; inspect DSD structure references")
     output={"status":"DISCOVERY_ONLY_NOT_APPROVED","source_url":URL,"codelists":lists,
             "note":"Verify which codelist attaches to DATA_ITEM, MEASURE, SECTOR, TSEST before constructing an exact E05 source key; names alone do not approve data."}

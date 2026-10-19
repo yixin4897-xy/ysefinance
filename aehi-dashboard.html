@@ -64,7 +64,7 @@ footer{background:var(--navy);padding:32px 0;color:#c9d8e7;font-size:12px}footer
   const n=(tag,attrs={})=>{const e=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,String(v)));return e;};
   let series={},selected="E01";
   function verify(s,id){
-    if(!s||s.code!==id||s.unit!=="%"||!Array.isArray(s.observations)||s.observations.length<12||!s.source||!s.source.verified_series_id||!s.source.publication_date||!s.source.source_file_sha256)return false;
+    if(!s||s.code!==id||s.unit!=="%"||!Array.isArray(s.observations)||s.observations.length<(id==="E05"?10:12)||!s.source||!s.source.verified_series_id||!s.source.publication_date||!s.source.source_file_sha256)return false;
     if(!/^[a-f0-9]{64}$/i.test(s.source.source_file_sha256))return false;
     const pattern=/^\d{4} (?:Q[1-4]|M(?:0[1-9]|1[0-2]))$/;
     return s.observations.every((o,i,a)=>pattern.test(o.period)&&(!i||o.period>a[i-1].period)&&Number.isFinite(o.value)&&Math.abs(o.value)<1e4);

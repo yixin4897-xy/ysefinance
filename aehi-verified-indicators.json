@@ -288,6 +288,66 @@
       ]
     },
     {
+      "code": "E05",
+      "name": "Real Household Consumption Growth",
+      "unit": "%",
+      "frequency": "quarterly",
+      "source": {
+        "publisher": "ABS",
+        "verified_series_id": "ABS:ANA_EXP/1.0.0 / PCT_VCH.FCE.PHS.20.AUS.Q",
+        "source_url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_EXP,1.0.0/PCT_VCH.FCE.PHS.20.AUS.Q?startPeriod=2024-Q1",
+        "source_file_sha256": "b4b2b32a03f296606a30954cb03d816fa2520c33995e63ea3930fb1248469026",
+        "publication_date": "2026-09-02",
+        "review_required_for_publication_date": true,
+        "publication_date_role": "ABS June 2026 National Accounts official release date; not an archived API data vintage",
+        "source_file_reviewed_date": "2026-10-18",
+        "data_vintage": "Current ABS API observations; not archived original-release vintage"
+      },
+      "growth_convention": "quarter_on_quarter_percent",
+      "observations": [
+        {
+          "period": "2024 Q1",
+          "value": 0.6
+        },
+        {
+          "period": "2024 Q2",
+          "value": -0.4
+        },
+        {
+          "period": "2024 Q3",
+          "value": 0.1
+        },
+        {
+          "period": "2024 Q4",
+          "value": 0.7
+        },
+        {
+          "period": "2025 Q1",
+          "value": 0.5
+        },
+        {
+          "period": "2025 Q2",
+          "value": 1.0
+        },
+        {
+          "period": "2025 Q3",
+          "value": 0.5
+        },
+        {
+          "period": "2025 Q4",
+          "value": 0.5
+        },
+        {
+          "period": "2026 Q1",
+          "value": 0.4
+        },
+        {
+          "period": "2026 Q2",
+          "value": 0.4
+        }
+      ]
+    },
+    {
       "code": "E06",
       "name": "National unemployment rate, persons aged 15 years and over, seasonally adjusted, monthly",
       "unit": "%",
