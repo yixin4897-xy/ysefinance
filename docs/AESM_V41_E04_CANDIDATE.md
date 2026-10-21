@@ -1,7 +1,67 @@
-# E04 local workbook candidate derivation
+# E04 Candidate V2 methodology governance
 
 Status: **CANDIDATE_ONLY_PENDING_VALIDATION**. AEHI, AESI and ASFI composite
-scores remain **HOLD**. Neither population method is selected for publication.
+scores remain **HOLD**. Method B is the primary research candidate; Method A is
+retained for sensitivity. Neither method is approved for publication.
+
+## V2 research decisions
+
+E04 is **consumption-price-adjusted real household gross disposable income per
+capita growth**, using non-annualised quarter-on-quarter percentage change.
+Average adjacent quarter-end ERP (B) approximates average population for a quarterly
+income flow under linear within-quarter change; concentrated migration can violate
+that assumption. Quarter-end ERP (A) remains the sensitivity comparison. This is
+an analytical choice, not a verified ABS prescription for this E04 derivation.
+
+Use the HFCE implicit price deflator for aggregate consumption purchasing power.
+The [ABS June 2026 National Accounts release](https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/jun-2026)
+states a **2023–24** chain-volume reference year. Matching the supplied workbook
+snapshot to that release vintage remains pending. Do not assign an unconditional
+constant-dollar label yet. [RBA household-finances analysis](https://www.rba.gov.au/speeches/2008/sp-dg-301008.html)
+uses the household consumption deflator for real disposable income; that supports
+the price concept without establishing exact equivalence to every RBA income
+series. The deflator reflects composition as well as prices and is not a
+household-specific cost-of-living index or interchangeable with CPI.
+
+Historical results are **latest-revised-data research**, not real-time backtesting.
+Later source revisions, benchmarking and seasonal re-estimation can incorporate
+information unavailable historically. Lagging revised observations does not remove
+this problem. [ABS revisions guidance](https://www.abs.gov.au/statistics/detailed-methodology-information/concepts-sources-methods/australian-system-national-accounts-concepts-sources-and-methods/edition-8/chapter-24-quality-national-accounts/revisions)
+and [RBA revision analysis](https://www.rba.gov.au/publications/bulletin/2013/mar/2.html)
+establish the general risk, not E04-specific revision magnitudes.
+
+`methodology.research_decisions` records primary/sensitivity methods, the price
+concept, growth convention, historical classification, conditional reference-year
+status and false publication/backtest eligibility flags. The candidate writer
+rejects changes to the method selection, research-only status, publication
+restrictions and composite HOLD gates. V2 changes governance metadata only;
+all V1 calculations and source provenance remain unchanged.
+
+## Proposed append-only source-vintage framework
+
+Proposal only: no archive, database or storage service is implemented.
+
+1. Retain immutable raw snapshots outside Git in approved durable storage, identified
+   by SHA-256 and archive reference. New releases never replace earlier snapshots.
+2. Append manifests containing source URLs, series IDs/dimensions, units, seasonal
+   adjustment, price reference year, observation coverage, official publication
+   timestamp/timezone, UTC retrieval timestamp, revision status and file hashes.
+   Unknown dates remain unknown.
+3. Key observations by series, observation quarter and vintage. Append revised
+   values under new vintages rather than overwriting old values.
+4. Record each derived run's input hashes/vintages, code commit, methodology version,
+   method selection, generation timestamp and output hash. Preserve separate
+   income/consumption and ERP release schedules.
+5. For future as-of simulations, use only vintages available by each decision
+   timestamp. Distinguish official publication availability from actual operational
+   retrieval. Document conservative assumptions where availability is unverified;
+   never fabricate missing historical vintages.
+6. Compare initial-to-later growth revisions and signal sign changes. Report
+   revised-history research separately from genuine real-time tests.
+
+Storage selection, retention, historical archive coverage and availability-date
+policy require approval before implementation. Current hashes establish byte
+identity, not original-release vintage or past availability.
 
 ## Run offline
 
@@ -76,7 +136,8 @@ growth_B[t] = 100 * (B[t] / B[t-1] - 1)
 Growth is non-annualised quarter-on-quarter percent. No intermediate rounding is
 applied. The 1000 factor converts millions of dollars divided by thousands of
 people to dollars per person. D is an implicit price index based on the supplied
-chain-volume series; its price reference year remains unlabelled pending review.
+chain-volume series; applying the official 2023–24 reference year remains pending
+the supplied workbook vintage match.
 These derived real income levels are not themselves ABS-published chain volumes.
 
 Method A uses the closing stock. Method B approximates quarterly average
@@ -111,19 +172,19 @@ date is not the population measurement date. `STOCK_CLOSE` supplies the timing.
 
 Remaining review decisions:
 
-- Choose A or B, or require an independently verified quarterly-average population
-  source. Differences between methods quantify sensitivity, not statistical error.
-- Approve the consumption deflator as the purchasing-power measure and verify
-  the chain-volume reference year before labelling constant-dollar levels.
-- Approve gross income, including depreciation, as E04's intended concept.
-  These aggregates are not median, equivalised or distributional household income.
+- B is selected for primary research and A for sensitivity. Differences quantify
+  sensitivity, not statistical error. An observed quarterly-average population
+  source would require a separate review and methodology decision.
+- Match the workbook vintage before applying the verified 2023–24 reference year
+  to levels. HFCE price adjustment and gross income are selected for research,
+  not publication. These aggregates are not median or equivalised income.
 - Income and consumption are seasonally adjusted; ERP is original. The derived
   per-capita series is not independently seasonally adjusted.
 - Source snapshots may have different revision vintages. Input metadata checks
   and hashes do not establish common original-release vintages or authenticity
   beyond the supplied workbooks. Full-history revisions can change both methods.
-- Approve the growth horizon and common-quarter cutoff; no June 2026 result is
-  available from these four observed inputs.
+- Non-annualised quarterly growth is selected for research. Preserve the common
+  observed cutoff; no June 2026 result is available from these four inputs.
 - Validate calculated history and sensitivity results independently before any
   pinning, dashboard display or promotion to verified observations.
 

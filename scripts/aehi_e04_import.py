@@ -242,24 +242,46 @@ def build_candidate(input_dir):
             books[filename]["path"] = source_path
         inputs[role], sources[role] = extract_series(books[filename], spec)
     return {"schema_version": "1.0", "model": "AEHI", "code": "E04",
-            "name": "Real gross household disposable income per capita growth",
+            "name": "Consumption-price-adjusted real household gross disposable income per capita growth",
+            "candidate_version": "V2",
             "data_status": STATUS, "composite_release_status": "HOLD",
             "composite_release_statuses": {k: "HOLD" for k in ("AEHI", "AESI", "ASFI")},
             "score": None, "generated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
             "growth_convention": "quarter_on_quarter_percent_non_annualised",
             "sources": sources,
             "methodology": {
+                "research_decisions": {
+                    "primary_method": "B",
+                    "primary_population": "average_of_adjacent_quarter_end_ERP",
+                    "sensitivity_method": "A",
+                    "sensitivity_population": "quarter_end_ERP",
+                    "income_concept": "household_gross_disposable_income",
+                    "price_adjustment": "HFCE_implicit_price_deflator",
+                    "growth_convention": "quarter_on_quarter_percent_non_annualised",
+                    "historical_classification": "latest_revised_data_research",
+                    "real_time_backtesting_eligible": False,
+                    "publication_approved": False,
+                    "reference_year": {
+                        "abs_release": "June 2026 National Accounts",
+                        "financial_year": "2023-24",
+                        "official_release_verified": True,
+                        "supplied_workbook_vintage_matched": False,
+                        "application_status": "PENDING_WORKBOOK_VINTAGE_MATCH",
+                        "source_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/jun-2026",
+                    },
+                    "source_vintage_framework_status": "PROPOSED_NOT_IMPLEMENTED",
+                },
                 "deflator": "100 * consumption_current / consumption_volume",
                 "real_income_aud_millions": "income_current * consumption_volume / consumption_current",
                 "method_a": "1000 * real_income_aud_millions / quarter_end_ERP_thousands",
                 "method_b": "1000 * real_income_aud_millions / ((ERP_t + ERP_t_minus_1) / 2)",
                 "growth": "100 * (unrounded_level_t / unrounded_level_t_minus_1 - 1)",
                 "limitations": [
-                    "Both methods are candidates; no preferred method approved",
+                    "Method B is primary for research only; Method A retained for sensitivity; neither approved for publication",
                     "Average adjacent closing ERP is an approximation to quarterly average population",
                     "Income and consumption are seasonally adjusted; ERP is original; derived ratio not independently adjusted",
                     "Gross income includes depreciation; not net disposable income or a distributional measure",
-                    "Chain-volume reference year not independently established here; level price base remains unlabelled",
+                    "ABS June 2026 release reference year is 2023-24; matching supplied workbook vintage remains pending; level price base remains unlabelled",
                     "Local workbook publication/download dates unknown; snapshots may have different revision vintages",
                     "No interpolation, projection, population carry-forward or annualisation",
                     "Table 24 inspected during source review; no direct real household income per capita series found there",
@@ -268,6 +290,17 @@ def build_candidate(input_dir):
 
 
 def write_candidate(candidate, output):
+    decisions = candidate.get("methodology", {}).get("research_decisions", {})
+    if (candidate.get("data_status") != STATUS or
+            candidate.get("composite_release_status") != "HOLD" or
+            candidate.get("composite_release_statuses") != {k: "HOLD" for k in ("AEHI", "AESI", "ASFI")} or
+            "score" not in candidate or candidate["score"] is not None or
+            decisions.get("primary_method") != "B" or
+            decisions.get("sensitivity_method") != "A" or
+            decisions.get("publication_approved") is not False or
+            decisions.get("real_time_backtesting_eligible") is not False or
+            decisions.get("historical_classification") != "latest_revised_data_research"):
+        raise ValueError("E04 research method and publication restrictions must remain enforced")
     # Exclusive creation protects previous candidates and all original files.
     output = output.resolve()
     if output.parent != (ROOT / "data-candidates").resolve() or output.suffix != ".json":

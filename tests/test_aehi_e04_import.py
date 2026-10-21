@@ -1,5 +1,6 @@
 """Offline E04 checks. Synthetic fixtures never become candidate observations."""
 import datetime as dt
+import copy
 import hashlib
 import importlib.util
 import json
@@ -42,6 +43,13 @@ def fixture_inputs():
             "consumption_current": dict(zip(quarters, (200, 220, 240, 260))),
             "consumption_volume": dict.fromkeys(quarters, 100.0),
             "population": dict(zip(quarters, (1000, 1020, 1060, 1120)))}
+
+
+def fixture_candidate():
+    inputs = fixture_inputs()
+    with patch.object(e04, "read_workbook", return_value={}), patch.object(
+            e04, "extract_series", side_effect=[(inputs[k], {}) for k in e04.SPECS]):
+        return e04.build_candidate(ROOT / "research-inputs/e04")
 
 
 class MetadataChecks(unittest.TestCase):
@@ -153,14 +161,45 @@ class OutputAndReaderChecks(unittest.TestCase):
             root = Path(directory)
             (root / "data-candidates").mkdir()
             path = root / "data-candidates/review.json"
+            candidate = fixture_candidate()
             with patch.object(e04, "ROOT", root):
-                e04.write_candidate({"data_status": e04.STATUS}, path)
+                e04.write_candidate(candidate, path)
                 before = path.read_bytes()
                 with self.assertRaises(FileExistsError):
-                    e04.write_candidate({}, path)
+                    e04.write_candidate(candidate, path)
                 self.assertEqual(path.read_bytes(), before)
                 with self.assertRaisesRegex(ValueError, "data-candidates"):
-                    e04.write_candidate({}, root / "aehi-verified-indicators.json")
+                    e04.write_candidate(candidate, root / "aehi-verified-indicators.json")
+
+    def test_v2_research_decisions(self):
+        candidate = fixture_candidate()
+        decisions = candidate["methodology"]["research_decisions"]
+        self.assertEqual(candidate["candidate_version"], "V2")
+        self.assertEqual(decisions["primary_method"], "B")
+        self.assertEqual(decisions["sensitivity_method"], "A")
+        self.assertEqual(decisions["price_adjustment"], "HFCE_implicit_price_deflator")
+        self.assertEqual(decisions["growth_convention"], candidate["growth_convention"])
+        self.assertEqual(decisions["reference_year"]["financial_year"], "2023-24")
+        self.assertFalse(decisions["reference_year"]["supplied_workbook_vintage_matched"])
+        self.assertEqual(decisions["source_vintage_framework_status"], "PROPOSED_NOT_IMPLEMENTED")
+
+    def test_writer_rejects_method_changes_and_publication(self):
+        baseline = fixture_candidate()
+        mutations = [("data_status", "VERIFIED_FOR_PUBLIC_DISPLAY"),
+                     ("composite_release_status", "RELEASED"), ("score", 50),
+                     ("composite_release_statuses", {"AEHI": "HOLD"})]
+        for key, value in mutations:
+            candidate = copy.deepcopy(baseline)
+            candidate[key] = value
+            with self.subTest(key=key), self.assertRaisesRegex(ValueError, "restrictions"):
+                e04.write_candidate(candidate, ROOT / "data-candidates/must-not-write.json")
+        for key, value in [("primary_method", "A"), ("sensitivity_method", "B"),
+                           ("publication_approved", True), ("real_time_backtesting_eligible", True),
+                           ("historical_classification", "real_time_backtesting")]:
+            candidate = copy.deepcopy(baseline)
+            candidate["methodology"]["research_decisions"][key] = value
+            with self.subTest(key=key), self.assertRaisesRegex(ValueError, "restrictions"):
+                e04.write_candidate(candidate, ROOT / "data-candidates/must-not-write.json")
 
     def test_reader_resolves_relationships_and_rejects_formulas_and_date_system(self):
         with tempfile.TemporaryDirectory() as directory:
