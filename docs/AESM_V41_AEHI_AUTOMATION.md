@@ -1,0 +1,95 @@
+# AESM V4.1 — AEHI source integration and automation in parallel
+
+## Why this stage exists
+AEHI currently defines twelve indicators but has **no published official observations**. V4.1 establishes a reusable **five-indicator source registry and automated source-change review** before public data display. The development strategy is to implement each indicator's official-data ingestion, validation, history and automation as one unit.
+
+## First five (data not yet imported)
+| Code | Measure | Source | Publication cadence / caveat |
+|---|---|---|---|
+| E01 | Real GDP per Capita Growth | ABS National Accounts | quarterly; confirm growth horizon and exact table |
+| E04 | Real Household Disposable Income per Capita Growth | ABS National Accounts | quarterly; approve population and real-deflator specification |
+| E05 | Real Household Consumption Growth | ABS National Accounts | quarterly; confirm volume, seasonality and quarter-over-quarter vs year-over-year convention |
+| E06 | Unemployment Rate | ABS Labour Force | **monthly**, not naturally quarterly; seasonally adjusted national series. A dashboard must label the month unless a separate quarterly aggregation policy is approved |
+| E12 | Trimmed Mean Inflation | ABS Consumer Price Index | now published in a monthly CPI series; ensure comparable quarterly meaning before blending historical releases |
+
+Primary official URLs are declared in `aehi-source-registry.json`.
+
+## Combined workflow
+1. **Detect** new official publication pages or file versions via a scheduled GitHub Actions job.
+2. **Stage** candidate release metadata and source file links; never silently pick a number from scraped page text.
+3. **Parse** the exact ABS CSV/XLSX time-series with series IDs, definitions, reference period, unit, release date and source hash. Reject changed source structure.
+4. **Validate** at least two quarters and historical corrections against original ABS files and consistent units.
+5. **Review** a draft PR. Only after human approval may the verified raw data be copied to a public AEHI JSON file.
+6. **Display** the observation period, official release date, true original metric, latest value and history. Keep AEHI/ASFI/AESI scores on HOLD pending separate validation.
+
+## What should not happen
+- Automated page-change monitoring is **not** equivalent to a verified economic indicator. Monitoring cannot authorize publication of extracted numerical data.
+- Do **not** present a monthly rate as a quarterly number without a documented rule.
+- Do **not** pretend to have 12 populated indicators or produce a composite AEHI/AESI score.
+- Do not add hardcoded numerical examples that could be mistaken for official current releases.
+- AESI must address duplicate E11 (government interest burden) and S08 before weighting.
+
+## Implementation gate
+Before merging this branch, test the scheduled workflow with real ABS pages, pin extracted file URLs and series IDs, establish the correct update frequency, and verify the review PR is created only when new source content actually appears. Do not put unreviewed candidates on the website.
+
+Current status: **Architecture and source monitoring pilot only. No AEHI numerical observations have yet been imported or published.**
+
+## Implemented AEHI dashboard pilot
+
+- `aehi-dashboard.html`: standalone responsive AEHI research page with five indicator cards and a chart chooser, all numeric values gated by `aehi-verified-indicators.json`.
+- `aehi-verified-indicators.json`: deliberately empty and `AWAITING_SOURCE_VERIFICATION`; **no fabricated numbers**. The page will render verified data only when `VERIFIED_FOR_PUBLIC_DISPLAY`, an exact source series ID, release date and 64-character source file hash are present.
+- AESM master AEHI pillar links to the new page in the development branch.
+- `scripts/import_aehi_abs_csv.py`: strict candidate-only parser for exact source CSV exports; accepts an independently verified ABS series ID and checks dates, frequency, percentage units and numerical observations. E12 is intentionally blocked until the CPI trimmed-mean monthly/quarterly comparability specification is signed off.
+
+ABS maintains a free SDMX REST API with CSV output (https://data.api.abs.gov.au/rest/), documented at https://www.abs.gov.au/statistics/application-programming-interfaces-apis/data-api-user-guide. Do not guess a dataflow ID or series key; use ABS Data Explorer to retrieve the correct original series and inspect metadata before pinning any automated data query.
+
+The scheduled release-page scanner added earlier is a **metadata-only discovery prototype**, not yet an actual numeric refresh. It emits workflow artifacts and **does not** automatically approve or publish AEHI indicator figures. Implement true official-series API retrieval only after the precise identifiers and historical units are verified.
+
+## E01 officially documented ABS series (October 2026 implementation)
+
+ABS `Understanding SDMX Data` explicitly demonstrates `ABS:ANA_AGG(1.1.0)`, `M1.GPM_PCA.20.AUS.Q` with M1 = chain-volume, GPM_PCA = GDP per capita, 20 = seasonally adjusted, AUS = Australia, Q = quarterly. Document: https://www.abs.gov.au/statistics/application-programming-interfaces-apis/data-api-user-guide/understanding-sdmx-data.
+
+The pinned query is kept in `docs/aehi-pinned-series.json`, and the API importer now derives **quarter-on-quarter percentage change** `100 * (level_t / level_(t-1) - 1)`, after verifying quarterly continuity. This growth convention is a proposed AEHI research choice; the originally published ABS series contains *levels*, not a pre-existing AEHI score.
+
+Run locally from repository root:
+
+```powershell
+python -m unittest discover -s tests -p "test_aehi_abs_api_import.py" -v
+python scripts/aehi_abs_api_import.py --config docs/aehi-pinned-series.json --code E01 --output data-candidates/aehi-e01-api-review.json
+```
+
+A dedicated **manual** workflow `.github/workflows/aehi-e01-live-review.yml` runs these tests on GitHub-hosted infrastructure and (on successful download) uploads a candidate JSON artifact. It has only read permission and **does not push**, create score records or edit the public dashboard dataset.
+
+**Release limitations**: The exact API request and latest numeric observations have **not** been exercised in this environment because external API hostname resolution failed. The ABS public documentation grounds the key, not a completed live run. A person must review the initial sample against ABS published National Accounts, confirm source freshness, verify growth convention, release date and historical revisions before enabling live AEHI display. E05 and E06 still lack pinned verified series keys; do not infer their keys from series naming conventions.
+
+## E06 first official LF series discovery (18 October 2026)
+
+ABS's Labour Force release links to a Data Explorer dataflow `ABS:LF` with series selection `M9.3.1599.30+10+20.AUS.M`. The estimate type is among three alternatives, therefore **do not approve an exact E06 series on the basis of the URL alone**. Our first single-series probe selects `M9.3.1599.20.AUS.M` as a **candidate for examination**, not as a verified unemployment-rate series. Check the source dataset's six dimension labels, rate units and observation values. ABS Labour Force, Australia official release: https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release .
+
+Command from the local feature branch:
+
+```powershell
+python scripts/aehi_e06_discover.py
+```
+
+The discovery program writes only `data-candidates/aehi-e06-source-discovery.json`. No official E06 history is imported or displayed at this stage. After verifying dimensions against ABS source metadata, pin the exact key and run the review-only CSV importer with 12+ months, validate against the release's headline seasonally adjusted unemployment rate, and only then stage any E06 values for Dashboard review.
+
+E01 dashboard footnotes now distinguish the **June 2026 reference release date** from the version of data subsequently downloaded from the live ABS API. These dates must never be confused.
+
+## E06 pinned source and next review step (18 October 2026)
+
+The first LF M9 candidate was a **labour force count**, not an unemployment rate, and was rightly rejected. A narrowly scoped query over LF measures for `SEX=3`, `AGE=1599`, `TSEST=20`, `REGION=AUS`, `FREQ=M` identified `MEASURE=M13` as the national unemployment rate candidate. The local ABS API returned **2026-09 = 4.7183473%**. ABS's September 2026 Labour Force release published 15 October 2026 reports **seasonally adjusted unemployment = 4.7%** (https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/sep-2026). This agrees to one decimal place. The API and originally published snapshots need not have identical historical revisions; **August 2026 M13 about 4.615% versus ABS September release's rounded prior-August figure of 4.7% should be investigated before approving historical series**.
+
+Pinned candidate query is in `docs/aehi-pinned-series.json`:
+
+```
+https://data.api.abs.gov.au/rest/data/ABS,LF,/M13.3.1599.20.AUS.M?startPeriod=2010-01&format=csv
+```
+
+To download **review-only** E06 monthly history (does not alter public Dashboard):
+
+```powershell
+python scripts/aehi_abs_api_import.py --config docs/aehi-pinned-series.json --code E06
+```
+
+Inspect `data-candidates/aehi-e06-api-review.json`, source identifier and series length, verify all observations are monthly and latest period is September 2026, check the latest data against ABS, and upload the candidate file for a full source review. A successful download is not a publication approval.

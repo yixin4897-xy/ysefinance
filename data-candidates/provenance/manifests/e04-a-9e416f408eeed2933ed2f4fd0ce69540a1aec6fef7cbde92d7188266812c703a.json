@@ -1,0 +1,314 @@
+{
+  "schema_version": "0.1.0",
+  "indicator": "E04",
+  "methodological_variant": {
+    "id": "A",
+    "name": "Closing ERP sensitivity",
+    "candidate_version": "V2",
+    "status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+    "transformations": {
+      "deflator": "100 * consumption_current / consumption_volume",
+      "real_income_aud_millions": "income_current * consumption_volume / consumption_current",
+      "method_a": "1000 * real_income_aud_millions / quarter_end_ERP_thousands",
+      "growth": "100 * (unrounded_level_t / unrounded_level_t_minus_1 - 1)"
+    }
+  },
+  "historical_classification": "latest_revised_data_research",
+  "point_in_time_eligible": false,
+  "identity_basis": "SHA256_CANONICAL_JSON_EXCLUDING_MANIFEST_ID",
+  "sources": [
+    {
+      "role": "income",
+      "provider": "ABS",
+      "series_id": "A2302939L",
+      "description": "GROSS DISPOSABLE INCOME ;",
+      "source_filename": "5206020_Household_Income (1).xlsx",
+      "source_sha256": "98c1561f5640195b962b56e86898ae61dd017df56f3fefff937c571b2cb60ba5",
+      "source_vintage_id": "abs-sha256-98c1561f5640195b962b56e86898ae61dd017df56f3fefff937c571b2cb60ba5",
+      "vintage_identity_basis": "CONTENT_ADDRESSED_BYTES_NOT_FIRST_RELEASE_VINTAGE",
+      "official_source_url": null,
+      "official_source_url_status": "UNKNOWN",
+      "official_reference_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+      "source_local_path": "research-inputs/e04/5206020_Household_Income (1).xlsx",
+      "archive_relative_path": "research-inputs/vintage-archive/sha256/98c1561f5640195b962b56e86898ae61dd017df56f3fefff937c571b2cb60ba5.xlsx",
+      "archive_status": "NOT_ARCHIVED_BY_PILOT",
+      "release": {
+        "period": null,
+        "date": null,
+        "date_status": "UNKNOWN",
+        "retrieved_at_utc": null,
+        "retrieval_status": "UNKNOWN",
+        "availability_timestamp_utc": null
+      },
+      "measurement": {
+        "frequency": "quarterly",
+        "unit": "$ Millions",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "data_type": "DERIVED",
+        "table": "Table 20. Household Income Account, Current prices",
+        "sheet": "Data1",
+        "metadata_range": "BW1:BW10",
+        "observation_date_convention": "ABS_REFERENCE_MONTH_FIRST_DAY_NOT_PUBLICATION_DATE",
+        "reference_year": {
+          "value": null,
+          "status": "UNKNOWN",
+          "official_release_reference_year": null,
+          "applies_to_this_snapshot": false
+        }
+      },
+      "coverage": {
+        "first_period": "1959-Q3",
+        "last_period": "2026-Q2",
+        "observation_count": 268,
+        "grid_count": 268,
+        "leading_missing_count": 0,
+        "trailing_missing_count": 0,
+        "internal_missing_count": 0,
+        "excluded_blank_periods": []
+      },
+      "validation": {
+        "state": "LOCAL_HASH_METADATA_COVERAGE_CHECKED",
+        "official_authenticity": "UNKNOWN",
+        "fresh_official_download_verified": false,
+        "evidence_path": "data-candidates/aehi-e04-local-review.json"
+      }
+    },
+    {
+      "role": "consumption_current",
+      "provider": "ABS",
+      "series_id": "A2302236T",
+      "description": "FINAL CONSUMPTION EXPENDITURE: Current prices ;",
+      "source_filename": "5206008_Household_Final_Consumption_Expenditure (1).xlsx",
+      "source_sha256": "889dcad19a45827d68a0343bf26ca3f9da506dd887a0f18f88de1e9ec4afd8cc",
+      "source_vintage_id": "abs-sha256-889dcad19a45827d68a0343bf26ca3f9da506dd887a0f18f88de1e9ec4afd8cc",
+      "vintage_identity_basis": "CONTENT_ADDRESSED_BYTES_NOT_FIRST_RELEASE_VINTAGE",
+      "official_source_url": null,
+      "official_source_url_status": "UNKNOWN",
+      "official_reference_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+      "source_local_path": "research-inputs/e04/5206008_Household_Final_Consumption_Expenditure (1).xlsx",
+      "archive_relative_path": "research-inputs/vintage-archive/sha256/889dcad19a45827d68a0343bf26ca3f9da506dd887a0f18f88de1e9ec4afd8cc.xlsx",
+      "archive_status": "NOT_ARCHIVED_BY_PILOT",
+      "release": {
+        "period": null,
+        "date": null,
+        "date_status": "UNKNOWN",
+        "retrieved_at_utc": null,
+        "retrieval_status": "UNKNOWN",
+        "availability_timestamp_utc": null
+      },
+      "measurement": {
+        "frequency": "quarterly",
+        "unit": "$ Millions",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "data_type": "DERIVED",
+        "table": "Table 8. Household Final Consumption Expenditure (HFCE)",
+        "sheet": "Data1",
+        "metadata_range": "GA1:GA10",
+        "observation_date_convention": "ABS_REFERENCE_MONTH_FIRST_DAY_NOT_PUBLICATION_DATE",
+        "reference_year": {
+          "value": null,
+          "status": "UNKNOWN",
+          "official_release_reference_year": null,
+          "applies_to_this_snapshot": false
+        }
+      },
+      "coverage": {
+        "first_period": "1959-Q3",
+        "last_period": "2026-Q2",
+        "observation_count": 268,
+        "grid_count": 268,
+        "leading_missing_count": 0,
+        "trailing_missing_count": 0,
+        "internal_missing_count": 0,
+        "excluded_blank_periods": []
+      },
+      "validation": {
+        "state": "LOCAL_HASH_METADATA_COVERAGE_CHECKED",
+        "official_authenticity": "UNKNOWN",
+        "fresh_official_download_verified": false,
+        "evidence_path": "data-candidates/aehi-e04-local-review.json"
+      }
+    },
+    {
+      "role": "consumption_volume",
+      "provider": "ABS",
+      "series_id": "A2303280V",
+      "description": "FINAL CONSUMPTION EXPENDITURE: Chain volume measures ;",
+      "source_filename": "5206008_Household_Final_Consumption_Expenditure (1).xlsx",
+      "source_sha256": "889dcad19a45827d68a0343bf26ca3f9da506dd887a0f18f88de1e9ec4afd8cc",
+      "source_vintage_id": "abs-sha256-889dcad19a45827d68a0343bf26ca3f9da506dd887a0f18f88de1e9ec4afd8cc",
+      "vintage_identity_basis": "CONTENT_ADDRESSED_BYTES_NOT_FIRST_RELEASE_VINTAGE",
+      "official_source_url": null,
+      "official_source_url_status": "UNKNOWN",
+      "official_reference_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+      "source_local_path": "research-inputs/e04/5206008_Household_Final_Consumption_Expenditure (1).xlsx",
+      "archive_relative_path": "research-inputs/vintage-archive/sha256/889dcad19a45827d68a0343bf26ca3f9da506dd887a0f18f88de1e9ec4afd8cc.xlsx",
+      "archive_status": "NOT_ARCHIVED_BY_PILOT",
+      "release": {
+        "period": null,
+        "date": null,
+        "date_status": "UNKNOWN",
+        "retrieved_at_utc": null,
+        "retrieval_status": "UNKNOWN",
+        "availability_timestamp_utc": null
+      },
+      "measurement": {
+        "frequency": "quarterly",
+        "unit": "$ Millions",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "data_type": "DERIVED",
+        "table": "Table 8. Household Final Consumption Expenditure (HFCE)",
+        "sheet": "Data1",
+        "metadata_range": "BC1:BC10",
+        "observation_date_convention": "ABS_REFERENCE_MONTH_FIRST_DAY_NOT_PUBLICATION_DATE",
+        "reference_year": {
+          "value": null,
+          "status": "UNKNOWN",
+          "official_release_reference_year": "2023-24",
+          "applies_to_this_snapshot": false
+        }
+      },
+      "coverage": {
+        "first_period": "1959-Q3",
+        "last_period": "2026-Q2",
+        "observation_count": 268,
+        "grid_count": 268,
+        "leading_missing_count": 0,
+        "trailing_missing_count": 0,
+        "internal_missing_count": 0,
+        "excluded_blank_periods": []
+      },
+      "validation": {
+        "state": "LOCAL_HASH_METADATA_COVERAGE_CHECKED",
+        "official_authenticity": "UNKNOWN",
+        "fresh_official_download_verified": false,
+        "evidence_path": "data-candidates/aehi-e04-local-review.json"
+      }
+    },
+    {
+      "role": "population",
+      "provider": "ABS",
+      "series_id": "A2133251W",
+      "description": "Estimated Resident Population (ERP) ;  Australia ;",
+      "source_filename": "310101 (1).xlsx",
+      "source_sha256": "79eb16006d54bb0f0dbb1e71bdcb2fcb0e098ecb3ae2f29d6e9418a3e5a48a74",
+      "source_vintage_id": "abs-sha256-79eb16006d54bb0f0dbb1e71bdcb2fcb0e098ecb3ae2f29d6e9418a3e5a48a74",
+      "vintage_identity_basis": "CONTENT_ADDRESSED_BYTES_NOT_FIRST_RELEASE_VINTAGE",
+      "official_source_url": null,
+      "official_source_url_status": "UNKNOWN",
+      "official_reference_url": null,
+      "source_local_path": "research-inputs/e04/310101 (1).xlsx",
+      "archive_relative_path": "research-inputs/vintage-archive/sha256/79eb16006d54bb0f0dbb1e71bdcb2fcb0e098ecb3ae2f29d6e9418a3e5a48a74.xlsx",
+      "archive_status": "NOT_ARCHIVED_BY_PILOT",
+      "release": {
+        "period": null,
+        "date": null,
+        "date_status": "UNKNOWN",
+        "retrieved_at_utc": null,
+        "retrieval_status": "UNKNOWN",
+        "availability_timestamp_utc": null
+      },
+      "measurement": {
+        "frequency": "quarterly",
+        "unit": "000",
+        "seasonal_adjustment": "Original",
+        "data_type": "STOCK_CLOSE",
+        "table": "TABLE 1. Population Change, Summary - Australia ('000)",
+        "sheet": "Data1",
+        "metadata_range": "L1:L10",
+        "observation_date_convention": "ABS_REFERENCE_MONTH_FIRST_DAY_NOT_PUBLICATION_DATE",
+        "reference_year": {
+          "value": null,
+          "status": "UNKNOWN",
+          "official_release_reference_year": null,
+          "applies_to_this_snapshot": false
+        }
+      },
+      "coverage": {
+        "first_period": "1981-Q2",
+        "last_period": "2026-Q1",
+        "observation_count": 180,
+        "grid_count": 180,
+        "leading_missing_count": 0,
+        "trailing_missing_count": 0,
+        "internal_missing_count": 0,
+        "excluded_blank_periods": []
+      },
+      "validation": {
+        "state": "LOCAL_HASH_METADATA_COVERAGE_CHECKED",
+        "official_authenticity": "UNKNOWN",
+        "fresh_official_download_verified": false,
+        "evidence_path": "data-candidates/aehi-e04-local-review.json"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/aesm-master-indicator-contract-v0.1.json",
+      "sha256": "eb9ffda232a3bbe809013d1ab87c571a5a95efea3b17860a34425941da0977f6",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "data-candidates/aehi-e04-local-review.json",
+      "sha256": "3fd338741ad2318b06524d7ecb189cfd40c9740dfa4cde641b974c46e98e74f6",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "docs/aesm-provenance-manifest-schema-v0.1.json",
+      "sha256": "71d7f2aef6a6785faf69f46112bdc87d57250e7368ee64774e0d67be8469426f",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "scripts/aesm_provenance.py",
+      "sha256": "078c2821e2dd45636d5aba66ea6e8dc1bab6576ba5dbee9c1c93833c0f68a79c",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "scripts/aehi_e04_import.py",
+      "sha256": "6fa74b26a913c3938144a192d894c47577d01c67a2f229f7363232ce402cc194",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    }
+  ],
+  "evidence_commit": "6dc970f614f5199f9baa929b5c5c7d1bcf05106a",
+  "validation_state": "LOCAL_SNAPSHOT_CHECKED_NOT_PUBLICATION_APPROVAL",
+  "approval": {
+    "indicator_definition_approved": false,
+    "publication_approved": false,
+    "production_pinned": false,
+    "scoring_approved": false,
+    "weights_approved": false
+  },
+  "composite_release_statuses": {
+    "AEHI": "HOLD",
+    "AESI": "HOLD",
+    "ASFI": "HOLD"
+  },
+  "composite_scores": {
+    "AEHI": null,
+    "AESI": null,
+    "ASFI": null
+  },
+  "limitations": [
+    "Latest-revised snapshot, not an as-first-published historical vintage.",
+    "Original retrieval timestamp and precise historical availability remain unknown.",
+    "Local byte/metadata checks do not grant source authenticity or publication approval.",
+    "Content-addressed archive paths are retention targets; this pilot copies no workbook.",
+    "Method B is primary for research only; Method A retained for sensitivity; neither approved for publication",
+    "Average adjacent closing ERP is an approximation to quarterly average population",
+    "Income and consumption are seasonally adjusted; ERP is original; derived ratio not independently adjusted",
+    "Gross income includes depreciation; not net disposable income or a distributional measure",
+    "ABS June 2026 release reference year is 2023-24; matching supplied workbook vintage remains pending; level price base remains unlabelled",
+    "Local workbook publication/download dates unknown; snapshots may have different revision vintages",
+    "No interpolation, projection, population carry-forward or annualisation",
+    "Table 24 inspected during source review; no direct real household income per capita series found there"
+  ],
+  "output_coverage": {
+    "first_period": "1981-Q3",
+    "last_period": "2026-Q1",
+    "observation_count": 179,
+    "frequency": "quarterly",
+    "unit": "% non-annualised QoQ",
+    "meaning": "Derived growth only; common level grid ends before June 2026 because ERP is unavailable."
+  },
+  "manifest_id": "e04-a-9e416f408eeed2933ed2f4fd0ce69540a1aec6fef7cbde92d7188266812c703a"
+}

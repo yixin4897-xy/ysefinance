@@ -1,0 +1,157 @@
+{
+  "schema_version": "0.1.0",
+  "indicator": "E12",
+  "methodological_variant": {
+    "id": "B",
+    "name": "Complete-monthly annual trimmed mean",
+    "candidate_version": "V1",
+    "status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+    "transformations": {
+      "value": "Copy published annual percentage change; no splicing, filling, averaging or substitution."
+    }
+  },
+  "historical_classification": "latest_revised_data_research",
+  "point_in_time_eligible": false,
+  "identity_basis": "SHA256_CANONICAL_JSON_EXCLUDING_MANIFEST_ID",
+  "sources": [
+    {
+      "role": "track_B",
+      "provider": "ABS",
+      "series_id": "A130400382R",
+      "description": "Percentage Change from Corresponding Month of Previous Year ;  Trimmed Mean ;  Australia ;",
+      "source_filename": "640106.xlsx",
+      "source_sha256": "1df9e8b27beb31c8ab3ed36ee8f9d309fb0e0e61706d48df17fcf766ce44f01a",
+      "source_vintage_id": "abs-sha256-1df9e8b27beb31c8ab3ed36ee8f9d309fb0e0e61706d48df17fcf766ce44f01a",
+      "vintage_identity_basis": "CONTENT_ADDRESSED_BYTES_NOT_FIRST_RELEASE_VINTAGE",
+      "official_source_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/aug-2026/640106.xlsx",
+      "official_source_url_status": "RECORDED_PRIOR_SOURCE_REVIEW",
+      "official_reference_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/aug-2026",
+      "source_local_path": "research-inputs/e12/640106.xlsx",
+      "archive_relative_path": "research-inputs/vintage-archive/sha256/1df9e8b27beb31c8ab3ed36ee8f9d309fb0e0e61706d48df17fcf766ce44f01a.xlsx",
+      "archive_status": "NOT_ARCHIVED_BY_PILOT",
+      "release": {
+        "period": "August 2026",
+        "date": "2026-09-30",
+        "date_status": "RECORDED_PRIOR_SOURCE_REVIEW",
+        "retrieved_at_utc": null,
+        "retrieval_status": "UNKNOWN",
+        "availability_timestamp_utc": null
+      },
+      "measurement": {
+        "frequency": "monthly",
+        "unit": "Percent",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "data_type": "PERCENT",
+        "table": "TABLE 6. CPI: Analytical Series, Weighted Average of Eight Capital Cities",
+        "sheet": "Data1",
+        "metadata_range": "AH1:AH10",
+        "observation_date_convention": "ABS_REFERENCE_MONTH_FIRST_DAY_NOT_PUBLICATION_DATE",
+        "reference_year": {
+          "value": null,
+          "status": "NOT_APPLICABLE_TO_ANNUAL_RATE",
+          "official_release_reference_year": null,
+          "applies_to_this_snapshot": false
+        }
+      },
+      "coverage": {
+        "first_period": "2025-04",
+        "last_period": "2026-08",
+        "observation_count": 17,
+        "internal_missing_count": 0,
+        "leading_missing_count": 12,
+        "trailing_missing_count": 0,
+        "excluded_blank_periods": [
+          "2024-04",
+          "2024-05",
+          "2024-06",
+          "2024-07",
+          "2024-08",
+          "2024-09",
+          "2024-10",
+          "2024-11",
+          "2024-12",
+          "2025-01",
+          "2025-02",
+          "2025-03"
+        ],
+        "grid_count": 29
+      },
+      "validation": {
+        "state": "LOCAL_HASH_METADATA_COVERAGE_CHECKED",
+        "official_authenticity": "PRIOR_REVIEW_RECORDED_NOT_REVERIFIED",
+        "fresh_official_download_verified": false,
+        "evidence_path": "data-candidates/aehi-e12-local-review.json"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/aesm-master-indicator-contract-v0.1.json",
+      "sha256": "eb9ffda232a3bbe809013d1ab87c571a5a95efea3b17860a34425941da0977f6",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "data-candidates/aehi-e12-local-review.json",
+      "sha256": "903587ce7166804120197e24f26f6c3c182f6e7f08a15dbe034c90972ccf5e8f",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "docs/aesm-provenance-manifest-schema-v0.1.json",
+      "sha256": "71d7f2aef6a6785faf69f46112bdc87d57250e7368ee64774e0d67be8469426f",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "scripts/aesm_provenance.py",
+      "sha256": "078c2821e2dd45636d5aba66ea6e8dc1bab6576ba5dbee9c1c93833c0f68a79c",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "scripts/aehi_e04_import.py",
+      "sha256": "6fa74b26a913c3938144a192d894c47577d01c67a2f229f7363232ce402cc194",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "scripts/aehi_e12_import.py",
+      "sha256": "8b1a85760e9534a6d1c84357d0b96d4069cfddd3a3de29a5805db8064b5efe31",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    }
+  ],
+  "evidence_commit": "6dc970f614f5199f9baa929b5c5c7d1bcf05106a",
+  "validation_state": "LOCAL_SNAPSHOT_CHECKED_NOT_PUBLICATION_APPROVAL",
+  "approval": {
+    "indicator_definition_approved": false,
+    "publication_approved": false,
+    "production_pinned": false,
+    "scoring_approved": false,
+    "weights_approved": false
+  },
+  "composite_release_statuses": {
+    "AEHI": "HOLD",
+    "AESI": "HOLD",
+    "ASFI": "HOLD"
+  },
+  "composite_scores": {
+    "AEHI": null,
+    "AESI": null,
+    "ASFI": null
+  },
+  "limitations": [
+    "Latest-revised snapshot, not an as-first-published historical vintage.",
+    "Original retrieval timestamp and precise historical availability remain unknown.",
+    "Local byte/metadata checks do not grant source authenticity or publication approval.",
+    "Content-addressed archive paths are retention targets; this pilot copies no workbook.",
+    "Reconcile earliest ABS back-history and documented 2002 precision / 2011 seasonal-adjustment changes",
+    "Explain 34 ABS/RBA annual differences through June 2001 before substitution or calibration",
+    "Approve scoring frequency and historical window; assess monthly revision sensitivity",
+    "Historical as-of vintages unavailable; real-time backtesting prohibited"
+  ],
+  "output_coverage": {
+    "first_period": "2025-04",
+    "last_period": "2026-08",
+    "observation_count": 17,
+    "frequency": "monthly",
+    "unit": "Percent annual change",
+    "meaning": "Independent source track; blank boundary cells excluded, not forecast or zero."
+  },
+  "manifest_id": "e12-b-7ba541a4001c83a41f2b1c0a4870ddaaedb737ed9bdec4b7cfe9dfb2ed6c3081"
+}

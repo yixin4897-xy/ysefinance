@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "model": "AEHI",
+  "release_status": "HOLD",
+  "score": null,
+  "automation_status": "DESIGN_REVIEW",
+  "indicators": [
+    {
+      "code": "E01",
+      "name": "Real GDP per Capita Growth",
+      "source_agency": "ABS",
+      "source_dataset": "Australian National Accounts: National Income, Expenditure and Product",
+      "source_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+      "target_frequency": "quarterly",
+      "preferred_metric": "Real seasonally adjusted GDP per capita percentage change; exact source table and growth horizon to be approved",
+      "extraction": "PENDING_SERIES_VERIFICATION",
+      "latest": null,
+      "history": []
+    },
+    {
+      "code": "E04",
+      "name": "Real Household Disposable Income per Capita Growth",
+      "source_agency": "ABS",
+      "source_dataset": "Australian National Accounts: National Income, Expenditure and Product",
+      "source_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+      "target_frequency": "quarterly",
+      "preferred_metric": "Real household disposable income per capita; price adjustment, population base and growth horizon to be approved",
+      "extraction": "PENDING_DERIVATION_SPEC",
+      "latest": null,
+      "history": []
+    },
+    {
+      "code": "E05",
+      "name": "Real Household Consumption Growth",
+      "source_agency": "ABS",
+      "source_dataset": "Australian National Accounts: National Income, Expenditure and Product",
+      "source_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+      "target_frequency": "quarterly",
+      "preferred_metric": "Real household final consumption expenditure growth, chain volume, seasonally adjusted; exact table/horizon to be approved",
+      "extraction": "PENDING_SERIES_VERIFICATION",
+      "latest": null,
+      "history": []
+    },
+    {
+      "code": "E06",
+      "name": "Unemployment Rate",
+      "source_agency": "ABS",
+      "source_dataset": "Labour Force, Australia",
+      "source_url": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release",
+      "target_frequency": "monthly",
+      "preferred_metric": "Seasonally adjusted unemployment rate, Australia, persons, monthly (do not imply inherently quarterly)",
+      "extraction": "PENDING_SERIES_VERIFICATION",
+      "latest": null,
+      "history": []
+    },
+    {
+      "code": "E12",
+      "name": "Trimmed Mean Inflation",
+      "source_agency": "ABS",
+      "source_dataset": "Consumer Price Index, Australia",
+      "source_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/latest-release",
+      "target_frequency": "monthly_with_quarterly_aggregation",
+      "preferred_metric": "Trimmed mean CPI annual inflation; decide quarterly convention and latest comparable release before publishing",
+      "extraction": "PENDING_SERIES_VERIFICATION",
+      "latest": null,
+      "history": []
+    }
+  ]
+}

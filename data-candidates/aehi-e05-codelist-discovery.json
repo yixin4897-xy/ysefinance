@@ -1,0 +1,404 @@
+{
+  "status": "DISCOVERY_ONLY_NOT_APPROVED",
+  "source_url": "https://data.api.abs.gov.au/rest/dataflow/ABS/ANA_EXP/1.0.0?references=all",
+  "codelists": [
+    {
+      "id": "CL_ANA_EXP_ITEMS",
+      "version": "0.0.3",
+      "total_codes": 34,
+      "matching_codes": [
+        {
+          "id": "FCE",
+          "name": "Final consumption expenditure"
+        },
+        {
+          "id": "FCE_DEF",
+          "name": "Final consumption expenditure - Defence"
+        },
+        {
+          "id": "FCE_NDEF",
+          "name": "Final consumption expenditure - Non-defence"
+        }
+      ],
+      "sample_codes": [
+        {
+          "id": "FCE",
+          "name": "Final consumption expenditure"
+        },
+        {
+          "id": "FCE_DEF",
+          "name": "Final consumption expenditure - Defence"
+        },
+        {
+          "id": "FCE_NDEF",
+          "name": "Final consumption expenditure - Non-defence"
+        },
+        {
+          "id": "GFC_NDW",
+          "name": "Gross fixed capital formation - Dwellings - New and Used"
+        },
+        {
+          "id": "GFC_AAD",
+          "name": "Gross fixed capital formation - Dwellings - Alterations and additions"
+        },
+        {
+          "id": "GFC_DWL",
+          "name": "Gross fixed capital formation - Dwellings - Total"
+        },
+        {
+          "id": "GFC_RET",
+          "name": "Gross fixed capital formation - Ownership transfer costs"
+        },
+        {
+          "id": "GFC_NNB",
+          "name": "Gross fixed capital formation - Non-dwelling construction - New building"
+        }
+      ]
+    },
+    {
+      "id": "CL_ANA_MEASURE",
+      "version": "1.0.0",
+      "total_codes": 16,
+      "matching_codes": [
+        {
+          "id": "VCH",
+          "name": "Chain volume measures"
+        },
+        {
+          "id": "PCT_VCH",
+          "name": "Chain volume measures - Percentage changes"
+        },
+        {
+          "id": "TCH",
+          "name": "Contributions to Growth - Chain volume measures"
+        },
+        {
+          "id": "PCT_RCH",
+          "name": "Chain Volume Measures - Revisions to Percentage Changes"
+        }
+      ],
+      "sample_codes": [
+        {
+          "id": "VCH",
+          "name": "Chain volume measures"
+        },
+        {
+          "id": "PCT_VCH",
+          "name": "Chain volume measures - Percentage changes"
+        },
+        {
+          "id": "TCH",
+          "name": "Contributions to Growth - Chain volume measures"
+        },
+        {
+          "id": "C",
+          "name": "Current prices"
+        },
+        {
+          "id": "FCH",
+          "name": "Chain price indexes"
+        },
+        {
+          "id": "PCT_FCH",
+          "name": "Chain price indexes - Percentage Changes"
+        },
+        {
+          "id": "DCH",
+          "name": "Implicit price deflators"
+        },
+        {
+          "id": "PCT_DCH",
+          "name": "Implicit price deflators - Percentage changes"
+        }
+      ]
+    },
+    {
+      "id": "CL_ANA_SECTOR",
+      "version": "1.0.0",
+      "total_codes": 35,
+      "matching_codes": [
+        {
+          "id": "PHS",
+          "name": "Households"
+        },
+        {
+          "id": "SSS",
+          "name": "All sectors"
+        }
+      ],
+      "sample_codes": [
+        {
+          "id": "PHS",
+          "name": "Households"
+        },
+        {
+          "id": "SSS",
+          "name": "All sectors"
+        },
+        {
+          "id": "SOS",
+          "name": "Non-residents"
+        },
+        {
+          "id": "GGS",
+          "name": "General government"
+        },
+        {
+          "id": "PSS",
+          "name": "Private"
+        },
+        {
+          "id": "GSS",
+          "name": "Public"
+        },
+        {
+          "id": "PHD",
+          "name": "Dwellings owned by persons"
+        },
+        {
+          "id": "OSS",
+          "name": "Other sectors"
+        }
+      ]
+    },
+    {
+      "id": "CL_FREQ",
+      "version": "1.0.0",
+      "total_codes": 9,
+      "matching_codes": [],
+      "sample_codes": [
+        {
+          "id": "H",
+          "name": "Hourly"
+        },
+        {
+          "id": "D",
+          "name": "Daily"
+        },
+        {
+          "id": "N",
+          "name": "Minutely"
+        },
+        {
+          "id": "B",
+          "name": "Daily or businessweek"
+        },
+        {
+          "id": "W",
+          "name": "Weekly"
+        },
+        {
+          "id": "S",
+          "name": "Half-yearly, semester"
+        },
+        {
+          "id": "A",
+          "name": "Annual"
+        },
+        {
+          "id": "M",
+          "name": "Monthly"
+        }
+      ]
+    },
+    {
+      "id": "CL_OBS_STATUS",
+      "version": "1.0.0",
+      "total_codes": 16,
+      "matching_codes": [],
+      "sample_codes": [
+        {
+          "id": "k",
+          "name": "estimate"
+        },
+        {
+          "id": "l",
+          "name": "not elsewhere included"
+        },
+        {
+          "id": "m",
+          "name": "not recorded"
+        },
+        {
+          "id": "n",
+          "name": "not available for publication but included in totals where applicable, unless otherwise indicated"
+        },
+        {
+          "id": "o",
+          "name": "nil or rounded to zero, including null cells"
+        },
+        {
+          "id": "p",
+          "name": "preliminary figure or series subject to revision"
+        },
+        {
+          "id": "q",
+          "name": "not available"
+        },
+        {
+          "id": "r",
+          "name": "revised"
+        }
+      ]
+    },
+    {
+      "id": "CL_STATE",
+      "version": "1.0.0",
+      "total_codes": 10,
+      "matching_codes": [],
+      "sample_codes": [
+        {
+          "id": "AUS",
+          "name": "Australia"
+        },
+        {
+          "id": "1",
+          "name": "New South Wales"
+        },
+        {
+          "id": "2",
+          "name": "Victoria"
+        },
+        {
+          "id": "3",
+          "name": "Queensland"
+        },
+        {
+          "id": "4",
+          "name": "South Australia"
+        },
+        {
+          "id": "5",
+          "name": "Western Australia"
+        },
+        {
+          "id": "6",
+          "name": "Tasmania"
+        },
+        {
+          "id": "7",
+          "name": "Northern Territory"
+        }
+      ]
+    },
+    {
+      "id": "CL_TSEST",
+      "version": "1.0.0",
+      "total_codes": 5,
+      "matching_codes": [
+        {
+          "id": "20",
+          "name": "Seasonally Adjusted"
+        }
+      ],
+      "sample_codes": [
+        {
+          "id": "10",
+          "name": "Original"
+        },
+        {
+          "id": "20",
+          "name": "Seasonally Adjusted"
+        },
+        {
+          "id": "30",
+          "name": "Trend"
+        },
+        {
+          "id": "40",
+          "name": "Sensitivity Upper"
+        },
+        {
+          "id": "50",
+          "name": "Sensitivity Lower"
+        }
+      ]
+    },
+    {
+      "id": "CL_UNIT_MEASURE",
+      "version": "1.0.0",
+      "total_codes": 88,
+      "matching_codes": [
+        {
+          "id": "HH",
+          "name": "Households"
+        }
+      ],
+      "sample_codes": [
+        {
+          "id": "AUD",
+          "name": "Australian Dollars"
+        },
+        {
+          "id": "NUM",
+          "name": "Number"
+        },
+        {
+          "id": "PCT",
+          "name": "Percent"
+        },
+        {
+          "id": "PCT_PTS",
+          "name": "Percentage Points"
+        },
+        {
+          "id": "PROP",
+          "name": "Proportion"
+        },
+        {
+          "id": "IN",
+          "name": "Index Numbers"
+        },
+        {
+          "id": "IP",
+          "name": "Index Points"
+        },
+        {
+          "id": "VAR",
+          "name": "Variance"
+        }
+      ]
+    },
+    {
+      "id": "CL_UNIT_MULT",
+      "version": "1.0.0",
+      "total_codes": 31,
+      "matching_codes": [],
+      "sample_codes": [
+        {
+          "id": "0",
+          "name": "Units"
+        },
+        {
+          "id": "1",
+          "name": "Tens"
+        },
+        {
+          "id": "2",
+          "name": "Hundreds"
+        },
+        {
+          "id": "3",
+          "name": "Thousands"
+        },
+        {
+          "id": "4",
+          "name": "Tens of thousands"
+        },
+        {
+          "id": "5",
+          "name": "Hundreds of thousands"
+        },
+        {
+          "id": "6",
+          "name": "Millions"
+        },
+        {
+          "id": "7",
+          "name": "Tens of millions"
+        }
+      ]
+    }
+  ],
+  "note": "Verify which codelist attaches to DATA_ITEM, MEASURE, SECTOR, TSEST before constructing an exact E05 source key; names alone do not approve data."
+}

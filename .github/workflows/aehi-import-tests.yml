@@ -1,0 +1,23 @@
+name: AEHI data importer static tests
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "scripts/aehi_abs_api_import.py"
+      - "tests/test_aehi_abs_api_import.py"
+      - ".github/workflows/aehi-import-tests.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile Python importers
+        run: python -m py_compile scripts/aehi_abs_api_import.py scripts/import_aehi_abs_csv.py scripts/aehi_abs_source_watch.py
+      - name: Run source validation safety checks
+        run: python -m unittest discover -s tests -p "test_aehi_abs_api_import.py" -v

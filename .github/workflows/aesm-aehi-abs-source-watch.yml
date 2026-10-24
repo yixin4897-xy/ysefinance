@@ -1,0 +1,24 @@
+name: AESM AEHI ABS source watch (review-only)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 3 * * 2"
+permissions:
+  contents: read
+jobs:
+  source-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Scan official ABS publication pages
+        run: python scripts/aehi_abs_source_watch.py --output aehi-source-review.json
+      - name: Save source metadata for editorial review
+        uses: actions/upload-artifact@v4
+        with:
+          name: aehi-official-source-review
+          path: aehi-source-review.json
+          retention-days: 30
