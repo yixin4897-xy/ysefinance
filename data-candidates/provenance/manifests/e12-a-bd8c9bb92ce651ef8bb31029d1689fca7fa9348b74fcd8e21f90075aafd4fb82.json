@@ -1,0 +1,191 @@
+{
+  "schema_version": "0.1.0",
+  "indicator": "E12",
+  "methodological_variant": {
+    "id": "A",
+    "name": "Quarterly annual trimmed mean",
+    "candidate_version": "V1",
+    "status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+    "transformations": {
+      "value": "Copy published annual percentage change; no splicing, filling, averaging or substitution."
+    }
+  },
+  "historical_classification": "latest_revised_data_research",
+  "point_in_time_eligible": false,
+  "identity_basis": "SHA256_CANONICAL_JSON_EXCLUDING_MANIFEST_ID",
+  "sources": [
+    {
+      "role": "track_A",
+      "provider": "ABS",
+      "series_id": "A3604511X",
+      "description": "Percentage Change from Corresponding Quarter of Previous Year ;  Trimmed Mean ;  Australia ;",
+      "source_filename": "64010Appendix1a.xlsx",
+      "source_sha256": "71f8b078d9fc59b011ad1bf3ae77ce23c6dee7eb667fc276acf6821e9bc11f02",
+      "source_vintage_id": "abs-sha256-71f8b078d9fc59b011ad1bf3ae77ce23c6dee7eb667fc276acf6821e9bc11f02",
+      "vintage_identity_basis": "CONTENT_ADDRESSED_BYTES_NOT_FIRST_RELEASE_VINTAGE",
+      "official_source_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/aug-2026/64010Appendix1a.xlsx",
+      "official_source_url_status": "RECORDED_PRIOR_SOURCE_REVIEW",
+      "official_reference_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/aug-2026",
+      "source_local_path": "research-inputs/e12/64010Appendix1a.xlsx",
+      "archive_relative_path": "research-inputs/vintage-archive/sha256/71f8b078d9fc59b011ad1bf3ae77ce23c6dee7eb667fc276acf6821e9bc11f02.xlsx",
+      "archive_status": "NOT_ARCHIVED_BY_PILOT",
+      "release": {
+        "period": "August 2026",
+        "date": "2026-09-30",
+        "date_status": "RECORDED_PRIOR_SOURCE_REVIEW",
+        "retrieved_at_utc": null,
+        "retrieval_status": "UNKNOWN",
+        "availability_timestamp_utc": null
+      },
+      "measurement": {
+        "frequency": "quarterly",
+        "unit": "Percent",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "data_type": "PERCENT",
+        "table": "APPENDIX 1a. CPI: Quarterly Analytical Series and Seasonal Adjustment Factors on pre-October 2025 basis",
+        "sheet": "Data1",
+        "metadata_range": "I1:I10",
+        "observation_date_convention": "ABS_REFERENCE_MONTH_FIRST_DAY_NOT_PUBLICATION_DATE",
+        "reference_year": {
+          "value": null,
+          "status": "NOT_APPLICABLE_TO_ANNUAL_RATE",
+          "official_release_reference_year": null,
+          "applies_to_this_snapshot": false
+        }
+      },
+      "coverage": {
+        "first_period": "1983-Q1",
+        "last_period": "2026-Q2",
+        "observation_count": 174,
+        "internal_missing_count": 0,
+        "leading_missing_count": 42,
+        "trailing_missing_count": 4,
+        "excluded_blank_periods": [
+          "1972-Q3",
+          "1972-Q4",
+          "1973-Q1",
+          "1973-Q2",
+          "1973-Q3",
+          "1973-Q4",
+          "1974-Q1",
+          "1974-Q2",
+          "1974-Q3",
+          "1974-Q4",
+          "1975-Q1",
+          "1975-Q2",
+          "1975-Q3",
+          "1975-Q4",
+          "1976-Q1",
+          "1976-Q2",
+          "1976-Q3",
+          "1976-Q4",
+          "1977-Q1",
+          "1977-Q2",
+          "1977-Q3",
+          "1977-Q4",
+          "1978-Q1",
+          "1978-Q2",
+          "1978-Q3",
+          "1978-Q4",
+          "1979-Q1",
+          "1979-Q2",
+          "1979-Q3",
+          "1979-Q4",
+          "1980-Q1",
+          "1980-Q2",
+          "1980-Q3",
+          "1980-Q4",
+          "1981-Q1",
+          "1981-Q2",
+          "1981-Q3",
+          "1981-Q4",
+          "1982-Q1",
+          "1982-Q2",
+          "1982-Q3",
+          "1982-Q4",
+          "2026-Q3",
+          "2026-Q4",
+          "2027-Q1",
+          "2027-Q2"
+        ],
+        "grid_count": 220
+      },
+      "validation": {
+        "state": "LOCAL_HASH_METADATA_COVERAGE_CHECKED",
+        "official_authenticity": "PRIOR_REVIEW_RECORDED_NOT_REVERIFIED",
+        "fresh_official_download_verified": false,
+        "evidence_path": "data-candidates/aehi-e12-local-review.json"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/aesm-master-indicator-contract-v0.1.json",
+      "sha256": "eb9ffda232a3bbe809013d1ab87c571a5a95efea3b17860a34425941da0977f6",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "data-candidates/aehi-e12-local-review.json",
+      "sha256": "903587ce7166804120197e24f26f6c3c182f6e7f08a15dbe034c90972ccf5e8f",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "docs/aesm-provenance-manifest-schema-v0.1.json",
+      "sha256": "71d7f2aef6a6785faf69f46112bdc87d57250e7368ee64774e0d67be8469426f",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "scripts/aesm_provenance.py",
+      "sha256": "078c2821e2dd45636d5aba66ea6e8dc1bab6576ba5dbee9c1c93833c0f68a79c",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "scripts/aehi_e04_import.py",
+      "sha256": "6fa74b26a913c3938144a192d894c47577d01c67a2f229f7363232ce402cc194",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    },
+    {
+      "path": "scripts/aehi_e12_import.py",
+      "sha256": "8b1a85760e9534a6d1c84357d0b96d4069cfddd3a3de29a5805db8064b5efe31",
+      "hash_basis": "UTF8_TEXT_LF_NORMALIZED"
+    }
+  ],
+  "evidence_commit": "6dc970f614f5199f9baa929b5c5c7d1bcf05106a",
+  "validation_state": "LOCAL_SNAPSHOT_CHECKED_NOT_PUBLICATION_APPROVAL",
+  "approval": {
+    "indicator_definition_approved": false,
+    "publication_approved": false,
+    "production_pinned": false,
+    "scoring_approved": false,
+    "weights_approved": false
+  },
+  "composite_release_statuses": {
+    "AEHI": "HOLD",
+    "AESI": "HOLD",
+    "ASFI": "HOLD"
+  },
+  "composite_scores": {
+    "AEHI": null,
+    "AESI": null,
+    "ASFI": null
+  },
+  "limitations": [
+    "Latest-revised snapshot, not an as-first-published historical vintage.",
+    "Original retrieval timestamp and precise historical availability remain unknown.",
+    "Local byte/metadata checks do not grant source authenticity or publication approval.",
+    "Content-addressed archive paths are retention targets; this pilot copies no workbook.",
+    "Reconcile earliest ABS back-history and documented 2002 precision / 2011 seasonal-adjustment changes",
+    "Explain 34 ABS/RBA annual differences through June 2001 before substitution or calibration",
+    "Approve scoring frequency and historical window; assess monthly revision sensitivity",
+    "Historical as-of vintages unavailable; real-time backtesting prohibited"
+  ],
+  "output_coverage": {
+    "first_period": "1983-Q1",
+    "last_period": "2026-Q2",
+    "observation_count": 174,
+    "frequency": "quarterly",
+    "unit": "Percent annual change",
+    "meaning": "Independent source track; blank boundary cells excluded, not forecast or zero."
+  },
+  "manifest_id": "e12-a-bd8c9bb92ce651ef8bb31029d1689fca7fa9348b74fcd8e21f90075aafd4fb82"
+}
