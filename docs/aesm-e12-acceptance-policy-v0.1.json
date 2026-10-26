@@ -1,0 +1,41 @@
+{
+  "policy_id": "AESM_E12_A_OFFLINE_ACCEPTANCE",
+  "policy_version": "0.1.1",
+  "research_only": true,
+  "c05_status": "UNRESOLVED",
+  "identity": {
+    "indicator": "E12",
+    "methodological_variant": "A",
+    "source_role": "track_A",
+    "provider": "ABS",
+    "adapter": "ABS_XLSX",
+    "series_id": "A3604511X",
+    "frequency": "quarterly",
+    "unit": "Percent",
+    "seasonal_adjustment": "Seasonally Adjusted",
+    "data_type": "PERCENT",
+    "description": "Percentage Change from Corresponding Quarter of Previous Year ;  Trimmed Mean ;  Australia ;",
+    "table": "APPENDIX 1a. CPI: Quarterly Analytical Series and Seasonal Adjustment Factors on pre-October 2025 basis"
+  },
+  "baseline": {
+    "sha256": "71f8b078d9fc59b011ad1bf3ae77ce23c6dee7eb667fc276acf6821e9bc11f02",
+    "byte_count": 378500,
+    "first_period": "1983-Q1",
+    "last_period": "2026-Q2",
+    "observation_count": 174,
+    "grid_first": "1972-Q3",
+    "grid_last": "2027-Q2",
+    "leading_missing_count": 42,
+    "trailing_missing_count": 4
+  },
+  "maximum_bytes": 10000000,
+  "maximum_expanded_bytes": 100000000,
+  "maximum_zip_members": 10000,
+  "maximum_internal_missing": 0,
+  "release_identity_rule": "EXACT_REVIEWED_ABS_CPI_RELEASE_URLS_AND_CHRONOLOGY",
+  "methodology_declaration_fields": ["definition_version", "compilation_basis", "seasonal_adjustment_basis", "historical_limitations"],
+  "require_manual_review_for": ["C05_UNRESOLVED", "HISTORICAL_REVISION", "METHODOLOGY_CHANGED_OR_UNKNOWN", "BOUNDARY_GRID_CHANGED", "RELEASE_EVIDENCE_UNKNOWN_OR_CONFLICTING"],
+  "publication_approved": false,
+  "point_in_time_eligible": false,
+  "composite_release_statuses": {"AEHI": "HOLD", "AESI": "HOLD", "ASFI": "HOLD"}
+}
