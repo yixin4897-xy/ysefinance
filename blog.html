@@ -116,16 +116,22 @@
     .blog-layout { grid-template-columns:1fr; }
     .blog-card { grid-template-columns:1fr; }
     .blog-thumb { min-height:120px; }
-    nav .nav-links { display:none; }
+    nav .nav-links { display:flex; }
     section { padding:56px 20px; }
     .page-hero { padding:56px 20px 48px; }
   }
+
+/* Accessible navigation and standalone touch targets. */
+.lang-btn,.nav-links a,.nav-cta,.logo,.blog-read,.blog-link{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;}
+.blog-read,.blog-link{padding:10px 0;}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px;}
+@media(max-width:900px){.nav-inner{height:auto;min-height:68px;flex-wrap:wrap;gap:12px;padding:12px 18px;}.nav-links{display:flex;order:3;width:100%;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;}}
 </style>
 </head>
 <body>
 <div class="lang-bar"><div class="inner">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+  <button class="lang-btn active" data-lang="en" aria-pressed="true" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" data-lang="zh" aria-pressed="false" onclick="setLang('zh')">中文</button>
 </div></div>
 <nav><div class="nav-inner">
   <a href="/" class="logo">
@@ -276,8 +282,7 @@
 </div></footer>
 <script>
   function setLang(lang) {
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.documentElement.lang=lang==='zh'?'zh-Hans':'en';document.querySelectorAll('.lang-btn').forEach(b=>{const selected=b.dataset.lang===lang;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));});
     document.querySelectorAll('[data-en]').forEach(el => {
       const en = el.getAttribute('data-en'), zh = el.getAttribute('data-zh');
       if (lang === 'zh' && zh) el.innerHTML = zh;

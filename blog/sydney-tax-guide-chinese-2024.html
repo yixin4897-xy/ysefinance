@@ -116,6 +116,12 @@ a:focus-visible,.table-wrap:focus-visible{outline:3px solid var(--navy);outline-
 .nav-links a{display:inline-flex;align-items:center;min-height:44px;}
 .page-hero h1,.section-title{overflow-wrap:break-word;}
 @media(max-width:900px){.nav-inner{padding:12px 18px;}.nav-links{order:3;width:100%;gap:8px 16px;justify-content:space-between;}.nav-cta{padding:9px 12px;}}
+
+/* Accessible navigation and standalone touch targets. */
+.lang-btn,.nav-links a,.nav-cta,.logo,.blog-read,.blog-link{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;}
+.blog-read,.blog-link{padding:10px 0;}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px;}
+@media(max-width:900px){.nav-inner{height:auto;min-height:68px;flex-wrap:wrap;gap:12px;padding:12px 18px;}.nav-links{display:flex;order:3;width:100%;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;}}
 </style>
 </head>
 <body>
