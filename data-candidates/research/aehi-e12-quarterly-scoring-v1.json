@@ -1,0 +1,6750 @@
+{
+  "schema_version": "1.0",
+  "experiment": "E12_QUARTERLY_TARGET_BAND_DISTANCE_V1",
+  "data_status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+  "research_only": true,
+  "publication_approved": false,
+  "parameters_approved": false,
+  "weights_approved": false,
+  "composite_release_statuses": {
+    "AEHI": "HOLD",
+    "AESI": "HOLD",
+    "ASFI": "HOLD"
+  },
+  "composite_score": null,
+  "historical_classification": "latest_revised_data_research",
+  "real_time_backtesting_eligible": false,
+  "track": "A",
+  "series_id": "A3604511X",
+  "generated_at_utc": "2026-10-22T10:09:52.515924+00:00",
+  "source": {
+    "publisher": "ABS",
+    "source_file": "research-inputs/e12/64010Appendix1a.xlsx",
+    "sha256": "71f8b078d9fc59b011ad1bf3ae77ce23c6dee7eb667fc276acf6821e9bc11f02",
+    "source_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/aug-2026/64010Appendix1a.xlsx",
+    "release_vintage": "August 2026",
+    "publication_date": "2026-09-30",
+    "vintage_basis": "Byte identity independently verified against official ABS downloads during local source validation",
+    "original_download_timestamp": null,
+    "table": "APPENDIX 1a. CPI: Quarterly Analytical Series and Seasonal Adjustment Factors on pre-October 2025 basis",
+    "sheet": "Data1",
+    "metadata_range": "I1:I10",
+    "date_column": "A",
+    "observation_column": "I",
+    "date_system": "Excel 1900",
+    "date_display_format": "mmm\\-yyyy"
+  },
+  "input_validation": {
+    "first_period": "1983-Q1",
+    "last_period": "2026-Q2",
+    "observation_count": 174,
+    "internal_missing_count": 0,
+    "leading_missing_count": 42,
+    "trailing_missing_count": 4,
+    "excluded_blank_periods": [
+      "1972-Q3",
+      "1972-Q4",
+      "1973-Q1",
+      "1973-Q2",
+      "1973-Q3",
+      "1973-Q4",
+      "1974-Q1",
+      "1974-Q2",
+      "1974-Q3",
+      "1974-Q4",
+      "1975-Q1",
+      "1975-Q2",
+      "1975-Q3",
+      "1975-Q4",
+      "1976-Q1",
+      "1976-Q2",
+      "1976-Q3",
+      "1976-Q4",
+      "1977-Q1",
+      "1977-Q2",
+      "1977-Q3",
+      "1977-Q4",
+      "1978-Q1",
+      "1978-Q2",
+      "1978-Q3",
+      "1978-Q4",
+      "1979-Q1",
+      "1979-Q2",
+      "1979-Q3",
+      "1979-Q4",
+      "1980-Q1",
+      "1980-Q2",
+      "1980-Q3",
+      "1980-Q4",
+      "1981-Q1",
+      "1981-Q2",
+      "1981-Q3",
+      "1981-Q4",
+      "1982-Q1",
+      "1982-Q2",
+      "1982-Q3",
+      "1982-Q4",
+      "2026-Q3",
+      "2026-Q4",
+      "2027-Q1",
+      "2027-Q2"
+    ],
+    "grid_count": 220,
+    "exact_metadata_validated": true,
+    "coverage_validated": true,
+    "source_hash_validated": true
+  },
+  "implementation": {
+    "script": "scripts/aehi_e12_scoring_research.py",
+    "sha256": "f30da0c18a979d1f2a8a924ee7df27fe314e32219f537ded09e91300faf911ab"
+  },
+  "methodology": {
+    "distance": "max(2 - inflation, 0, inflation - 3)",
+    "score": "max(0, 100 - k * distance)",
+    "slopes": [
+      10,
+      20,
+      30
+    ],
+    "provisional_benchmark_k": 20,
+    "sensitivity_candidate_k": 10,
+    "slope_selection_approved": false,
+    "score_direction": "higher_is_closer_to_reference_band",
+    "quantiles": "linear interpolation at (n-1)*p; type 7",
+    "stddev": "population",
+    "windows_overlap": true,
+    "no_interpolation_filling_or_monthly_inputs": true,
+    "flags": [
+      "latest_revised_data_research",
+      "not_point_in_time",
+      "research_parameters_not_approved",
+      "historical_target_application_counterfactual"
+    ]
+  },
+  "window_definitions": {
+    "full_history": [
+      "1983-Q1",
+      "2026-Q2"
+    ],
+    "pre_september_2001": [
+      "1983-Q1",
+      "2001-Q2"
+    ],
+    "september_2001_onward": [
+      "2001-Q3",
+      "2026-Q2"
+    ],
+    "post_2011_method_change": [
+      "2011-Q3",
+      "2026-Q2"
+    ],
+    "early_high_inflation_1983_1990": [
+      "1983-Q1",
+      "1990-Q4"
+    ],
+    "disinflation_1991_1993": [
+      "1991-Q1",
+      "1993-Q4"
+    ],
+    "gfc_window_2007_2009": [
+      "2007-Q1",
+      "2009-Q4"
+    ],
+    "low_inflation_2016_2019": [
+      "2016-Q1",
+      "2019-Q4"
+    ],
+    "pandemic_2020_2021": [
+      "2020-Q1",
+      "2021-Q4"
+    ],
+    "inflation_surge_2022_2023": [
+      "2022-Q1",
+      "2023-Q4"
+    ],
+    "recent_2024_2026q2": [
+      "2024-Q1",
+      "2026-Q2"
+    ]
+  },
+  "observations": [
+    {
+      "period": "1983-Q1",
+      "reference_date": "1983-03-01",
+      "annual_change_percent": 10.6,
+      "source_cell": "I53",
+      "signed_deviation_from_2_5_pp": 8.1,
+      "target_band_distance_pp": 7.6,
+      "score": 0.0,
+      "scores": {
+        "10": 24.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1983-Q2",
+      "reference_date": "1983-06-01",
+      "annual_change_percent": 9.8,
+      "source_cell": "I54",
+      "signed_deviation_from_2_5_pp": 7.3,
+      "target_band_distance_pp": 6.8,
+      "score": 0.0,
+      "scores": {
+        "10": 32.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1983-Q3",
+      "reference_date": "1983-09-01",
+      "annual_change_percent": 8.3,
+      "source_cell": "I55",
+      "signed_deviation_from_2_5_pp": 5.8,
+      "target_band_distance_pp": 5.3,
+      "score": 0.0,
+      "scores": {
+        "10": 47.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1983-Q4",
+      "reference_date": "1983-12-01",
+      "annual_change_percent": 7.8,
+      "source_cell": "I56",
+      "signed_deviation_from_2_5_pp": 5.3,
+      "target_band_distance_pp": 4.8,
+      "score": 4.0,
+      "scores": {
+        "10": 52.0,
+        "20": 4.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1984-Q1",
+      "reference_date": "1984-03-01",
+      "annual_change_percent": 7.0,
+      "source_cell": "I57",
+      "signed_deviation_from_2_5_pp": 4.5,
+      "target_band_distance_pp": 4.0,
+      "score": 20.0,
+      "scores": {
+        "10": 60.0,
+        "20": 20.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1984-Q2",
+      "reference_date": "1984-06-01",
+      "annual_change_percent": 6.7,
+      "source_cell": "I58",
+      "signed_deviation_from_2_5_pp": 4.2,
+      "target_band_distance_pp": 3.7,
+      "score": 26.0,
+      "scores": {
+        "10": 63.0,
+        "20": 26.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1984-Q3",
+      "reference_date": "1984-09-01",
+      "annual_change_percent": 6.3,
+      "source_cell": "I59",
+      "signed_deviation_from_2_5_pp": 3.8,
+      "target_band_distance_pp": 3.3,
+      "score": 34.0,
+      "scores": {
+        "10": 67.0,
+        "20": 34.0,
+        "30": 1.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1984-Q4",
+      "reference_date": "1984-12-01",
+      "annual_change_percent": 5.6,
+      "source_cell": "I60",
+      "signed_deviation_from_2_5_pp": 3.1,
+      "target_band_distance_pp": 2.6,
+      "score": 48.0,
+      "scores": {
+        "10": 74.0,
+        "20": 48.0,
+        "30": 22.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1985-Q1",
+      "reference_date": "1985-03-01",
+      "annual_change_percent": 5.8,
+      "source_cell": "I61",
+      "signed_deviation_from_2_5_pp": 3.3,
+      "target_band_distance_pp": 2.8,
+      "score": 44.0,
+      "scores": {
+        "10": 72.0,
+        "20": 44.0,
+        "30": 16.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1985-Q2",
+      "reference_date": "1985-06-01",
+      "annual_change_percent": 6.4,
+      "source_cell": "I62",
+      "signed_deviation_from_2_5_pp": 3.9,
+      "target_band_distance_pp": 3.4,
+      "score": 32.0,
+      "scores": {
+        "10": 66.0,
+        "20": 32.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1985-Q3",
+      "reference_date": "1985-09-01",
+      "annual_change_percent": 7.4,
+      "source_cell": "I63",
+      "signed_deviation_from_2_5_pp": 4.9,
+      "target_band_distance_pp": 4.4,
+      "score": 12.0,
+      "scores": {
+        "10": 56.0,
+        "20": 12.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1985-Q4",
+      "reference_date": "1985-12-01",
+      "annual_change_percent": 8.1,
+      "source_cell": "I64",
+      "signed_deviation_from_2_5_pp": 5.6,
+      "target_band_distance_pp": 5.1,
+      "score": 0.0,
+      "scores": {
+        "10": 49.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1986-Q1",
+      "reference_date": "1986-03-01",
+      "annual_change_percent": 8.9,
+      "source_cell": "I65",
+      "signed_deviation_from_2_5_pp": 6.4,
+      "target_band_distance_pp": 5.9,
+      "score": 0.0,
+      "scores": {
+        "10": 41.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1986-Q2",
+      "reference_date": "1986-06-01",
+      "annual_change_percent": 8.8,
+      "source_cell": "I66",
+      "signed_deviation_from_2_5_pp": 6.3,
+      "target_band_distance_pp": 5.8,
+      "score": 0.0,
+      "scores": {
+        "10": 42.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1986-Q3",
+      "reference_date": "1986-09-01",
+      "annual_change_percent": 8.9,
+      "source_cell": "I67",
+      "signed_deviation_from_2_5_pp": 6.4,
+      "target_band_distance_pp": 5.9,
+      "score": 0.0,
+      "scores": {
+        "10": 41.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1986-Q4",
+      "reference_date": "1986-12-01",
+      "annual_change_percent": 9.2,
+      "source_cell": "I68",
+      "signed_deviation_from_2_5_pp": 6.7,
+      "target_band_distance_pp": 6.2,
+      "score": 0.0,
+      "scores": {
+        "10": 38.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1987-Q1",
+      "reference_date": "1987-03-01",
+      "annual_change_percent": 8.9,
+      "source_cell": "I69",
+      "signed_deviation_from_2_5_pp": 6.4,
+      "target_band_distance_pp": 5.9,
+      "score": 0.0,
+      "scores": {
+        "10": 41.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1987-Q2",
+      "reference_date": "1987-06-01",
+      "annual_change_percent": 8.8,
+      "source_cell": "I70",
+      "signed_deviation_from_2_5_pp": 6.3,
+      "target_band_distance_pp": 5.8,
+      "score": 0.0,
+      "scores": {
+        "10": 42.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1987-Q3",
+      "reference_date": "1987-09-01",
+      "annual_change_percent": 8.1,
+      "source_cell": "I71",
+      "signed_deviation_from_2_5_pp": 5.6,
+      "target_band_distance_pp": 5.1,
+      "score": 0.0,
+      "scores": {
+        "10": 49.0,
+        "20": 0.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1987-Q4",
+      "reference_date": "1987-12-01",
+      "annual_change_percent": 7.5,
+      "source_cell": "I72",
+      "signed_deviation_from_2_5_pp": 5.0,
+      "target_band_distance_pp": 4.5,
+      "score": 10.0,
+      "scores": {
+        "10": 55.0,
+        "20": 10.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1988-Q1",
+      "reference_date": "1988-03-01",
+      "annual_change_percent": 7.2,
+      "source_cell": "I73",
+      "signed_deviation_from_2_5_pp": 4.7,
+      "target_band_distance_pp": 4.2,
+      "score": 16.0,
+      "scores": {
+        "10": 58.0,
+        "20": 16.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1988-Q2",
+      "reference_date": "1988-06-01",
+      "annual_change_percent": 7.2,
+      "source_cell": "I74",
+      "signed_deviation_from_2_5_pp": 4.7,
+      "target_band_distance_pp": 4.2,
+      "score": 16.0,
+      "scores": {
+        "10": 58.0,
+        "20": 16.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1988-Q3",
+      "reference_date": "1988-09-01",
+      "annual_change_percent": 7.3,
+      "source_cell": "I75",
+      "signed_deviation_from_2_5_pp": 4.8,
+      "target_band_distance_pp": 4.3,
+      "score": 14.0,
+      "scores": {
+        "10": 57.0,
+        "20": 14.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1988-Q4",
+      "reference_date": "1988-12-01",
+      "annual_change_percent": 7.1,
+      "source_cell": "I76",
+      "signed_deviation_from_2_5_pp": 4.6,
+      "target_band_distance_pp": 4.1,
+      "score": 18.0,
+      "scores": {
+        "10": 59.0,
+        "20": 18.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1989-Q1",
+      "reference_date": "1989-03-01",
+      "annual_change_percent": 6.7,
+      "source_cell": "I77",
+      "signed_deviation_from_2_5_pp": 4.2,
+      "target_band_distance_pp": 3.7,
+      "score": 26.0,
+      "scores": {
+        "10": 63.0,
+        "20": 26.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1989-Q2",
+      "reference_date": "1989-06-01",
+      "annual_change_percent": 6.3,
+      "source_cell": "I78",
+      "signed_deviation_from_2_5_pp": 3.8,
+      "target_band_distance_pp": 3.3,
+      "score": 34.0,
+      "scores": {
+        "10": 67.0,
+        "20": 34.0,
+        "30": 1.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1989-Q3",
+      "reference_date": "1989-09-01",
+      "annual_change_percent": 6.1,
+      "source_cell": "I79",
+      "signed_deviation_from_2_5_pp": 3.6,
+      "target_band_distance_pp": 3.1,
+      "score": 38.0,
+      "scores": {
+        "10": 69.0,
+        "20": 38.0,
+        "30": 7.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1989-Q4",
+      "reference_date": "1989-12-01",
+      "annual_change_percent": 6.2,
+      "source_cell": "I80",
+      "signed_deviation_from_2_5_pp": 3.7,
+      "target_band_distance_pp": 3.2,
+      "score": 36.0,
+      "scores": {
+        "10": 68.0,
+        "20": 36.0,
+        "30": 4.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1990-Q1",
+      "reference_date": "1990-03-01",
+      "annual_change_percent": 6.7,
+      "source_cell": "I81",
+      "signed_deviation_from_2_5_pp": 4.2,
+      "target_band_distance_pp": 3.7,
+      "score": 26.0,
+      "scores": {
+        "10": 63.0,
+        "20": 26.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1990-Q2",
+      "reference_date": "1990-06-01",
+      "annual_change_percent": 6.8,
+      "source_cell": "I82",
+      "signed_deviation_from_2_5_pp": 4.3,
+      "target_band_distance_pp": 3.8,
+      "score": 24.0,
+      "scores": {
+        "10": 62.0,
+        "20": 24.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1990-Q3",
+      "reference_date": "1990-09-01",
+      "annual_change_percent": 6.6,
+      "source_cell": "I83",
+      "signed_deviation_from_2_5_pp": 4.1,
+      "target_band_distance_pp": 3.6,
+      "score": 28.0,
+      "scores": {
+        "10": 64.0,
+        "20": 28.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1990-Q4",
+      "reference_date": "1990-12-01",
+      "annual_change_percent": 6.7,
+      "source_cell": "I84",
+      "signed_deviation_from_2_5_pp": 4.2,
+      "target_band_distance_pp": 3.7,
+      "score": 26.0,
+      "scores": {
+        "10": 63.0,
+        "20": 26.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1991-Q1",
+      "reference_date": "1991-03-01",
+      "annual_change_percent": 5.7,
+      "source_cell": "I85",
+      "signed_deviation_from_2_5_pp": 3.2,
+      "target_band_distance_pp": 2.7,
+      "score": 46.0,
+      "scores": {
+        "10": 73.0,
+        "20": 46.0,
+        "30": 19.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1991-Q2",
+      "reference_date": "1991-06-01",
+      "annual_change_percent": 5.1,
+      "source_cell": "I86",
+      "signed_deviation_from_2_5_pp": 2.6,
+      "target_band_distance_pp": 2.1,
+      "score": 58.0,
+      "scores": {
+        "10": 79.0,
+        "20": 58.0,
+        "30": 37.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1991-Q3",
+      "reference_date": "1991-09-01",
+      "annual_change_percent": 4.9,
+      "source_cell": "I87",
+      "signed_deviation_from_2_5_pp": 2.4,
+      "target_band_distance_pp": 1.9,
+      "score": 62.0,
+      "scores": {
+        "10": 81.0,
+        "20": 62.0,
+        "30": 43.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1991-Q4",
+      "reference_date": "1991-12-01",
+      "annual_change_percent": 3.8,
+      "source_cell": "I88",
+      "signed_deviation_from_2_5_pp": 1.3,
+      "target_band_distance_pp": 0.8,
+      "score": 84.0,
+      "scores": {
+        "10": 92.0,
+        "20": 84.0,
+        "30": 76.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1992-Q1",
+      "reference_date": "1992-03-01",
+      "annual_change_percent": 3.3,
+      "source_cell": "I89",
+      "signed_deviation_from_2_5_pp": 0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1992-Q2",
+      "reference_date": "1992-06-01",
+      "annual_change_percent": 2.8,
+      "source_cell": "I90",
+      "signed_deviation_from_2_5_pp": 0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1992-Q3",
+      "reference_date": "1992-09-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I91",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1992-Q4",
+      "reference_date": "1992-12-01",
+      "annual_change_percent": 2.0,
+      "source_cell": "I92",
+      "signed_deviation_from_2_5_pp": -0.5,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1993-Q1",
+      "reference_date": "1993-03-01",
+      "annual_change_percent": 2.1,
+      "source_cell": "I93",
+      "signed_deviation_from_2_5_pp": -0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1993-Q2",
+      "reference_date": "1993-06-01",
+      "annual_change_percent": 2.1,
+      "source_cell": "I94",
+      "signed_deviation_from_2_5_pp": -0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1993-Q3",
+      "reference_date": "1993-09-01",
+      "annual_change_percent": 2.1,
+      "source_cell": "I95",
+      "signed_deviation_from_2_5_pp": -0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1993-Q4",
+      "reference_date": "1993-12-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I96",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1994-Q1",
+      "reference_date": "1994-03-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I97",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1994-Q2",
+      "reference_date": "1994-06-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I98",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1994-Q3",
+      "reference_date": "1994-09-01",
+      "annual_change_percent": 2.3,
+      "source_cell": "I99",
+      "signed_deviation_from_2_5_pp": -0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1994-Q4",
+      "reference_date": "1994-12-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I100",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1995-Q1",
+      "reference_date": "1995-03-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I101",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1995-Q2",
+      "reference_date": "1995-06-01",
+      "annual_change_percent": 2.5,
+      "source_cell": "I102",
+      "signed_deviation_from_2_5_pp": 0.0,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1995-Q3",
+      "reference_date": "1995-09-01",
+      "annual_change_percent": 2.9,
+      "source_cell": "I103",
+      "signed_deviation_from_2_5_pp": 0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1995-Q4",
+      "reference_date": "1995-12-01",
+      "annual_change_percent": 3.1,
+      "source_cell": "I104",
+      "signed_deviation_from_2_5_pp": 0.6,
+      "target_band_distance_pp": 0.1,
+      "score": 98.0,
+      "scores": {
+        "10": 99.0,
+        "20": 98.0,
+        "30": 97.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1996-Q1",
+      "reference_date": "1996-03-01",
+      "annual_change_percent": 3.2,
+      "source_cell": "I105",
+      "signed_deviation_from_2_5_pp": 0.7,
+      "target_band_distance_pp": 0.2,
+      "score": 96.0,
+      "scores": {
+        "10": 98.0,
+        "20": 96.0,
+        "30": 94.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1996-Q2",
+      "reference_date": "1996-06-01",
+      "annual_change_percent": 3.0,
+      "source_cell": "I106",
+      "signed_deviation_from_2_5_pp": 0.5,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1996-Q3",
+      "reference_date": "1996-09-01",
+      "annual_change_percent": 2.5,
+      "source_cell": "I107",
+      "signed_deviation_from_2_5_pp": 0.0,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1996-Q4",
+      "reference_date": "1996-12-01",
+      "annual_change_percent": 2.3,
+      "source_cell": "I108",
+      "signed_deviation_from_2_5_pp": -0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1997-Q1",
+      "reference_date": "1997-03-01",
+      "annual_change_percent": 2.4,
+      "source_cell": "I109",
+      "signed_deviation_from_2_5_pp": -0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1997-Q2",
+      "reference_date": "1997-06-01",
+      "annual_change_percent": 2.0,
+      "source_cell": "I110",
+      "signed_deviation_from_2_5_pp": -0.5,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1997-Q3",
+      "reference_date": "1997-09-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I111",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1997-Q4",
+      "reference_date": "1997-12-01",
+      "annual_change_percent": 1.9,
+      "source_cell": "I112",
+      "signed_deviation_from_2_5_pp": -0.6,
+      "target_band_distance_pp": 0.1,
+      "score": 98.0,
+      "scores": {
+        "10": 99.0,
+        "20": 98.0,
+        "30": 97.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1998-Q1",
+      "reference_date": "1998-03-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I113",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1998-Q2",
+      "reference_date": "1998-06-01",
+      "annual_change_percent": 1.9,
+      "source_cell": "I114",
+      "signed_deviation_from_2_5_pp": -0.6,
+      "target_band_distance_pp": 0.1,
+      "score": 98.0,
+      "scores": {
+        "10": 99.0,
+        "20": 98.0,
+        "30": 97.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1998-Q3",
+      "reference_date": "1998-09-01",
+      "annual_change_percent": 2.0,
+      "source_cell": "I115",
+      "signed_deviation_from_2_5_pp": -0.5,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1998-Q4",
+      "reference_date": "1998-12-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I116",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1999-Q1",
+      "reference_date": "1999-03-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I117",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1999-Q2",
+      "reference_date": "1999-06-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I118",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1999-Q3",
+      "reference_date": "1999-09-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I119",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "1999-Q4",
+      "reference_date": "1999-12-01",
+      "annual_change_percent": 2.4,
+      "source_cell": "I120",
+      "signed_deviation_from_2_5_pp": -0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2000-Q1",
+      "reference_date": "2000-03-01",
+      "annual_change_percent": 2.6,
+      "source_cell": "I121",
+      "signed_deviation_from_2_5_pp": 0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2000-Q2",
+      "reference_date": "2000-06-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I122",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2000-Q3",
+      "reference_date": "2000-09-01",
+      "annual_change_percent": 2.4,
+      "source_cell": "I123",
+      "signed_deviation_from_2_5_pp": -0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2000-Q4",
+      "reference_date": "2000-12-01",
+      "annual_change_percent": 2.4,
+      "source_cell": "I124",
+      "signed_deviation_from_2_5_pp": -0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2001-Q1",
+      "reference_date": "2001-03-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I125",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2001-Q2",
+      "reference_date": "2001-06-01",
+      "annual_change_percent": 2.9,
+      "source_cell": "I126",
+      "signed_deviation_from_2_5_pp": 0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2001-Q3",
+      "reference_date": "2001-09-01",
+      "annual_change_percent": 3.1,
+      "source_cell": "I127",
+      "signed_deviation_from_2_5_pp": 0.6,
+      "target_band_distance_pp": 0.1,
+      "score": 98.0,
+      "scores": {
+        "10": 99.0,
+        "20": 98.0,
+        "30": 97.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2001-Q4",
+      "reference_date": "2001-12-01",
+      "annual_change_percent": 3.3,
+      "source_cell": "I128",
+      "signed_deviation_from_2_5_pp": 0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2002-Q1",
+      "reference_date": "2002-03-01",
+      "annual_change_percent": 3.1,
+      "source_cell": "I129",
+      "signed_deviation_from_2_5_pp": 0.6,
+      "target_band_distance_pp": 0.1,
+      "score": 98.0,
+      "scores": {
+        "10": 99.0,
+        "20": 98.0,
+        "30": 97.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2002-Q2",
+      "reference_date": "2002-06-01",
+      "annual_change_percent": 2.9,
+      "source_cell": "I130",
+      "signed_deviation_from_2_5_pp": 0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2002-Q3",
+      "reference_date": "2002-09-01",
+      "annual_change_percent": 2.9,
+      "source_cell": "I131",
+      "signed_deviation_from_2_5_pp": 0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2002-Q4",
+      "reference_date": "2002-12-01",
+      "annual_change_percent": 2.8,
+      "source_cell": "I132",
+      "signed_deviation_from_2_5_pp": 0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2003-Q1",
+      "reference_date": "2003-03-01",
+      "annual_change_percent": 2.9,
+      "source_cell": "I133",
+      "signed_deviation_from_2_5_pp": 0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2003-Q2",
+      "reference_date": "2003-06-01",
+      "annual_change_percent": 2.8,
+      "source_cell": "I134",
+      "signed_deviation_from_2_5_pp": 0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2003-Q3",
+      "reference_date": "2003-09-01",
+      "annual_change_percent": 2.8,
+      "source_cell": "I135",
+      "signed_deviation_from_2_5_pp": 0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2003-Q4",
+      "reference_date": "2003-12-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I136",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2004-Q1",
+      "reference_date": "2004-03-01",
+      "annual_change_percent": 2.6,
+      "source_cell": "I137",
+      "signed_deviation_from_2_5_pp": 0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2004-Q2",
+      "reference_date": "2004-06-01",
+      "annual_change_percent": 2.6,
+      "source_cell": "I138",
+      "signed_deviation_from_2_5_pp": 0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2004-Q3",
+      "reference_date": "2004-09-01",
+      "annual_change_percent": 2.6,
+      "source_cell": "I139",
+      "signed_deviation_from_2_5_pp": 0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2004-Q4",
+      "reference_date": "2004-12-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I140",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2005-Q1",
+      "reference_date": "2005-03-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I141",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2005-Q2",
+      "reference_date": "2005-06-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I142",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2005-Q3",
+      "reference_date": "2005-09-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I143",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2005-Q4",
+      "reference_date": "2005-12-01",
+      "annual_change_percent": 2.6,
+      "source_cell": "I144",
+      "signed_deviation_from_2_5_pp": 0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2006-Q1",
+      "reference_date": "2006-03-01",
+      "annual_change_percent": 2.8,
+      "source_cell": "I145",
+      "signed_deviation_from_2_5_pp": 0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2006-Q2",
+      "reference_date": "2006-06-01",
+      "annual_change_percent": 3.0,
+      "source_cell": "I146",
+      "signed_deviation_from_2_5_pp": 0.5,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2006-Q3",
+      "reference_date": "2006-09-01",
+      "annual_change_percent": 3.1,
+      "source_cell": "I147",
+      "signed_deviation_from_2_5_pp": 0.6,
+      "target_band_distance_pp": 0.1,
+      "score": 98.0,
+      "scores": {
+        "10": 99.0,
+        "20": 98.0,
+        "30": 97.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2006-Q4",
+      "reference_date": "2006-12-01",
+      "annual_change_percent": 3.0,
+      "source_cell": "I148",
+      "signed_deviation_from_2_5_pp": 0.5,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2007-Q1",
+      "reference_date": "2007-03-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I149",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2007-Q2",
+      "reference_date": "2007-06-01",
+      "annual_change_percent": 2.8,
+      "source_cell": "I150",
+      "signed_deviation_from_2_5_pp": 0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2007-Q3",
+      "reference_date": "2007-09-01",
+      "annual_change_percent": 2.9,
+      "source_cell": "I151",
+      "signed_deviation_from_2_5_pp": 0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2007-Q4",
+      "reference_date": "2007-12-01",
+      "annual_change_percent": 3.6,
+      "source_cell": "I152",
+      "signed_deviation_from_2_5_pp": 1.1,
+      "target_band_distance_pp": 0.6,
+      "score": 88.0,
+      "scores": {
+        "10": 94.0,
+        "20": 88.0,
+        "30": 82.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2008-Q1",
+      "reference_date": "2008-03-01",
+      "annual_change_percent": 4.2,
+      "source_cell": "I153",
+      "signed_deviation_from_2_5_pp": 1.7,
+      "target_band_distance_pp": 1.2,
+      "score": 76.0,
+      "scores": {
+        "10": 88.0,
+        "20": 76.0,
+        "30": 64.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2008-Q2",
+      "reference_date": "2008-06-01",
+      "annual_change_percent": 4.4,
+      "source_cell": "I154",
+      "signed_deviation_from_2_5_pp": 1.9,
+      "target_band_distance_pp": 1.4,
+      "score": 72.0,
+      "scores": {
+        "10": 86.0,
+        "20": 72.0,
+        "30": 58.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2008-Q3",
+      "reference_date": "2008-09-01",
+      "annual_change_percent": 4.8,
+      "source_cell": "I155",
+      "signed_deviation_from_2_5_pp": 2.3,
+      "target_band_distance_pp": 1.8,
+      "score": 64.0,
+      "scores": {
+        "10": 82.0,
+        "20": 64.0,
+        "30": 46.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2008-Q4",
+      "reference_date": "2008-12-01",
+      "annual_change_percent": 4.3,
+      "source_cell": "I156",
+      "signed_deviation_from_2_5_pp": 1.8,
+      "target_band_distance_pp": 1.3,
+      "score": 74.0,
+      "scores": {
+        "10": 87.0,
+        "20": 74.0,
+        "30": 61.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2009-Q1",
+      "reference_date": "2009-03-01",
+      "annual_change_percent": 4.1,
+      "source_cell": "I157",
+      "signed_deviation_from_2_5_pp": 1.6,
+      "target_band_distance_pp": 1.1,
+      "score": 78.0,
+      "scores": {
+        "10": 89.0,
+        "20": 78.0,
+        "30": 67.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2009-Q2",
+      "reference_date": "2009-06-01",
+      "annual_change_percent": 3.6,
+      "source_cell": "I158",
+      "signed_deviation_from_2_5_pp": 1.1,
+      "target_band_distance_pp": 0.6,
+      "score": 88.0,
+      "scores": {
+        "10": 94.0,
+        "20": 88.0,
+        "30": 82.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2009-Q3",
+      "reference_date": "2009-09-01",
+      "annual_change_percent": 3.1,
+      "source_cell": "I159",
+      "signed_deviation_from_2_5_pp": 0.6,
+      "target_band_distance_pp": 0.1,
+      "score": 98.0,
+      "scores": {
+        "10": 99.0,
+        "20": 98.0,
+        "30": 97.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2009-Q4",
+      "reference_date": "2009-12-01",
+      "annual_change_percent": 3.2,
+      "source_cell": "I160",
+      "signed_deviation_from_2_5_pp": 0.7,
+      "target_band_distance_pp": 0.2,
+      "score": 96.0,
+      "scores": {
+        "10": 98.0,
+        "20": 96.0,
+        "30": 94.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2010-Q1",
+      "reference_date": "2010-03-01",
+      "annual_change_percent": 3.1,
+      "source_cell": "I161",
+      "signed_deviation_from_2_5_pp": 0.6,
+      "target_band_distance_pp": 0.1,
+      "score": 98.0,
+      "scores": {
+        "10": 99.0,
+        "20": 98.0,
+        "30": 97.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2010-Q2",
+      "reference_date": "2010-06-01",
+      "annual_change_percent": 2.8,
+      "source_cell": "I162",
+      "signed_deviation_from_2_5_pp": 0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2010-Q3",
+      "reference_date": "2010-09-01",
+      "annual_change_percent": 2.6,
+      "source_cell": "I163",
+      "signed_deviation_from_2_5_pp": 0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2010-Q4",
+      "reference_date": "2010-12-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I164",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2011-Q1",
+      "reference_date": "2011-03-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I165",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2011-Q2",
+      "reference_date": "2011-06-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I166",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2011-Q3",
+      "reference_date": "2011-09-01",
+      "annual_change_percent": 2.5,
+      "source_cell": "I167",
+      "signed_deviation_from_2_5_pp": 0.0,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2011-Q4",
+      "reference_date": "2011-12-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I168",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2012-Q1",
+      "reference_date": "2012-03-01",
+      "annual_change_percent": 2.3,
+      "source_cell": "I169",
+      "signed_deviation_from_2_5_pp": -0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2012-Q2",
+      "reference_date": "2012-06-01",
+      "annual_change_percent": 2.0,
+      "source_cell": "I170",
+      "signed_deviation_from_2_5_pp": -0.5,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2012-Q3",
+      "reference_date": "2012-09-01",
+      "annual_change_percent": 2.3,
+      "source_cell": "I171",
+      "signed_deviation_from_2_5_pp": -0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2012-Q4",
+      "reference_date": "2012-12-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I172",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2013-Q1",
+      "reference_date": "2013-03-01",
+      "annual_change_percent": 2.3,
+      "source_cell": "I173",
+      "signed_deviation_from_2_5_pp": -0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2013-Q2",
+      "reference_date": "2013-06-01",
+      "annual_change_percent": 2.4,
+      "source_cell": "I174",
+      "signed_deviation_from_2_5_pp": -0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2013-Q3",
+      "reference_date": "2013-09-01",
+      "annual_change_percent": 2.4,
+      "source_cell": "I175",
+      "signed_deviation_from_2_5_pp": -0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2013-Q4",
+      "reference_date": "2013-12-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I176",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2014-Q1",
+      "reference_date": "2014-03-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I177",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2014-Q2",
+      "reference_date": "2014-06-01",
+      "annual_change_percent": 2.8,
+      "source_cell": "I178",
+      "signed_deviation_from_2_5_pp": 0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2014-Q3",
+      "reference_date": "2014-09-01",
+      "annual_change_percent": 2.4,
+      "source_cell": "I179",
+      "signed_deviation_from_2_5_pp": -0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2014-Q4",
+      "reference_date": "2014-12-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I180",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2015-Q1",
+      "reference_date": "2015-03-01",
+      "annual_change_percent": 2.3,
+      "source_cell": "I181",
+      "signed_deviation_from_2_5_pp": -0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2015-Q2",
+      "reference_date": "2015-06-01",
+      "annual_change_percent": 2.2,
+      "source_cell": "I182",
+      "signed_deviation_from_2_5_pp": -0.3,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2015-Q3",
+      "reference_date": "2015-09-01",
+      "annual_change_percent": 2.1,
+      "source_cell": "I183",
+      "signed_deviation_from_2_5_pp": -0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2015-Q4",
+      "reference_date": "2015-12-01",
+      "annual_change_percent": 2.1,
+      "source_cell": "I184",
+      "signed_deviation_from_2_5_pp": -0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2016-Q1",
+      "reference_date": "2016-03-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I185",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2016-Q2",
+      "reference_date": "2016-06-01",
+      "annual_change_percent": 1.6,
+      "source_cell": "I186",
+      "signed_deviation_from_2_5_pp": -0.9,
+      "target_band_distance_pp": 0.4,
+      "score": 92.0,
+      "scores": {
+        "10": 96.0,
+        "20": 92.0,
+        "30": 88.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2016-Q3",
+      "reference_date": "2016-09-01",
+      "annual_change_percent": 1.6,
+      "source_cell": "I187",
+      "signed_deviation_from_2_5_pp": -0.9,
+      "target_band_distance_pp": 0.4,
+      "score": 92.0,
+      "scores": {
+        "10": 96.0,
+        "20": 92.0,
+        "30": 88.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2016-Q4",
+      "reference_date": "2016-12-01",
+      "annual_change_percent": 1.5,
+      "source_cell": "I188",
+      "signed_deviation_from_2_5_pp": -1.0,
+      "target_band_distance_pp": 0.5,
+      "score": 90.0,
+      "scores": {
+        "10": 95.0,
+        "20": 90.0,
+        "30": 85.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2017-Q1",
+      "reference_date": "2017-03-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I189",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2017-Q2",
+      "reference_date": "2017-06-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I190",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2017-Q3",
+      "reference_date": "2017-09-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I191",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2017-Q4",
+      "reference_date": "2017-12-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I192",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2018-Q1",
+      "reference_date": "2018-03-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I193",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2018-Q2",
+      "reference_date": "2018-06-01",
+      "annual_change_percent": 1.6,
+      "source_cell": "I194",
+      "signed_deviation_from_2_5_pp": -0.9,
+      "target_band_distance_pp": 0.4,
+      "score": 92.0,
+      "scores": {
+        "10": 96.0,
+        "20": 92.0,
+        "30": 88.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2018-Q3",
+      "reference_date": "2018-09-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I195",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2018-Q4",
+      "reference_date": "2018-12-01",
+      "annual_change_percent": 1.8,
+      "source_cell": "I196",
+      "signed_deviation_from_2_5_pp": -0.7,
+      "target_band_distance_pp": 0.2,
+      "score": 96.0,
+      "scores": {
+        "10": 98.0,
+        "20": 96.0,
+        "30": 94.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2019-Q1",
+      "reference_date": "2019-03-01",
+      "annual_change_percent": 1.6,
+      "source_cell": "I197",
+      "signed_deviation_from_2_5_pp": -0.9,
+      "target_band_distance_pp": 0.4,
+      "score": 92.0,
+      "scores": {
+        "10": 96.0,
+        "20": 92.0,
+        "30": 88.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2019-Q2",
+      "reference_date": "2019-06-01",
+      "annual_change_percent": 1.5,
+      "source_cell": "I198",
+      "signed_deviation_from_2_5_pp": -1.0,
+      "target_band_distance_pp": 0.5,
+      "score": 90.0,
+      "scores": {
+        "10": 95.0,
+        "20": 90.0,
+        "30": 85.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2019-Q3",
+      "reference_date": "2019-09-01",
+      "annual_change_percent": 1.5,
+      "source_cell": "I199",
+      "signed_deviation_from_2_5_pp": -1.0,
+      "target_band_distance_pp": 0.5,
+      "score": 90.0,
+      "scores": {
+        "10": 95.0,
+        "20": 90.0,
+        "30": 85.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2019-Q4",
+      "reference_date": "2019-12-01",
+      "annual_change_percent": 1.5,
+      "source_cell": "I200",
+      "signed_deviation_from_2_5_pp": -1.0,
+      "target_band_distance_pp": 0.5,
+      "score": 90.0,
+      "scores": {
+        "10": 95.0,
+        "20": 90.0,
+        "30": 85.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2020-Q1",
+      "reference_date": "2020-03-01",
+      "annual_change_percent": 1.7,
+      "source_cell": "I201",
+      "signed_deviation_from_2_5_pp": -0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2020-Q2",
+      "reference_date": "2020-06-01",
+      "annual_change_percent": 1.3,
+      "source_cell": "I202",
+      "signed_deviation_from_2_5_pp": -1.2,
+      "target_band_distance_pp": 0.7,
+      "score": 86.0,
+      "scores": {
+        "10": 93.0,
+        "20": 86.0,
+        "30": 79.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2020-Q3",
+      "reference_date": "2020-09-01",
+      "annual_change_percent": 1.2,
+      "source_cell": "I203",
+      "signed_deviation_from_2_5_pp": -1.3,
+      "target_band_distance_pp": 0.8,
+      "score": 84.0,
+      "scores": {
+        "10": 92.0,
+        "20": 84.0,
+        "30": 76.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2020-Q4",
+      "reference_date": "2020-12-01",
+      "annual_change_percent": 1.3,
+      "source_cell": "I204",
+      "signed_deviation_from_2_5_pp": -1.2,
+      "target_band_distance_pp": 0.7,
+      "score": 86.0,
+      "scores": {
+        "10": 93.0,
+        "20": 86.0,
+        "30": 79.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2021-Q1",
+      "reference_date": "2021-03-01",
+      "annual_change_percent": 1.1,
+      "source_cell": "I205",
+      "signed_deviation_from_2_5_pp": -1.4,
+      "target_band_distance_pp": 0.9,
+      "score": 82.0,
+      "scores": {
+        "10": 91.0,
+        "20": 82.0,
+        "30": 73.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2021-Q2",
+      "reference_date": "2021-06-01",
+      "annual_change_percent": 1.6,
+      "source_cell": "I206",
+      "signed_deviation_from_2_5_pp": -0.9,
+      "target_band_distance_pp": 0.4,
+      "score": 92.0,
+      "scores": {
+        "10": 96.0,
+        "20": 92.0,
+        "30": 88.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2021-Q3",
+      "reference_date": "2021-09-01",
+      "annual_change_percent": 2.1,
+      "source_cell": "I207",
+      "signed_deviation_from_2_5_pp": -0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2021-Q4",
+      "reference_date": "2021-12-01",
+      "annual_change_percent": 2.6,
+      "source_cell": "I208",
+      "signed_deviation_from_2_5_pp": 0.1,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2022-Q1",
+      "reference_date": "2022-03-01",
+      "annual_change_percent": 3.8,
+      "source_cell": "I209",
+      "signed_deviation_from_2_5_pp": 1.3,
+      "target_band_distance_pp": 0.8,
+      "score": 84.0,
+      "scores": {
+        "10": 92.0,
+        "20": 84.0,
+        "30": 76.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2022-Q2",
+      "reference_date": "2022-06-01",
+      "annual_change_percent": 4.9,
+      "source_cell": "I210",
+      "signed_deviation_from_2_5_pp": 2.4,
+      "target_band_distance_pp": 1.9,
+      "score": 62.0,
+      "scores": {
+        "10": 81.0,
+        "20": 62.0,
+        "30": 43.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2022-Q3",
+      "reference_date": "2022-09-01",
+      "annual_change_percent": 6.0,
+      "source_cell": "I211",
+      "signed_deviation_from_2_5_pp": 3.5,
+      "target_band_distance_pp": 3.0,
+      "score": 40.0,
+      "scores": {
+        "10": 70.0,
+        "20": 40.0,
+        "30": 10.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2022-Q4",
+      "reference_date": "2022-12-01",
+      "annual_change_percent": 6.8,
+      "source_cell": "I212",
+      "signed_deviation_from_2_5_pp": 4.3,
+      "target_band_distance_pp": 3.8,
+      "score": 24.0,
+      "scores": {
+        "10": 62.0,
+        "20": 24.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2023-Q1",
+      "reference_date": "2023-03-01",
+      "annual_change_percent": 6.5,
+      "source_cell": "I213",
+      "signed_deviation_from_2_5_pp": 4.0,
+      "target_band_distance_pp": 3.5,
+      "score": 30.0,
+      "scores": {
+        "10": 65.0,
+        "20": 30.0,
+        "30": 0.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2023-Q2",
+      "reference_date": "2023-06-01",
+      "annual_change_percent": 5.8,
+      "source_cell": "I214",
+      "signed_deviation_from_2_5_pp": 3.3,
+      "target_band_distance_pp": 2.8,
+      "score": 44.0,
+      "scores": {
+        "10": 72.0,
+        "20": 44.0,
+        "30": 16.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2023-Q3",
+      "reference_date": "2023-09-01",
+      "annual_change_percent": 5.1,
+      "source_cell": "I215",
+      "signed_deviation_from_2_5_pp": 2.6,
+      "target_band_distance_pp": 2.1,
+      "score": 58.0,
+      "scores": {
+        "10": 79.0,
+        "20": 58.0,
+        "30": 37.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2023-Q4",
+      "reference_date": "2023-12-01",
+      "annual_change_percent": 4.2,
+      "source_cell": "I216",
+      "signed_deviation_from_2_5_pp": 1.7,
+      "target_band_distance_pp": 1.2,
+      "score": 76.0,
+      "scores": {
+        "10": 88.0,
+        "20": 76.0,
+        "30": 64.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2024-Q1",
+      "reference_date": "2024-03-01",
+      "annual_change_percent": 4.0,
+      "source_cell": "I217",
+      "signed_deviation_from_2_5_pp": 1.5,
+      "target_band_distance_pp": 1.0,
+      "score": 80.0,
+      "scores": {
+        "10": 90.0,
+        "20": 80.0,
+        "30": 70.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2024-Q2",
+      "reference_date": "2024-06-01",
+      "annual_change_percent": 4.0,
+      "source_cell": "I218",
+      "signed_deviation_from_2_5_pp": 1.5,
+      "target_band_distance_pp": 1.0,
+      "score": 80.0,
+      "scores": {
+        "10": 90.0,
+        "20": 80.0,
+        "30": 70.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2024-Q3",
+      "reference_date": "2024-09-01",
+      "annual_change_percent": 3.6,
+      "source_cell": "I219",
+      "signed_deviation_from_2_5_pp": 1.1,
+      "target_band_distance_pp": 0.6,
+      "score": 88.0,
+      "scores": {
+        "10": 94.0,
+        "20": 88.0,
+        "30": 82.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2024-Q4",
+      "reference_date": "2024-12-01",
+      "annual_change_percent": 3.2,
+      "source_cell": "I220",
+      "signed_deviation_from_2_5_pp": 0.7,
+      "target_band_distance_pp": 0.2,
+      "score": 96.0,
+      "scores": {
+        "10": 98.0,
+        "20": 96.0,
+        "30": 94.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2025-Q1",
+      "reference_date": "2025-03-01",
+      "annual_change_percent": 2.9,
+      "source_cell": "I221",
+      "signed_deviation_from_2_5_pp": 0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2025-Q2",
+      "reference_date": "2025-06-01",
+      "annual_change_percent": 2.7,
+      "source_cell": "I222",
+      "signed_deviation_from_2_5_pp": 0.2,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2025-Q3",
+      "reference_date": "2025-09-01",
+      "annual_change_percent": 2.9,
+      "source_cell": "I223",
+      "signed_deviation_from_2_5_pp": 0.4,
+      "target_band_distance_pp": 0.0,
+      "score": 100.0,
+      "scores": {
+        "10": 100.0,
+        "20": 100.0,
+        "30": 100.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2025-Q4",
+      "reference_date": "2025-12-01",
+      "annual_change_percent": 3.3,
+      "source_cell": "I224",
+      "signed_deviation_from_2_5_pp": 0.8,
+      "target_band_distance_pp": 0.3,
+      "score": 94.0,
+      "scores": {
+        "10": 97.0,
+        "20": 94.0,
+        "30": 91.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2026-Q1",
+      "reference_date": "2026-03-01",
+      "annual_change_percent": 3.5,
+      "source_cell": "I225",
+      "signed_deviation_from_2_5_pp": 1.0,
+      "target_band_distance_pp": 0.5,
+      "score": 90.0,
+      "scores": {
+        "10": 95.0,
+        "20": 90.0,
+        "30": 85.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    },
+    {
+      "period": "2026-Q2",
+      "reference_date": "2026-06-01",
+      "annual_change_percent": 3.6,
+      "source_cell": "I226",
+      "signed_deviation_from_2_5_pp": 1.1,
+      "target_band_distance_pp": 0.6,
+      "score": 88.0,
+      "scores": {
+        "10": 94.0,
+        "20": 88.0,
+        "30": 82.0
+      },
+      "methodology_flags": [
+        "established_quarterly_pre_october_2025_basis",
+        "historical_method_changes_unresolved",
+        "seasonal_revisions",
+        "december_2025_source_changes_abs_continuity_maintained",
+        "latest_revised_data_research",
+        "not_point_in_time",
+        "research_parameters_not_approved",
+        "historical_target_application_counterfactual"
+      ]
+    }
+  ],
+  "summaries": {
+    "full_history": {
+      "count": 174,
+      "first_period": "1983-Q1",
+      "last_period": "2026-Q2",
+      "inflation_percent": {
+        "minimum": 1.1,
+        "p10": 1.7,
+        "p25": 2.2,
+        "median": 2.75,
+        "mean": 3.608045977011494,
+        "p75": 4.275,
+        "p90": 7.070000000000001,
+        "maximum": 10.6,
+        "population_stddev": 2.1376062662731536
+      },
+      "below_band_count": 29,
+      "in_band_count": 77,
+      "above_band_count": 68,
+      "scores": {
+        "10": {
+          "minimum": 24.0,
+          "p10": 59.3,
+          "p25": 87.25,
+          "median": 98.0,
+          "mean": 88.75862068965517,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 17.97633534901543,
+          "zero_count": 0,
+          "maximum_count": 77,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 3,
+              "share_percent": 1.7241379310344827
+            },
+            "[40,60)": {
+              "count": 15,
+              "share_percent": 8.620689655172415
+            },
+            "[60,80)": {
+              "count": 21,
+              "share_percent": 12.068965517241379
+            },
+            "[80,100)": {
+              "count": 58,
+              "share_percent": 33.333333333333336
+            },
+            "100": {
+              "count": 77,
+              "share_percent": 44.252873563218394
+            }
+          },
+          "highest_score_quarters": [
+            "1992-Q2",
+            "1992-Q3",
+            "1992-Q4",
+            "1993-Q1",
+            "1993-Q2",
+            "1993-Q3",
+            "1993-Q4",
+            "1994-Q1",
+            "1994-Q2",
+            "1994-Q3",
+            "1994-Q4",
+            "1995-Q1",
+            "1995-Q2",
+            "1995-Q3",
+            "1996-Q2",
+            "1996-Q3",
+            "1996-Q4",
+            "1997-Q1",
+            "1997-Q2",
+            "1998-Q3",
+            "1999-Q3",
+            "1999-Q4",
+            "2000-Q1",
+            "2000-Q2",
+            "2000-Q3",
+            "2000-Q4",
+            "2001-Q1",
+            "2001-Q2",
+            "2002-Q2",
+            "2002-Q3",
+            "2002-Q4",
+            "2003-Q1",
+            "2003-Q2",
+            "2003-Q3",
+            "2003-Q4",
+            "2004-Q1",
+            "2004-Q2",
+            "2004-Q3",
+            "2004-Q4",
+            "2005-Q1",
+            "2005-Q2",
+            "2005-Q3",
+            "2005-Q4",
+            "2006-Q1",
+            "2006-Q2",
+            "2006-Q4",
+            "2007-Q1",
+            "2007-Q2",
+            "2007-Q3",
+            "2010-Q2",
+            "2010-Q3",
+            "2010-Q4",
+            "2011-Q1",
+            "2011-Q2",
+            "2011-Q3",
+            "2011-Q4",
+            "2012-Q1",
+            "2012-Q2",
+            "2012-Q3",
+            "2012-Q4",
+            "2013-Q1",
+            "2013-Q2",
+            "2013-Q3",
+            "2013-Q4",
+            "2014-Q1",
+            "2014-Q2",
+            "2014-Q3",
+            "2014-Q4",
+            "2015-Q1",
+            "2015-Q2",
+            "2015-Q3",
+            "2015-Q4",
+            "2021-Q3",
+            "2021-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "1983-Q1"
+          ]
+        },
+        "20": {
+          "minimum": 0.0,
+          "p10": 18.6,
+          "p25": 74.5,
+          "median": 96.0,
+          "mean": 78.71264367816092,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 32.72241596832467,
+          "zero_count": 11,
+          "maximum_count": 77,
+          "distribution": {
+            "[0,20)": {
+              "count": 18,
+              "share_percent": 10.344827586206897
+            },
+            "[20,40)": {
+              "count": 14,
+              "share_percent": 8.045977011494253
+            },
+            "[40,60)": {
+              "count": 7,
+              "share_percent": 4.022988505747127
+            },
+            "[60,80)": {
+              "count": 8,
+              "share_percent": 4.597701149425287
+            },
+            "[80,100)": {
+              "count": 50,
+              "share_percent": 28.735632183908045
+            },
+            "100": {
+              "count": 77,
+              "share_percent": 44.252873563218394
+            }
+          },
+          "highest_score_quarters": [
+            "1992-Q2",
+            "1992-Q3",
+            "1992-Q4",
+            "1993-Q1",
+            "1993-Q2",
+            "1993-Q3",
+            "1993-Q4",
+            "1994-Q1",
+            "1994-Q2",
+            "1994-Q3",
+            "1994-Q4",
+            "1995-Q1",
+            "1995-Q2",
+            "1995-Q3",
+            "1996-Q2",
+            "1996-Q3",
+            "1996-Q4",
+            "1997-Q1",
+            "1997-Q2",
+            "1998-Q3",
+            "1999-Q3",
+            "1999-Q4",
+            "2000-Q1",
+            "2000-Q2",
+            "2000-Q3",
+            "2000-Q4",
+            "2001-Q1",
+            "2001-Q2",
+            "2002-Q2",
+            "2002-Q3",
+            "2002-Q4",
+            "2003-Q1",
+            "2003-Q2",
+            "2003-Q3",
+            "2003-Q4",
+            "2004-Q1",
+            "2004-Q2",
+            "2004-Q3",
+            "2004-Q4",
+            "2005-Q1",
+            "2005-Q2",
+            "2005-Q3",
+            "2005-Q4",
+            "2006-Q1",
+            "2006-Q2",
+            "2006-Q4",
+            "2007-Q1",
+            "2007-Q2",
+            "2007-Q3",
+            "2010-Q2",
+            "2010-Q3",
+            "2010-Q4",
+            "2011-Q1",
+            "2011-Q2",
+            "2011-Q3",
+            "2011-Q4",
+            "2012-Q1",
+            "2012-Q2",
+            "2012-Q3",
+            "2012-Q4",
+            "2013-Q1",
+            "2013-Q2",
+            "2013-Q3",
+            "2013-Q4",
+            "2014-Q1",
+            "2014-Q2",
+            "2014-Q3",
+            "2014-Q4",
+            "2015-Q1",
+            "2015-Q2",
+            "2015-Q3",
+            "2015-Q4",
+            "2021-Q3",
+            "2021-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "1983-Q1",
+            "1983-Q2",
+            "1983-Q3",
+            "1985-Q4",
+            "1986-Q1",
+            "1986-Q2",
+            "1986-Q3",
+            "1986-Q4",
+            "1987-Q1",
+            "1987-Q2",
+            "1987-Q3"
+          ]
+        },
+        "30": {
+          "minimum": 0.0,
+          "p10": 0.0,
+          "p25": 61.75,
+          "median": 94.0,
+          "mean": 73.08045977011494,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 38.68104718441403,
+          "zero_count": 28,
+          "maximum_count": 77,
+          "distribution": {
+            "[0,20)": {
+              "count": 36,
+              "share_percent": 20.689655172413794
+            },
+            "[20,40)": {
+              "count": 3,
+              "share_percent": 1.7241379310344827
+            },
+            "[40,60)": {
+              "count": 4,
+              "share_percent": 2.2988505747126435
+            },
+            "[60,80)": {
+              "count": 12,
+              "share_percent": 6.896551724137931
+            },
+            "[80,100)": {
+              "count": 42,
+              "share_percent": 24.137931034482758
+            },
+            "100": {
+              "count": 77,
+              "share_percent": 44.252873563218394
+            }
+          },
+          "highest_score_quarters": [
+            "1992-Q2",
+            "1992-Q3",
+            "1992-Q4",
+            "1993-Q1",
+            "1993-Q2",
+            "1993-Q3",
+            "1993-Q4",
+            "1994-Q1",
+            "1994-Q2",
+            "1994-Q3",
+            "1994-Q4",
+            "1995-Q1",
+            "1995-Q2",
+            "1995-Q3",
+            "1996-Q2",
+            "1996-Q3",
+            "1996-Q4",
+            "1997-Q1",
+            "1997-Q2",
+            "1998-Q3",
+            "1999-Q3",
+            "1999-Q4",
+            "2000-Q1",
+            "2000-Q2",
+            "2000-Q3",
+            "2000-Q4",
+            "2001-Q1",
+            "2001-Q2",
+            "2002-Q2",
+            "2002-Q3",
+            "2002-Q4",
+            "2003-Q1",
+            "2003-Q2",
+            "2003-Q3",
+            "2003-Q4",
+            "2004-Q1",
+            "2004-Q2",
+            "2004-Q3",
+            "2004-Q4",
+            "2005-Q1",
+            "2005-Q2",
+            "2005-Q3",
+            "2005-Q4",
+            "2006-Q1",
+            "2006-Q2",
+            "2006-Q4",
+            "2007-Q1",
+            "2007-Q2",
+            "2007-Q3",
+            "2010-Q2",
+            "2010-Q3",
+            "2010-Q4",
+            "2011-Q1",
+            "2011-Q2",
+            "2011-Q3",
+            "2011-Q4",
+            "2012-Q1",
+            "2012-Q2",
+            "2012-Q3",
+            "2012-Q4",
+            "2013-Q1",
+            "2013-Q2",
+            "2013-Q3",
+            "2013-Q4",
+            "2014-Q1",
+            "2014-Q2",
+            "2014-Q3",
+            "2014-Q4",
+            "2015-Q1",
+            "2015-Q2",
+            "2015-Q3",
+            "2015-Q4",
+            "2021-Q3",
+            "2021-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "1983-Q1",
+            "1983-Q2",
+            "1983-Q3",
+            "1983-Q4",
+            "1984-Q1",
+            "1984-Q2",
+            "1985-Q2",
+            "1985-Q3",
+            "1985-Q4",
+            "1986-Q1",
+            "1986-Q2",
+            "1986-Q3",
+            "1986-Q4",
+            "1987-Q1",
+            "1987-Q2",
+            "1987-Q3",
+            "1987-Q4",
+            "1988-Q1",
+            "1988-Q2",
+            "1988-Q3",
+            "1988-Q4",
+            "1989-Q1",
+            "1990-Q1",
+            "1990-Q2",
+            "1990-Q3",
+            "1990-Q4",
+            "2022-Q4",
+            "2023-Q1"
+          ]
+        }
+      }
+    },
+    "pre_september_2001": {
+      "count": 74,
+      "first_period": "1983-Q1",
+      "last_period": "2001-Q2",
+      "inflation_percent": {
+        "minimum": 1.7,
+        "p10": 2.0,
+        "p25": 2.2,
+        "median": 3.25,
+        "mean": 4.698648648648648,
+        "p75": 6.95,
+        "p90": 8.650000000000002,
+        "maximum": 10.6,
+        "population_stddev": 2.651134037985073
+      },
+      "below_band_count": 7,
+      "in_band_count": 28,
+      "above_band_count": 39,
+      "scores": {
+        "10": {
+          "minimum": 24.0,
+          "p10": 43.5,
+          "p25": 60.5,
+          "median": 97.0,
+          "mean": 79.24324324324324,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 22.991661714636727,
+          "zero_count": 0,
+          "maximum_count": 28,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 3,
+              "share_percent": 4.054054054054054
+            },
+            "[40,60)": {
+              "count": 15,
+              "share_percent": 20.27027027027027
+            },
+            "[60,80)": {
+              "count": 16,
+              "share_percent": 21.62162162162162
+            },
+            "[80,100)": {
+              "count": 12,
+              "share_percent": 16.216216216216218
+            },
+            "100": {
+              "count": 28,
+              "share_percent": 37.83783783783784
+            }
+          },
+          "highest_score_quarters": [
+            "1992-Q2",
+            "1992-Q3",
+            "1992-Q4",
+            "1993-Q1",
+            "1993-Q2",
+            "1993-Q3",
+            "1993-Q4",
+            "1994-Q1",
+            "1994-Q2",
+            "1994-Q3",
+            "1994-Q4",
+            "1995-Q1",
+            "1995-Q2",
+            "1995-Q3",
+            "1996-Q2",
+            "1996-Q3",
+            "1996-Q4",
+            "1997-Q1",
+            "1997-Q2",
+            "1998-Q3",
+            "1999-Q3",
+            "1999-Q4",
+            "2000-Q1",
+            "2000-Q2",
+            "2000-Q3",
+            "2000-Q4",
+            "2001-Q1",
+            "2001-Q2"
+          ],
+          "lowest_score_quarters": [
+            "1983-Q1"
+          ]
+        },
+        "20": {
+          "minimum": 0.0,
+          "p10": 0.0,
+          "p25": 21.0,
+          "median": 94.0,
+          "mean": 61.2972972972973,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 41.17389941085734,
+          "zero_count": 11,
+          "maximum_count": 28,
+          "distribution": {
+            "[0,20)": {
+              "count": 18,
+              "share_percent": 24.324324324324323
+            },
+            "[20,40)": {
+              "count": 12,
+              "share_percent": 16.216216216216218
+            },
+            "[40,60)": {
+              "count": 4,
+              "share_percent": 5.405405405405405
+            },
+            "[60,80)": {
+              "count": 1,
+              "share_percent": 1.3513513513513513
+            },
+            "[80,100)": {
+              "count": 11,
+              "share_percent": 14.864864864864865
+            },
+            "100": {
+              "count": 28,
+              "share_percent": 37.83783783783784
+            }
+          },
+          "highest_score_quarters": [
+            "1992-Q2",
+            "1992-Q3",
+            "1992-Q4",
+            "1993-Q1",
+            "1993-Q2",
+            "1993-Q3",
+            "1993-Q4",
+            "1994-Q1",
+            "1994-Q2",
+            "1994-Q3",
+            "1994-Q4",
+            "1995-Q1",
+            "1995-Q2",
+            "1995-Q3",
+            "1996-Q2",
+            "1996-Q3",
+            "1996-Q4",
+            "1997-Q1",
+            "1997-Q2",
+            "1998-Q3",
+            "1999-Q3",
+            "1999-Q4",
+            "2000-Q1",
+            "2000-Q2",
+            "2000-Q3",
+            "2000-Q4",
+            "2001-Q1",
+            "2001-Q2"
+          ],
+          "lowest_score_quarters": [
+            "1983-Q1",
+            "1983-Q2",
+            "1983-Q3",
+            "1985-Q4",
+            "1986-Q1",
+            "1986-Q2",
+            "1986-Q3",
+            "1986-Q4",
+            "1987-Q1",
+            "1987-Q2",
+            "1987-Q3"
+          ]
+        },
+        "30": {
+          "minimum": 0.0,
+          "p10": 0.0,
+          "p25": 0.0,
+          "median": 91.0,
+          "mean": 53.472972972972975,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 47.26555884916198,
+          "zero_count": 26,
+          "maximum_count": 28,
+          "distribution": {
+            "[0,20)": {
+              "count": 32,
+              "share_percent": 43.24324324324324
+            },
+            "[20,40)": {
+              "count": 2,
+              "share_percent": 2.7027027027027026
+            },
+            "[40,60)": {
+              "count": 1,
+              "share_percent": 1.3513513513513513
+            },
+            "[60,80)": {
+              "count": 1,
+              "share_percent": 1.3513513513513513
+            },
+            "[80,100)": {
+              "count": 10,
+              "share_percent": 13.513513513513514
+            },
+            "100": {
+              "count": 28,
+              "share_percent": 37.83783783783784
+            }
+          },
+          "highest_score_quarters": [
+            "1992-Q2",
+            "1992-Q3",
+            "1992-Q4",
+            "1993-Q1",
+            "1993-Q2",
+            "1993-Q3",
+            "1993-Q4",
+            "1994-Q1",
+            "1994-Q2",
+            "1994-Q3",
+            "1994-Q4",
+            "1995-Q1",
+            "1995-Q2",
+            "1995-Q3",
+            "1996-Q2",
+            "1996-Q3",
+            "1996-Q4",
+            "1997-Q1",
+            "1997-Q2",
+            "1998-Q3",
+            "1999-Q3",
+            "1999-Q4",
+            "2000-Q1",
+            "2000-Q2",
+            "2000-Q3",
+            "2000-Q4",
+            "2001-Q1",
+            "2001-Q2"
+          ],
+          "lowest_score_quarters": [
+            "1983-Q1",
+            "1983-Q2",
+            "1983-Q3",
+            "1983-Q4",
+            "1984-Q1",
+            "1984-Q2",
+            "1985-Q2",
+            "1985-Q3",
+            "1985-Q4",
+            "1986-Q1",
+            "1986-Q2",
+            "1986-Q3",
+            "1986-Q4",
+            "1987-Q1",
+            "1987-Q2",
+            "1987-Q3",
+            "1987-Q4",
+            "1988-Q1",
+            "1988-Q2",
+            "1988-Q3",
+            "1988-Q4",
+            "1989-Q1",
+            "1990-Q1",
+            "1990-Q2",
+            "1990-Q3",
+            "1990-Q4"
+          ]
+        }
+      }
+    },
+    "september_2001_onward": {
+      "count": 100,
+      "first_period": "2001-Q3",
+      "last_period": "2026-Q2",
+      "inflation_percent": {
+        "minimum": 1.1,
+        "p10": 1.6,
+        "p25": 2.1,
+        "median": 2.7,
+        "mean": 2.801,
+        "p75": 3.1,
+        "p90": 4.2,
+        "maximum": 6.8,
+        "population_stddev": 1.1036752239676308
+      },
+      "below_band_count": 22,
+      "in_band_count": 49,
+      "above_band_count": 29,
+      "scores": {
+        "10": {
+          "minimum": 62.0,
+          "p10": 88.0,
+          "p25": 95.0,
+          "median": 99.0,
+          "mean": 95.8,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 7.383765976789893,
+          "zero_count": 0,
+          "maximum_count": 49,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 5,
+              "share_percent": 5.0
+            },
+            "[80,100)": {
+              "count": 46,
+              "share_percent": 46.0
+            },
+            "100": {
+              "count": 49,
+              "share_percent": 49.0
+            }
+          },
+          "highest_score_quarters": [
+            "2002-Q2",
+            "2002-Q3",
+            "2002-Q4",
+            "2003-Q1",
+            "2003-Q2",
+            "2003-Q3",
+            "2003-Q4",
+            "2004-Q1",
+            "2004-Q2",
+            "2004-Q3",
+            "2004-Q4",
+            "2005-Q1",
+            "2005-Q2",
+            "2005-Q3",
+            "2005-Q4",
+            "2006-Q1",
+            "2006-Q2",
+            "2006-Q4",
+            "2007-Q1",
+            "2007-Q2",
+            "2007-Q3",
+            "2010-Q2",
+            "2010-Q3",
+            "2010-Q4",
+            "2011-Q1",
+            "2011-Q2",
+            "2011-Q3",
+            "2011-Q4",
+            "2012-Q1",
+            "2012-Q2",
+            "2012-Q3",
+            "2012-Q4",
+            "2013-Q1",
+            "2013-Q2",
+            "2013-Q3",
+            "2013-Q4",
+            "2014-Q1",
+            "2014-Q2",
+            "2014-Q3",
+            "2014-Q4",
+            "2015-Q1",
+            "2015-Q2",
+            "2015-Q3",
+            "2015-Q4",
+            "2021-Q3",
+            "2021-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2022-Q4"
+          ]
+        },
+        "20": {
+          "minimum": 24.0,
+          "p10": 76.0,
+          "p25": 90.0,
+          "median": 98.0,
+          "mean": 91.6,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 14.767531953579786,
+          "zero_count": 0,
+          "maximum_count": 49,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 2,
+              "share_percent": 2.0
+            },
+            "[40,60)": {
+              "count": 3,
+              "share_percent": 3.0
+            },
+            "[60,80)": {
+              "count": 7,
+              "share_percent": 7.0
+            },
+            "[80,100)": {
+              "count": 39,
+              "share_percent": 39.0
+            },
+            "100": {
+              "count": 49,
+              "share_percent": 49.0
+            }
+          },
+          "highest_score_quarters": [
+            "2002-Q2",
+            "2002-Q3",
+            "2002-Q4",
+            "2003-Q1",
+            "2003-Q2",
+            "2003-Q3",
+            "2003-Q4",
+            "2004-Q1",
+            "2004-Q2",
+            "2004-Q3",
+            "2004-Q4",
+            "2005-Q1",
+            "2005-Q2",
+            "2005-Q3",
+            "2005-Q4",
+            "2006-Q1",
+            "2006-Q2",
+            "2006-Q4",
+            "2007-Q1",
+            "2007-Q2",
+            "2007-Q3",
+            "2010-Q2",
+            "2010-Q3",
+            "2010-Q4",
+            "2011-Q1",
+            "2011-Q2",
+            "2011-Q3",
+            "2011-Q4",
+            "2012-Q1",
+            "2012-Q2",
+            "2012-Q3",
+            "2012-Q4",
+            "2013-Q1",
+            "2013-Q2",
+            "2013-Q3",
+            "2013-Q4",
+            "2014-Q1",
+            "2014-Q2",
+            "2014-Q3",
+            "2014-Q4",
+            "2015-Q1",
+            "2015-Q2",
+            "2015-Q3",
+            "2015-Q4",
+            "2021-Q3",
+            "2021-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2022-Q4"
+          ]
+        },
+        "30": {
+          "minimum": 0.0,
+          "p10": 64.0,
+          "p25": 85.0,
+          "median": 97.0,
+          "mean": 87.59,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 21.335929789910725,
+          "zero_count": 2,
+          "maximum_count": 49,
+          "distribution": {
+            "[0,20)": {
+              "count": 4,
+              "share_percent": 4.0
+            },
+            "[20,40)": {
+              "count": 1,
+              "share_percent": 1.0
+            },
+            "[40,60)": {
+              "count": 3,
+              "share_percent": 3.0
+            },
+            "[60,80)": {
+              "count": 11,
+              "share_percent": 11.0
+            },
+            "[80,100)": {
+              "count": 32,
+              "share_percent": 32.0
+            },
+            "100": {
+              "count": 49,
+              "share_percent": 49.0
+            }
+          },
+          "highest_score_quarters": [
+            "2002-Q2",
+            "2002-Q3",
+            "2002-Q4",
+            "2003-Q1",
+            "2003-Q2",
+            "2003-Q3",
+            "2003-Q4",
+            "2004-Q1",
+            "2004-Q2",
+            "2004-Q3",
+            "2004-Q4",
+            "2005-Q1",
+            "2005-Q2",
+            "2005-Q3",
+            "2005-Q4",
+            "2006-Q1",
+            "2006-Q2",
+            "2006-Q4",
+            "2007-Q1",
+            "2007-Q2",
+            "2007-Q3",
+            "2010-Q2",
+            "2010-Q3",
+            "2010-Q4",
+            "2011-Q1",
+            "2011-Q2",
+            "2011-Q3",
+            "2011-Q4",
+            "2012-Q1",
+            "2012-Q2",
+            "2012-Q3",
+            "2012-Q4",
+            "2013-Q1",
+            "2013-Q2",
+            "2013-Q3",
+            "2013-Q4",
+            "2014-Q1",
+            "2014-Q2",
+            "2014-Q3",
+            "2014-Q4",
+            "2015-Q1",
+            "2015-Q2",
+            "2015-Q3",
+            "2015-Q4",
+            "2021-Q3",
+            "2021-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2022-Q4",
+            "2023-Q1"
+          ]
+        }
+      }
+    },
+    "post_2011_method_change": {
+      "count": 60,
+      "first_period": "2011-Q3",
+      "last_period": "2026-Q2",
+      "inflation_percent": {
+        "minimum": 1.1,
+        "p10": 1.5,
+        "p25": 1.7,
+        "median": 2.3,
+        "mean": 2.64,
+        "p75": 2.975,
+        "p90": 4.270000000000001,
+        "maximum": 6.8,
+        "population_stddev": 1.320126256588109
+      },
+      "below_band_count": 22,
+      "in_band_count": 23,
+      "above_band_count": 15,
+      "scores": {
+        "10": {
+          "minimum": 62.0,
+          "p10": 87.3,
+          "p25": 94.0,
+          "median": 97.0,
+          "mean": 94.5,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 8.521541331629312,
+          "zero_count": 0,
+          "maximum_count": 23,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 5,
+              "share_percent": 8.333333333333334
+            },
+            "[80,100)": {
+              "count": 32,
+              "share_percent": 53.333333333333336
+            },
+            "100": {
+              "count": 23,
+              "share_percent": 38.333333333333336
+            }
+          },
+          "highest_score_quarters": [
+            "2011-Q3",
+            "2011-Q4",
+            "2012-Q1",
+            "2012-Q2",
+            "2012-Q3",
+            "2012-Q4",
+            "2013-Q1",
+            "2013-Q2",
+            "2013-Q3",
+            "2013-Q4",
+            "2014-Q1",
+            "2014-Q2",
+            "2014-Q3",
+            "2014-Q4",
+            "2015-Q1",
+            "2015-Q2",
+            "2015-Q3",
+            "2015-Q4",
+            "2021-Q3",
+            "2021-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2022-Q4"
+          ]
+        },
+        "20": {
+          "minimum": 24.0,
+          "p10": 74.60000000000001,
+          "p25": 88.0,
+          "median": 94.0,
+          "mean": 89.0,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 17.043082663258623,
+          "zero_count": 0,
+          "maximum_count": 23,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 2,
+              "share_percent": 3.3333333333333335
+            },
+            "[40,60)": {
+              "count": 3,
+              "share_percent": 5.0
+            },
+            "[60,80)": {
+              "count": 2,
+              "share_percent": 3.3333333333333335
+            },
+            "[80,100)": {
+              "count": 30,
+              "share_percent": 50.0
+            },
+            "100": {
+              "count": 23,
+              "share_percent": 38.333333333333336
+            }
+          },
+          "highest_score_quarters": [
+            "2011-Q3",
+            "2011-Q4",
+            "2012-Q1",
+            "2012-Q2",
+            "2012-Q3",
+            "2012-Q4",
+            "2013-Q1",
+            "2013-Q2",
+            "2013-Q3",
+            "2013-Q4",
+            "2014-Q1",
+            "2014-Q2",
+            "2014-Q3",
+            "2014-Q4",
+            "2015-Q1",
+            "2015-Q2",
+            "2015-Q3",
+            "2015-Q4",
+            "2021-Q3",
+            "2021-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2022-Q4"
+          ]
+        },
+        "30": {
+          "minimum": 0.0,
+          "p10": 61.900000000000006,
+          "p25": 82.0,
+          "median": 91.0,
+          "mean": 83.81666666666666,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 24.431190219789855,
+          "zero_count": 2,
+          "maximum_count": 23,
+          "distribution": {
+            "[0,20)": {
+              "count": 4,
+              "share_percent": 6.666666666666667
+            },
+            "[20,40)": {
+              "count": 1,
+              "share_percent": 1.6666666666666667
+            },
+            "[40,60)": {
+              "count": 1,
+              "share_percent": 1.6666666666666667
+            },
+            "[60,80)": {
+              "count": 8,
+              "share_percent": 13.333333333333334
+            },
+            "[80,100)": {
+              "count": 23,
+              "share_percent": 38.333333333333336
+            },
+            "100": {
+              "count": 23,
+              "share_percent": 38.333333333333336
+            }
+          },
+          "highest_score_quarters": [
+            "2011-Q3",
+            "2011-Q4",
+            "2012-Q1",
+            "2012-Q2",
+            "2012-Q3",
+            "2012-Q4",
+            "2013-Q1",
+            "2013-Q2",
+            "2013-Q3",
+            "2013-Q4",
+            "2014-Q1",
+            "2014-Q2",
+            "2014-Q3",
+            "2014-Q4",
+            "2015-Q1",
+            "2015-Q2",
+            "2015-Q3",
+            "2015-Q4",
+            "2021-Q3",
+            "2021-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2022-Q4",
+            "2023-Q1"
+          ]
+        }
+      }
+    },
+    "early_high_inflation_1983_1990": {
+      "count": 32,
+      "first_period": "1983-Q1",
+      "last_period": "1990-Q4",
+      "inflation_percent": {
+        "minimum": 5.6,
+        "p10": 6.21,
+        "p25": 6.675,
+        "median": 7.2,
+        "mean": 7.49375,
+        "p75": 8.425,
+        "p90": 8.9,
+        "maximum": 10.6,
+        "population_stddev": 1.2149942129491813
+      },
+      "below_band_count": 0,
+      "in_band_count": 0,
+      "above_band_count": 32,
+      "scores": {
+        "10": {
+          "minimum": 24.0,
+          "p10": 41.0,
+          "p25": 45.75,
+          "median": 58.0,
+          "mean": 55.0625,
+          "p75": 63.25,
+          "p90": 67.9,
+          "maximum": 74.0,
+          "population_stddev": 12.14994212949181,
+          "zero_count": 0,
+          "maximum_count": 0,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 3,
+              "share_percent": 9.375
+            },
+            "[40,60)": {
+              "count": 15,
+              "share_percent": 46.875
+            },
+            "[60,80)": {
+              "count": 14,
+              "share_percent": 43.75
+            },
+            "[80,100)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "100": {
+              "count": 0,
+              "share_percent": 0.0
+            }
+          },
+          "highest_score_quarters": [
+            "1984-Q4"
+          ],
+          "lowest_score_quarters": [
+            "1983-Q1"
+          ]
+        },
+        "20": {
+          "minimum": 0.0,
+          "p10": 0.0,
+          "p25": 0.0,
+          "median": 16.0,
+          "mean": 16.625,
+          "p75": 26.5,
+          "p90": 35.800000000000004,
+          "maximum": 48.0,
+          "population_stddev": 15.02861853265296,
+          "zero_count": 11,
+          "maximum_count": 0,
+          "distribution": {
+            "[0,20)": {
+              "count": 18,
+              "share_percent": 56.25
+            },
+            "[20,40)": {
+              "count": 12,
+              "share_percent": 37.5
+            },
+            "[40,60)": {
+              "count": 2,
+              "share_percent": 6.25
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "100": {
+              "count": 0,
+              "share_percent": 0.0
+            }
+          },
+          "highest_score_quarters": [
+            "1984-Q4"
+          ],
+          "lowest_score_quarters": [
+            "1983-Q1",
+            "1983-Q2",
+            "1983-Q3",
+            "1985-Q4",
+            "1986-Q1",
+            "1986-Q2",
+            "1986-Q3",
+            "1986-Q4",
+            "1987-Q1",
+            "1987-Q2",
+            "1987-Q3"
+          ]
+        },
+        "30": {
+          "minimum": 0.0,
+          "p10": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "mean": 1.59375,
+          "p75": 0.0,
+          "p90": 3.7000000000000064,
+          "maximum": 22.0,
+          "population_stddev": 4.762217019151899,
+          "zero_count": 26,
+          "maximum_count": 0,
+          "distribution": {
+            "[0,20)": {
+              "count": 31,
+              "share_percent": 96.875
+            },
+            "[20,40)": {
+              "count": 1,
+              "share_percent": 3.125
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "100": {
+              "count": 0,
+              "share_percent": 0.0
+            }
+          },
+          "highest_score_quarters": [
+            "1984-Q4"
+          ],
+          "lowest_score_quarters": [
+            "1983-Q1",
+            "1983-Q2",
+            "1983-Q3",
+            "1983-Q4",
+            "1984-Q1",
+            "1984-Q2",
+            "1985-Q2",
+            "1985-Q3",
+            "1985-Q4",
+            "1986-Q1",
+            "1986-Q2",
+            "1986-Q3",
+            "1986-Q4",
+            "1987-Q1",
+            "1987-Q2",
+            "1987-Q3",
+            "1987-Q4",
+            "1988-Q1",
+            "1988-Q2",
+            "1988-Q3",
+            "1988-Q4",
+            "1989-Q1",
+            "1990-Q1",
+            "1990-Q2",
+            "1990-Q3",
+            "1990-Q4"
+          ]
+        }
+      }
+    },
+    "disinflation_1991_1993": {
+      "count": 12,
+      "first_period": "1991-Q1",
+      "last_period": "1993-Q4",
+      "inflation_percent": {
+        "minimum": 2.0,
+        "p10": 2.1,
+        "p25": 2.1,
+        "median": 2.5,
+        "mean": 3.1916666666666664,
+        "p75": 4.075,
+        "p90": 5.08,
+        "maximum": 5.7,
+        "population_stddev": 1.3022149933436065
+      },
+      "below_band_count": 0,
+      "in_band_count": 7,
+      "above_band_count": 5,
+      "scores": {
+        "10": {
+          "minimum": 73.0,
+          "p10": 79.2,
+          "p25": 89.25,
+          "median": 100.0,
+          "mean": 93.5,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 9.561206339508978,
+          "zero_count": 0,
+          "maximum_count": 7,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 2,
+              "share_percent": 16.666666666666668
+            },
+            "[80,100)": {
+              "count": 3,
+              "share_percent": 25.0
+            },
+            "100": {
+              "count": 7,
+              "share_percent": 58.333333333333336
+            }
+          },
+          "highest_score_quarters": [
+            "1992-Q2",
+            "1992-Q3",
+            "1992-Q4",
+            "1993-Q1",
+            "1993-Q2",
+            "1993-Q3",
+            "1993-Q4"
+          ],
+          "lowest_score_quarters": [
+            "1991-Q1"
+          ]
+        },
+        "20": {
+          "minimum": 46.0,
+          "p10": 58.4,
+          "p25": 78.5,
+          "median": 100.0,
+          "mean": 87.0,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 19.122412679017955,
+          "zero_count": 0,
+          "maximum_count": 7,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 2,
+              "share_percent": 16.666666666666668
+            },
+            "[60,80)": {
+              "count": 1,
+              "share_percent": 8.333333333333334
+            },
+            "[80,100)": {
+              "count": 2,
+              "share_percent": 16.666666666666668
+            },
+            "100": {
+              "count": 7,
+              "share_percent": 58.333333333333336
+            }
+          },
+          "highest_score_quarters": [
+            "1992-Q2",
+            "1992-Q3",
+            "1992-Q4",
+            "1993-Q1",
+            "1993-Q2",
+            "1993-Q3",
+            "1993-Q4"
+          ],
+          "lowest_score_quarters": [
+            "1991-Q1"
+          ]
+        },
+        "30": {
+          "minimum": 19.0,
+          "p10": 37.6,
+          "p25": 67.75,
+          "median": 100.0,
+          "mean": 80.5,
+          "p75": 100.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 28.683619018526933,
+          "zero_count": 0,
+          "maximum_count": 7,
+          "distribution": {
+            "[0,20)": {
+              "count": 1,
+              "share_percent": 8.333333333333334
+            },
+            "[20,40)": {
+              "count": 1,
+              "share_percent": 8.333333333333334
+            },
+            "[40,60)": {
+              "count": 1,
+              "share_percent": 8.333333333333334
+            },
+            "[60,80)": {
+              "count": 1,
+              "share_percent": 8.333333333333334
+            },
+            "[80,100)": {
+              "count": 1,
+              "share_percent": 8.333333333333334
+            },
+            "100": {
+              "count": 7,
+              "share_percent": 58.333333333333336
+            }
+          },
+          "highest_score_quarters": [
+            "1992-Q2",
+            "1992-Q3",
+            "1992-Q4",
+            "1993-Q1",
+            "1993-Q2",
+            "1993-Q3",
+            "1993-Q4"
+          ],
+          "lowest_score_quarters": [
+            "1991-Q1"
+          ]
+        }
+      }
+    },
+    "gfc_window_2007_2009": {
+      "count": 12,
+      "first_period": "2007-Q1",
+      "last_period": "2009-Q4",
+      "inflation_percent": {
+        "minimum": 2.7,
+        "p10": 2.81,
+        "p25": 3.05,
+        "median": 3.6,
+        "mean": 3.641666666666667,
+        "p75": 4.225,
+        "p90": 4.390000000000001,
+        "maximum": 4.8,
+        "population_stddev": 0.6775671348451179
+      },
+      "below_band_count": 0,
+      "in_band_count": 3,
+      "above_band_count": 9,
+      "scores": {
+        "10": {
+          "minimum": 82.0,
+          "p10": 86.1,
+          "p25": 87.75,
+          "median": 94.0,
+          "mean": 93.08333333333333,
+          "p75": 99.25,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 6.170606849321134,
+          "zero_count": 0,
+          "maximum_count": 3,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 9,
+              "share_percent": 75.0
+            },
+            "100": {
+              "count": 3,
+              "share_percent": 25.0
+            }
+          },
+          "highest_score_quarters": [
+            "2007-Q1",
+            "2007-Q2",
+            "2007-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2008-Q3"
+          ]
+        },
+        "20": {
+          "minimum": 64.0,
+          "p10": 72.2,
+          "p25": 75.5,
+          "median": 88.0,
+          "mean": 86.16666666666667,
+          "p75": 98.5,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 12.341213698642267,
+          "zero_count": 0,
+          "maximum_count": 3,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 5,
+              "share_percent": 41.666666666666664
+            },
+            "[80,100)": {
+              "count": 4,
+              "share_percent": 33.333333333333336
+            },
+            "100": {
+              "count": 3,
+              "share_percent": 25.0
+            }
+          },
+          "highest_score_quarters": [
+            "2007-Q1",
+            "2007-Q2",
+            "2007-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2008-Q3"
+          ]
+        },
+        "30": {
+          "minimum": 46.0,
+          "p10": 58.3,
+          "p25": 63.25,
+          "median": 82.0,
+          "mean": 79.25,
+          "p75": 97.75,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 18.511820547963403,
+          "zero_count": 0,
+          "maximum_count": 3,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 2,
+              "share_percent": 16.666666666666668
+            },
+            "[60,80)": {
+              "count": 3,
+              "share_percent": 25.0
+            },
+            "[80,100)": {
+              "count": 4,
+              "share_percent": 33.333333333333336
+            },
+            "100": {
+              "count": 3,
+              "share_percent": 25.0
+            }
+          },
+          "highest_score_quarters": [
+            "2007-Q1",
+            "2007-Q2",
+            "2007-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2008-Q3"
+          ]
+        }
+      }
+    },
+    "low_inflation_2016_2019": {
+      "count": 16,
+      "first_period": "2016-Q1",
+      "last_period": "2019-Q4",
+      "inflation_percent": {
+        "minimum": 1.5,
+        "p10": 1.5,
+        "p25": 1.5750000000000002,
+        "median": 1.65,
+        "mean": 1.63125,
+        "p75": 1.7,
+        "p90": 1.7,
+        "maximum": 1.8,
+        "population_stddev": 0.09164298936634487
+      },
+      "below_band_count": 16,
+      "in_band_count": 0,
+      "above_band_count": 0,
+      "scores": {
+        "10": {
+          "minimum": 95.0,
+          "p10": 95.0,
+          "p25": 95.75,
+          "median": 96.5,
+          "mean": 96.3125,
+          "p75": 97.0,
+          "p90": 97.0,
+          "maximum": 98.0,
+          "population_stddev": 0.9164298936634487,
+          "zero_count": 0,
+          "maximum_count": 0,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 16,
+              "share_percent": 100.0
+            },
+            "100": {
+              "count": 0,
+              "share_percent": 0.0
+            }
+          },
+          "highest_score_quarters": [
+            "2018-Q4"
+          ],
+          "lowest_score_quarters": [
+            "2016-Q4",
+            "2019-Q2",
+            "2019-Q3",
+            "2019-Q4"
+          ]
+        },
+        "20": {
+          "minimum": 90.0,
+          "p10": 90.0,
+          "p25": 91.5,
+          "median": 93.0,
+          "mean": 92.625,
+          "p75": 94.0,
+          "p90": 94.0,
+          "maximum": 96.0,
+          "population_stddev": 1.8328597873268975,
+          "zero_count": 0,
+          "maximum_count": 0,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 16,
+              "share_percent": 100.0
+            },
+            "100": {
+              "count": 0,
+              "share_percent": 0.0
+            }
+          },
+          "highest_score_quarters": [
+            "2018-Q4"
+          ],
+          "lowest_score_quarters": [
+            "2016-Q4",
+            "2019-Q2",
+            "2019-Q3",
+            "2019-Q4"
+          ]
+        },
+        "30": {
+          "minimum": 85.0,
+          "p10": 85.0,
+          "p25": 87.25,
+          "median": 89.5,
+          "mean": 88.9375,
+          "p75": 91.0,
+          "p90": 91.0,
+          "maximum": 94.0,
+          "population_stddev": 2.7492896809903464,
+          "zero_count": 0,
+          "maximum_count": 0,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 16,
+              "share_percent": 100.0
+            },
+            "100": {
+              "count": 0,
+              "share_percent": 0.0
+            }
+          },
+          "highest_score_quarters": [
+            "2018-Q4"
+          ],
+          "lowest_score_quarters": [
+            "2016-Q4",
+            "2019-Q2",
+            "2019-Q3",
+            "2019-Q4"
+          ]
+        }
+      }
+    },
+    "pandemic_2020_2021": {
+      "count": 8,
+      "first_period": "2020-Q1",
+      "last_period": "2021-Q4",
+      "inflation_percent": {
+        "minimum": 1.1,
+        "p10": 1.17,
+        "p25": 1.275,
+        "median": 1.4500000000000002,
+        "mean": 1.6125,
+        "p75": 1.8,
+        "p90": 2.25,
+        "maximum": 2.6,
+        "population_stddev": 0.48072211307573526
+      },
+      "below_band_count": 6,
+      "in_band_count": 2,
+      "above_band_count": 0,
+      "scores": {
+        "10": {
+          "minimum": 91.0,
+          "p10": 91.7,
+          "p25": 92.75,
+          "median": 94.5,
+          "mean": 95.25,
+          "p75": 97.75,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 3.307189138830738,
+          "zero_count": 0,
+          "maximum_count": 2,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 6,
+              "share_percent": 75.0
+            },
+            "100": {
+              "count": 2,
+              "share_percent": 25.0
+            }
+          },
+          "highest_score_quarters": [
+            "2021-Q3",
+            "2021-Q4"
+          ],
+          "lowest_score_quarters": [
+            "2021-Q1"
+          ]
+        },
+        "20": {
+          "minimum": 82.0,
+          "p10": 83.4,
+          "p25": 85.5,
+          "median": 89.0,
+          "mean": 90.5,
+          "p75": 95.5,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 6.614378277661476,
+          "zero_count": 0,
+          "maximum_count": 2,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 6,
+              "share_percent": 75.0
+            },
+            "100": {
+              "count": 2,
+              "share_percent": 25.0
+            }
+          },
+          "highest_score_quarters": [
+            "2021-Q3",
+            "2021-Q4"
+          ],
+          "lowest_score_quarters": [
+            "2021-Q1"
+          ]
+        },
+        "30": {
+          "minimum": 73.0,
+          "p10": 75.1,
+          "p25": 78.25,
+          "median": 83.5,
+          "mean": 85.75,
+          "p75": 93.25,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 9.921567416492215,
+          "zero_count": 0,
+          "maximum_count": 2,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 4,
+              "share_percent": 50.0
+            },
+            "[80,100)": {
+              "count": 2,
+              "share_percent": 25.0
+            },
+            "100": {
+              "count": 2,
+              "share_percent": 25.0
+            }
+          },
+          "highest_score_quarters": [
+            "2021-Q3",
+            "2021-Q4"
+          ],
+          "lowest_score_quarters": [
+            "2021-Q1"
+          ]
+        }
+      }
+    },
+    "inflation_surge_2022_2023": {
+      "count": 8,
+      "first_period": "2022-Q1",
+      "last_period": "2023-Q4",
+      "inflation_percent": {
+        "minimum": 3.8,
+        "p10": 4.08,
+        "p25": 4.7250000000000005,
+        "median": 5.449999999999999,
+        "mean": 5.3875,
+        "p75": 6.125,
+        "p90": 6.59,
+        "maximum": 6.8,
+        "population_stddev": 1.0017952635144567
+      },
+      "below_band_count": 0,
+      "in_band_count": 0,
+      "above_band_count": 8,
+      "scores": {
+        "10": {
+          "minimum": 62.0,
+          "p10": 64.1,
+          "p25": 68.75,
+          "median": 75.5,
+          "mean": 76.125,
+          "p75": 82.75,
+          "p90": 89.2,
+          "maximum": 92.0,
+          "population_stddev": 10.01795263514457,
+          "zero_count": 0,
+          "maximum_count": 0,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 5,
+              "share_percent": 62.5
+            },
+            "[80,100)": {
+              "count": 3,
+              "share_percent": 37.5
+            },
+            "100": {
+              "count": 0,
+              "share_percent": 0.0
+            }
+          },
+          "highest_score_quarters": [
+            "2022-Q1"
+          ],
+          "lowest_score_quarters": [
+            "2022-Q4"
+          ]
+        },
+        "20": {
+          "minimum": 24.0,
+          "p10": 28.2,
+          "p25": 37.5,
+          "median": 51.0,
+          "mean": 52.25,
+          "p75": 65.5,
+          "p90": 78.4,
+          "maximum": 84.0,
+          "population_stddev": 20.03590527028914,
+          "zero_count": 0,
+          "maximum_count": 0,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 2,
+              "share_percent": 25.0
+            },
+            "[40,60)": {
+              "count": 3,
+              "share_percent": 37.5
+            },
+            "[60,80)": {
+              "count": 2,
+              "share_percent": 25.0
+            },
+            "[80,100)": {
+              "count": 1,
+              "share_percent": 12.5
+            },
+            "100": {
+              "count": 0,
+              "share_percent": 0.0
+            }
+          },
+          "highest_score_quarters": [
+            "2022-Q1"
+          ],
+          "lowest_score_quarters": [
+            "2022-Q4"
+          ]
+        },
+        "30": {
+          "minimum": 0.0,
+          "p10": 0.0,
+          "p25": 7.5,
+          "median": 26.5,
+          "mean": 30.75,
+          "p75": 48.25,
+          "p90": 67.6,
+          "maximum": 76.0,
+          "population_stddev": 27.11434122378783,
+          "zero_count": 2,
+          "maximum_count": 0,
+          "distribution": {
+            "[0,20)": {
+              "count": 4,
+              "share_percent": 50.0
+            },
+            "[20,40)": {
+              "count": 1,
+              "share_percent": 12.5
+            },
+            "[40,60)": {
+              "count": 1,
+              "share_percent": 12.5
+            },
+            "[60,80)": {
+              "count": 2,
+              "share_percent": 25.0
+            },
+            "[80,100)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "100": {
+              "count": 0,
+              "share_percent": 0.0
+            }
+          },
+          "highest_score_quarters": [
+            "2022-Q1"
+          ],
+          "lowest_score_quarters": [
+            "2022-Q4",
+            "2023-Q1"
+          ]
+        }
+      }
+    },
+    "recent_2024_2026q2": {
+      "count": 10,
+      "first_period": "2024-Q1",
+      "last_period": "2026-Q2",
+      "inflation_percent": {
+        "minimum": 2.7,
+        "p10": 2.88,
+        "p25": 2.975,
+        "median": 3.4,
+        "mean": 3.37,
+        "p75": 3.6,
+        "p90": 4.0,
+        "maximum": 4.0,
+        "population_stddev": 0.42906875905849867
+      },
+      "below_band_count": 0,
+      "in_band_count": 3,
+      "above_band_count": 7,
+      "scores": {
+        "10": {
+          "minimum": 90.0,
+          "p10": 90.0,
+          "p25": 94.0,
+          "median": 96.0,
+          "mean": 95.8,
+          "p75": 99.5,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 3.655133376499413,
+          "zero_count": 0,
+          "maximum_count": 3,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 7,
+              "share_percent": 70.0
+            },
+            "100": {
+              "count": 3,
+              "share_percent": 30.0
+            }
+          },
+          "highest_score_quarters": [
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2024-Q1",
+            "2024-Q2"
+          ]
+        },
+        "20": {
+          "minimum": 80.0,
+          "p10": 80.0,
+          "p25": 88.0,
+          "median": 92.0,
+          "mean": 91.6,
+          "p75": 99.0,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 7.310266752998826,
+          "zero_count": 0,
+          "maximum_count": 3,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[80,100)": {
+              "count": 7,
+              "share_percent": 70.0
+            },
+            "100": {
+              "count": 3,
+              "share_percent": 30.0
+            }
+          },
+          "highest_score_quarters": [
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2024-Q1",
+            "2024-Q2"
+          ]
+        },
+        "30": {
+          "minimum": 70.0,
+          "p10": 70.0,
+          "p25": 82.0,
+          "median": 88.0,
+          "mean": 87.4,
+          "p75": 98.5,
+          "p90": 100.0,
+          "maximum": 100.0,
+          "population_stddev": 10.965400129498239,
+          "zero_count": 0,
+          "maximum_count": 3,
+          "distribution": {
+            "[0,20)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[20,40)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[40,60)": {
+              "count": 0,
+              "share_percent": 0.0
+            },
+            "[60,80)": {
+              "count": 2,
+              "share_percent": 20.0
+            },
+            "[80,100)": {
+              "count": 5,
+              "share_percent": 50.0
+            },
+            "100": {
+              "count": 3,
+              "share_percent": 30.0
+            }
+          },
+          "highest_score_quarters": [
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3"
+          ],
+          "lowest_score_quarters": [
+            "2024-Q1",
+            "2024-Q2"
+          ]
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Reference band applies officially to headline CPI; trimmed mean application is a research choice",
+    "Pre-target-regime scores are counterfactual modern-reference descriptions",
+    "34 pre-September-2001 ABS/RBA differences remain unresolved; RBA data not used",
+    "2002 precision history and 2011 seasonal methods require reconciliation",
+    "Quarterly continuity maintained by ABS through December 2025 source changes",
+    "Overlapping annual rates and windows are not independent samples",
+    "Latest-revised snapshot includes information unavailable historically",
+    "No causal, forecast, recession probability, weight or composite validation"
+  ]
+}

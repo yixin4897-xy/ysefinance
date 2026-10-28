@@ -1,0 +1,746 @@
+{
+  "status": "DISCOVERY_ONLY_NOT_APPROVED",
+  "source_url": "https://data.api.abs.gov.au/rest/dataflow?detail=allstubs",
+  "candidate_dataflows": [
+    {
+      "dataflow_id": "ABS_C16_T21_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2016, Total Household Income (Weekly) by Household Composition (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_C16_T21_SA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2016, Total Household Income (Weekly) by Household Composition (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_C16_T23_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2016, Household Composition By Number Of Persons Usually Resident (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_C16_T23_SA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2016, Household Composition By Number Of Persons Usually Resident (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_C16_T23_TS_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census Time Series 2016, 2011, 2006: T23 Household Composition By Number Of Persons Usually Resident (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_C16_T23_TS_SA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census Time Series 2016, 2011, 2006: T23 Household Composition By Number Of Persons Usually Resident (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_B23",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "B23 Relationship in Household by Age by Sex"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_B23_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "B23 Relationship in Household by Age by Sex (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_B23_SA1_SA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "B23 Relationship in Household by Age by Sex (SA1 SA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_B28",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "B28 Total Household Income (weekly) by Household Composition"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_B28_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "B28 Total Household Income (weekly) by Household Composition (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_B28_SA1_SA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "B28 Total Household Income (weekly) by Household Composition (SA1 SA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_B30",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "B30 Household Composition by Number of Persons Usually Resident"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_B30_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "B30 Household Composition by Number of Persons Usually Resident (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_B30_SA1_SA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "B30 Household Composition by Number of Persons Usually Resident (SA1 SA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_T14",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "T14 Dwelling Structure by Household Composition and Family Composition"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_T14_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "T14 Dwelling Structure by Household Composition and Family Composition (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_T16",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "T16 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Family Households"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_T16_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "T16 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Family Households (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_T17",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "T17 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Group Households"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_T17_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "T17 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Group Households (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_T24",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "T24 Total Household Income (weekly) by Rent (weekly)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_CENSUS2011_T24_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "T24 Total Household Income (weekly) by Rent (weekly) (LGA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ABS_HH_PROV",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Projected households, Australia, 2021 to 2046"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ALC",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Apparent Consumption of Alcohol, Australia"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ANA_AGG",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Australian National Accounts Key Aggregates"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ANA_EXP",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Australian National Accounts - Expenditure on Gross Domestic Product (GDP (E))"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ANA_INC",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Australian National Accounts - Income from Gross Domestic Product (GDP (I))"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ANA_IND_GVA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Australian National Accounts - Production of Gross Domestic Product (GDP (P))"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "ANA_SFD",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Australian National Accounts - State Final Demand"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G27_CED",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G27 Relationship in household by age by sex, Commonwealth Electoral Divisions (CED 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G27_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G27 Relationship in household by age by sex, Local Government Area 2021 (LGA 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G27_POA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G27 Relationship in household by age by sex, Postal Areas (POA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G27_RA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G27 Relationship in household by age by sex, Remoteness Areas (RA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G27_SA2",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G27 Relationship in household by age by sex, Main Statistical Areas Level 2 and up (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G27_SAL",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G27 Relationship in household by age by sex, Suburbs and Localities (SAL)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G27_SED",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G27 Relationship in household by age by sex, State Electoral Divisions (SED 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G27_SUA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G27 Relationship in household by age by sex, Significant Urban Areas (SUA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G27_UCL",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G27 Relationship in household by age by sex, Urban Centres, Localities and Section of State (UCL/SOS/SOSR)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G33_CED",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G33 Total household income (weekly) by household composition, Commonwealth Electoral Divisions (CED 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G33_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G33 Total household income (weekly) by household composition, Local Government Area 2021 (LGA 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G33_POA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G33 Total household income (weekly) by household composition, Postal Areas (POA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G33_RA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G33 Total household income (weekly) by household composition, Remoteness Areas (RA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G33_SA2",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G33 Total household income (weekly) by household composition, Main Statistical Areas Level 2 and up (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G33_SAL",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G33 Total household income (weekly) by household composition, Suburbs and Localities (SAL)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G33_SED",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G33 Total household income (weekly) by household composition, State Electoral Divisions (SED 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G33_SUA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G33 Total household income (weekly) by household composition, Significant Urban Areas (SUA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G33_UCL",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G33 Total household income (weekly) by household composition, Urban Centres, Localities and Section of State (UCL/SOS/SOSR)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G35_CED",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G35 Household composition by number of persons usually resident, Commonwealth Electoral Divisions (CED 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G35_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G35 Household composition by number of persons usually resident, Local Government Area 2021 (LGA 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G35_POA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G35 Household composition by number of persons usually resident, Postal Areas (POA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G35_RA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G35 Household composition by number of persons usually resident, Remoteness Areas (RA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G35_SA2",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G35 Household composition by number of persons usually resident, Main Statistical Areas Level 2 and up (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G35_SAL",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G35 Household composition by number of persons usually resident, Suburbs and Localities (SAL)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G35_SED",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G35 Household composition by number of persons usually resident, State Electoral Divisions (SED 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G35_SUA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G35 Household composition by number of persons usually resident, Significant Urban Areas (SUA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G35_UCL",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G35 Household composition by number of persons usually resident, Urban Centres, Localities and Section of State (UCL/SOS/SOSR)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G42_CED",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G42 Dwelling structure by household composition and family composition, Commonwealth Electoral Divisions (CED 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G42_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G42 Dwelling structure by household composition and family composition, Local Government Area 2021 (LGA 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G42_POA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G42 Dwelling structure by household composition and family composition, Postal Areas (POA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G42_RA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G42 Dwelling structure by household composition and family composition, Remoteness Areas (RA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G42_SA2",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G42 Dwelling structure by household composition and family composition, Main Statistical Areas Level 2 and up (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G42_SAL",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G42 Dwelling structure by household composition and family composition, Suburbs and Localities (SAL)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G42_SED",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G42 Dwelling structure by household composition and family composition, State Electoral Divisions (SED 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G42_SUA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G42 Dwelling structure by household composition and family composition, Significant Urban Areas (SUA)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_G42_UCL",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, G42 Dwelling structure by household composition and family composition, Urban Centres, Localities and Section of State (UCL/SOS/SOSR)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_T14_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, T14 Dwelling structure by household composition and family composition, Time Series, Local Government Area 2021 (LGA 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_T14_SA2",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, T14 Dwelling structure by household composition and family composition, Time Series, Main Statistical Areas Level 2 and up (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_T16_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, T16 Dwelling structure and number of bedrooms by number of persons usually resident for family households, Time Series, Local Government Area 2021 (LGA 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_T16_SA2",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, T16 Dwelling structure and number of bedrooms by number of persons usually resident for family households, Time Series, Main Statistical Areas Level 2 and up (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_T17_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, T17 Dwelling structure and number of bedrooms by number of persons usually resident for group households, Time Series, Local Government Area 2021 (LGA 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_T17_SA2",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, T17 Dwelling structure and number of bedrooms by number of persons usually resident for group households, Time Series, Main Statistical Areas Level 2 and up (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_T24_LGA",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, T24 Total household income (weekly) by rent (weekly), Time Series, Local Government Area 2021 (LGA 2021 boundaries)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "C21_T24_SA2",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Census 2021, T24 Total household income (weekly) by rent (weekly), Time Series, Main Statistical Areas Level 2 and up (SA2+)"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "CAPEX",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Private New Capital Expenditure and Expected Expenditure"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "CAPEX_EST",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Private New Capital Expenditure and Expected Expenditure, Financial Year Estimates"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "COVID_HI",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Household Impacts of COVID-19 Survey, Household Income"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "COVID_HS",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Household Impacts of COVID-19 Survey, Household Spending"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "COVID_SALTS",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Household Impacts of COVID-19 Survey by Sex, Age and Location"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "COVID_SC",
+      "version": "1.0.0",
+      "agency": "ABS",
+      "title": [
+        "Household Impacts of COVID-19 Survey, Selected Characteristics"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "HSI_M",
+      "version": "1.6.0",
+      "agency": "ABS",
+      "title": [
+        "Monthly Household Spending Indicator"
+      ],
+      "description": []
+    },
+    {
+      "dataflow_id": "HSI_Q",
+      "version": "1.2.0",
+      "agency": "ABS",
+      "title": [
+        "Quarterly Household Spending Indicator"
+      ],
+      "description": []
+    }
+  ],
+  "reference_release": "ABS National Accounts, June 2026, Tables 2 and 8",
+  "note": "Review each candidate dataflow's SDMX structure and DATA_ITEM list. Do not treat a dataflow title as a verified HFCE series."
+}

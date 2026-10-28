@@ -1,0 +1,3250 @@
+{
+  "schema_version": "0.1.0",
+  "contract_version": "0.1.0-draft.1",
+  "model_release": "AESM V4.1",
+  "status": "DRAFT_DOCUMENTATION_ONLY",
+  "evidence_commit": "4ebb4ab69401398e43716e537592102006425759",
+  "documentation_governance": {
+    "authority": "Maintained Indicator Dictionary",
+    "dictionary_evidence_ref": "aesm-research.html",
+    "dictionary_sections": [
+      "indicators",
+      "aehi"
+    ],
+    "adoption_basis": "User-authorized provisional documentation-governance decisions in Phase 1 implementation request.",
+    "source_registry_and_implementation_are_separate_evidence": true,
+    "conflicts_must_be_explicit": true,
+    "unknown_policy": "null denotes unsupported/unknown value; status UNKNOWN denotes an unverified specification. Neither means zero or approval.",
+    "capability_does_not_imply_methodology_approval": true,
+    "variants_are_not_additional_indicators": true
+  },
+  "release_controls": {
+    "composite_release_statuses": {
+      "AEHI": "HOLD",
+      "AESI": "HOLD",
+      "ASFI": "HOLD"
+    },
+    "composite_scores": {
+      "AEHI": null,
+      "AESI": null,
+      "ASFI": null
+    },
+    "publication_approved": false,
+    "production_consumer_enabled": false,
+    "pr_8_required_state": "DRAFT",
+    "pr_8_state_mutated": false,
+    "unapproved_definitions_candidate_only": true
+  },
+  "evidence_policy": {
+    "scope": "Committed repository evidence at evidence_commit. Pre-existing untracked candidates excluded.",
+    "fresh_official_source_verification_performed": false,
+    "snapshot_hashes_are_not_vintage_or_approval_proof": true,
+    "deployment_status": "UNKNOWN",
+    "deployment_note": "Raw-display/deployment capabilities do not approve model use. This file does not query or certify live deployment.",
+    "validation_note": "Recorded source-validation claims preserve their scope; no new scientific approval is granted.",
+    "repository_evidence_hash_basis": "SHA-256 of Git blob bytes at evidence_commit; working text must match allowing CRLF/LF checkout conversion only. Official source-file hashes embedded in evidence are unchanged."
+  },
+  "global_methodology": {
+    "missing_data_policy": {
+      "status": "UNAPPROVED",
+      "rule": null
+    },
+    "frequency_alignment": {
+      "status": "UNAPPROVED",
+      "rule": null
+    },
+    "normalization": {
+      "status": "UNAPPROVED",
+      "rule": null
+    },
+    "weighting": {
+      "status": "UNAPPROVED",
+      "rule": null
+    },
+    "vintage_archive": {
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "evidence_refs": [
+        "docs/AESM_V41_E04_CANDIDATE.md"
+      ]
+    },
+    "real_time_backtesting_eligible": false,
+    "aesi_aggregation": {
+      "status": "UNAPPROVED",
+      "rule": null
+    }
+  },
+  "evidence_catalog": {
+    "aesm-research.html": {
+      "path": "aesm-research.html",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "56c3c388aaeeac7267366752b1acef2ff7a4a2daefc28a27680b53877544bb0b",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "aehi-source-registry.json": {
+      "path": "aehi-source-registry.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "fbb52cda6537ac72b01b20a927d1482bcec8357a2e6729750c106422a8fce5f5",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "docs/aehi-pinned-series.json": {
+      "path": "docs/aehi-pinned-series.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "645a71bf456ad6e4b46a77f06a11ea7249ae25a52c5520310e55b3eca94859e9",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "aehi-verified-indicators.json": {
+      "path": "aehi-verified-indicators.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "d38b8eaa14b7a592e340afb4b3b1e9e4af1b81feecc2302c6025aee65a95eaeb",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "asfi-indicators.json": {
+      "path": "asfi-indicators.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "2d6db26746b03235273765f7f300feca75462c0714aa433dd724aed78798ff7a",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "asfi-apra-indicators.json": {
+      "path": "asfi-apra-indicators.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "f7a3bc1454f99b974eb15d3c28a7862c2d38f10a2e34d078ea94245b1401cf12",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "asfi-banking-indicators.json": {
+      "path": "asfi-banking-indicators.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "b4dc4b44e43894243b88c58e8ad1a795354fc07861853adad0b60fdc05253705",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "asfi-public-status.json": {
+      "path": "asfi-public-status.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "56ba0bc58b5d1b0d3b9cbd493f63e0b65e5b5cc88ec9decd02976d1b959b004a",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "aehi-dashboard.html": {
+      "path": "aehi-dashboard.html",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "9f884311b36fbd21efa07a0b57e8d37ac130205dcc3fa185e62664fa5ba1105b",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "asfi-dashboard.html": {
+      "path": "asfi-dashboard.html",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "9109f8156d76bb0b755af67253add598db5e52cfc154a77d86d12fa40147946b",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "docs/AESM_V41_AEHI_AUTOMATION.md": {
+      "path": "docs/AESM_V41_AEHI_AUTOMATION.md",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "f08fe2710385599ee311a915956551084ed72b3dcbc1e7959cf9ffcf6dd07445",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "docs/AESM_V41_E04_CANDIDATE.md": {
+      "path": "docs/AESM_V41_E04_CANDIDATE.md",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "9ac2c2c491404d2de082382013a5472f248a12f633a7b1f81be147f7ab66ef7b",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "docs/AESM_V41_E12_CANDIDATE.md": {
+      "path": "docs/AESM_V41_E12_CANDIDATE.md",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "a269146659ae65bfd5ec613db280067dee844d75012422dfc1c07999f4127d55",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "docs/research/AESM_V41_E12_HISTORICAL_SCORING_V1.md": {
+      "path": "docs/research/AESM_V41_E12_HISTORICAL_SCORING_V1.md",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "41b18e5712dee870db32191234293ed579577f4eaf6b4e78aacb424b196bd3ba",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "docs/ASFI_V37_DATA_PIPELINE.md": {
+      "path": "docs/ASFI_V37_DATA_PIPELINE.md",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "0d7fa604a1a9de49274d1138ff0b0c95bd33391c34bf8dfd29e50e67ca1a1b12",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "docs/ASFI_V38_APRA_SOURCE_SPEC.md": {
+      "path": "docs/ASFI_V38_APRA_SOURCE_SPEC.md",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "a4646f90f5eb99a5f5e9fc5564c9a633a849221b9af297a7a79dc137a45b1421",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "docs/ASFI_V39_APRA_BANKING_SOURCE_SPEC.md": {
+      "path": "docs/ASFI_V39_APRA_BANKING_SOURCE_SPEC.md",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "4223c473fede86bab269c1b52226fd93260a22d686b9d8c706a67029d44ab530",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "data-candidates/aehi-e04-local-review.json": {
+      "path": "data-candidates/aehi-e04-local-review.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "3fd338741ad2318b06524d7ecb189cfd40c9740dfa4cde641b974c46e98e74f6",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "data-candidates/aehi-e12-local-review.json": {
+      "path": "data-candidates/aehi-e12-local-review.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "903587ce7166804120197e24f26f6c3c182f6e7f08a15dbe034c90972ccf5e8f",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "data-candidates/research/aehi-e12-quarterly-scoring-v1.json": {
+      "path": "data-candidates/research/aehi-e12-quarterly-scoring-v1.json",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "5d9a2835482d648600ceee2acd4c129ace8c7d83cb317437a8413b03cb654a82",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "data-candidates/aehi-e05-official.csv": {
+      "path": "data-candidates/aehi-e05-official.csv",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "abbab5160eb02f38727a9774f5221496b3a451b79890f1d80323c592df4067a1",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "scripts/aehi_abs_api_import.py": {
+      "path": "scripts/aehi_abs_api_import.py",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "8b5ae6bcd31467bb8f2264fb6e1ed8c54473f875abc02030d6e2aaec9bae077e",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "scripts/import_aehi_abs_csv.py": {
+      "path": "scripts/import_aehi_abs_csv.py",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "dc6a31c2380324c293507168b0e7d87b5a784f941eb5c860af8414a0b818281c",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "scripts/aehi_e04_import.py": {
+      "path": "scripts/aehi_e04_import.py",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "6fa74b26a913c3938144a192d894c47577d01c67a2f229f7363232ce402cc194",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "scripts/aehi_e05_import.py": {
+      "path": "scripts/aehi_e05_import.py",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "e11759e0ad21754149b4538ffc712860b838604a4111d255cf0dfd22e2399715",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "scripts/aehi_e12_import.py": {
+      "path": "scripts/aehi_e12_import.py",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "8b1a85760e9534a6d1c84357d0b96d4069cfddd3a3de29a5805db8064b5efe31",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "scripts/aehi_e12_scoring_research.py": {
+      "path": "scripts/aehi_e12_scoring_research.py",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "f30da0c18a979d1f2a8a924ee7df27fe314e32219f537ded09e91300faf911ab",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "scripts/import_asfi_rba.py": {
+      "path": "scripts/import_asfi_rba.py",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "a51ba62d874cd8a9de6fce3468dfcf241e7596deb49a376554d61ee70fb13689",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "scripts/import_asfi_apra.py": {
+      "path": "scripts/import_asfi_apra.py",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "30b09a368b05e5a9c544e7977bc4e5c166567f3cd53126a62d4fb2ef3507f0c4",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    "scripts/import_asfi_banking.py": {
+      "path": "scripts/import_asfi_banking.py",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "03740adcc7bf5bc230699f845ce116fb4069aa5f34565a729841efa1148343bb",
+      "hash_basis": "GIT_BLOB_BYTES"
+    },
+    ".github/workflows/aehi-import-tests.yml": {
+      "path": ".github/workflows/aehi-import-tests.yml",
+      "git_commit": "4ebb4ab69401398e43716e537592102006425759",
+      "sha256": "5fe092c44a81ef5ac7cba97672ccdebbaa6b7d9b5557a9fb99f4229955cfeb42",
+      "hash_basis": "GIT_BLOB_BYTES"
+    }
+  },
+  "indicators": [
+    {
+      "code": "E01",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Real GDP per Capita Growth",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E01",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Real output growth per person.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "Real seasonally adjusted GDP per capita — quarter-on-quarter change in chain volume level",
+      "measurement": {
+        "unit": "%",
+        "frequency": "quarterly",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "population": "Australia, per person",
+        "accounting_basis": null,
+        "price_basis": "Chain-volume GDP per capita level input",
+        "specification_status": "RECORDED_SOURCE_IMPLEMENTATION"
+      },
+      "sources": [
+        {
+          "role": "primary_observation_source",
+          "provider": "ABS",
+          "verified_series_id": "ABS:ANA_AGG (current version) / M1.GPM_PCA.20.AUS.Q",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "RECORDED_SOURCE_REVIEW_ONLY",
+          "evidence_ref": "aehi-verified-indicators.json",
+          "record": {
+            "publisher": "ABS",
+            "verified_series_id": "ABS:ANA_AGG (current version) / M1.GPM_PCA.20.AUS.Q",
+            "source_url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG,/M1.GPM_PCA.20.AUS.Q?startPeriod=2010-Q1&format=csv",
+            "source_file_sha256": "a7d64c3990a56128ab0a3356831066dbf1388d601cbbbd95811e439fbfcdc544",
+            "publication_date": "2026-09-02",
+            "review_required_for_publication_date": true,
+            "publication_date_role": "ABS June 2026 national accounts release reference; NOT source download/vintage timestamp",
+            "source_file_reviewed_date": "2026-10-18",
+            "data_vintage": "Current ABS API revised observations as downloaded by user, not original publication-vintage observations",
+            "original_level_series_key": "M1.GPM_PCA.20.AUS.Q",
+            "growth_derived_by": "100 × (quarterly seasonally adjusted chain-volume GDP-per-capita level / preceding quarter level − 1)"
+          }
+        }
+      ],
+      "source_specification_status": "RECORDED_SOURCE_CONTRACT",
+      "source_registry_evidence": {
+        "evidence_ref": "aehi-source-registry.json",
+        "record": {
+          "code": "E01",
+          "name": "Real GDP per Capita Growth",
+          "source_agency": "ABS",
+          "source_dataset": "Australian National Accounts: National Income, Expenditure and Product",
+          "source_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+          "target_frequency": "quarterly",
+          "preferred_metric": "Real seasonally adjusted GDP per capita percentage change; exact source table and growth horizon to be approved",
+          "extraction": "PENDING_SERIES_VERIFICATION",
+          "latest": null,
+          "history": []
+        }
+      },
+      "pinned_series_evidence": {
+        "evidence_ref": "docs/aehi-pinned-series.json",
+        "record": {
+          "code": "E01",
+          "approved_series_metadata": true,
+          "series_id": "ABS:ANA_AGG (current version) / M1.GPM_PCA.20.AUS.Q",
+          "url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_AGG,/M1.GPM_PCA.20.AUS.Q?startPeriod=2010-Q1&format=csv",
+          "frequency": "quarterly",
+          "expected_dimensions": {
+            "MEASURE": "M1",
+            "DATA_ITEM": "GPM_PCA",
+            "TSEST": "20",
+            "REGION": "AUS",
+            "FREQ": "Q"
+          },
+          "verified_metric_definition": "Real seasonally adjusted GDP per capita — quarter-on-quarter change in chain volume level",
+          "source_raw_unit": "AUD per person, chain-volume measure",
+          "value_transform": "qoq_pct_change",
+          "publication_status": "CANDIDATE_ONLY_PENDING_API_RUNTIME_AND_RELEASE_CROSSCHECK"
+        }
+      },
+      "transformations": {
+        "status": "IMPLEMENTED_NOT_MODEL_APPROVAL",
+        "steps": [
+          "100 * (quarterly real seasonally adjusted GDP-per-capita level_t / level_t_minus_1 - 1)",
+          "Round stored growth to 5 decimal places; non-annualised QoQ percent."
+        ],
+        "evidence_refs": [
+          "aehi-verified-indicators.json",
+          "scripts/aehi_abs_api_import.py",
+          "docs/aehi-pinned-series.json"
+        ]
+      },
+      "coverage": {
+        "status": "COMMITTED_OBSERVATIONS",
+        "first_period": "2010 Q2",
+        "last_period": "2026 Q2",
+        "observation_count": 65,
+        "evidence_ref": "aehi-verified-indicators.json"
+      },
+      "validation": {
+        "status": "RECORDED_RAW_DISPLAY_DESIGNATION",
+        "evidence_refs": [
+          "aehi-verified-indicators.json"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [
+        {
+          "capability": "RAW_DISPLAY",
+          "designation": "VERIFIED_FOR_PUBLIC_DISPLAY",
+          "evidence_ref": "aehi-verified-indicators.json",
+          "scope": "Recorded dataset designation only; not model, scoring, weighting or composite-publication approval.",
+          "deployment_status": "UNKNOWN"
+        }
+      ],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "RECORDED_SOURCE_REVIEW_ONLY",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O03"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Establish immutable source-vintage and availability records."
+      ]
+    },
+    {
+      "code": "E02",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Labour Productivity Growth",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E02",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Output relative to labour input; labour denominator unspecified.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": null,
+        "frequency": null,
+        "seasonal_adjustment": null,
+        "population": null,
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "UNKNOWN"
+      },
+      "sources": [],
+      "source_specification_status": "UNKNOWN",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "UNKNOWN",
+        "steps": null,
+        "evidence_refs": []
+      },
+      "coverage": {
+        "status": "NO_COMMITTED_OBSERVATIONS_FOUND",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null
+      },
+      "validation": {
+        "status": "UNVERIFIED_PROPOSAL",
+        "evidence_refs": [
+          "aesm-research.html"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use."
+      ]
+    },
+    {
+      "code": "E03",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Real Private Business Investment Growth",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E03",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Growth of real private business investment; investment perimeter unspecified.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": null,
+        "frequency": null,
+        "seasonal_adjustment": null,
+        "population": null,
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "UNKNOWN"
+      },
+      "sources": [],
+      "source_specification_status": "UNKNOWN",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "UNKNOWN",
+        "steps": null,
+        "evidence_refs": []
+      },
+      "coverage": {
+        "status": "NO_COMMITTED_OBSERVATIONS_FOUND",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null
+      },
+      "validation": {
+        "status": "UNVERIFIED_PROPOSAL",
+        "evidence_refs": [
+          "aesm-research.html"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use."
+      ]
+    },
+    {
+      "code": "E04",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Real Household Disposable Income per Capita Growth",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E04",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Aggregate household purchasing-power growth per person; not median or equivalised income.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "Consumption-price-adjusted real household gross disposable income per capita growth",
+      "measurement": {
+        "unit": "%",
+        "frequency": "quarterly",
+        "seasonal_adjustment": "Income/HFCE seasonally adjusted; ERP original; derived result not independently adjusted",
+        "population": "Australian ERP; timing depends on variant",
+        "accounting_basis": "Household gross disposable income",
+        "price_basis": "HFCE implicit price deflator; level reference year pending workbook vintage match",
+        "specification_status": "CANDIDATE_RESEARCH"
+      },
+      "sources": [
+        {
+          "role": "income",
+          "provider": "ABS",
+          "verified_series_id": "A2302939L",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "LOCAL_WORKBOOK_METADATA_VALIDATED_NOT_PRODUCTION_APPROVAL",
+          "evidence_ref": "data-candidates/aehi-e04-local-review.json",
+          "record": {
+            "publisher": "ABS",
+            "series_id": "A2302939L",
+            "source_file": "research-inputs/e04/5206020_Household_Income (1).xlsx",
+            "source_file_sha256": "98c1561f5640195b962b56e86898ae61dd017df56f3fefff937c571b2cb60ba5",
+            "table": "Table 20. Household Income Account, Current prices",
+            "sheet": "Data1",
+            "metadata_range": "BW1:BW10",
+            "description": "GROSS DISPOSABLE INCOME ;",
+            "unit": "$ Millions",
+            "seasonal_adjustment": "Seasonally Adjusted",
+            "data_type": "DERIVED",
+            "frequency": "quarterly",
+            "first_period": "1959 Q3",
+            "last_period": "2026 Q2",
+            "observation_count": 268,
+            "publication_date": null,
+            "download_timestamp": null,
+            "vintage_note": "Supplied local snapshot; hash identifies bytes, not original release vintage"
+          }
+        },
+        {
+          "role": "consumption_current",
+          "provider": "ABS",
+          "verified_series_id": "A2302236T",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "LOCAL_WORKBOOK_METADATA_VALIDATED_NOT_PRODUCTION_APPROVAL",
+          "evidence_ref": "data-candidates/aehi-e04-local-review.json",
+          "record": {
+            "publisher": "ABS",
+            "series_id": "A2302236T",
+            "source_file": "research-inputs/e04/5206008_Household_Final_Consumption_Expenditure (1).xlsx",
+            "source_file_sha256": "889dcad19a45827d68a0343bf26ca3f9da506dd887a0f18f88de1e9ec4afd8cc",
+            "table": "Table 8. Household Final Consumption Expenditure (HFCE)",
+            "sheet": "Data1",
+            "metadata_range": "GA1:GA10",
+            "description": "FINAL CONSUMPTION EXPENDITURE: Current prices ;",
+            "unit": "$ Millions",
+            "seasonal_adjustment": "Seasonally Adjusted",
+            "data_type": "DERIVED",
+            "frequency": "quarterly",
+            "first_period": "1959 Q3",
+            "last_period": "2026 Q2",
+            "observation_count": 268,
+            "publication_date": null,
+            "download_timestamp": null,
+            "vintage_note": "Supplied local snapshot; hash identifies bytes, not original release vintage"
+          }
+        },
+        {
+          "role": "consumption_volume",
+          "provider": "ABS",
+          "verified_series_id": "A2303280V",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "LOCAL_WORKBOOK_METADATA_VALIDATED_NOT_PRODUCTION_APPROVAL",
+          "evidence_ref": "data-candidates/aehi-e04-local-review.json",
+          "record": {
+            "publisher": "ABS",
+            "series_id": "A2303280V",
+            "source_file": "research-inputs/e04/5206008_Household_Final_Consumption_Expenditure (1).xlsx",
+            "source_file_sha256": "889dcad19a45827d68a0343bf26ca3f9da506dd887a0f18f88de1e9ec4afd8cc",
+            "table": "Table 8. Household Final Consumption Expenditure (HFCE)",
+            "sheet": "Data1",
+            "metadata_range": "BC1:BC10",
+            "description": "FINAL CONSUMPTION EXPENDITURE: Chain volume measures ;",
+            "unit": "$ Millions",
+            "seasonal_adjustment": "Seasonally Adjusted",
+            "data_type": "DERIVED",
+            "frequency": "quarterly",
+            "first_period": "1959 Q3",
+            "last_period": "2026 Q2",
+            "observation_count": 268,
+            "publication_date": null,
+            "download_timestamp": null,
+            "vintage_note": "Supplied local snapshot; hash identifies bytes, not original release vintage"
+          }
+        },
+        {
+          "role": "population",
+          "provider": "ABS",
+          "verified_series_id": "A2133251W",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "LOCAL_WORKBOOK_METADATA_VALIDATED_NOT_PRODUCTION_APPROVAL",
+          "evidence_ref": "data-candidates/aehi-e04-local-review.json",
+          "record": {
+            "publisher": "ABS",
+            "series_id": "A2133251W",
+            "source_file": "research-inputs/e04/310101 (1).xlsx",
+            "source_file_sha256": "79eb16006d54bb0f0dbb1e71bdcb2fcb0e098ecb3ae2f29d6e9418a3e5a48a74",
+            "table": "TABLE 1. Population Change, Summary - Australia ('000)",
+            "sheet": "Data1",
+            "metadata_range": "L1:L10",
+            "description": "Estimated Resident Population (ERP) ;  Australia ;",
+            "unit": "000",
+            "seasonal_adjustment": "Original",
+            "data_type": "STOCK_CLOSE",
+            "frequency": "quarterly",
+            "first_period": "1981 Q2",
+            "last_period": "2026 Q1",
+            "observation_count": 180,
+            "publication_date": null,
+            "download_timestamp": null,
+            "vintage_note": "Supplied local snapshot; hash identifies bytes, not original release vintage"
+          }
+        }
+      ],
+      "source_specification_status": "CANDIDATE_SOURCE_CONTRACTS",
+      "source_registry_evidence": {
+        "evidence_ref": "aehi-source-registry.json",
+        "record": {
+          "code": "E04",
+          "name": "Real Household Disposable Income per Capita Growth",
+          "source_agency": "ABS",
+          "source_dataset": "Australian National Accounts: National Income, Expenditure and Product",
+          "source_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+          "target_frequency": "quarterly",
+          "preferred_metric": "Real household disposable income per capita; price adjustment, population base and growth horizon to be approved",
+          "extraction": "PENDING_DERIVATION_SPEC",
+          "latest": null,
+          "history": []
+        }
+      },
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "CANDIDATE_RESEARCH",
+        "steps": {
+          "deflator": "100 * consumption_current / consumption_volume",
+          "real_income_aud_millions": "income_current * consumption_volume / consumption_current",
+          "method_a": "1000 * real_income_aud_millions / quarter_end_ERP_thousands",
+          "method_b": "1000 * real_income_aud_millions / ((ERP_t + ERP_t_minus_1) / 2)",
+          "growth": "100 * (unrounded_level_t / unrounded_level_t_minus_1 - 1)"
+        },
+        "evidence_refs": [
+          "docs/AESM_V41_E04_CANDIDATE.md",
+          "scripts/aehi_e04_import.py"
+        ]
+      },
+      "coverage": {
+        "status": "CANDIDATE_COMMON_LEVEL_GRID",
+        "first_period": "1981 Q2",
+        "last_period": "2026 Q1",
+        "observation_count": 180,
+        "count_meaning": "Common quarterly rows; growth coverage is variant-specific.",
+        "evidence_ref": "data-candidates/aehi-e04-local-review.json"
+      },
+      "validation": {
+        "status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+        "evidence_refs": [
+          "data-candidates/aehi-e04-local-review.json",
+          "docs/AESM_V41_E04_CANDIDATE.md"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [
+        {
+          "variant_id": "A",
+          "status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+          "role": "RESEARCH_SENSITIVITY",
+          "population_method": "quarter_end_ERP",
+          "formula": "1000 * real_income_aud_millions / quarter_end_ERP_thousands",
+          "growth_formula": "100 * (unrounded_level_t / unrounded_level_t_minus_1 - 1)",
+          "growth_coverage": {
+            "first_period": "1981 Q3",
+            "last_period": "2026 Q1",
+            "observation_count": 179
+          },
+          "publication_approved": false
+        },
+        {
+          "variant_id": "B",
+          "status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+          "role": "PRIMARY_RESEARCH_CANDIDATE_NOT_PRODUCTION_SELECTION",
+          "population_method": "average_of_adjacent_quarter_end_ERP",
+          "formula": "1000 * real_income_aud_millions / ((ERP_t + ERP_t_minus_1) / 2)",
+          "growth_formula": "100 * (unrounded_level_t / unrounded_level_t_minus_1 - 1)",
+          "growth_coverage": {
+            "first_period": "1981 Q4",
+            "last_period": "2026 Q1",
+            "observation_count": 178
+          },
+          "publication_approved": false
+        }
+      ],
+      "overlap_refs": [
+        "O03"
+      ],
+      "methodological_breaks": [
+        "Method B is primary for research only; Method A retained for sensitivity; neither approved for publication",
+        "Average adjacent closing ERP is an approximation to quarterly average population",
+        "Income and consumption are seasonally adjusted; ERP is original; derived ratio not independently adjusted",
+        "Gross income includes depreciation; not net disposable income or a distributional measure",
+        "ABS June 2026 release reference year is 2023-24; matching supplied workbook vintage remains pending; level price base remains unlabelled",
+        "Local workbook publication/download dates unknown; snapshots may have different revision vintages",
+        "No interpolation, projection, population carry-forward or annualisation",
+        "Table 24 inspected during source review; no direct real household income per capita series found there"
+      ],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Match workbook vintage before assigning a constant-dollar reference year.",
+        "Approve gross-income concept, HFCE deflation and approximate population timing for any production use.",
+        "Resolve differing input revision vintages and missing June 2026 ERP in supplied inputs."
+      ],
+      "candidate_governance_evidence": {
+        "primary_method": "B",
+        "primary_population": "average_of_adjacent_quarter_end_ERP",
+        "sensitivity_method": "A",
+        "sensitivity_population": "quarter_end_ERP",
+        "income_concept": "household_gross_disposable_income",
+        "price_adjustment": "HFCE_implicit_price_deflator",
+        "growth_convention": "quarter_on_quarter_percent_non_annualised",
+        "historical_classification": "latest_revised_data_research",
+        "real_time_backtesting_eligible": false,
+        "publication_approved": false,
+        "reference_year": {
+          "abs_release": "June 2026 National Accounts",
+          "financial_year": "2023-24",
+          "official_release_verified": true,
+          "supplied_workbook_vintage_matched": false,
+          "application_status": "PENDING_WORKBOOK_VINTAGE_MATCH",
+          "source_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/jun-2026"
+        },
+        "source_vintage_framework_status": "PROPOSED_NOT_IMPLEMENTED"
+      }
+    },
+    {
+      "code": "E05",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Real Household Consumption Growth",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E05",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Growth in real household consumption demand.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "Real Household Consumption Growth",
+      "measurement": {
+        "unit": "%",
+        "frequency": "quarterly",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "population": null,
+        "accounting_basis": null,
+        "price_basis": "Chain-volume growth",
+        "specification_status": "RECORDED_SOURCE_IMPLEMENTATION"
+      },
+      "sources": [
+        {
+          "role": "primary_observation_source",
+          "provider": "ABS",
+          "verified_series_id": "ABS:ANA_EXP/1.0.0 / PCT_VCH.FCE.PHS.20.AUS.Q",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "RECORDED_SOURCE_REVIEW_ONLY",
+          "evidence_ref": "aehi-verified-indicators.json",
+          "record": {
+            "publisher": "ABS",
+            "verified_series_id": "ABS:ANA_EXP/1.0.0 / PCT_VCH.FCE.PHS.20.AUS.Q",
+            "source_url": "https://data.api.abs.gov.au/rest/data/ABS,ANA_EXP,1.0.0/PCT_VCH.FCE.PHS.20.AUS.Q?startPeriod=2024-Q1",
+            "source_file_sha256": "b4b2b32a03f296606a30954cb03d816fa2520c33995e63ea3930fb1248469026",
+            "publication_date": "2026-09-02",
+            "review_required_for_publication_date": true,
+            "publication_date_role": "ABS June 2026 National Accounts official release date; not an archived API data vintage",
+            "source_file_reviewed_date": "2026-10-18",
+            "data_vintage": "Current ABS API observations; not archived original-release vintage"
+          }
+        }
+      ],
+      "source_specification_status": "RECORDED_SOURCE_CONTRACT",
+      "source_registry_evidence": {
+        "evidence_ref": "aehi-source-registry.json",
+        "record": {
+          "code": "E05",
+          "name": "Real Household Consumption Growth",
+          "source_agency": "ABS",
+          "source_dataset": "Australian National Accounts: National Income, Expenditure and Product",
+          "source_url": "https://www.abs.gov.au/statistics/economy/national-accounts/australian-national-accounts-national-income-expenditure-and-product/latest-release",
+          "target_frequency": "quarterly",
+          "preferred_metric": "Real household final consumption expenditure growth, chain volume, seasonally adjusted; exact table/horizon to be approved",
+          "extraction": "PENDING_SERIES_VERIFICATION",
+          "latest": null,
+          "history": []
+        }
+      },
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "IMPLEMENTED_NOT_MODEL_APPROVAL",
+        "steps": [
+          "Identity: retain published percentage."
+        ],
+        "evidence_refs": [
+          "aehi-verified-indicators.json"
+        ]
+      },
+      "coverage": {
+        "status": "COMMITTED_OBSERVATIONS",
+        "first_period": "2024 Q1",
+        "last_period": "2026 Q2",
+        "observation_count": 10,
+        "evidence_ref": "aehi-verified-indicators.json"
+      },
+      "validation": {
+        "status": "RECORDED_RAW_DISPLAY_DESIGNATION",
+        "evidence_refs": [
+          "aehi-verified-indicators.json"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [
+        {
+          "capability": "RAW_DISPLAY",
+          "designation": "VERIFIED_FOR_PUBLIC_DISPLAY",
+          "evidence_ref": "aehi-verified-indicators.json",
+          "scope": "Recorded dataset designation only; not model, scoring, weighting or composite-publication approval.",
+          "deployment_status": "UNKNOWN"
+        }
+      ],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "RECORDED_SOURCE_REVIEW_ONLY",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O03"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Establish immutable source-vintage and availability records.",
+        "Extend the ten-quarter committed research history and approve a repeatable release-aware importer."
+      ]
+    },
+    {
+      "code": "E06",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Unemployment Rate",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E06",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "National labour-market slack measured by unemployment.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "National unemployment rate, persons aged 15 years and over, seasonally adjusted, monthly",
+      "measurement": {
+        "unit": "%",
+        "frequency": "monthly",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "population": "Australia, persons aged 15 years and over",
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "RECORDED_SOURCE_IMPLEMENTATION"
+      },
+      "sources": [
+        {
+          "role": "primary_observation_source",
+          "provider": "ABS",
+          "verified_series_id": "ABS:LF (current version) / M13.3.1599.20.AUS.M",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "RECORDED_SOURCE_REVIEW_ONLY",
+          "evidence_ref": "aehi-verified-indicators.json",
+          "record": {
+            "publisher": "ABS",
+            "verified_series_id": "ABS:LF (current version) / M13.3.1599.20.AUS.M",
+            "source_url": "https://data.api.abs.gov.au/rest/data/ABS,LF,/M13.3.1599.20.AUS.M?startPeriod=2010-01&format=csv",
+            "source_file_sha256": "60a685dc0cd93ee01e37f8a3a9eef08c4c941e5c7e2f12cf0f662cf3c783ed49",
+            "publication_date": "2026-10-15",
+            "review_required_for_publication_date": true,
+            "publication_date_role": "ABS September 2026 Labour Force release reference (not precise current API-vintage download timestamp)",
+            "source_file_reviewed_date": "2026-10-18",
+            "data_vintage": "Current ABS Data API revision vintage downloaded by user, not archived as-first-published monthly release snapshots",
+            "official_release_url": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/sep-2026",
+            "latest_release_comparison": "2026 M09: 4.71835% rounds to ABS 4.7%, 2026 M08: 4.65161% rounds to 4.7%; raw month-on-month change 0.06674 percentage points rounds to reported +0.1pp."
+          }
+        }
+      ],
+      "source_specification_status": "RECORDED_SOURCE_CONTRACT",
+      "source_registry_evidence": {
+        "evidence_ref": "aehi-source-registry.json",
+        "record": {
+          "code": "E06",
+          "name": "Unemployment Rate",
+          "source_agency": "ABS",
+          "source_dataset": "Labour Force, Australia",
+          "source_url": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release",
+          "target_frequency": "monthly",
+          "preferred_metric": "Seasonally adjusted unemployment rate, Australia, persons, monthly (do not imply inherently quarterly)",
+          "extraction": "PENDING_SERIES_VERIFICATION",
+          "latest": null,
+          "history": []
+        }
+      },
+      "pinned_series_evidence": {
+        "evidence_ref": "docs/aehi-pinned-series.json",
+        "record": {
+          "code": "E06",
+          "approved_series_metadata": true,
+          "series_id": "ABS:LF (current version) / M13.3.1599.20.AUS.M",
+          "url": "https://data.api.abs.gov.au/rest/data/ABS,LF,/M13.3.1599.20.AUS.M?startPeriod=2010-01&format=csv",
+          "frequency": "monthly",
+          "expected_dimensions": {
+            "MEASURE": "M13",
+            "SEX": "3",
+            "AGE": "1599",
+            "TSEST": "20",
+            "REGION": "AUS",
+            "FREQ": "M"
+          },
+          "verified_metric_definition": "National unemployment rate, persons aged 15 years and over, seasonally adjusted, monthly",
+          "source_raw_unit": "Percent (not number of unemployed persons)",
+          "value_transform": "identity",
+          "publication_status": "CANDIDATE_ONLY_PENDING_FULL_HISTORICAL_DOWNLOAD_AND_FIELD_REVIEW",
+          "latest_official_release_reference": "2026-10-15",
+          "official_reference_url": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/sep-2026",
+          "reference_check": "ABS September 2026 seasonally adjusted unemployment 4.7%; E06 candidate API M13 gives 4.7183473%."
+        }
+      },
+      "transformations": {
+        "status": "IMPLEMENTED_NOT_MODEL_APPROVAL",
+        "steps": [
+          "Identity: retain published percentage."
+        ],
+        "evidence_refs": [
+          "aehi-verified-indicators.json"
+        ]
+      },
+      "coverage": {
+        "status": "COMMITTED_OBSERVATIONS",
+        "first_period": "2010 M01",
+        "last_period": "2026 M09",
+        "observation_count": 201,
+        "evidence_ref": "aehi-verified-indicators.json"
+      },
+      "validation": {
+        "status": "RECORDED_RAW_DISPLAY_DESIGNATION",
+        "evidence_refs": [
+          "aehi-verified-indicators.json"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [
+        {
+          "capability": "RAW_DISPLAY",
+          "designation": "VERIFIED_FOR_PUBLIC_DISPLAY",
+          "evidence_ref": "aehi-verified-indicators.json",
+          "scope": "Recorded dataset designation only; not model, scoring, weighting or composite-publication approval.",
+          "deployment_status": "UNKNOWN"
+        }
+      ],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "RECORDED_SOURCE_REVIEW_ONLY",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Establish immutable source-vintage and availability records.",
+        "Approve monthly-to-quarterly alignment if quarterly composite use is proposed.",
+        "Enforce missing-month continuity; chronological ordering alone is insufficient."
+      ]
+    },
+    {
+      "code": "E07",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Non-Mining Corporate Profit Growth",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E07",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Corporate profit momentum excluding mining; accounting scope unspecified.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": null,
+        "frequency": null,
+        "seasonal_adjustment": null,
+        "population": null,
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "UNKNOWN"
+      },
+      "sources": [],
+      "source_specification_status": "UNKNOWN",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "UNKNOWN",
+        "steps": null,
+        "evidence_refs": []
+      },
+      "coverage": {
+        "status": "NO_COMMITTED_OBSERVATIONS_FOUND",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null
+      },
+      "validation": {
+        "status": "UNVERIFIED_PROPOSAL",
+        "evidence_refs": [
+          "aesm-research.html"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O04"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use."
+      ]
+    },
+    {
+      "code": "E08",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Corporate Gross Operating Surplus Margin",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E08",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Corporate operating profitability relative to an unspecified denominator.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": null,
+        "frequency": null,
+        "seasonal_adjustment": null,
+        "population": null,
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "UNKNOWN"
+      },
+      "sources": [],
+      "source_specification_status": "UNKNOWN",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "UNKNOWN",
+        "steps": null,
+        "evidence_refs": []
+      },
+      "coverage": {
+        "status": "NO_COMMITTED_OBSERVATIONS_FOUND",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null
+      },
+      "validation": {
+        "status": "UNVERIFIED_PROPOSAL",
+        "evidence_refs": [
+          "aesm-research.html"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O04"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use."
+      ]
+    },
+    {
+      "code": "E09",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Current Account Balance to GDP",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E09",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "External balance relative to economic size; no monotonic health ranking established.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": null,
+        "frequency": null,
+        "seasonal_adjustment": null,
+        "population": null,
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "UNKNOWN"
+      },
+      "sources": [],
+      "source_specification_status": "UNKNOWN",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "UNKNOWN",
+        "steps": null,
+        "evidence_refs": []
+      },
+      "coverage": {
+        "status": "NO_COMMITTED_OBSERVATIONS_FOUND",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null
+      },
+      "validation": {
+        "status": "UNVERIFIED_PROPOSAL",
+        "evidence_refs": [
+          "aesm-research.html"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use."
+      ]
+    },
+    {
+      "code": "E10",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "General Government Net Debt to GDP",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E10",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Fiscal indebtedness relative to economic size.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": null,
+        "frequency": null,
+        "seasonal_adjustment": null,
+        "population": null,
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "UNKNOWN"
+      },
+      "sources": [],
+      "source_specification_status": "UNKNOWN",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "UNKNOWN",
+        "steps": null,
+        "evidence_refs": []
+      },
+      "coverage": {
+        "status": "NO_COMMITTED_OBSERVATIONS_FOUND",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null
+      },
+      "validation": {
+        "status": "UNVERIFIED_PROPOSAL",
+        "evidence_refs": [
+          "aesm-research.html"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O02"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use."
+      ]
+    },
+    {
+      "code": "E11",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Government Interest Expenses to Revenue",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E11",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Government interest burden relative to revenue.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": null,
+        "frequency": null,
+        "seasonal_adjustment": null,
+        "population": null,
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "UNKNOWN"
+      },
+      "sources": [],
+      "source_specification_status": "UNKNOWN",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "UNKNOWN",
+        "steps": null,
+        "evidence_refs": []
+      },
+      "coverage": {
+        "status": "NO_COMMITTED_OBSERVATIONS_FOUND",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null
+      },
+      "validation": {
+        "status": "UNVERIFIED_PROPOSAL",
+        "evidence_refs": [
+          "aesm-research.html"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O01"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "O01: independently review equivalence and overlap, then obtain approval before any combined composite contribution; retain both definitions meanwhile."
+      ]
+    },
+    {
+      "code": "E12",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Trimmed Mean Inflation",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator E12",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Underlying inflation; candidate reference-band proximity is not overall economic health.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": "Percent annual change",
+        "frequency": "VARIANT_SPECIFIC",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "population": "Australia",
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "CANDIDATE_RESEARCH"
+      },
+      "sources": [
+        {
+          "role": "track_A",
+          "provider": "ABS",
+          "verified_series_id": "A3604511X",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "VALIDATED_RESEARCH_SNAPSHOT_NOT_PRODUCTION_APPROVAL",
+          "evidence_ref": "data-candidates/aehi-e12-local-review.json",
+          "record": {
+            "publisher": "ABS",
+            "source_file": "research-inputs/e12/64010Appendix1a.xlsx",
+            "sha256": "71f8b078d9fc59b011ad1bf3ae77ce23c6dee7eb667fc276acf6821e9bc11f02",
+            "source_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/aug-2026/64010Appendix1a.xlsx",
+            "release_vintage": "August 2026",
+            "publication_date": "2026-09-30",
+            "vintage_basis": "Byte identity independently verified against official ABS downloads during local source validation",
+            "original_download_timestamp": null,
+            "table": "APPENDIX 1a. CPI: Quarterly Analytical Series and Seasonal Adjustment Factors on pre-October 2025 basis",
+            "sheet": "Data1",
+            "metadata_range": "I1:I10",
+            "date_column": "A",
+            "observation_column": "I",
+            "date_system": "Excel 1900",
+            "date_display_format": "mmm\\-yyyy"
+          }
+        },
+        {
+          "role": "track_B",
+          "provider": "ABS",
+          "verified_series_id": "A130400382R",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "VALIDATED_RESEARCH_SNAPSHOT_NOT_PRODUCTION_APPROVAL",
+          "evidence_ref": "data-candidates/aehi-e12-local-review.json",
+          "record": {
+            "publisher": "ABS",
+            "source_file": "research-inputs/e12/640106.xlsx",
+            "sha256": "1df9e8b27beb31c8ab3ed36ee8f9d309fb0e0e61706d48df17fcf766ce44f01a",
+            "source_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/aug-2026/640106.xlsx",
+            "release_vintage": "August 2026",
+            "publication_date": "2026-09-30",
+            "vintage_basis": "Byte identity independently verified against official ABS downloads during local source validation",
+            "original_download_timestamp": null,
+            "table": "TABLE 6. CPI: Analytical Series, Weighted Average of Eight Capital Cities",
+            "sheet": "Data1",
+            "metadata_range": "AH1:AH10",
+            "date_column": "A",
+            "observation_column": "AH",
+            "date_system": "Excel 1900",
+            "date_display_format": "mmm\\-yyyy"
+          }
+        }
+      ],
+      "source_specification_status": "CANDIDATE_SOURCE_CONTRACTS",
+      "source_registry_evidence": {
+        "evidence_ref": "aehi-source-registry.json",
+        "record": {
+          "code": "E12",
+          "name": "Trimmed Mean Inflation",
+          "source_agency": "ABS",
+          "source_dataset": "Consumer Price Index, Australia",
+          "source_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/latest-release",
+          "target_frequency": "monthly_with_quarterly_aggregation",
+          "preferred_metric": "Trimmed mean CPI annual inflation; decide quarterly convention and latest comparable release before publishing",
+          "extraction": "PENDING_SERIES_VERIFICATION",
+          "latest": null,
+          "history": []
+        }
+      },
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "CANDIDATE_RESEARCH",
+        "steps": [
+          "Copy published annual percentage changes; no recomputation, annualisation, interpolation, splicing, substitution or cross-track averaging."
+        ],
+        "evidence_refs": [
+          "docs/AESM_V41_E12_CANDIDATE.md",
+          "scripts/aehi_e12_import.py"
+        ]
+      },
+      "coverage": {
+        "status": "VARIANT_SPECIFIC",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null,
+        "reason": "Independent quarterly/monthly tracks; no combined count or shared series."
+      },
+      "validation": {
+        "status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+        "evidence_refs": [
+          "data-candidates/aehi-e12-local-review.json",
+          "docs/AESM_V41_E12_CANDIDATE.md"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "CANDIDATE_RESEARCH_PARAMETERS_UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": {
+          "evidence_ref": "data-candidates/research/aehi-e12-quarterly-scoring-v1.json",
+          "track": "A",
+          "methodology": {
+            "distance": "max(2 - inflation, 0, inflation - 3)",
+            "score": "max(0, 100 - k * distance)",
+            "slopes": [
+              10,
+              20,
+              30
+            ],
+            "provisional_benchmark_k": 20,
+            "sensitivity_candidate_k": 10,
+            "slope_selection_approved": false,
+            "score_direction": "higher_is_closer_to_reference_band",
+            "quantiles": "linear interpolation at (n-1)*p; type 7",
+            "stddev": "population",
+            "windows_overlap": true,
+            "no_interpolation_filling_or_monthly_inputs": true,
+            "flags": [
+              "latest_revised_data_research",
+              "not_point_in_time",
+              "research_parameters_not_approved",
+              "historical_target_application_counterfactual"
+            ]
+          },
+          "parameters_approved": false,
+          "weights_approved": false,
+          "publication_approved": false,
+          "real_time_backtesting_eligible": false,
+          "limitations": [
+            "Reference band applies officially to headline CPI; trimmed mean application is a research choice",
+            "Pre-target-regime scores are counterfactual modern-reference descriptions",
+            "34 pre-September-2001 ABS/RBA differences remain unresolved; RBA data not used",
+            "2002 precision history and 2011 seasonal methods require reconciliation",
+            "Quarterly continuity maintained by ABS through December 2025 source changes",
+            "Overlapping annual rates and windows are not independent samples",
+            "Latest-revised snapshot includes information unavailable historically",
+            "No causal, forecast, recession probability, weight or composite validation"
+          ]
+        }
+      },
+      "membership": {
+        "proposed_index": "AEHI",
+        "proposed_dimension": null,
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [
+        {
+          "variant_id": "A",
+          "status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+          "frequency": "quarterly",
+          "unit": "Percent",
+          "series_id": "A3604511X",
+          "description": "Percentage Change from Corresponding Quarter of Previous Year ;  Trimmed Mean ;  Australia ;",
+          "coverage": {
+            "first_period": "1983-Q1",
+            "last_period": "2026-Q2",
+            "observation_count": 174,
+            "internal_missing_count": 0,
+            "leading_missing_count": 42,
+            "trailing_missing_count": 4
+          },
+          "validation_evidence": {
+            "first_period": "1983-Q1",
+            "last_period": "2026-Q2",
+            "observation_count": 174,
+            "internal_missing_count": 0,
+            "leading_missing_count": 42,
+            "trailing_missing_count": 4,
+            "excluded_blank_periods": [
+              "1972-Q3",
+              "1972-Q4",
+              "1973-Q1",
+              "1973-Q2",
+              "1973-Q3",
+              "1973-Q4",
+              "1974-Q1",
+              "1974-Q2",
+              "1974-Q3",
+              "1974-Q4",
+              "1975-Q1",
+              "1975-Q2",
+              "1975-Q3",
+              "1975-Q4",
+              "1976-Q1",
+              "1976-Q2",
+              "1976-Q3",
+              "1976-Q4",
+              "1977-Q1",
+              "1977-Q2",
+              "1977-Q3",
+              "1977-Q4",
+              "1978-Q1",
+              "1978-Q2",
+              "1978-Q3",
+              "1978-Q4",
+              "1979-Q1",
+              "1979-Q2",
+              "1979-Q3",
+              "1979-Q4",
+              "1980-Q1",
+              "1980-Q2",
+              "1980-Q3",
+              "1980-Q4",
+              "1981-Q1",
+              "1981-Q2",
+              "1981-Q3",
+              "1981-Q4",
+              "1982-Q1",
+              "1982-Q2",
+              "1982-Q3",
+              "1982-Q4",
+              "2026-Q3",
+              "2026-Q4",
+              "2027-Q1",
+              "2027-Q2"
+            ],
+            "grid_count": 220,
+            "exact_metadata_validated": true,
+            "coverage_validated": true,
+            "source_hash_validated": true
+          },
+          "methodological_breaks": [
+            "established_quarterly_pre_october_2025_basis",
+            "historical_method_changes_unresolved",
+            "seasonal_revisions",
+            "december_2025_source_changes_abs_continuity_maintained"
+          ],
+          "publication_approved": false,
+          "production_pinned": false,
+          "real_time_backtesting_eligible": false
+        },
+        {
+          "variant_id": "B",
+          "status": "CANDIDATE_ONLY_PENDING_VALIDATION",
+          "frequency": "monthly",
+          "unit": "Percent",
+          "series_id": "A130400382R",
+          "description": "Percentage Change from Corresponding Month of Previous Year ;  Trimmed Mean ;  Australia ;",
+          "coverage": {
+            "first_period": "2025-04",
+            "last_period": "2026-08",
+            "observation_count": 17,
+            "internal_missing_count": 0,
+            "leading_missing_count": 12,
+            "trailing_missing_count": 0
+          },
+          "validation_evidence": {
+            "first_period": "2025-04",
+            "last_period": "2026-08",
+            "observation_count": 17,
+            "internal_missing_count": 0,
+            "leading_missing_count": 12,
+            "trailing_missing_count": 0,
+            "excluded_blank_periods": [
+              "2024-04",
+              "2024-05",
+              "2024-06",
+              "2024-07",
+              "2024-08",
+              "2024-09",
+              "2024-10",
+              "2024-11",
+              "2024-12",
+              "2025-01",
+              "2025-02",
+              "2025-03"
+            ],
+            "grid_count": 29,
+            "exact_metadata_validated": true,
+            "coverage_validated": true,
+            "source_hash_validated": true
+          },
+          "methodological_breaks": [
+            "complete_monthly_not_monthly_cpi_indicator",
+            "short_annual_history",
+            "evolving_monthly_seasonal_factors",
+            "seasonal_revisions"
+          ],
+          "publication_approved": false,
+          "production_pinned": false,
+          "real_time_backtesting_eligible": false
+        }
+      ],
+      "overlap_refs": [],
+      "methodological_breaks": [
+        "Historical precision/seasonal-method changes and backcasting unresolved.",
+        "ABS/RBA historical differences before September 2001; no RBA substitution permitted.",
+        "Quarterly and complete-monthly methods remain independent."
+      ],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Reconcile earliest ABS back-history and documented 2002 precision / 2011 seasonal-adjustment changes",
+        "Explain 34 ABS/RBA annual differences through June 2001 before substitution or calibration",
+        "Approve scoring frequency and historical window; assess monthly revision sensitivity",
+        "Historical as-of vintages unavailable; real-time backtesting prohibited"
+      ]
+    },
+    {
+      "code": "S01",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Household Debt to Disposable Income",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator S01",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Household leverage relative to disposable income.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "Household debt to disposable income",
+      "measurement": {
+        "unit": "%",
+        "frequency": "quarterly",
+        "seasonal_adjustment": "Original",
+        "population": "Households; source denominator definition requires retained source notes",
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "RECORDED_SOURCE_IMPLEMENTATION"
+      },
+      "sources": [
+        {
+          "role": "primary_observation_source",
+          "provider": "Reserve Bank of Australia",
+          "verified_series_id": "BHFDDIT",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "RECORDED_SOURCE_REVIEW_ONLY",
+          "evidence_ref": "asfi-indicators.json",
+          "record": {
+            "publisher": "Reserve Bank of Australia",
+            "table": "E2",
+            "series_id": "BHFDDIT",
+            "source_url": "https://www.rba.gov.au/statistics/tables/csv/e2-data.csv",
+            "csv_sha256": "26c12eb781f04ca0c2153aca780c25867ce37d026e157f9cc6cd25faad1e5c9d",
+            "publication_date": "2026-09-25",
+            "series_description": "Household debt to income",
+            "frequency": "Quarterly",
+            "statistical_type": "Original",
+            "original_data_agency": "ABS",
+            "units": "Per cent"
+          }
+        }
+      ],
+      "source_specification_status": "RECORDED_SOURCE_CONTRACT",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "IMPLEMENTED_NOT_MODEL_APPROVAL",
+        "steps": [
+          "Identity: retain published percentage."
+        ],
+        "evidence_refs": [
+          "asfi-indicators.json"
+        ]
+      },
+      "coverage": {
+        "status": "COMMITTED_OBSERVATIONS",
+        "first_period": "2009 Q1",
+        "last_period": "2026 Q2",
+        "observation_count": 70,
+        "evidence_ref": "asfi-indicators.json"
+      },
+      "validation": {
+        "status": "RECORDED_RAW_DISPLAY_DESIGNATION",
+        "evidence_refs": [
+          "asfi-indicators.json"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [
+        {
+          "capability": "RAW_DISPLAY",
+          "designation": "VERIFIED_FOR_PUBLIC_DISPLAY",
+          "evidence_ref": "asfi-indicators.json",
+          "scope": "Recorded dataset designation only; not model, scoring, weighting or composite-publication approval.",
+          "deployment_status": "UNKNOWN"
+        }
+      ],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "ASFI",
+        "proposed_dimension": "HOUSEHOLD",
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "RECORDED_SOURCE_REVIEW_ONLY",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O05"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Establish immutable source-vintage and availability records."
+      ]
+    },
+    {
+      "code": "S02",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Housing Interest Charged to Household Disposable Income",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator S02",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Housing interest burden relative to income; excludes principal repayments.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "Housing interest charged to household disposable income",
+      "measurement": {
+        "unit": "%",
+        "frequency": "quarterly",
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "population": "Housing interest charged / household disposable income",
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "RECORDED_SOURCE_IMPLEMENTATION"
+      },
+      "sources": [
+        {
+          "role": "primary_observation_source",
+          "provider": "Reserve Bank of Australia",
+          "verified_series_id": "LPHTICRI",
+          "identifier_type": "SERIES_ID",
+          "verification_status": "RECORDED_SOURCE_REVIEW_ONLY",
+          "evidence_ref": "asfi-indicators.json",
+          "record": {
+            "publisher": "Reserve Bank of Australia",
+            "table": "E13",
+            "series_id": "LPHTICRI",
+            "source_url": "https://www.rba.gov.au/statistics/tables/csv/e13-data.csv",
+            "csv_sha256": "3940e4b0f94004b4527d02be40f3de5925d43374644b2ac1b53d7377d1b3d6e5",
+            "publication_date": "2026-08-13",
+            "series_description": "Payments; Housing; Total; Interest charged to income",
+            "frequency": "Quarterly",
+            "statistical_type": "Seasonally adjusted",
+            "original_data_agency": "ABS; APRA; RBA",
+            "units": "Per cent"
+          }
+        }
+      ],
+      "source_specification_status": "RECORDED_SOURCE_CONTRACT",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "IMPLEMENTED_NOT_MODEL_APPROVAL",
+        "steps": [
+          "Identity: retain published percentage."
+        ],
+        "evidence_refs": [
+          "asfi-indicators.json"
+        ]
+      },
+      "coverage": {
+        "status": "COMMITTED_OBSERVATIONS",
+        "first_period": "2009 Q1",
+        "last_period": "2026 Q1",
+        "observation_count": 69,
+        "evidence_ref": "asfi-indicators.json"
+      },
+      "validation": {
+        "status": "RECORDED_RAW_DISPLAY_DESIGNATION",
+        "evidence_refs": [
+          "asfi-indicators.json"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [
+        {
+          "capability": "RAW_DISPLAY",
+          "designation": "VERIFIED_FOR_PUBLIC_DISPLAY",
+          "evidence_ref": "asfi-indicators.json",
+          "scope": "Recorded dataset designation only; not model, scoring, weighting or composite-publication approval.",
+          "deployment_status": "UNKNOWN"
+        }
+      ],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "ASFI",
+        "proposed_dimension": "HOUSEHOLD",
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "RECORDED_SOURCE_REVIEW_ONLY",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O05"
+      ],
+      "methodological_breaks": [
+        "February 2023 RBA publication transition from old E2 housing-interest-payments series to E13 interest charged; no unreviewed splice."
+      ],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Establish immutable source-vintage and availability records.",
+        "Retain missing 2026 Q2 as unavailable, not zero or an inferred value."
+      ]
+    },
+    {
+      "code": "S03",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "High DTI Mortgage Lending Share (≥6x)",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator S03",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "High-DTI risk concentration in new housing loan funding, a flow.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "New owner-occupied and investor housing loans at DTI ≥6",
+      "measurement": {
+        "unit": "%",
+        "frequency": "quarterly",
+        "seasonal_adjustment": null,
+        "population": "All ADIs excluding other ADIs, Level 2; QPEX source scope",
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "RECORDED_SOURCE_IMPLEMENTATION"
+      },
+      "sources": [
+        {
+          "role": "primary_observation_source",
+          "provider": "APRA",
+          "verified_series_id": null,
+          "identifier_type": "WORKBOOK_LOCATOR",
+          "verification_status": "RECORDED_SOURCE_REVIEW_ONLY",
+          "evidence_ref": "asfi-apra-indicators.json",
+          "record": {
+            "publisher": "APRA",
+            "workbook": "Quarterly authorised deposit-taking institution property exposures statistics June 2026",
+            "table": "Tab 1c",
+            "numerator": "Debt-to-income ≥ 6x (row 35)",
+            "denominator": "Owner-occupied + investment new term loans funded (rows 9 + 10)",
+            "units": "AUD millions, percentage calculated",
+            "release_date": "2026-09-17",
+            "sha256": "be570149ec853fdae93be1f405724af697c7a1a33ed383894c0a6014dc112cb6"
+          }
+        }
+      ],
+      "source_specification_status": "RECORDED_SOURCE_CONTRACT",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "IMPLEMENTED_NOT_MODEL_APPROVAL",
+        "steps": [
+          "100 * Tab_1c_row_35 / (Tab_1c_row_9 + Tab_1c_row_10)",
+          "Round to 4 decimal places; denominator excludes broader row 7 total."
+        ],
+        "evidence_refs": [
+          "asfi-apra-indicators.json",
+          "scripts/import_asfi_apra.py"
+        ]
+      },
+      "coverage": {
+        "status": "COMMITTED_OBSERVATIONS",
+        "first_period": "2019 Q1",
+        "last_period": "2026 Q2",
+        "observation_count": 30,
+        "evidence_ref": "asfi-apra-indicators.json"
+      },
+      "validation": {
+        "status": "RECORDED_RAW_DISPLAY_DESIGNATION",
+        "evidence_refs": [
+          "asfi-apra-indicators.json"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [
+        {
+          "capability": "RAW_DISPLAY",
+          "designation": "VERIFIED_FOR_PUBLIC_DISPLAY",
+          "evidence_ref": "asfi-apra-indicators.json",
+          "scope": "Recorded dataset designation only; not model, scoring, weighting or composite-publication approval.",
+          "deployment_status": "UNKNOWN"
+        }
+      ],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "ASFI",
+        "proposed_dimension": "MORTGAGE",
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "RECORDED_SOURCE_REVIEW_ONLY",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O06"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Establish immutable source-vintage and availability records."
+      ]
+    },
+    {
+      "code": "S04",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Residential Mortgage NPL Ratio",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator S04",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Non-performing share of outstanding residential credit, a stock.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "Non-performing residential property loans as share of credit outstanding",
+      "measurement": {
+        "unit": "%",
+        "frequency": "quarterly",
+        "seasonal_adjustment": null,
+        "population": "All ADIs excluding other ADIs, Level 2; QPEX source scope",
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "RECORDED_SOURCE_IMPLEMENTATION"
+      },
+      "sources": [
+        {
+          "role": "primary_observation_source",
+          "provider": "APRA",
+          "verified_series_id": null,
+          "identifier_type": "WORKBOOK_LOCATOR",
+          "verification_status": "RECORDED_SOURCE_REVIEW_ONLY",
+          "evidence_ref": "asfi-apra-indicators.json",
+          "record": {
+            "publisher": "APRA",
+            "workbook": "Quarterly authorised deposit-taking institution property exposures statistics June 2026",
+            "table": "Tab 1b",
+            "numerator": "Non-performing loans (row 69)",
+            "denominator": "Total credit outstanding (row 16)",
+            "units": "AUD millions, percentage calculated",
+            "release_date": "2026-09-17",
+            "sha256": "be570149ec853fdae93be1f405724af697c7a1a33ed383894c0a6014dc112cb6"
+          }
+        }
+      ],
+      "source_specification_status": "RECORDED_SOURCE_CONTRACT",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "IMPLEMENTED_NOT_MODEL_APPROVAL",
+        "steps": [
+          "100 * Tab_1b_row_69 / Tab_1b_row_16",
+          "Round to 4 decimal places; use NPL, not 30-89 days past due."
+        ],
+        "evidence_refs": [
+          "asfi-apra-indicators.json",
+          "scripts/import_asfi_apra.py"
+        ]
+      },
+      "coverage": {
+        "status": "COMMITTED_OBSERVATIONS",
+        "first_period": "2019 Q1",
+        "last_period": "2026 Q2",
+        "observation_count": 30,
+        "evidence_ref": "asfi-apra-indicators.json"
+      },
+      "validation": {
+        "status": "RECORDED_RAW_DISPLAY_DESIGNATION",
+        "evidence_refs": [
+          "asfi-apra-indicators.json"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [
+        {
+          "capability": "RAW_DISPLAY",
+          "designation": "VERIFIED_FOR_PUBLIC_DISPLAY",
+          "evidence_ref": "asfi-apra-indicators.json",
+          "scope": "Recorded dataset designation only; not model, scoring, weighting or composite-publication approval.",
+          "deployment_status": "UNKNOWN"
+        }
+      ],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "ASFI",
+        "proposed_dimension": "MORTGAGE",
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "RECORDED_SOURCE_REVIEW_ONLY",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O06"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Establish immutable source-vintage and availability records."
+      ]
+    },
+    {
+      "code": "S05",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Bank Common Equity Tier 1 Ratio (CET1)",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator S05",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Regulatory common-equity capital buffer relative to risk-weighted assets.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "Common Equity Tier 1 (CET1) capital ratio",
+      "measurement": {
+        "unit": "%",
+        "frequency": "quarterly",
+        "seasonal_adjustment": null,
+        "population": "All ADIs excluding other ADIs and foreign branch banks, Level 2 capital adequacy",
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "RECORDED_SOURCE_IMPLEMENTATION"
+      },
+      "sources": [
+        {
+          "role": "primary_observation_source",
+          "provider": "Australian Prudential Regulation Authority",
+          "verified_series_id": null,
+          "identifier_type": "WORKBOOK_LOCATOR",
+          "verification_status": "RECORDED_SOURCE_REVIEW_ONLY",
+          "evidence_ref": "asfi-banking-indicators.json",
+          "record": {
+            "publisher": "Australian Prudential Regulation Authority",
+            "publication": "Quarterly authorised deposit-taking institution performance statistics, September 2004 to June 2026",
+            "original_workbook_sha256": "cb60ee011bb1cd6db7dfc1b537e73fa44d5234f7a8063f23272df0eeb2aab52e",
+            "release_date": "2026-09-17",
+            "data_vintage": "June 2026 workbook. Historical values reflect this vintage; not original-time release vintages.",
+            "table": "Tab 1c",
+            "row": 64,
+            "excel_measure": "Common Equity Tier 1 capital ratio",
+            "population": "All ADIs excluding other ADIs and foreign branch banks, Level 2 capital adequacy",
+            "original_excel_unit": "ratio; multiply by 100 to obtain percent",
+            "comparability_warning": "2023 APRA capital framework changes require a series-break caution."
+          }
+        }
+      ],
+      "source_specification_status": "RECORDED_SOURCE_CONTRACT",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "IMPLEMENTED_NOT_MODEL_APPROVAL",
+        "steps": [
+          "Published source decimal ratio * 100; round to 4 decimal places."
+        ],
+        "evidence_refs": [
+          "asfi-banking-indicators.json",
+          "scripts/import_asfi_banking.py"
+        ]
+      },
+      "coverage": {
+        "status": "COMMITTED_OBSERVATIONS",
+        "first_period": "2013 Q1",
+        "last_period": "2026 Q2",
+        "observation_count": 54,
+        "evidence_ref": "asfi-banking-indicators.json"
+      },
+      "validation": {
+        "status": "RECORDED_RAW_DISPLAY_DESIGNATION",
+        "evidence_refs": [
+          "asfi-banking-indicators.json"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [
+        {
+          "capability": "RAW_DISPLAY",
+          "designation": "VERIFIED_FOR_PUBLIC_DISPLAY",
+          "evidence_ref": "asfi-banking-indicators.json",
+          "scope": "Recorded dataset designation only; not model, scoring, weighting or composite-publication approval.",
+          "deployment_status": "UNKNOWN"
+        }
+      ],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "ASFI",
+        "proposed_dimension": "BANKING",
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "RECORDED_SOURCE_REVIEW_ONLY",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O07"
+      ],
+      "methodological_breaks": [
+        "2023 APRA capital framework changes require a series-break caution."
+      ],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Establish immutable source-vintage and availability records."
+      ]
+    },
+    {
+      "code": "S06",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Net Stable Funding Ratio (NSFR)",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator S06",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Stable funding relative to required stable funding for the reporting population.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": "Net Stable Funding Ratio (NSFR)",
+      "measurement": {
+        "unit": "%",
+        "frequency": "quarterly",
+        "seasonal_adjustment": null,
+        "population": "LCR/NSFR regulated ADIs excluding other ADIs and foreign branch banks; Level 2 liquidity",
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "RECORDED_SOURCE_IMPLEMENTATION"
+      },
+      "sources": [
+        {
+          "role": "primary_observation_source",
+          "provider": "Australian Prudential Regulation Authority",
+          "verified_series_id": null,
+          "identifier_type": "WORKBOOK_LOCATOR",
+          "verification_status": "RECORDED_SOURCE_REVIEW_ONLY",
+          "evidence_ref": "asfi-banking-indicators.json",
+          "record": {
+            "publisher": "Australian Prudential Regulation Authority",
+            "publication": "Quarterly authorised deposit-taking institution performance statistics, September 2004 to June 2026",
+            "original_workbook_sha256": "cb60ee011bb1cd6db7dfc1b537e73fa44d5234f7a8063f23272df0eeb2aab52e",
+            "release_date": "2026-09-17",
+            "data_vintage": "June 2026 workbook. Historical values reflect this vintage; not original-time release vintages.",
+            "table": "Tab 1e",
+            "row": 83,
+            "excel_measure": "NSFR ratio",
+            "population": "LCR/NSFR regulated ADIs excluding other ADIs and foreign branch banks; Level 2 liquidity",
+            "original_excel_unit": "ratio; multiply by 100 to obtain percent",
+            "comparability_warning": "NSFR began Jan 2018; population differs from full banking capital coverage."
+          }
+        }
+      ],
+      "source_specification_status": "RECORDED_SOURCE_CONTRACT",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "IMPLEMENTED_NOT_MODEL_APPROVAL",
+        "steps": [
+          "Published source decimal ratio * 100; round to 4 decimal places."
+        ],
+        "evidence_refs": [
+          "asfi-banking-indicators.json",
+          "scripts/import_asfi_banking.py"
+        ]
+      },
+      "coverage": {
+        "status": "COMMITTED_OBSERVATIONS",
+        "first_period": "2018 Q1",
+        "last_period": "2026 Q2",
+        "observation_count": 34,
+        "evidence_ref": "asfi-banking-indicators.json"
+      },
+      "validation": {
+        "status": "RECORDED_RAW_DISPLAY_DESIGNATION",
+        "evidence_refs": [
+          "asfi-banking-indicators.json"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [
+        {
+          "capability": "RAW_DISPLAY",
+          "designation": "VERIFIED_FOR_PUBLIC_DISPLAY",
+          "evidence_ref": "asfi-banking-indicators.json",
+          "scope": "Recorded dataset designation only; not model, scoring, weighting or composite-publication approval.",
+          "deployment_status": "UNKNOWN"
+        }
+      ],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "ASFI",
+        "proposed_dimension": "BANKING",
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "RECORDED_SOURCE_REVIEW_ONLY",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O07"
+      ],
+      "methodological_breaks": [
+        "NSFR began Jan 2018; population differs from full banking capital coverage."
+      ],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Establish immutable source-vintage and availability records."
+      ]
+    },
+    {
+      "code": "S07",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Change in General Government Net Debt to GDP",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator S07",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Change in government indebtedness relative to GDP.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": "pp",
+        "frequency": "annual_financial_year",
+        "seasonal_adjustment": null,
+        "population": null,
+        "accounting_basis": null,
+        "price_basis": null,
+        "specification_status": "PARTIAL_DICTIONARY_SPECIFICATION"
+      },
+      "sources": [
+        {
+          "role": "proposed_primary_source",
+          "provider": "ABS",
+          "dataset": "Government Finance Statistics, Annual",
+          "verified_series_id": null,
+          "identifier_type": null,
+          "verification_status": "UNVERIFIED_PROPOSAL",
+          "evidence_ref": "aesm-research.html"
+        }
+      ],
+      "source_specification_status": "MISSING_EXACT_SOURCE_ID_OR_LOCATOR",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "PARTIALLY_SPECIFIED",
+        "steps": [
+          "Change in general-government net-debt/GDP ratio, in percentage points; comparison interval and GDP timing UNKNOWN."
+        ],
+        "evidence_refs": [
+          "aesm-research.html"
+        ]
+      },
+      "coverage": {
+        "status": "NO_COMMITTED_OBSERVATIONS_FOUND",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null
+      },
+      "validation": {
+        "status": "UNVERIFIED_PROPOSAL",
+        "evidence_refs": [
+          "aesm-research.html"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "ASFI",
+        "proposed_dimension": "FISCAL",
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O02"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Verify exact source series/cells and history.",
+        "Specify release-gated annual-to-quarterly availability and staleness rules."
+      ]
+    },
+    {
+      "code": "S08",
+      "definition_version": "0.1.0-draft.1",
+      "registered_definition": {
+        "text": "Government Interest Expenses to Revenue",
+        "evidence_ref": "aesm-research.html",
+        "selector": "indicator S08",
+        "status": "PROPOSED_DICTIONARY_DEFINITION"
+      },
+      "economic_interpretation": {
+        "text": "Accrual general-government interest burden relative to GFS revenue.",
+        "status": "RECONCILIATION_INTERPRETATION_NOT_SCORING_APPROVAL"
+      },
+      "operational_definition": null,
+      "measurement": {
+        "unit": "%",
+        "frequency": "annual_financial_year",
+        "seasonal_adjustment": null,
+        "population": "General government, all government levels",
+        "accounting_basis": "Accrual; Interest Expenses n.e.c., excluding separately reported defined-benefit superannuation interest",
+        "price_basis": null,
+        "specification_status": "PARTIAL_DICTIONARY_SPECIFICATION"
+      },
+      "sources": [
+        {
+          "role": "proposed_primary_source",
+          "provider": "ABS",
+          "dataset": "Government Finance Statistics, Annual",
+          "verified_series_id": null,
+          "identifier_type": null,
+          "verification_status": "UNVERIFIED_PROPOSAL",
+          "evidence_ref": "aesm-research.html"
+        }
+      ],
+      "source_specification_status": "MISSING_EXACT_SOURCE_ID_OR_LOCATOR",
+      "source_registry_evidence": null,
+      "pinned_series_evidence": null,
+      "transformations": {
+        "status": "PARTIALLY_SPECIFIED",
+        "steps": [
+          "Interest Expenses n.e.c. divided by Total GFS Revenue; percent scaling/extraction not implemented."
+        ],
+        "evidence_refs": [
+          "aesm-research.html"
+        ]
+      },
+      "coverage": {
+        "status": "NO_COMMITTED_OBSERVATIONS_FOUND",
+        "first_period": null,
+        "last_period": null,
+        "observation_count": null
+      },
+      "validation": {
+        "status": "UNVERIFIED_PROPOSAL",
+        "evidence_refs": [
+          "aesm-research.html"
+        ],
+        "independent_full_history_validation": "UNKNOWN"
+      },
+      "capability_evidence": [],
+      "scoring": {
+        "status": "UNAPPROVED",
+        "direction": null,
+        "normalization": null,
+        "score": null,
+        "research_experiment": null
+      },
+      "membership": {
+        "proposed_index": "ASFI",
+        "proposed_dimension": "FISCAL",
+        "status": "PROPOSED",
+        "aesi_relationship": "CONCEPTUAL_VIA_PILLAR_ONLY",
+        "approved": false
+      },
+      "weight": {
+        "status": "UNAPPROVED",
+        "value": null
+      },
+      "approval_state": {
+        "definition_production": "NO_APPROVAL_EVIDENCE",
+        "source_review": "UNKNOWN",
+        "derivation_production": "NO_APPROVAL_EVIDENCE",
+        "raw_display": "UNKNOWN",
+        "scoring": "NOT_APPROVED",
+        "weighting": "NOT_APPROVED",
+        "composite_publication": "NOT_APPROVED"
+      },
+      "composite_definition_candidate_only": true,
+      "composite_contribution_allowed": false,
+      "methodology_variants": [],
+      "overlap_refs": [
+        "O01"
+      ],
+      "methodological_breaks": [],
+      "outstanding_decisions": [
+        "Approve an exact model definition separately from source-data verification.",
+        "Approve scoring direction and normalization.",
+        "Approve membership and weights before composite use.",
+        "Verify exact source series/cells and history.",
+        "Specify release-gated annual-to-quarterly availability and staleness rules.",
+        "O01: independently review equivalence and overlap, then obtain approval before any combined composite contribution; retain both definitions meanwhile."
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "id": "O01",
+      "indicators": [
+        "E11",
+        "S08"
+      ],
+      "relationship": "UNRESOLVED_POTENTIAL_DUPLICATION",
+      "assessment": "Same registered name and intended fiscal-interest signal; E11 accounting/source/transform details missing. Exact numerical equivalence UNKNOWN.",
+      "status": "UNRESOLVED",
+      "exact_equivalence": null,
+      "combined_composite_contribution_blocked": true,
+      "block_scope": "ANY_COMPOSITE_CONTAINING_BOTH_E11_AND_S08",
+      "resolution": null,
+      "independent_review_approved": false,
+      "evidence_refs": [
+        "aesm-research.html"
+      ]
+    },
+    {
+      "id": "O02",
+      "indicators": [
+        "E10",
+        "S07"
+      ],
+      "relationship": "RELATED_LEVEL_AND_CHANGE",
+      "assessment": "Net-debt/GDP level versus change; not established as duplicates.",
+      "status": "UNRESOLVED",
+      "exact_equivalence": null,
+      "combined_composite_contribution_blocked": false,
+      "block_scope": null,
+      "resolution": null,
+      "independent_review_approved": false,
+      "evidence_refs": [
+        "aesm-research.html"
+      ]
+    },
+    {
+      "id": "O03",
+      "indicators": [
+        "E01",
+        "E04",
+        "E05"
+      ],
+      "relationship": "POTENTIAL_COMMON_ACTIVITY_SIGNAL",
+      "assessment": "Related macroeconomic activity; no measured correlation or contribution analysis.",
+      "status": "UNRESOLVED",
+      "exact_equivalence": null,
+      "combined_composite_contribution_blocked": false,
+      "block_scope": null,
+      "resolution": null,
+      "independent_review_approved": false,
+      "evidence_refs": [
+        "aesm-research.html"
+      ]
+    },
+    {
+      "id": "O04",
+      "indicators": [
+        "E07",
+        "E08"
+      ],
+      "relationship": "POTENTIAL_PROFITABILITY_OVERLAP",
+      "assessment": "Growth versus margin; definitions incomplete.",
+      "status": "UNRESOLVED",
+      "exact_equivalence": null,
+      "combined_composite_contribution_blocked": false,
+      "block_scope": null,
+      "resolution": null,
+      "independent_review_approved": false,
+      "evidence_refs": [
+        "aesm-research.html"
+      ]
+    },
+    {
+      "id": "O05",
+      "indicators": [
+        "S01",
+        "S02"
+      ],
+      "relationship": "RELATED_HOUSEHOLD_EXPOSURES",
+      "assessment": "Leverage versus interest burden; not identical measures.",
+      "status": "UNRESOLVED",
+      "exact_equivalence": null,
+      "combined_composite_contribution_blocked": false,
+      "block_scope": null,
+      "resolution": null,
+      "independent_review_approved": false,
+      "evidence_refs": [
+        "aesm-research.html"
+      ]
+    },
+    {
+      "id": "O06",
+      "indicators": [
+        "S03",
+        "S04"
+      ],
+      "relationship": "RELATED_DISTINCT_FLOW_AND_STOCK",
+      "assessment": "New funding risk versus outstanding credit quality; do not substitute.",
+      "status": "UNRESOLVED",
+      "exact_equivalence": null,
+      "combined_composite_contribution_blocked": false,
+      "block_scope": null,
+      "resolution": null,
+      "independent_review_approved": false,
+      "evidence_refs": [
+        "aesm-research.html"
+      ]
+    },
+    {
+      "id": "O07",
+      "indicators": [
+        "S05",
+        "S06"
+      ],
+      "relationship": "RELATED_DISTINCT_BANK_BUFFERS",
+      "assessment": "Capital versus stable funding, with different populations.",
+      "status": "UNRESOLVED",
+      "exact_equivalence": null,
+      "combined_composite_contribution_blocked": false,
+      "block_scope": null,
+      "resolution": null,
+      "independent_review_approved": false,
+      "evidence_refs": [
+        "aesm-research.html"
+      ]
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "C01",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "aehi-source-registry.json",
+        "aehi-verified-indicators.json"
+      ],
+      "conflict": "E01/E05/E06 registry extraction is pending with empty histories; display-designated observations exist.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C02",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "docs/aehi-pinned-series.json",
+        "aehi-verified-indicators.json"
+      ],
+      "conflict": "E01/E06 pins retain candidate/download-required statuses while raw-display records exist.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C03",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "docs/aehi-pinned-series.json",
+        "scripts/aehi_e05_import.py"
+      ],
+      "conflict": "E05 source implemented but absent from pinned-series configuration.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C04",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "aehi-source-registry.json",
+        "docs/AESM_V41_E04_CANDIDATE.md"
+      ],
+      "conflict": "E04 generic pending derivation versus narrower gross-income/HFCE/method-B candidate.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C05",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "aehi-source-registry.json",
+        "docs/AESM_V41_E12_CANDIDATE.md"
+      ],
+      "conflict": "E12 registry monthly-with-quarterly-aggregation versus independent non-aggregated candidate tracks.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C06",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "aehi-verified-indicators.json"
+      ],
+      "conflict": "Dataset notes mention E01/E06 and other indicators withheld, while E05 is included.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C07",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "aehi-verified-indicators.json",
+        "aehi-dashboard.html"
+      ],
+      "conflict": "Publication-date-review flags remain true but dashboard labels data verified; reference release is not retrieval/vintage.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C08",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "scripts/aehi_e05_import.py",
+        "aehi-verified-indicators.json"
+      ],
+      "conflict": "E05 importer requires E05 absent, so current dataset is not a reusable importer baseline.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C09",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "aesm-research.html",
+        "docs/ASFI_V39_APRA_BANKING_SOURCE_SPEC.md"
+      ],
+      "conflict": "S05 dictionary APRA / RBA FSR versus implemented APRA Performance numerical source.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C10",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "docs/ASFI_V38_APRA_SOURCE_SPEC.md",
+        "scripts/import_asfi_apra.py"
+      ],
+      "conflict": "QPEX document lists repeatable importer as next, although importer exists.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C11",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "aesm-research.html",
+        "docs/AESM_V41_E04_CANDIDATE.md",
+        "asfi-indicators.json"
+      ],
+      "conflict": "Point-in-time retention described as methodology; actual revised-history data and proposed-not-implemented archive differ.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C12",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "aehi-dashboard.html",
+        "asfi-dashboard.html"
+      ],
+      "conflict": "Browser raw-display metadata checks do not implement complete definition/approval/frequency/continuity gates.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C13",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        "scripts/aehi_abs_api_import.py",
+        "scripts/import_aehi_abs_csv.py",
+        "scripts/aehi_e04_import.py",
+        "scripts/aehi_e12_import.py"
+      ],
+      "conflict": "Older output writers allow selected-path overwrites; newer candidate writers restrict paths/exclusive creation.",
+      "resolution": null,
+      "silent_override_permitted": false
+    },
+    {
+      "id": "C14",
+      "status": "UNRESOLVED",
+      "evidence_refs": [
+        ".github/workflows/aehi-import-tests.yml",
+        "docs/research/AESM_V41_E12_HISTORICAL_SCORING_V1.md"
+      ],
+      "conflict": "CI runs six API tests; research documentation describes 38-test local suite, not equivalent CI coverage.",
+      "resolution": null,
+      "silent_override_permitted": false
+    }
+  ],
+  "approval_gates": [
+    {
+      "id": "G0",
+      "status": "NOT_GRANTED_BY_THIS_CONTRACT",
+      "requirements": [
+        "All 20 dictionary entries, evidence, unknowns and contradictions represented."
+      ],
+      "permits": "Draft inventory review only"
+    },
+    {
+      "id": "G1",
+      "status": "NOT_GRANTED_BY_THIS_CONTRACT",
+      "requirements": [
+        "Exact identity/locator, units, frequency, population and metadata independently reviewed."
+      ],
+      "permits": "Source acceptance only"
+    },
+    {
+      "id": "G2",
+      "status": "NOT_GRANTED_BY_THIS_CONTRACT",
+      "requirements": [
+        "Snapshot hashes, coverage, missingness, transformations and independent numeric checks."
+      ],
+      "permits": "Validated research dataset only"
+    },
+    {
+      "id": "G3",
+      "status": "NOT_GRANTED_BY_THIS_CONTRACT",
+      "requirements": [
+        "Separate raw-display approval for exact vintage and correct presentation."
+      ],
+      "permits": "Specified raw observations only"
+    },
+    {
+      "id": "G4",
+      "status": "NOT_GRANTED_BY_THIS_CONTRACT",
+      "requirements": [
+        "Scoring direction, normalization, parameters, breaks and sensitivity reviewed."
+      ],
+      "permits": "Approved scope of scoring research only"
+    },
+    {
+      "id": "G5",
+      "status": "NOT_GRANTED_BY_THIS_CONTRACT",
+      "requirements": [
+        "Membership, weights, overlap, missingness, alignment and vintage policy approved.",
+        "E11/S08 combined contribution independently reviewed and approved."
+      ],
+      "permits": "Eligibility for composite release review, subject to HOLD"
+    },
+    {
+      "id": "G6",
+      "status": "NOT_GRANTED_BY_THIS_CONTRACT",
+      "requirements": [
+        "Independent sign-off on exact contract/data/code versions and release artifact.",
+        "Explicit authorization to lift applicable HOLD."
+      ],
+      "permits": "Explicitly approved release only"
+    }
+  ],
+  "version_policy": {
+    "schema_version": "Structure compatibility version, independent of model release.",
+    "contract_version": "Versioned evidence and reconciliation snapshot; never overwrites source evidence.",
+    "definition_version": "Changes to population, concept, denominator, frequency, transform or scoring require new definition version and dependent reapproval.",
+    "approvals": "Never inherited automatically across definition, data-vintage, scoring or release changes."
+  },
+  "unresolved_decisions": [
+    "Complete missing measurement/source specifications without inferred providers or identifiers.",
+    "Reconcile contradictions through reviewed, explicit decisions.",
+    "Resolve E11/S08 equivalence and overlap before combined contribution.",
+    "Approve model scoring, normalization, missingness, alignment, memberships and weights separately.",
+    "Implement vintage archive before point-in-time operational claims.",
+    "Independently approve any future publication; this documentation grants no release approval."
+  ]
+}

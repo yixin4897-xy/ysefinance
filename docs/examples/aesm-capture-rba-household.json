@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "indicator": "S01",
+  "methodological_variant": null,
+  "source_role": "primary_observation_source",
+  "provider": "RBA",
+  "official_source_url": "https://www.rba.gov.au/statistics/tables/csv/e2-data.csv",
+  "release": {
+    "date": null,
+    "period": null,
+    "evidence_url": null,
+    "verification_note": null
+  },
+  "validation_contract": {
+    "adapter": "RBA_CSV",
+    "series_id": "BHFDDIT",
+    "description": "Household debt to income",
+    "unit": "Per cent",
+    "frequency": "quarterly",
+    "seasonal_adjustment": "Original",
+    "data_type": null,
+    "table": "E2",
+    "dimensions": {},
+    "minimum_observations": 12
+  },
+  "maximum_bytes": 10000000
+}

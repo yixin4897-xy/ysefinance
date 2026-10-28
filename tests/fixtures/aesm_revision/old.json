@@ -1,0 +1,178 @@
+{
+  "methodology": {
+    "definition_version": "synthetic-v1",
+    "methodology": "synthetic annual rate",
+    "percentage_point_applicable": true,
+    "price_basis": "percentage change",
+    "reference_year": "NOT_APPLICABLE"
+  },
+  "record": {
+    "approval": {
+      "indicator_approved": false,
+      "production_pinned": false,
+      "publication_approved": false,
+      "scoring_approved": false,
+      "weights_approved": false
+    },
+    "capture_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "completed_at_utc": "2026-10-01T00:00:02+00:00",
+    "composite_release_statuses": {
+      "AEHI": "HOLD",
+      "AESI": "HOLD",
+      "ASFI": "HOLD"
+    },
+    "composite_scores": {
+      "AEHI": null,
+      "AESI": null,
+      "ASFI": null
+    },
+    "historical_classification": "LATEST_REVISED_DATA_CAPTURE_NOT_HISTORICAL_FIRST_RELEASE",
+    "implementation_sha256": "0ac895e5cf8c3d48f8643a3c86e5f5a8b8456c5af69eae3b9865b8f8584b3a66",
+    "outcome": "VALIDATED",
+    "point_in_time_eligible": false,
+    "record_id": "sha256-b80d6b4a4496a9202ebf5597ad4aabfd67a102dba4424c2eef0658b549bff635",
+    "record_schema_sha256": "99be04000bf77344cc31ed632c41960f6b6e84fac01c90c0397fe7974dba66f0",
+    "release_verification_basis": "UNKNOWN",
+    "request": {
+      "indicator": "E12",
+      "maximum_bytes": 10000000,
+      "methodological_variant": "A",
+      "official_source_url": "https://data.api.abs.gov.au/rest/data/SYNTHETIC_NOT_OFFICIAL",
+      "provider": "ABS",
+      "release": {
+        "date": null,
+        "evidence_url": null,
+        "period": null,
+        "verification_note": null
+      },
+      "schema_version": "0.1.0",
+      "source_role": "track_A",
+      "validation_contract": {
+        "adapter": "ABS_SDMX_CSV",
+        "data_type": "PERCENT",
+        "description": "Percentage Change from Corresponding Quarter of Previous Year ;  Trimmed Mean ;  Australia ;",
+        "dimensions": {
+          "SERIES": "SYNTHETIC_E12",
+          "UNIT_MEASURE": "PCT"
+        },
+        "frequency": "quarterly",
+        "minimum_observations": 2,
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "series_id": "SYNTHETIC_E12",
+        "table": "APPENDIX 1a. CPI: Quarterly Analytical Series and Seasonal Adjustment Factors on pre-October 2025 basis",
+        "unit": "Percent"
+      }
+    },
+    "request_sha256": "a9c19747181b9c20f3f29f53ba354b9017c1cbae4b4cf094e343bcfcdde7a187",
+    "retrieved_at_utc": "2026-10-01T00:00:01+00:00",
+    "schema_version": "0.2.0",
+    "source": {
+      "byte_count": 162,
+      "filename_basis": "URL_PATH",
+      "original_filename": "synthetic.csv",
+      "sha256": "13f204622af13c7f0ca30bcb4a04b3e241b62a6b49ceb6f4896bf592994530e4",
+      "snapshot_id": "sha256-13f204622af13c7f0ca30bcb4a04b3e241b62a6b49ceb6f4896bf592994530e4",
+      "snapshot_path": "snapshots/sha256/13f204622af13c7f0ca30bcb4a04b3e241b62a6b49ceb6f4896bf592994530e4"
+    },
+    "start_record_id": "sha256-2b2cab7f1a726d46de3da4533954d13a831cb983644d53ffdca86096af08f077",
+    "started_at_utc": "2026-10-01T00:00:00+00:00",
+    "transport": "HTTPS_DOWNLOAD",
+    "validation": {
+      "coverage": {
+        "excluded_blank_periods": [
+          "2025-Q1"
+        ],
+        "first_period": "2025-Q2",
+        "grid_count": 4,
+        "internal_missing_count": 0,
+        "last_period": "2025-Q4",
+        "leading_missing_count": 1,
+        "observation_count": 3,
+        "trailing_missing_count": 0
+      },
+      "error_type": null,
+      "note": null,
+      "state": "PASSED"
+    }
+  },
+  "source_text": "SERIES,UNIT_MEASURE,TIME_PERIOD,OBS_VALUE\nSYNTHETIC_E12,PCT,2025-Q1,\nSYNTHETIC_E12,PCT,2025-Q2,1.10\nSYNTHETIC_E12,PCT,2025-Q3,2.20\nSYNTHETIC_E12,PCT,2025-Q4,3.30\n",
+  "start": {
+    "approval": {
+      "indicator_approved": false,
+      "production_pinned": false,
+      "publication_approved": false,
+      "scoring_approved": false,
+      "weights_approved": false
+    },
+    "capture_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "completed_at_utc": null,
+    "composite_release_statuses": {
+      "AEHI": "HOLD",
+      "AESI": "HOLD",
+      "ASFI": "HOLD"
+    },
+    "composite_scores": {
+      "AEHI": null,
+      "AESI": null,
+      "ASFI": null
+    },
+    "historical_classification": "LATEST_REVISED_DATA_CAPTURE_NOT_HISTORICAL_FIRST_RELEASE",
+    "implementation_sha256": "0ac895e5cf8c3d48f8643a3c86e5f5a8b8456c5af69eae3b9865b8f8584b3a66",
+    "outcome": "STARTED",
+    "point_in_time_eligible": false,
+    "record_id": "sha256-2b2cab7f1a726d46de3da4533954d13a831cb983644d53ffdca86096af08f077",
+    "record_schema_sha256": "99be04000bf77344cc31ed632c41960f6b6e84fac01c90c0397fe7974dba66f0",
+    "release_verification_basis": "UNKNOWN",
+    "request": {
+      "indicator": "E12",
+      "maximum_bytes": 10000000,
+      "methodological_variant": "A",
+      "official_source_url": "https://data.api.abs.gov.au/rest/data/SYNTHETIC_NOT_OFFICIAL",
+      "provider": "ABS",
+      "release": {
+        "date": null,
+        "evidence_url": null,
+        "period": null,
+        "verification_note": null
+      },
+      "schema_version": "0.1.0",
+      "source_role": "track_A",
+      "validation_contract": {
+        "adapter": "ABS_SDMX_CSV",
+        "data_type": "PERCENT",
+        "description": "Percentage Change from Corresponding Quarter of Previous Year ;  Trimmed Mean ;  Australia ;",
+        "dimensions": {
+          "SERIES": "SYNTHETIC_E12",
+          "UNIT_MEASURE": "PCT"
+        },
+        "frequency": "quarterly",
+        "minimum_observations": 2,
+        "seasonal_adjustment": "Seasonally Adjusted",
+        "series_id": "SYNTHETIC_E12",
+        "table": "APPENDIX 1a. CPI: Quarterly Analytical Series and Seasonal Adjustment Factors on pre-October 2025 basis",
+        "unit": "Percent"
+      }
+    },
+    "request_sha256": "a9c19747181b9c20f3f29f53ba354b9017c1cbae4b4cf094e343bcfcdde7a187",
+    "retrieved_at_utc": null,
+    "schema_version": "0.2.0",
+    "source": {
+      "byte_count": null,
+      "filename_basis": null,
+      "original_filename": null,
+      "sha256": null,
+      "snapshot_id": null,
+      "snapshot_path": null
+    },
+    "start_record_id": null,
+    "started_at_utc": "2026-10-01T00:00:00+00:00",
+    "transport": "HTTPS_DOWNLOAD",
+    "validation": {
+      "coverage": null,
+      "error_type": null,
+      "note": null,
+      "state": "NOT_RUN"
+    }
+  },
+  "synthetic_only": true
+}

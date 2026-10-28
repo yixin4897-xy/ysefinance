@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "indicator": "E12",
+  "methodological_variant": "A",
+  "source_role": "track_A",
+  "provider": "ABS",
+  "official_source_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/aug-2026/64010Appendix1a.xlsx",
+  "release": {
+    "date": null,
+    "period": null,
+    "evidence_url": null,
+    "verification_note": null
+  },
+  "validation_contract": {
+    "adapter": "ABS_XLSX",
+    "series_id": "A3604511X",
+    "description": "Percentage Change from Corresponding Quarter of Previous Year ;  Trimmed Mean ;  Australia ;",
+    "unit": "Percent",
+    "frequency": "quarterly",
+    "seasonal_adjustment": "Seasonally Adjusted",
+    "data_type": "PERCENT",
+    "table": "APPENDIX 1a. CPI: Quarterly Analytical Series and Seasonal Adjustment Factors on pre-October 2025 basis",
+    "dimensions": {},
+    "minimum_observations": 12
+  },
+  "maximum_bytes": 10000000
+}
