@@ -146,6 +146,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 .header-in .site-nav a.current{border-bottom:1px solid rgba(255,255,255,.12);color:var(--orange2)}
 .header-in .site-nav .consult{text-align:center;margin-top:10px;border:0}
 }
+
+/* Phase 1 proposal: wrap provenance without hiding overflow or changing data. */
+.indicator-provenance{overflow-wrap:anywhere;word-break:normal;min-width:0}
+.indicator-data-status{white-space:normal;max-width:100%}
+.history-switch button{min-height:44px;min-width:44px}
 </style>
 </head>
 <body>
@@ -164,7 +169,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <a class="brand" href="/" aria-label="YSE Finance home"><img src="/yse-logo-dark.svg" alt="YSE Finance — Sydney Tax Agent" width="206" height="44"></a>
 <button type="button" class="research-mobile-toggle" id="researchMobileToggle" aria-label="Open navigation menu" aria-controls="researchMobileNav" aria-expanded="false">☰</button>
 <nav class="site-nav" id="researchMobileNav" aria-label="Main navigation">
-<a href="/">Home</a><a href="/services.html">Services</a><a href="/blog/">Blog</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a href="/aesm-research.html">Research (AESM)</a><a href="/aehi-dashboard.html">AEHI Dashboard</a><a href="/asfi-dashboard.html" class="current" aria-current="page">ASFI Dashboard</a><a class="consult" href="/#contact">Book Consultation</a>
+<a href="/">Home</a><a href="/services.html">Services</a><a href="/blog/">Blog</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a href="/aesm-research.html">Research (AESM)</a><a href="/aesm-research.html#aehi">AEHI research scope</a><a href="/asfi-dashboard.html" class="current" aria-current="page">ASFI Dashboard</a><a class="consult" href="/#contact">Book Consultation</a>
 </nav></div></header>
 <section class="hero"><div class="wrap hero-in">
 <div class="kicker">YSE Finance · Economic Research</div>
@@ -198,8 +203,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <section class="block indicator-section" id="raw-indicators" aria-labelledby="raw-indicators-title">
 <div class="indicator-section-head"><div><h2 id="raw-indicators-title">Official Indicator Data</h2><p>RBA quarterly observations, separate from the unpublished ASFI scoring model.</p></div><span id="indicator-data-status" class="indicator-data-status">Awaiting source verification</span></div>
 <div class="indicator-card-grid">
-<article class="indicator-data-card"><div class="data-tag">S01 · RBA E2</div><h3>Household Debt / Disposable Income</h3><div class="indicator-big" id="s01-value">—</div><p class="indicator-period" id="s01-period">Official data not yet imported</p><p class="indicator-change" id="s01-change">Quarterly change: —</p><a href="https://www.rba.gov.au/statistics/tables/" target="_blank" rel="noopener noreferrer">RBA source table E2 ↗</a></article>
-<article class="indicator-data-card"><div class="data-tag">S02 · RBA E13</div><h3>Housing Interest Charged / Income</h3><div class="indicator-big" id="s02-value">—</div><p class="indicator-period" id="s02-period">Official data not yet imported</p><p class="indicator-change" id="s02-change">Quarterly change: —</p><a href="https://www.rba.gov.au/statistics/tables/" target="_blank" rel="noopener noreferrer">RBA source table E13 ↗</a></article>
+<article class="indicator-data-card"><div class="data-tag">S01 · RBA E2</div><h3>Household Debt / Disposable Income</h3><div class="indicator-big" id="s01-value">—</div><p class="indicator-period" id="s01-period">Official data not yet imported</p><p class="indicator-change" id="s01-change">Quarterly change: —</p><a href="https://www.rba.gov.au/statistics/tables/csv/e2-data.csv" target="_blank" rel="noopener noreferrer">RBA E2 source CSV ↗</a></article>
+<article class="indicator-data-card"><div class="data-tag">S02 · RBA E13</div><h3>Housing Interest Charged / Income</h3><div class="indicator-big" id="s02-value">—</div><p class="indicator-period" id="s02-period">Official data not yet imported</p><p class="indicator-change" id="s02-change">Quarterly change: —</p><a href="https://www.rba.gov.au/statistics/tables/csv/e13-data.csv" target="_blank" rel="noopener noreferrer">RBA E13 source CSV ↗</a></article>
 </div>
 <div class="raw-history">
 <div class="raw-history-heading"><div><h3>Official Quarterly History</h3><p>Current RBA data vintage; observations are subject to retrospective revision.</p></div><div class="history-switch" role="group" aria-label="Select indicator trend"><button id="history-s01" type="button" class="active" aria-pressed="true">S01 Debt</button><button id="history-s02" type="button" aria-pressed="false">S02 Interest</button></div></div>
@@ -212,8 +217,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <section class="block indicator-section" id="apra-indicators" aria-labelledby="apra-indicators-title">
 <div class="indicator-section-head"><div><h2 id="apra-indicators-title">Mortgage Credit Risk · APRA</h2><p>Quarterly industry-wide mortgage origination and non-performing loan ratios.</p></div><span id="apra-data-status" class="indicator-data-status">Awaiting APRA verification</span></div>
 <div class="indicator-card-grid">
-<article class="indicator-data-card"><div class="data-tag">S03 · APRA QPEX Tab 1c</div><h3>New Housing Loans with DTI ≥6x</h3><div class="indicator-big" id="s03-value">—</div><p class="indicator-period" id="s03-period">Source file under review</p><p class="indicator-change" id="s03-change">Quarterly change: —</p><p class="indicator-formula">Ratio of high-DTI lending to new owner-occupied and investor term loans funded.</p><a href="https://www.apra.gov.au/news-and-publications/quarterly-authorised-deposit-taking-institution-statistics" target="_blank" rel="noopener noreferrer">Official APRA statistics ↗</a></article>
-<article class="indicator-data-card"><div class="data-tag">S04 · APRA QPEX Tab 1b</div><h3>Non-performing Residential Loans</h3><div class="indicator-big" id="s04-value">—</div><p class="indicator-period" id="s04-period">Source file under review</p><p class="indicator-change" id="s04-change">Quarterly change: —</p><p class="indicator-formula">Non-performing residential-property loans / total residential credit outstanding.</p><a href="https://www.apra.gov.au/news-and-publications/quarterly-authorised-deposit-taking-institution-statistics" target="_blank" rel="noopener noreferrer">Official APRA statistics ↗</a></article>
+<article class="indicator-data-card"><div class="data-tag">S03 · APRA QPEX Tab 1c</div><h3>New Housing Loans with DTI ≥6x</h3><div class="indicator-big" id="s03-value">—</div><p class="indicator-period" id="s03-period">Source file under review</p><p class="indicator-change" id="s03-change">Quarterly change: —</p><p class="indicator-formula">Ratio of high-DTI lending to new owner-occupied and investor term loans funded.</p><a href="https://www.apra.gov.au/quarterly-authorised-deposit-taking-institution-property-exposure-statistics-june-2026-highlights" target="_blank" rel="noopener noreferrer">APRA June 2026 property-exposure release ↗</a></article>
+<article class="indicator-data-card"><div class="data-tag">S04 · APRA QPEX Tab 1b</div><h3>Non-performing Residential Loans</h3><div class="indicator-big" id="s04-value">—</div><p class="indicator-period" id="s04-period">Source file under review</p><p class="indicator-change" id="s04-change">Quarterly change: —</p><p class="indicator-formula">Non-performing residential-property loans / total residential credit outstanding.</p><a href="https://www.apra.gov.au/quarterly-authorised-deposit-taking-institution-property-exposure-statistics-june-2026-highlights" target="_blank" rel="noopener noreferrer">APRA June 2026 property-exposure release ↗</a></article>
 </div>
 <div class="raw-history"><div class="raw-history-heading"><div><h3>APRA Quarterly History</h3><p>Calculated percentage ratios from APRA's original QPEX workbook amounts.</p></div>
 <div class="history-switch" role="group" aria-label="Select APRA mortgage risk indicator"><button id="apra-history-s03" type="button" class="active" aria-pressed="true">S03 High DTI</button><button id="apra-history-s04" type="button" aria-pressed="false">S04 NPL</button></div></div>
@@ -224,10 +229,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <div class="indicator-provenance" id="apra-provenance"><strong>Source:</strong> APRA quarterly authorised deposit-taking institution property exposures statistics (QPEX), June 2026. Workbook coverage: all ADIs excluding other ADIs, Level 2. Data subject to revision.</div>
 </section>
 <section class="block indicator-section" id="banking-indicators" aria-labelledby="banking-title">
-<div class="indicator-section-head"><div><h2 id="banking-title">Banking Resilience · APRA</h2><p>Industry capital strength and stable funding, using APRA's June 2026 release.</p></div><span class="indicator-data-status" id="banking-data-status">Awaiting APRA verification</span></div>
+<div class="indicator-section-head"><div><h2 id="banking-title">Banking Resilience · APRA</h2><p>Industry capital strength and stable funding; observations through June quarter 2026, published 17 September 2026.</p></div><span class="indicator-data-status" id="banking-data-status">Awaiting APRA verification</span></div>
 <div class="indicator-card-grid">
-<article class="indicator-data-card"><div class="data-tag">S05 · APRA Tab 1c</div><h3>Common Equity Tier 1 Capital Ratio</h3><div class="indicator-big" id="s05-value">—</div><p class="indicator-period" id="s05-period">Official data pending</p><p class="indicator-change" id="s05-change">Quarterly change: —</p><p class="indicator-formula">CET1 ratio; the 2023 APRA capital framework change affects historical comparisons.</p><a href="https://www.apra.gov.au/news-and-publications/quarterly-authorised-deposit-taking-institution-statistics" target="_blank" rel="noopener noreferrer">APRA performance statistics ↗</a></article>
-<article class="indicator-data-card"><div class="data-tag">S06 · APRA Tab 1e</div><h3>Net Stable Funding Ratio</h3><div class="indicator-big" id="s06-value">—</div><p class="indicator-period" id="s06-period">Official data pending</p><p class="indicator-change" id="s06-change">Quarterly change: —</p><p class="indicator-formula">NSFR for relevant LCR-regulated ADIs; coverage is not identical to CET1.</p><a href="https://www.apra.gov.au/news-and-publications/quarterly-authorised-deposit-taking-institution-statistics" target="_blank" rel="noopener noreferrer">APRA performance statistics ↗</a></article>
+<article class="indicator-data-card"><div class="data-tag">S05 · APRA Tab 1c</div><h3>Common Equity Tier 1 Capital Ratio</h3><div class="indicator-big" id="s05-value">—</div><p class="indicator-period" id="s05-period">Official data pending</p><p class="indicator-change" id="s05-change">Quarterly change: —</p><p class="indicator-formula">CET1 ratio; the 2023 APRA capital framework change affects historical comparisons.</p><a href="https://www.apra.gov.au/quarterly-authorised-deposit-taking-institution-performance-statistics-june-2026-highlights" target="_blank" rel="noopener noreferrer">APRA June 2026 performance release ↗</a></article>
+<article class="indicator-data-card"><div class="data-tag">S06 · APRA Tab 1e</div><h3>Net Stable Funding Ratio</h3><div class="indicator-big" id="s06-value">—</div><p class="indicator-period" id="s06-period">Official data pending</p><p class="indicator-change" id="s06-change">Quarterly change: —</p><p class="indicator-formula">NSFR for relevant LCR-regulated ADIs; coverage is not identical to CET1.</p><a href="https://www.apra.gov.au/quarterly-authorised-deposit-taking-institution-performance-statistics-june-2026-highlights" target="_blank" rel="noopener noreferrer">APRA June 2026 performance release ↗</a></article>
 </div>
 <div class="raw-history"><div class="raw-history-heading"><div><h3>Banking Resilience — Quarterly History</h3><p>APRA statistical ratios; historical observations may have been revised.</p></div><div class="history-switch" role="group" aria-label="Banking resilience chart selection"><button type="button" id="bank-history-s05" class="active" aria-pressed="true">S05 CET1</button><button type="button" id="bank-history-s06" aria-pressed="false">S06 NSFR</button></div></div>
 <div class="raw-history-empty" id="bank-history-empty">Banking history will appear after source checks.</div><svg id="bank-history-chart" class="indicator-history-chart" viewBox="0 0 700 238" role="img" aria-label="Banking resilience historical trend" style="display:none"></svg>
@@ -235,12 +240,13 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 <div class="indicator-provenance" id="banking-provenance"><strong>Source:</strong> APRA Quarterly ADI Performance Statistics. S05 and S06 have different covered populations; no ASFI scores are shown.</div>
 </section>
 <section class="details-grid" aria-label="Historical evidence and publication status">
-<div class="block trend-panel"><h2>Historical Trend</h2><div class="trend-empty"><div><div class="lock-circle"><svg class="ic"><use href="#i-lock"/></svg></div><strong>Available after validation</strong><p>No historical composite trend is published yet. We will display verified quarterly scores here after original-data vintage checks.</p></div></div></div>
+<div class="block trend-panel"><h2>Historical Trend</h2><div class="trend-empty"><div><div class="lock-circle"><svg class="ic"><use href="#i-lock"/></svg></div><strong>Available after validation</strong><p>No historical composite trend is published yet. Any future composite display requires separate methodology approval, independent validation and publication sign-off.</p></div></div></div>
 <div class="right-col"><div class="block side-panel release"><h2>Publication Status: <span id="asfi-release-status">HOLD</span></h2><p>Composite score not yet released. HOLD means the research has not passed its publication requirements; it is not an economic distress signal.</p></div>
-<div class="block side-panel"><h2>Methodology Notes</h2><p>Eight ASFI indicators are assessed in four dimensions. Original observation dates, release dates and revisions are tracked using official RBA, APRA and ABS statistics.</p><a class="panel-link" href="/aesm-research.html#methodology">Read the complete methodology →</a></div>
+<div class="block side-panel"><h2>Methodology Notes</h2><p>Eight proposed ASFI indicators span four dimensions. Six raw series are displayed separately from experimental methodology. Observation periods and recorded source-review dates are shown; historical point-in-time validation remains incomplete.</p><a class="panel-link" href="/aesm-research.html#methodology">Read the complete methodology →</a></div>
+<p class="phase1-version-note">Public presentation follows research page v3.6; internal AESM V4.1 development is separate and unapproved for production. Data reference periods and source publication dates appear on each card. Recorded source-file review: 17 October 2026; this is not a claim of complete historical validation or live refresh.</p>
 <div class="source-strip">Sources: RBA · APRA · ABS · Intended update cycle: Quarterly</div></div>
 </section>
-<div class="review-note" role="note"><strong>Independent research, not an official economic rating.</strong> Current page shows the publication framework only. No composite or dimension scores, recession probabilities or investment signals have been approved for publication. <a href="/aesm-research.html#sources">Official source directories →</a></div>
+<div class="review-note" role="note"><strong>Independent research, not an official economic rating.</strong> This page displays source-checked raw observations and the publication framework; source checks do not constitute full indicator-methodology validation. No composite or dimension scores, recession probabilities or investment signals have been approved for publication. <a href="/aesm-research.html#sources">Official source directories →</a></div>
 </main>
 <footer class="page-footer"><div class="wrap footer-in"><div><strong>YSE Finance · Economic Research</strong><p>Australian Self-Financing Index (ASFI) is part of AESM. Indicators and scoring methodology remain under validation. For general information only; not personalised investment, financial, tax or legal advice.</p></div><div><a href="/aesm-research.html">Full AESM methodology</a><br><a href="/#contact">Contact</a></div></div></footer>
 <script>
@@ -346,8 +352,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
     }
     seriesByCode=verified;
     Object.keys(expected).forEach(paintCard);
-    document.getElementById('indicator-data-status').textContent='Verified RBA observations';
-    document.getElementById('indicator-provenance').textContent='Official RBA CSVs reviewed '+data.source_file_reviewed_utc+' · E2 source published '+verified.S01.source.publication_date+' · E13 source published '+verified.S02.source.publication_date+'. Historical data are current revised-vintage, not real-time snapshots. ASFI scoring remains HOLD.';
+    document.getElementById('indicator-data-status').textContent='Source-checked RBA observations';
+    document.getElementById('indicator-provenance').textContent='Source-file review recorded '+data.source_file_reviewed_utc+' · E2 source published '+verified.S01.source.publication_date+' · E13 source published '+verified.S02.source.publication_date+'. Historical data are current revised-vintage, not real-time snapshots. ASFI scoring remains HOLD.';
     draw(selected);
   }).catch(()=>{/* Keep blank; never invent or infer missing official observations. */});
 })();
@@ -403,10 +409,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
    const s=data.series.find(x=>x.code===code);if(!check(s,code))return;series[code]=s;
   }
   verified=series;Object.keys(expected).forEach(paint);
-  document.getElementById('apra-data-status').textContent='Verified APRA observations';
+  document.getElementById('apra-data-status').textContent='Source-checked APRA observations';
   document.getElementById('apra-provenance').textContent='APRA QPEX workbook published '+data.publication_date+
    ' · sourced from uploaded official workbook · original SHA-256: '+data.source_workbook_sha256+
-   ' · calculated ratios, current-revision vintage, all ADIs excluding other ADIs. Composite ASFI score remains HOLD.';
+   ' · analyst-calculated ratios from source-checked data; current-revision vintage, all ADIs excluding other ADIs. Indicator methodology is not fully validated; composite ASFI remains HOLD.';
   draw(selected);
  }).catch(()=>{/* no fabricated APRA values on errors */});
 })();
@@ -446,8 +452,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
   if(!data||data.model!=='ASFI'||data.data_status!=='VERIFIED_FOR_PUBLIC_DISPLAY'||data.composite_release_status!=='HOLD'||!Array.isArray(data.series)||!data.source_workbook_sha256||data.source_workbook_sha256.length!==64)return;
   const series={};for(const code of Object.keys(defs)){const s=data.series.find(q=>q.code===code);if(!check(s,code))return;series[code]=s;}
   records=series;Object.keys(defs).forEach(showCard);
-  document.getElementById('banking-data-status').textContent='Verified APRA observations';
-  document.getElementById('banking-provenance').textContent='APRA performance statistics, published '+data.publication_date+'; original workbook SHA-256 '+data.source_workbook_sha256+'. CET1 methodology changed in 2023. NSFR covers the relevant regulated bank population. All composite scores remain HOLD.';
+  document.getElementById('banking-data-status').textContent='Source-checked APRA observations';
+  document.getElementById('banking-provenance').textContent='APRA performance statistics, published '+data.publication_date+'; original workbook SHA-256 '+data.source_workbook_sha256+'. Source-file review recorded 17 October 2026; indicator methodology is not fully validated. CET1 methodology changed in 2023. NSFR covers the relevant regulated bank population. All composite scores remain HOLD.';
   draw(selected);
  }).catch(()=>{/* no unverified values */});
 })();
