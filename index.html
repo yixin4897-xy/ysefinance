@@ -894,6 +894,21 @@
     section { padding: 60px 20px; }
     .hero { padding: 72px 20px 64px; min-height: auto; }
   }
+
+/* Proposed compact homepage research showcase; preview only. */
+.research-showcase{background:#fff;padding:42px 32px;border-bottom:1px solid rgba(13,42,74,.09)}
+.research-showcase .research-inner{display:flex;align-items:center;justify-content:space-between;gap:36px}
+.research-copy{max-width:780px;min-width:0}
+.research-showcase [lang="zh-Hans"]{font-family:"Noto Sans SC",sans-serif}
+.research-showcase .section-label{margin-bottom:10px}
+.research-showcase .section-title{font-size:30px;line-height:1.25;margin-bottom:14px}
+.research-description{font-size:15px;line-height:1.7;color:var(--text);margin:0 0 12px}
+.research-themes{font-size:13px;line-height:1.7;color:var(--navy);font-weight:500;margin:0 0 10px}
+.research-caveat{font-size:12px;line-height:1.65;color:var(--navy-mid);margin:0}
+.research-link{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:44px;padding:12px 18px;border:1px solid var(--navy);border-radius:8px;color:var(--navy);font-size:14px;font-weight:600;text-decoration:none;line-height:1.4}
+.research-link:hover{border-color:var(--orange);color:var(--orange)}
+.research-link:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+@media(max-width:768px){.research-showcase{padding:34px 20px}.research-showcase .research-inner{display:block}.research-showcase .section-title{font-size:27px}.research-link{margin-top:20px}.research-description{font-size:14px}.research-caveat{font-size:12px}}
 </style>
 </head>
 <body>
@@ -1123,6 +1138,20 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PROPOSED RESEARCH SHOWCASE -->
+<section class="research-showcase" id="research-showcase" aria-labelledby="research-showcase-title">
+  <div class="section-inner research-inner">
+    <div class="research-copy">
+      <div class="section-label" data-en="YSE FINANCE RESEARCH" data-zh="<span lang='zh-Hans'>YSE FINANCE 研究</span>">YSE FINANCE RESEARCH</div>
+      <h2 class="section-title" id="research-showcase-title" data-en="Independent Economic &amp; Financial Research" data-zh="<span lang='zh-Hans'>独立经济与金融研究</span>">Independent Economic &amp; Financial Research</h2>
+      <p class="research-description" data-en="We examine Australian household financial resilience and financial system stability using official economic data, transparent methodology and evidence-based analysis." data-zh="<span lang='zh-Hans'>我们运用官方经济数据、透明的研究方法及循证分析，研究澳大利亚家庭财务韧性与金融体系稳定性。</span>">We examine Australian household financial resilience and financial system stability using official economic data, transparent methodology and evidence-based analysis.</p>
+      <p class="research-themes" data-en="Household debt · Housing finance · Banking resilience" data-zh="<span lang='zh-Hans'>家庭债务 · 住房金融 · 银行体系韧性</span>">Household debt · Housing finance · Banking resilience</p>
+      <p class="research-caveat" data-en="Independent analysis by YSE Finance, using official statistics. Research methodology remains under validation." data-zh="<span lang='zh-Hans'>基于官方统计数据开展的 YSE Finance 独立分析；研究方法仍在验证中。</span>">Independent analysis by YSE Finance, using official statistics. Research methodology remains under validation.</p>
+    </div>
+    <a class="research-link" href="/aesm-research.html" data-en="Explore Our Research" data-zh="<span lang='zh-Hans'>了解我们的研究</span>">Explore Our Research</a>
   </div>
 </section>
 
