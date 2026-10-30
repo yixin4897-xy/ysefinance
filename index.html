@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4FJRRJBD9"></script>
@@ -39,7 +39,7 @@
       "inLanguage": ["en-AU", "zh-Hans"]
     },
     {
-      "@type": ["Organization", "LocalBusiness", "AccountingService", "TaxPreparationService"],
+      "@type": ["Organization", "LocalBusiness", "AccountingService"],
       "@id": "https://ysefinance.com.au/#business",
       "name": "YSE Finance",
       "legalName": "YSE Finance Pty Ltd",
@@ -1392,6 +1392,7 @@
   let currentLang = 'en';
 
   function setLang(lang) {
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en-AU';
     currentLang = lang;
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
     document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
