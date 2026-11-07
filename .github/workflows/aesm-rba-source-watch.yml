@@ -1,0 +1,42 @@
+name: AESM RBA source watch
+on:
+  workflow_dispatch:
+  schedule:
+    # 02:30 UTC on Monday; reporting release times differ across agencies.
+    - cron: "30 2 * * 1"
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  check-rba:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download and validate official RBA CSV data
+        run: python scripts/import_asfi_rba.py --download --output /tmp/asfi-rba-candidate.json
+      - name: Build candidate only when the official data changed
+        id: compare
+        run: python scripts/aesm_stage_rba_candidate.py /tmp/asfi-rba-candidate.json
+      - name: Create a review-only pull request
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="automation/rba-source-review"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$branch"
+          git add data-candidates/rba-source-review.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Stage updated RBA source data for human review"
+          git push --force-with-lease origin "$branch"
+          count="$(gh pr list --head "$branch" --base main --state open --json number --jq 'length')"
+          if [ "$count" = "0" ]; then
+            gh pr create --draft --base main --head "$branch" --title "AESM: RBA official source update for review" --body "Automated source check detected RBA E2/E13 data changes. **Review-only candidate** at data-candidates/rba-source-review.json; the production asfi-indicators.json remains unchanged. Compare source dates, exact series IDs, data revisions and metadata. Do not directly merge this PR. Scores remain HOLD."
+          fi
