@@ -10,6 +10,7 @@ This project explores **discussion patterns** about Australian economic conditio
 - Synthetic, invented English and Chinese discussions in `fixtures/synthetic_comments.jsonl`, marked `synthetic: true` on every row. They are **not real Australian observations**.
 - Reproducible tests in `tests/test_sentiment.py`.
 - `FEASIBILITY.md`, `METHODOLOGY.md`, and `SCHEMA.md` explain permissions, sampling, aggregation, model limitations, and validation gates.
+- `PHASE2_YOUTUBE_DESIGN.md` documents the proposed YouTube Data API rights, privacy and sampling gates. `youtube_preflight.py` estimates quota **without network calls**, and `annotation_eval.py` reports diagnostic errors against synthetic human-readable labels (NOT validated accuracy).
 
 ## Run safely (from repository root)
 
@@ -19,6 +20,15 @@ python research/social-sentiment/sentiment.py --input research/social-sentiment/
 ```
 
 The two `social-sentiment-local.*` outputs are local-only **synthetic demonstration results**. Do not commit or publish them as observations. Sample sizes and platform labels in the fixture are invented. This repository deliberately contains no live-data collector. Never use an unapproved URL, scraper, authentication cookie, browser extension, or platform API to populate the input.
+
+## Phase 2 preparation — offline-only tools
+
+```powershell
+python research/social-sentiment/youtube_preflight.py --manifest research/social-sentiment/fixtures/youtube_preflight_synthetic.json --out social-youtube-local.json
+python research/social-sentiment/annotation_eval.py --annotations research/social-sentiment/fixtures/annotations_synthetic.json --out social-annotation-local.json
+```
+
+The first command **never accesses YouTube** and uses fake video IDs. The second evaluates deliberately fictional examples; any reported accuracy is only an engineering diagnostic, **not** a measurement of actual Australian social discussions. Do not upload either output to the website or present synthetic numbers as evidence.
 
 ## External data approval gate
 
