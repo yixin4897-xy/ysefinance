@@ -39,6 +39,18 @@ python research/social-sentiment/youtube_mock_adapter.py --mock research/social-
 
 The input has non-API markers `mock_only: true` and `fictional: true` so actual API responses cannot pass the adapter. The raw fake author/comment fields do not appear in output, which is a weekly aggregate only. **This program is not a permitted API connector and must never be pointed at downloaded real YouTube comments.** A policy-specific explicit acceptance and compliance approval are required before any real sentiment-derived metrics, even if public comments can otherwise be retrieved.
 
+## Offline functional dashboard and application evidence (no YouTube data)
+
+Generate a **real, working local demonstration** of the five-theme research interface from the pre-labelled synthetic fixture:
+
+```powershell
+python research/social-sentiment/build_demo_dashboard.py --out social-sentiment-demo-local.html
+```
+
+Open `social-sentiment-demo-local.html` in a local browser and click the topic tabs. The page is fully offline, has interactive filters, exposes only aggregated fictitious topic counts, and displays a prominent **SYNTHETIC DEMO** banner. It is **not a production dashboard, not connected to YouTube, not a screenshot of an authorized API client**, and must not be represented as such. For an honest feature screenshot, first run the actual program and capture that browser window; do not simulate a production screenshot.
+
+See `PRIVACY_AND_TERMS_DRAFT.md` for proposed wording that has **not been added to the public Privacy Policy or Terms**. The existing published privacy policy covers tax/website enquiries and does not prove future YouTube API-specific notices and deletion procedures are in place. See `PROVIDER_APPROVAL_PACKET.md` for the actual YouTube form and the outstanding **no-additional-quota application-type** mismatch.
+
 ## External data approval gate
 
 Real discussion data may be processed **only after** an actual human governance review and applicable platform authorization. Record an **out-of-repository** permission attestation:
