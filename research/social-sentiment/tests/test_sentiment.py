@@ -27,6 +27,9 @@ class SentimentPilotTests(unittest.TestCase):
         self.assertEqual(sentiment.classify("Small business cash flow improved")[0:2], ("small_business", "positive"))
         self.assertEqual(sentiment.classify("My groceries at the supermarket are more expensive")[0:2], ("cost_of_living", "negative"))
 
+    def test_unaffordable_not_mistaken_for_positive(self):
+        self.assertEqual(sentiment.classify("My mortgage repayments are unaffordable")[1], "negative")
+
     def test_chinese_keyword_baseline(self):
         theme, sentiment_label, text_type = sentiment.classify("我的房贷压力越来越大")
         self.assertEqual((theme, sentiment_label, text_type), ("housing", "negative", "personal_experience"))
