@@ -28,6 +28,16 @@ jobs:
             --synthetic-fixture \
             --json-out /tmp/aesm-social-synthetic.json \
             --markdown-out /tmp/aesm-social-synthetic.md
+      - name: Run YouTube API quota preflight without network access
+        run: |
+          python3 research/social-sentiment/youtube_preflight.py \
+            --manifest research/social-sentiment/fixtures/youtube_preflight_synthetic.json \
+            --out /tmp/aesm-youtube-preflight-synthetic.json
+      - name: Run synthetic-only annotation baseline diagnostic
+        run: |
+          python3 research/social-sentiment/annotation_eval.py \
+            --annotations research/social-sentiment/fixtures/annotations_synthetic.json \
+            --out /tmp/aesm-annotation-diagnostic.json
       - name: Verify synthetic status and no raw text in aggregate
         run: |
           python3 - <<'PY'
