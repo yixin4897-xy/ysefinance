@@ -14,6 +14,14 @@ References:
 - [Policy compliance guide and audit route](https://developers.google.com/youtube/terms/developer-policies-guide)
 - [Official commentThreads.list parameters and 1-unit quota cost](https://developers.google.com/youtube/data/reference/rest/v3/commentThreads/list)
 
+## Verified official application channel (owner action, not submitted)
+
+Official [YouTube Data API Services — Audit and Quota Extension Form](https://support.google.com/youtube/contact/yt_api_form?hl=en). The current form has an **Analytics & Reporting** use-case choice and an explicit section to apply for *permission to create derived metrics and/or store statistical data* under the additional policies. It requires accurate organization/contact information, API-client project details and supporting compliance evidence; it requests privacy-policy screenshots showing YouTube disclosures, Google Privacy Policy link and deletion terms. There is **no submitted application, no Google Cloud project identifier, no approved amendment and no verified privacy-policy screenshot** in this Draft PR. Do not tick terms or submit on the user's behalf.
+
+Google's companion guide: https://developers.google.com/youtube/data/guides/quota_and_compliance_audits
+
+The website currently has general business privacy information, but **do not claim it already satisfies the YouTube API notice and deletion requirements** without review and any necessary changes approved by the site owner. Creating a compliant draft notice and the required supporting screenshots is a separate task; this research PR cannot silently alter production site disclosures.
+
 ## Proposed project description for a Google/YouTube compliance enquiry
 
 > YSE Finance, an Australian tax and accounting business, is considering an internal, limited research project named "AESM Social Sentiment Research" to analyse **topic-level economic discussion** in public comments on Australian-relevant news and explainer videos about living costs, housing, employment, consumer spending and small-business operating conditions.
