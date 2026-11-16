@@ -11,6 +11,7 @@ This project explores **discussion patterns** about Australian economic conditio
 - Reproducible tests in `tests/test_sentiment.py`.
 - `FEASIBILITY.md`, `METHODOLOGY.md`, and `SCHEMA.md` explain permissions, sampling, aggregation, model limitations, and validation gates.
 - `PHASE2_YOUTUBE_DESIGN.md` documents the proposed YouTube Data API rights, privacy and sampling gates. `youtube_preflight.py` estimates quota **without network calls**, and `annotation_eval.py` reports diagnostic errors against synthetic human-readable labels (NOT validated accuracy).
+- `PROVIDER_APPROVAL_PACKET.md` is a draft compliance enquiry for the owner, **not a submitted/approved application**. `youtube_mock_adapter.py` processes only a bundled fictional YouTube-shaped payload, discarding fake author identifiers and never making an API call.
 
 ## Run safely (from repository root)
 
@@ -29,6 +30,14 @@ python research/social-sentiment/annotation_eval.py --annotations research/socia
 ```
 
 The first command **never accesses YouTube** and uses fake video IDs. The second evaluates deliberately fictional examples; any reported accuracy is only an engineering diagnostic, **not** a measurement of actual Australian social discussions. Do not upload either output to the website or present synthetic numbers as evidence.
+
+### Strictly fictional YouTube response test
+
+```powershell
+python research/social-sentiment/youtube_mock_adapter.py --mock research/social-sentiment/fixtures/youtube_mock_response.json --out social-youtube-mock-local.json
+```
+
+The input has non-API markers `mock_only: true` and `fictional: true` so actual API responses cannot pass the adapter. The raw fake author/comment fields do not appear in output, which is a weekly aggregate only. **This program is not a permitted API connector and must never be pointed at downloaded real YouTube comments.** A policy-specific explicit acceptance and compliance approval are required before any real sentiment-derived metrics, even if public comments can otherwise be retrieved.
 
 ## External data approval gate
 
