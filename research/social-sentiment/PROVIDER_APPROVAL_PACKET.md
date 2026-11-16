@@ -22,6 +22,14 @@ Google's companion guide: https://developers.google.com/youtube/data/guides/quot
 
 The website currently has general business privacy information, but **do not claim it already satisfies the YouTube API notice and deletion requirements** without review and any necessary changes approved by the site owner. Creating a compliant draft notice and the required supporting screenshots is a separate task; this research PR cannot silently alter production site disclosures.
 
+## No-change default quota option — confirmed
+
+The official form **does include** `Quota Details → No change / Default quota (10k quota points)`. This corrects an earlier assumption that the form necessarily required an increased quota request. The derived-metrics policy continues to direct developers to the **standard Audit and Quota Extension Form**, selecting **Analytics & Reporting** under Section 5. Apply for the specific independent economic-commentary sentiment use case with **no increase to the current 10,000-unit daily quota**. Section 1's first option uses wording about additional quota and the second is for requested re-audits; explain honestly in the detailed justification that this is an **initial audit for derived-metrics permission**, not a claimed quota shortfall or an already requested re-audit. If the UI will not accept a truthful initial-audit submission, ask YouTube API support for the exact route.
+
+Source: https://support.google.com/youtube/contact/yt_api_form?hl=en
+
+See `FORM_FIELD_GUIDE.md` for each field's correct status and a copy-pastable purpose statement. This is **not** approval to collect YouTube comments.
+
 ## Proposed project description for a Google/YouTube compliance enquiry
 
 > YSE Finance, an Australian tax and accounting business, is considering an internal, limited research project named "AESM Social Sentiment Research" to analyse **topic-level economic discussion** in public comments on Australian-relevant news and explainer videos about living costs, housing, employment, consumer spending and small-business operating conditions.
