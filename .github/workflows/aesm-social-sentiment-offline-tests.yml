@@ -38,6 +38,25 @@ jobs:
           python3 research/social-sentiment/annotation_eval.py \
             --annotations research/social-sentiment/fixtures/annotations_synthetic.json \
             --out /tmp/aesm-annotation-diagnostic.json
+      - name: Test mock YouTube response with zero external calls
+        run: |
+          python3 research/social-sentiment/youtube_mock_adapter.py \
+            --mock research/social-sentiment/fixtures/youtube_mock_response.json \
+            --out /tmp/aesm-youtube-mock-aggregate.json
+      - name: Check mock aggregation excludes author and comment data
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('/tmp/aesm-youtube-mock-aggregate.json').read_text(encoding='utf-8'))
+          assert result['research_status']=='SYNTHETIC_TEST_ONLY_NO_API'
+          assert result['api_calls_executed']==0
+          assert result['aggregate']['accepted_relevant_rows']==13
+          as_text=json.dumps(result,ensure_ascii=False)
+          for forbidden in ('authorDisplayName','FAKE AUTHOR','My supermarket groceries','房租压力很大'):
+              assert forbidden not in as_text
+          print('Mock payload privacy and zero-network checks PASS')
+          PY
       - name: Verify synthetic status and no raw text in aggregate
         run: |
           python3 - <<'PY'
