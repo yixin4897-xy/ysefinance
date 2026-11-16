@@ -89,7 +89,7 @@ class SentimentPilotTests(unittest.TestCase):
 
     def test_timezone_required(self):
         bad = [{"platform": "youtube", "timestamp": "2026-11-02T12:00:00", "text": "Mortgage stress", "language": "en", "synthetic": True}]
-        with self.assertRaisesRegex(ValueError, "timezone"):
+        with self.assertRaisesRegex(ValueError, "ISO 8601 UTC/offset"):
             sentiment.analyse(bad, synthetic=True)
 
     def test_cli_generates_two_aggregate_reports(self):
