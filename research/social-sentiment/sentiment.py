@@ -77,8 +77,6 @@ def approval_check(path: Path | None, platforms: set[str]) -> None:
 
 
 def analyse(records: list[dict], synthetic: bool, approval: Path | None = None) -> dict:
-    fixture_root = Path(__file__).resolve().parent / "fixtures"
-    del fixture_root  # Synthetic file location is checked by CLI; records are checked here.
     parsed = []
     platforms = set()
     seen = set()
@@ -132,6 +130,7 @@ def analyse(records: list[dict], synthetic: bool, approval: Path | None = None) 
     sentiment_by_week = Counter((row[0], row[4]) for row in parsed)
     platform_by_week = Counter((row[0], row[1]) for row in parsed)
     languages = Counter(row[2] for row in parsed)
+    language_topic_by_week = Counter((row[0], row[2], row[3]) for row in parsed)
     def guarded(n: int) -> int | str:
         return n if n >= MIN_CELL else "suppressed"
     result = {
@@ -154,7 +153,11 @@ def analyse(records: list[dict], synthetic: bool, approval: Path | None = None) 
                 "total_relevant": guarded(weeks[w]),
                 "topics": {t: guarded(topic_by_week[(w, t)]) for t in THEMES},
                 "sentiment": {s: guarded(sentiment_by_week[(w, s)]) for s in ("positive", "negative", "neutral", "mixed")},
-                "platform": {p: guarded(platform_by_week[(w, p)]) for p in sorted(platforms)}
+                "platform": {p: guarded(platform_by_week[(w, p)]) for p in sorted(platforms)},
+                "topics_by_language": {
+                    lang: {t: guarded(language_topic_by_week[(w, lang, t)]) for t in THEMES}
+                    for lang in ("en", "zh")
+                }
             }
             for w in sorted(weeks)
         ],
