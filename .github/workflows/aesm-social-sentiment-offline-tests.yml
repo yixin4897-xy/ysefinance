@@ -57,6 +57,22 @@ jobs:
               assert forbidden not in as_text
           print('Mock payload privacy and zero-network checks PASS')
           PY
+      - name: Build the offline synthetic functional dashboard
+        run: |
+          python3 research/social-sentiment/build_demo_dashboard.py \
+            --out /tmp/aesm-social-synthetic-demo.html
+      - name: Check offline dashboard provenance and no network
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          html=Path('/tmp/aesm-social-synthetic-demo.html').read_text(encoding='utf-8')
+          assert 'SYNTHETIC DEMO' in html
+          assert 'Research Prototype' in html
+          assert 'googletagmanager' not in html
+          assert 'fetch(' not in html
+          assert '<script src=' not in html
+          print('Offline synthetic dashboard audit PASS')
+          PY
       - name: Verify synthetic status and no raw text in aggregate
         run: |
           python3 - <<'PY'
