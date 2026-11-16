@@ -17,6 +17,7 @@
 - `commentThreads` does **not** provide exhaustive replies. A research design must state whether it studies top-level discussion only, and cannot describe it as all YouTube comments.
 - A video ID and video title may be published publicly; this preflight stores **only a source-selection manifest**, not comments or author identifiers.
 - Whether the proposed research and any aggregate retention are allowed by current YouTube API Services terms and Australian privacy law must be assessed by a reviewer **before credentials or network access**. Public accessibility is not a blanket license to build commercial sentiment datasets.
+- **Critical additional gate — derived-metrics amendment:** YouTube's June 2026 [additional derived-metrics policy](https://developers.google.com/youtube/terms/derived-metrics-policy) describes certain viewer sentiment analysis as acceptable **only after acceptance of the applicable Developer Policies amendment**. The broader economic-sentiment study planned here is not automatically approved by that example; verify the precise use case and obtain any applicable acceptance, compliance review or permission **before** conducting analytics or publishing comment-derived metrics. Do not treat a public-data API key as such approval.
 
 Official documentation:
 - https://developers.google.com/youtube/data/reference/rest/v3/commentThreads/list
@@ -32,6 +33,7 @@ If future authorised acquisition is approved, the ingestion module must:
 - Not keep channel/user IDs, usernames, profile URLs, exact geolocation, user-linked histories or unnecessary personal data. Do not attempt cross-platform matching or classification of users' private financial/sensitive attributes.
 - Prevent committing any raw API payload or redacted comments to GitHub or the public site. Review whether even transformed aggregates count as YouTube API Data and are subject to deletion/refresh obligations; do not assume they can be stored indefinitely.
 - Observe developer-policy storage windows: limited non-authorised API data is generally not stored for more than **30 calendar days**; specific consent and user deletion/revocation duties may require deletion sooner (including **7 calendar days** in some cases). Implement item-level invalidation and a documented deletion-request pathway before live acquisition.
+- The same [additional derived-metrics policy](https://developers.google.com/youtube/terms/derived-metrics-policy) describes up to 36-month retention for **accepted** derived-metric use cases; this is *not* an entitlement for YSE Finance without the required amendment/acceptance. Keep the default conservative 30-day raw API-data control until permissions are confirmed.
 - Respect YouTube user privacy policy, API terms, rate limits, attribution, and usage rules; avoid anti-bot workarounds, unapproved AI model training and all direct user profiling.
 - Never send full third-party user comments to an external LLM service without a separate privacy/data-rights assessment and appropriate authorization. Phase 2 classifier remains local rule-based only.
 
