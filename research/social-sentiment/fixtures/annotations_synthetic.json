@@ -1,0 +1,191 @@
+[
+  {
+    "text": "My supermarket groceries are more expensive.",
+    "language": "en",
+    "expected_theme": "cost_of_living",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "Inflation was discussed at the meeting.",
+    "language": "en",
+    "expected_theme": "cost_of_living",
+    "expected_sentiment": "neutral",
+    "synthetic": true
+  },
+  {
+    "text": "The electricity bill has improved.",
+    "language": "en",
+    "expected_theme": "cost_of_living",
+    "expected_sentiment": "positive",
+    "synthetic": true
+  },
+  {
+    "text": "My mortgage repayments are unaffordable.",
+    "language": "en",
+    "expected_theme": "housing",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "Mortgage repayments are better this year.",
+    "language": "en",
+    "expected_theme": "housing",
+    "expected_sentiment": "positive",
+    "synthetic": true
+  },
+  {
+    "text": "Rent was mentioned in the quarterly report.",
+    "language": "en",
+    "expected_theme": "housing",
+    "expected_sentiment": "neutral",
+    "synthetic": true
+  },
+  {
+    "text": "The job search is harder now.",
+    "language": "en",
+    "expected_theme": "employment",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "My new salary improved.",
+    "language": "en",
+    "expected_theme": "employment",
+    "expected_sentiment": "positive",
+    "synthetic": true
+  },
+  {
+    "text": "Wages and hiring were discussed.",
+    "language": "en",
+    "expected_theme": "employment",
+    "expected_sentiment": "neutral",
+    "synthetic": true
+  },
+  {
+    "text": "Our holiday spending is under pressure.",
+    "language": "en",
+    "expected_theme": "consumer_spending",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "Our holiday spending improved.",
+    "language": "en",
+    "expected_theme": "consumer_spending",
+    "expected_sentiment": "positive",
+    "synthetic": true
+  },
+  {
+    "text": "Consumer spending is under discussion.",
+    "language": "en",
+    "expected_theme": "consumer_spending",
+    "expected_sentiment": "neutral",
+    "synthetic": true
+  },
+  {
+    "text": "Small business cash flow is struggling.",
+    "language": "en",
+    "expected_theme": "small_business",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "Small business profit margin improved.",
+    "language": "en",
+    "expected_theme": "small_business",
+    "expected_sentiment": "positive",
+    "synthetic": true
+  },
+  {
+    "text": "Customer traffic was reported by the small business.",
+    "language": "en",
+    "expected_theme": "small_business",
+    "expected_sentiment": "neutral",
+    "synthetic": true
+  },
+  {
+    "text": "My rent is not expensive now.",
+    "language": "en",
+    "expected_theme": "housing",
+    "expected_sentiment": "positive",
+    "synthetic": true
+  },
+  {
+    "text": "Great, another rent increase, just what I needed.",
+    "language": "en",
+    "expected_theme": "housing",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "I worry about my salary but it improved.",
+    "language": "en",
+    "expected_theme": "employment",
+    "expected_sentiment": "mixed",
+    "synthetic": true
+  },
+  {
+    "text": "超市物价上涨，我很担心",
+    "language": "zh",
+    "expected_theme": "cost_of_living",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "生活成本降低了，感觉改善",
+    "language": "zh",
+    "expected_theme": "cost_of_living",
+    "expected_sentiment": "positive",
+    "synthetic": true
+  },
+  {
+    "text": "房贷压力越来越大",
+    "language": "zh",
+    "expected_theme": "housing",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "住房市场季度报告",
+    "language": "zh",
+    "expected_theme": "housing",
+    "expected_sentiment": "neutral",
+    "synthetic": true
+  },
+  {
+    "text": "最近求职困难",
+    "language": "zh",
+    "expected_theme": "employment",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "我的工资增加了",
+    "language": "zh",
+    "expected_theme": "employment",
+    "expected_sentiment": "positive",
+    "synthetic": true
+  },
+  {
+    "text": "旅行消费减少，我很担心",
+    "language": "zh",
+    "expected_theme": "consumer_spending",
+    "expected_sentiment": "negative",
+    "synthetic": true
+  },
+  {
+    "text": "小生意现金流改善",
+    "language": "zh",
+    "expected_theme": "small_business",
+    "expected_sentiment": "positive",
+    "synthetic": true
+  },
+  {
+    "text": "小企业经营现状",
+    "language": "zh",
+    "expected_theme": "small_business",
+    "expected_sentiment": "neutral",
+    "synthetic": true
+  }
+]
