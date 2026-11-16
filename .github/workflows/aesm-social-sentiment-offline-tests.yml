@@ -1,0 +1,43 @@
+name: AESM Social Sentiment — offline synthetic tests
+
+on:
+  pull_request:
+    paths:
+      - 'research/social-sentiment/**'
+      - '.github/workflows/aesm-social-sentiment-offline-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-unittest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Python version
+        run: python3 --version
+      - name: Run unit tests without external dependencies
+        run: python3 -m unittest discover -s research/social-sentiment/tests -v
+      - name: Run synthetic-only CLI smoke test
+        run: |
+          python3 research/social-sentiment/sentiment.py \
+            --input research/social-sentiment/fixtures/synthetic_comments.jsonl \
+            --synthetic-fixture \
+            --json-out /tmp/aesm-social-synthetic.json \
+            --markdown-out /tmp/aesm-social-synthetic.md
+      - name: Verify synthetic status and no raw text in aggregate
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          doc=json.loads(Path('/tmp/aesm-social-synthetic.json').read_text(encoding='utf-8'))
+          assert doc['provenance']=='SYNTHETIC_TEST_ONLY'
+          assert doc['research_status']=='CANDIDATE_ONLY_UNVALIDATED'
+          assert doc['accepted_relevant_rows']==26
+          assert doc['deduplicated_rows']==1
+          assert 'My supermarket groceries' not in json.dumps(doc)
+          print('Synthetic-only privacy and provenance smoke test PASS')
+          PY
