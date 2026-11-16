@@ -33,7 +33,8 @@ def classify(text: str) -> tuple[str, str, str]:
     winners = [theme for theme, count in scores.items() if count == highest] if highest else []
     theme = winners[0] if len(winners) == 1 else "unclassified"
     negative = any(term in lowered for term in NEGATIVE)
-    positive = any(term in lowered for term in POSITIVE)
+    # A word boundary prevents "affordable" from matching "unaffordable".
+    positive = any((bool(re.search(r"\baffordable\b", lowered)) if term == "affordable" else term in lowered) for term in POSITIVE)
     sentiment = "mixed" if positive and negative else "negative" if negative else "positive" if positive else "neutral"
     personal = bool(re.search(r"\b(i|my|we|our)\b", lowered)) or "我" in lowered
     claim = any(term in lowered for term in ("abs data", "statistics", "according to", "rba", "数据显示", "统计局"))
