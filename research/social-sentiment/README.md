@@ -49,7 +49,7 @@ python research/social-sentiment/build_demo_dashboard.py --out social-sentiment-
 
 Open `social-sentiment-demo-local.html` in a local browser and click the topic tabs. The page is fully offline, has interactive filters, exposes only aggregated fictitious topic counts, and displays a prominent **SYNTHETIC DEMO** banner. It is **not a production dashboard, not connected to YouTube, not a screenshot of an authorized API client**, and must not be represented as such. For an honest feature screenshot, first run the actual program and capture that browser window; do not simulate a production screenshot.
 
-See `PRIVACY_AND_TERMS_DRAFT.md` for proposed wording that has **not been added to the public Privacy Policy or Terms**. The existing published privacy policy covers tax/website enquiries and does not prove future YouTube API-specific notices and deletion procedures are in place. See `PROVIDER_APPROVAL_PACKET.md` for the actual YouTube form and the outstanding **no-additional-quota application-type** mismatch.
+See `PRIVACY_AND_TERMS_DRAFT.md` for proposed wording that has **not been added to the public Privacy Policy or Terms**. The existing published privacy policy covers tax/website enquiries and does not prove future YouTube API-specific notices and deletion procedures are in place. YouTube's official form now clearly offers **No change / Default quota (10k quota points)**; see `APPLICATION_READINESS.md` and `PROVIDER_APPROVAL_PACKET.md` for truthful first-time derived-metrics application instructions.
 
 ## External data approval gate
 
