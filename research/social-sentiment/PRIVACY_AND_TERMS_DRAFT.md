@@ -45,7 +45,7 @@ Therefore, **do not submit screenshots of the existing policy as if the YouTube-
 
 ## Before owner publication or application evidence
 
-1. Resolve the **application-type mismatch** (the current form's Section 1 lists additional quota or requested re-audit; AESM needs *first-time permission for derived metrics* at the existing 10,000-unit quota). Ask YouTube's API developer support how to request the amendment with no quota increase; do not misrepresent the reason.
+1. The official form's **Quota Details** includes **No change / Default quota (10k quota points)**. Use that setting for a first-time derived-metrics request, not a fabricated quota increase. Section 1 still uses 'request for additional quota' wording; describe the request honestly as an *initial compliance audit for derived-metrics permission with unchanged quota*. If the form's classification remains ambiguous, confirm with YouTube API developer support before submitting.
 2. Confirm the exact legal entity/operator, intended internal vs public use, and which services actually run. Do not falsely claim a production YouTube API client already exists.
 3. Complete independent legal/privacy review; confirm YouTube derived metrics amendment and revised terms, data-retention/deletion logic, user notices, branding and screenshot requirements.
 4. Separately obtain owner approval to modify the public YSE Finance Privacy Policy / Terms page and any visible YouTube branding. A draft is not evidence that those terms are implemented.
