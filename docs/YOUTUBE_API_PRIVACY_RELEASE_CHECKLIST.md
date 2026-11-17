@@ -11,7 +11,7 @@
 
 ## What the site already has
 
-- Existing homepage `index.html` already includes a visible Privacy Policy footer link, so the homepage is **unchanged** in this PR.
+- The original homepage `index.html` **did not have** a Privacy Policy footer link. This Draft PR now adds a single bilingual **Privacy Policy / 隐私政策** link to the existing footer, pointing at the existing `privacy.html`. This resolves the missing homepage link in source but **does not** satisfy the form's YouTube-branding evidence: no YouTube API Client or YouTube branding is deployed. A genuine homepage screenshot is possible only after approved publication.
 - Existing public policy page presents `Last updated: 1 January 2025`. The date has **not** been silently advanced by the Draft. If the owner approves publication, update the visible English/Chinese last-updated date to the **actual effective publication date** in the final merge-ready change.
 - No standalone production Terms of Service page was established by this change. YouTube's required Terms documentation must be adopted separately and not misrepresented as already available.
 
