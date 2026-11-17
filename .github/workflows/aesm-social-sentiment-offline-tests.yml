@@ -1,0 +1,88 @@
+name: AESM Social Sentiment — offline synthetic tests
+
+on:
+  pull_request:
+    paths:
+      - 'research/social-sentiment/**'
+      - '.github/workflows/aesm-social-sentiment-offline-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-unittest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Python version
+        run: python3 --version
+      - name: Run unit tests without external dependencies
+        run: python3 -m unittest discover -s research/social-sentiment/tests -v
+      - name: Run synthetic-only CLI smoke test
+        run: |
+          python3 research/social-sentiment/sentiment.py \
+            --input research/social-sentiment/fixtures/synthetic_comments.jsonl \
+            --synthetic-fixture \
+            --json-out /tmp/aesm-social-synthetic.json \
+            --markdown-out /tmp/aesm-social-synthetic.md
+      - name: Run YouTube API quota preflight without network access
+        run: |
+          python3 research/social-sentiment/youtube_preflight.py \
+            --manifest research/social-sentiment/fixtures/youtube_preflight_synthetic.json \
+            --out /tmp/aesm-youtube-preflight-synthetic.json
+      - name: Run synthetic-only annotation baseline diagnostic
+        run: |
+          python3 research/social-sentiment/annotation_eval.py \
+            --annotations research/social-sentiment/fixtures/annotations_synthetic.json \
+            --out /tmp/aesm-annotation-diagnostic.json
+      - name: Test mock YouTube response with zero external calls
+        run: |
+          python3 research/social-sentiment/youtube_mock_adapter.py \
+            --mock research/social-sentiment/fixtures/youtube_mock_response.json \
+            --out /tmp/aesm-youtube-mock-aggregate.json
+      - name: Check mock aggregation excludes author and comment data
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('/tmp/aesm-youtube-mock-aggregate.json').read_text(encoding='utf-8'))
+          assert result['research_status']=='SYNTHETIC_TEST_ONLY_NO_API'
+          assert result['api_calls_executed']==0
+          assert result['aggregate']['accepted_relevant_rows']==13
+          as_text=json.dumps(result,ensure_ascii=False)
+          for forbidden in ('authorDisplayName','FAKE AUTHOR','My supermarket groceries','房租压力很大'):
+              assert forbidden not in as_text
+          print('Mock payload privacy and zero-network checks PASS')
+          PY
+      - name: Build the offline synthetic functional dashboard
+        run: |
+          python3 research/social-sentiment/build_demo_dashboard.py \
+            --out /tmp/aesm-social-synthetic-demo.html
+      - name: Check offline dashboard provenance and no network
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          html=Path('/tmp/aesm-social-synthetic-demo.html').read_text(encoding='utf-8')
+          assert 'SYNTHETIC DEMO' in html
+          assert 'Research Prototype' in html
+          assert 'googletagmanager' not in html
+          assert 'fetch(' not in html
+          assert '<script src=' not in html
+          print('Offline synthetic dashboard audit PASS')
+          PY
+      - name: Verify synthetic status and no raw text in aggregate
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          doc=json.loads(Path('/tmp/aesm-social-synthetic.json').read_text(encoding='utf-8'))
+          assert doc['provenance']=='SYNTHETIC_TEST_ONLY'
+          assert doc['research_status']=='CANDIDATE_ONLY_UNVALIDATED'
+          assert doc['accepted_relevant_rows']==26
+          assert doc['deduplicated_rows']==1
+          assert 'My supermarket groceries' not in json.dumps(doc)
+          print('Synthetic-only privacy and provenance smoke test PASS')
+          PY

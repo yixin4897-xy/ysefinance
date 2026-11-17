@@ -1,0 +1,23 @@
+{
+  "research_status": "DESIGN_ONLY",
+  "live_collection_authorized": false,
+  "max_pages_per_video": 2,
+  "comments_per_page": 50,
+  "max_total_requests": 6,
+  "candidate_videos": [
+    {
+      "video_id": "SYNTHETIC01",
+      "topic": "cost_of_living",
+      "language": "en",
+      "selection_reason": "Fictional mainstream economic news clip chosen to test topic selection",
+      "australia_relevance": "Hypothetical Australian household expenses discussion"
+    },
+    {
+      "video_id": "SYNTHETIC02",
+      "topic": "housing",
+      "language": "zh",
+      "selection_reason": "Fictional bilingual housing discussion chosen to test language diversity",
+      "australia_relevance": "Hypothetical Australian renting and mortgage costs discussion"
+    }
+  ]
+}

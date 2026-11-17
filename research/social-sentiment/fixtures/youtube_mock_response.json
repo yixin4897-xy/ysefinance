@@ -1,0 +1,254 @@
+{
+  "mock_only": true,
+  "research_status": "SYNTHETIC_TEST_ONLY",
+  "kind": "youtube#commentThreadListResponse",
+  "items": [
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "My supermarket groceries are more expensive",
+            "publishedAt": "2026-11-02T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR A",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "My mortgage repayments are harder",
+            "publishedAt": "2026-11-02T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR B",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "zh",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "最近生活成本上涨让我担心",
+            "publishedAt": "2026-11-03T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR C",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "My job search is harder right now",
+            "publishedAt": "2026-11-03T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR D",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "My small business cash flow is improving",
+            "publishedAt": "2026-11-04T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR E",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "Consumer spending at shops has improved",
+            "publishedAt": "2026-11-05T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR F",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "zh",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "房租压力很大",
+            "publishedAt": "2026-11-06T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR G",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "The inflation news mentions groceries",
+            "publishedAt": "2026-11-09T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR H",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "A home loan repayment pressure discussion",
+            "publishedAt": "2026-11-09T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR I",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "My salary improved",
+            "publishedAt": "2026-11-10T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR J",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "zh",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "小企业客流改善",
+            "publishedAt": "2026-11-11T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR K",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "I worry about my shopping spending",
+            "publishedAt": "2026-11-12T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR L",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    },
+    {
+      "kind": "youtube#commentThread",
+      "fictional": true,
+      "reviewedLanguage": "en",
+      "snippet": {
+        "videoId": "SYNTHETIC01",
+        "topLevelComment": {
+          "snippet": {
+            "textOriginal": "Small business costs are expensive",
+            "publishedAt": "2026-11-13T10:00:00Z",
+            "authorDisplayName": "FAKE AUTHOR M",
+            "authorChannelId": {
+              "value": "FAKE-ID"
+            },
+            "authorProfileImageUrl": "https://invalid.example/fake-profile"
+          }
+        }
+      }
+    }
+  ]
+}
